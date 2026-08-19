@@ -29,19 +29,27 @@ const bouton = type === 'audit' ? 'Recevoir mon audit gratuit' : 'Envoyer mon me
 
   <div class="formulaire-grille">
     <div class="champ">
-      <label for={`prenom-${type}`}>Prénom et nom *</label>
-      <input id={`prenom-${type}`} name="nom" type="text" required autocomplete="name" placeholder="Camille Roux" />
+      <label for={`prenom-${type}`}>Prénom *</label>
+      <input
+        id={`prenom-${type}`}
+        name="nom"
+        type="text"
+        required
+        autocomplete="given-name"
+        placeholder="Camille"
+      />
     </div>
 
     <div class="champ">
       <label for={`email-${type}`}>Email *</label>
-      <input id={`email-${type}`} name="email" type="email" required autocomplete="email" placeholder="vous@exemple.fr" />
-    </div>
-
-    <div class="champ">
-      <label for={`tel-${type}`}>Téléphone</label>
-      <input id={`tel-${type}`} name="telephone" type="tel" autocomplete="tel" placeholder="06 12 34 56 78" />
-      <span class="aide">Facultatif, si vous préférez qu’on s’appelle.</span>
+      <input
+        id={`email-${type}`}
+        name="email"
+        type="email"
+        required
+        autocomplete="email"
+        placeholder="vous@exemple.fr"
+      />
     </div>
 
     <div class="champ">
@@ -51,43 +59,40 @@ const bouton = type === 'audit' ? 'Recevoir mon audit gratuit' : 'Envoyer mon me
         name="ville"
         type="text"
         required={type === 'audit'}
+        autocomplete="address-level2"
         placeholder="Tarbes"
       />
     </div>
 
     {
-      type === 'audit' && (
-        <>
-          <div class="champ champ-large">
-            <label for="site-actuel">Adresse de votre site actuel</label>
-            <input id="site-actuel" name="site" type="url" placeholder="https://…" />
-            <span class="aide">Laissez vide si vous n’en avez pas encore : c’est très bien aussi.</span>
-          </div>
+      type === 'contact' && (
+        <div class="champ">
+          <label for="tel-contact">Téléphone</label>
+          <input id="tel-contact" name="telephone" type="tel" autocomplete="tel" placeholder="06 12 34 56 78" />
+          <span class="aide">Facultatif, si vous préférez qu’on s’appelle.</span>
+        </div>
+      )
+    }
 
-          <div class="champ champ-large">
-            <label for="situation">Où en êtes-vous ?</label>
-            <select id="situation" name="situation">
-              <option value="pas-de-site">Je n’ai pas encore de site</option>
-              <option value="site-a-refaire">J’ai un site, mais il ne m’apporte rien</option>
-              <option value="reseaux-uniquement">Je suis surtout sur les réseaux sociaux</option>
-              <option value="installation">Je m’installe bientôt</option>
-            </select>
-          </div>
-        </>
+    {
+      type === 'audit' && (
+        <div class="champ">
+          <label for="site-actuel">Adresse de votre site</label>
+          <input id="site-actuel" name="site" type="url" placeholder="https://…" />
+          <span class="aide">Facultatif. Vous n’en avez pas encore ? C’est très bien aussi.</span>
+        </div>
       )
     }
 
     <div class="champ champ-large">
-      <label for={`message-${type}`}>
-        {type === 'audit' ? 'Vos spécialités, et ce que vous aimeriez changer' : 'Votre message *'}
-      </label>
+      <label for={`message-${type}`}>{type === 'audit' ? 'Vos spécialités' : 'Votre message *'}</label>
       <textarea
         id={`message-${type}`}
         name="message"
         required={type === 'contact'}
         placeholder={
           type === 'audit'
-            ? 'Ex. : troubles digestifs et sommeil. J’aimerais avoir plus de premières consultations.'
+            ? 'Facultatif. Par exemple : troubles digestifs et sommeil.'
             : 'Dites-moi en quelques lignes ce dont vous avez besoin.'
         }
       ></textarea>
@@ -177,13 +182,12 @@ const bouton = type === 'audit' ? 'Recevoir mon audit gratuit' : 'Envoyer mon me
       if (donnees.get('_gotcha')) return;
 
       const etiquettes: Record<string, string> = {
-        nom: 'Nom',
+        nom: 'Prénom',
         email: 'Email',
         telephone: 'Téléphone',
         ville: 'Ville',
         site: 'Site actuel',
-        situation: 'Situation',
-        message: 'Message',
+        message: 'Spécialités / message',
       };
 
       const lignes = Object.entries(etiquettes)

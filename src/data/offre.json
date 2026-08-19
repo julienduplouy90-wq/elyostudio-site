@@ -9,35 +9,32 @@
     "La mise en ligne en dix jours ouvrés"
   ],
   "inclusMensuel": [
+    "Une nouvelle page ou un article publié chaque mois",
+    "L’animation et la mise à jour de votre fiche Google Business",
+    "Un rapport mensuel d’une page : visites, origine du trafic, appels depuis la fiche Google, demandes de rendez-vous",
+    "Des modifications illimitées, réalisées sous 48 heures",
+    "Trente minutes de visio par trimestre",
     "Un hébergement sécurisé et rapide",
-    "La maintenance technique et les mises à jour",
-    "Les sauvegardes et la surveillance du site",
-    "Vos petites modifications, jusqu’à 30 minutes par mois",
-    "Les statistiques essentielles, consultables quand vous voulez",
+    "La maintenance technique, les sauvegardes et la surveillance",
     "Une assistance par email, avec une vraie réponse",
-    "Un bilan complet une fois par an",
     "Vos données et votre site récupérables à tout moment"
   ],
   "optionsHorsForfait": [
     {
-      "titre": "La création d’une nouvelle page",
-      "texte": "Une page de plus pour une nouvelle spécialité, un atelier ou un second cabinet."
+      "titre": "Une refonte complète",
+      "texte": "Repartir d’une page blanche : nouvelle identité, nouvelle structure, nouveaux textes."
     },
     {
-      "titre": "La rédaction d’articles",
-      "texte": "Des articles qui répondent aux questions que se posent vos futurs clients avant de réserver."
+      "titre": "Une boutique en ligne",
+      "texte": "Vendre des produits, des cures ou des ateliers avec paiement et gestion des commandes."
     },
     {
-      "titre": "Une optimisation SEO suivie",
-      "texte": "Un travail régulier sur la structure, les titres et les mots employés dans vos pages."
+      "titre": "La publicité payante",
+      "texte": "Campagnes Google Ads ou réseaux sociaux, avec le budget publicitaire qui va avec."
     },
     {
-      "titre": "L’animation de la fiche Google",
-      "texte": "Publications, photos et réponses aux avis pour garder une fiche vivante toute l’année."
-    },
-    {
-      "titre": "Un accompagnement visibilité",
-      "texte": "Un point régulier pour décider ensemble des prochaines actions, et les mettre en œuvre."
+      "titre": "La gestion des réseaux sociaux",
+      "texte": "Publier à votre place sur Instagram ou Facebook, et animer votre communauté."
     }
   ],
   "nonPromis": [
@@ -51,7 +48,7 @@
     {
       "icone": "cadenas",
       "titre": "Le site vous appartient",
-      "texte": "Nom de domaine, contenus, fichiers : tout est à votre nom et récupérable quand vous le souhaitez."
+      "texte": "Nom de domaine, contenus, fichiers : tout est à votre nom et récupérable quand vous le souhaitez."
     },
     {
       "icone": "etiquette",
@@ -69,26 +66,39 @@
       "texte": "Au bout de douze mois, l’abonnement s’arrête si vous ne demandez rien. Vous décidez de la suite."
     }
   ],
-  "comparatif": [
-    {
-      "autre": "Un modèle générique repeint aux couleurs du moment",
-      "elyo": "Un site conçu pour une pratique de naturopathe"
-    },
-    {
-      "autre": "Plusieurs interlocuteurs, des délais qui glissent",
-      "elyo": "Une seule personne, du premier échange au suivi"
-    },
-    {
-      "autre": "Un prix impossible à comprendre avant le devis",
-      "elyo": "Un tarif affiché : 590 € puis 49 € par mois"
-    },
-    {
-      "autre": "Un site que le prestataire garde en otage",
-      "elyo": "Un site transférable, à votre nom"
-    },
-    {
-      "autre": "La moindre modification refacturée",
-      "elyo": "Les modifications courantes comprises"
-    }
-  ]
+  "comparatif": {
+    "colonnes": [
+      "Ne rien faire",
+      "Le faire soi-même",
+      "Un freelance à 1 200 €",
+      "ElyoStudio"
+    ],
+    "lignes": [
+      {
+        "critere": "Coût la première année",
+        "valeurs": ["0 €", "0 à 300 €", "1 200 €", "1 178 €"]
+      },
+      {
+        "critere": "Votre temps",
+        "valeurs": ["0 h", "30 à 40 h", "3 h", "2 h"]
+      },
+      {
+        "critere": "Le site vous appartient",
+        "valeurs": ["—", "oui", "oui", "oui"]
+      },
+      {
+        "critere": "Référencement au départ",
+        "valeurs": ["—", "rarement", "oui", "oui"]
+      },
+      {
+        "critere": "Ce qui se passe après le premier mois",
+        "valeurs": [
+          "rien",
+          "rien",
+          "rien",
+          "une page publiée chaque mois, fiche Google entretenue, rapport de résultats"
+        ]
+      }
+    ]
+  }
 }

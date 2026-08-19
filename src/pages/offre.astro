@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import EnPage from '../components/EnPage.astro';
 import Icone from '../components/Icone.astro';
 import BandeCta from '../components/BandeCta.astro';
+import Comparatif from '../components/Comparatif.astro';
 import { site, prix, inclusCreation, inclusMensuel, optionsHorsForfait, nonPromis, engagements, faqsOffre } from '../data/site.js';
 
 const titre = `Pack Visibilité : ${prix.creation} puis ${prix.mensuel}/mois | ElyoStudio`;
@@ -117,11 +118,12 @@ const pasPourQui = [
   <section class="section section-teintee">
     <div class="rail">
       <div class="entete-section reveal">
-        <span class="surtitre">Ce qui tourne ensuite</span>
+        <span class="surtitre">Ce qui se passe ensuite</span>
         <h2>Chaque mois — {prix.mensuel}</h2>
         <p class="chapeau">
-          Un site qui reste rapide, sûr et à jour, sans que vous ayez à y penser. C’est aussi ce qui
-          permet d’afficher {prix.creation} à la création plutôt qu’un tarif à quatre chiffres.
+          C’est ici que se joue l’essentiel. Un site livré puis laissé tel quel perd du terrain mois
+          après mois ; chaque mois, une page de plus se publie, votre fiche Google est entretenue, et
+          vous recevez vos chiffres.
         </p>
       </div>
 
@@ -143,10 +145,10 @@ const pasPourQui = [
     <div class="rail">
       <div class="entete-section reveal">
         <span class="surtitre">Hors forfait</span>
-        <h2>Le contenu et la visibilité, quand vous le décidez</h2>
+        <h2>Les quatre choses que je ne fais pas dans l’abonnement</h2>
         <p class="chapeau">
-          Tout ce qui touche à la création de contenu et au travail de visibilité est facturé à part,
-          sur devis. Vous l’activez au moment qui vous arrange, jamais par défaut.
+          Tout le reste est compris. Ces quatre prestations-là sortent du cadre de l’abonnement et
+          sont facturées à part, sur devis accepté à l’avance.
         </p>
       </div>
 
@@ -192,6 +194,24 @@ const pasPourQui = [
         <ul class="liste-cochee liste-croix marge-haut-petit">
           {nonPromis.map((item) => <li>{item}</li>)}
         </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparatif -->
+  <section class="section">
+    <div class="rail">
+      <div class="entete-section reveal">
+        <span class="surtitre">Les alternatives</span>
+        <h2>Ce que donnent les quatre options, au bout d’un an</h2>
+        <p class="chapeau">
+          Vous avez le choix, et toutes ces options sont défendables. Voici ce qu’elles coûtent, ce
+          qu’elles demandent de votre temps, et surtout ce qu’il se passe une fois le site en ligne.
+        </p>
+      </div>
+
+      <div class="marge-haut-grand reveal">
+        <Comparatif />
       </div>
     </div>
   </section>

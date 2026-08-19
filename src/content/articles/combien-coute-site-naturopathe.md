@@ -53,8 +53,8 @@ S’il tient en trois lignes et un prix, demandez le détail. S’il mentionne u
 
 Le Pack Visibilité, c’est **590 € à la signature, puis 49 € par mois pendant douze mois**. Les 590 € couvrent la création : un site de cinq pages, une page par spécialité, la fiche Google, la prise de rendez-vous en ligne, le nom de domaine, l’adresse email professionnelle et la mise en ligne en dix jours ouvrés.
 
-Les 49 € mensuels couvrent l’hébergement sécurisé, la maintenance, les sauvegardes et la surveillance, trente minutes de modifications par mois, le suivi du bon fonctionnement, les statistiques, l’assistance par email et un bilan annuel.
+Les 49 € mensuels couvrent le travail qui suit la mise en ligne : une nouvelle page ou un article publié chaque mois, l’animation de la fiche Google, un rapport mensuel d’une page, des modifications illimitées sous 48 heures, trente minutes de visio par trimestre, plus l’hébergement, la maintenance, les sauvegardes et l’assistance.
 
-Ce qui touche au contenu et à la visibilité — nouvelle page, rédaction d’articles, optimisation SEO régulière, animation de la fiche Google — reste en option, facturé à part. Je préfère le dire clairement plutôt que de gonfler un forfait dont vous n’auriez pas l’usage.
+Restent en option, facturés à part : une refonte complète, une boutique en ligne, la publicité payante et la gestion des réseaux sociaux. Je préfère le dire clairement plutôt que de gonfler un forfait dont vous n’auriez pas l’usage.
 
 Le site vous appartient. Passé les douze mois, sans nouvelle demande de votre part, l’abonnement s’arrête et vous pouvez reprendre l’hébergement vous-même.

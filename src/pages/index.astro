@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import Icone from '../components/Icone.astro';
 import Maquette from '../components/Maquette.astro';
 import BandeCta from '../components/BandeCta.astro';
+import Comparatif from '../components/Comparatif.astro';
 import {
   site,
   prix,
@@ -13,7 +14,6 @@ import {
   inclusMensuel,
   nonPromis,
   engagements,
-  comparatif,
   faqs,
 } from '../data/site.js';
 
@@ -317,8 +317,8 @@ const donnees = {
           {nonPromis.map((item) => <li>{item}</li>)}
         </ul>
         <p class="texte-doux marge-haute">
-          Le contenu et la visibilité (nouvelles pages, articles, SEO suivi, animation de la fiche
-          Google) restent <strong>hors forfait</strong> et se décident au cas par cas.
+          Restent <strong>hors forfait</strong> : une refonte complète, une boutique en ligne, la
+          publicité payante et la gestion des réseaux sociaux.
           <a href="/offre" class="lien-fleche marge-gauche">Voir le détail de l’offre</a>
         </p>
       </div>
@@ -330,22 +330,15 @@ const donnees = {
     <div class="rail">
       <div class="entete-section reveal">
         <span class="surtitre">La différence</span>
-        <h2>Ce qui change par rapport à une agence classique</h2>
+        <h2>Quatre façons d’avoir un site, et ce qu’elles donnent au bout d’un an</h2>
+        <p class="chapeau">
+          Un freelance à 1 200 € est un choix parfaitement légitime si vous voulez un site qui
+          existe. Mon offre sert à autre chose : à ce qui se passe une fois le site en ligne.
+        </p>
       </div>
 
-      <div class="comparatif espace-haut">
-        <div class="comparatif-colonne comparatif-autre reveal">
-          <h3>Souvent, ailleurs</h3>
-          <ul class="liste-cochee liste-croix">
-            {comparatif.map((c) => <li>{c.autre}</li>)}
-          </ul>
-        </div>
-        <div class="comparatif-colonne comparatif-elyo reveal" style="--delai: 110ms">
-          <h3>Chez {site.nom}</h3>
-          <ul class="liste-cochee">
-            {comparatif.map((c) => <li>{c.elyo}</li>)}
-          </ul>
-        </div>
+      <div class="espace-haut reveal">
+        <Comparatif />
       </div>
 
       <div class="grille grille-4 espace-haut">
@@ -570,24 +563,4 @@ const donnees = {
     .grille-2-liste { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem 1.5rem; }
   }
 
-  /* --- Comparatif --- */
-  .comparatif { display: grid; gap: 1.15rem; }
-  .comparatif-colonne {
-    padding: clamp(1.3rem, 3.6vw, 1.9rem);
-    border-radius: var(--r-xl);
-    border: 1px solid var(--ligne);
-    box-shadow: var(--ombre-s);
-  }
-  .comparatif-colonne h3 { margin-bottom: 1.1rem; }
-  .comparatif-autre { background: rgba(255, 255, 255, 0.6); }
-  .comparatif-autre h3 { color: var(--encre-3); }
-  .comparatif-elyo {
-    background: linear-gradient(165deg, #FFFFFF, var(--vert-clair));
-    border-color: rgba(46, 90, 75, 0.22);
-    box-shadow: var(--ombre-m);
-  }
-  .comparatif-elyo h3 { color: var(--vert); }
-  @media (min-width: 800px) {
-    .comparatif { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  }
 </style>

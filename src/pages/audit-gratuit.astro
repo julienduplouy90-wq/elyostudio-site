@@ -7,8 +7,9 @@ import { site } from '../data/site.js';
 
 const titre = 'Audit vidéo gratuit de votre visibilité | ElyoStudio';
 const description =
-  'Une vidéo de 5 à 8 minutes sur votre site et votre fiche Google : ce qui vous coûte des rendez-vous et par quoi commencer. Gratuit, sous 48 h.';
+  'Une vidéo de 2 à 3 minutes sur votre site et votre fiche Google : les 3 points qui vous coûtent le plus de rendez-vous. Gratuit, sous 48 h.';
 
+// Les trois points passés en revue dans la vidéo.
 const contenuAudit = [
   {
     icone: 'recherche',
@@ -28,12 +29,6 @@ const contenuAudit = [
     texte:
       'Informations manquantes, horaires, photos, avis : les points qui vous font perdre des places dans les résultats locaux.',
   },
-  {
-    icone: 'graphique',
-    titre: 'Trois priorités, dans l’ordre',
-    texte:
-      'Ce que je ferais en premier, en deuxième, en troisième — que vous le fassiez vous-même ou avec moi.',
-  },
 ];
 
 const questions = [
@@ -52,11 +47,17 @@ const questions = [
 ];
 ---
 
-<Base titre={titre} description={description} barreMobile={false} filAriane={[{ nom: "Audit gratuit", lien: "/audit-gratuit" }]}>
+<Base
+  titre={titre}
+  description={description}
+  barreMobile={false}
+  pageConversion
+  filAriane={[{ nom: "Audit gratuit", lien: "/audit-gratuit" }]}
+>
   <EnPage
     surtitre="Audit vidéo gratuit"
     titre="Je regarde votre présence en ligne, et je vous montre ce qui cloche"
-    chapeau="Une vidéo de 5 à 8 minutes, enregistrée pour vous seule, où je parcours votre site et votre fiche Google en expliquant ce qui vous coûte des rendez-vous. Gratuit, sans engagement, sans relance commerciale."
+    chapeau="Une vidéo de 2 à 3 minutes, enregistrée pour vous seule : je parcours votre site et votre fiche Google, et je vous montre les 3 points qui vous coûtent le plus de rendez-vous. Gratuit, sans engagement, sans relance commerciale."
   />
 
   <section class="section-serree">
@@ -68,7 +69,7 @@ const questions = [
       <aside class="audit-aside">
         <div class="carte carte-douce reveal">
           <span class="pastille"><Icone nom="video" /></span>
-          <h2 class="aside-titre">Ce que contient la vidéo</h2>
+          <h2 class="aside-titre">Les 3 points passés en revue</h2>
           <ul class="aside-liste">
             {
               contenuAudit.map((c) => (
