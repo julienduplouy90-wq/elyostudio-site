@@ -1,0 +1,205 @@
+---
+import Logo from './Logo.astro';
+import Icone from './Icone.astro';
+import { navigation } from '../data/site.js';
+
+const chemin = Astro.url.pathname.replace(/\/$/, '') || '/';
+const actif = (lien: string) => chemin === lien || (lien !== '/' && chemin.startsWith(lien));
+---
+
+<header class="entete" id="entete" data-entete>
+  <div class="rail entete-rail">
+    <a href="/" class="entete-logo" aria-label="Elyostudio, accueil">
+      <Logo baseline />
+    </a>
+
+    <nav class="entete-nav" aria-label="Navigation principale">
+      {
+        navigation.map((item) => (
+          <a href={item.lien} class:list={['entete-lien', { actif: actif(item.lien) }]}>
+            {item.texte}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="entete-actions">
+      <a href="/audit-gratuit" class="btn btn-principal entete-cta">
+        Audit gratuit
+        <Icone nom="fleche" classe="fleche" />
+      </a>
+      <button type="button" class="entete-burger" data-burger aria-expanded="false" aria-controls="menu-mobile">
+        <span class="visuellement-cache">Ouvrir le menu</span>
+        <Icone nom="menu" classe="icone-menu" />
+        <Icone nom="croix" classe="icone-croix" />
+      </button>
+    </div>
+  </div>
+
+  <div class="menu-mobile" id="menu-mobile" data-menu hidden>
+    <nav class="menu-mobile-liste" aria-label="Navigation mobile">
+      <a href="/" class:list={['menu-mobile-lien', { actif: chemin === '/' }]}>Accueil</a>
+      {
+        navigation.map((item) => (
+          <a href={item.lien} class:list={['menu-mobile-lien', { actif: actif(item.lien) }]}>
+            {item.texte}
+          </a>
+        ))
+      }
+      <a href="/contact" class:list={['menu-mobile-lien', { actif: actif('/contact') }]}>Contact</a>
+    </nav>
+    <a href="/audit-gratuit" class="btn btn-principal btn-large">
+      Recevoir mon audit vidéo gratuit
+      <Icone nom="fleche" classe="fleche" />
+    </a>
+  </div>
+</header>
+
+<style>
+  .entete {
+    position: sticky;
+    top: 0;
+    z-index: 60;
+    background: rgba(252, 248, 242, 0.72);
+    backdrop-filter: blur(14px) saturate(1.4);
+    -webkit-backdrop-filter: blur(14px) saturate(1.4);
+    border-bottom: 1px solid transparent;
+    transition: background-color 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
+  }
+  .entete.collee {
+    background: rgba(252, 248, 242, 0.92);
+    border-bottom-color: var(--ligne);
+    box-shadow: 0 10px 30px -22px rgba(74, 52, 32, 0.55);
+  }
+
+  .entete-rail {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 4.5rem;
+  }
+
+  .entete-logo { text-decoration: none; }
+
+  .entete-nav { display: none; }
+
+  .entete-lien {
+    position: relative;
+    padding: 0.4rem 0;
+    font-size: 0.94rem;
+    font-weight: 500;
+    color: var(--encre-2);
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+  .entete-lien::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 100%;
+    bottom: -2px;
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--terre), var(--ambre));
+    transition: right var(--transition);
+  }
+  .entete-lien:hover { color: var(--encre); }
+  .entete-lien:hover::after, .entete-lien.actif::after { right: 0; }
+  .entete-lien.actif { color: var(--vert); font-weight: 600; }
+
+  .entete-actions { display: flex; align-items: center; gap: 0.6rem; }
+  .entete-cta { display: none; min-height: 2.85rem; padding-inline: 1.25rem; font-size: 0.92rem; }
+
+  .entete-burger {
+    display: grid;
+    place-items: center;
+    width: 2.9rem;
+    height: 2.9rem;
+    border: 1px solid var(--ligne-forte);
+    border-radius: var(--r-m);
+    background: var(--blanc);
+    box-shadow: var(--ombre-s);
+    cursor: pointer;
+    color: var(--encre);
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+  .entete-burger:active { transform: scale(0.96); }
+  .entete-burger :global(svg) { width: 1.35rem; height: 1.35rem; grid-area: 1 / 1; }
+  .entete-burger :global(.icone-croix) { display: none; }
+  .entete-burger[aria-expanded='true'] :global(.icone-menu) { display: none; }
+  .entete-burger[aria-expanded='true'] :global(.icone-croix) { display: block; }
+
+  .menu-mobile {
+    display: grid;
+    gap: 1.1rem;
+    padding: 0.5rem var(--gouttiere) 1.6rem;
+    background: rgba(252, 248, 242, 0.98);
+    border-bottom: 1px solid var(--ligne);
+    box-shadow: var(--ombre-m);
+    animation: descente 260ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .menu-mobile[hidden] { display: none; }
+
+  @keyframes descente {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: none; }
+  }
+
+  .menu-mobile-liste { display: grid; }
+  .menu-mobile-lien {
+    padding: 0.95rem 0.25rem;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--encre);
+    text-decoration: none;
+    border-bottom: 1px solid var(--ligne);
+  }
+  .menu-mobile-lien.actif { color: var(--vert); font-weight: 600; }
+
+  @media (min-width: 900px) {
+    .entete-nav { display: flex; align-items: center; gap: clamp(1rem, 2.2vw, 1.9rem); }
+    .entete-cta { display: inline-flex; }
+    .entete-burger { display: none; }
+    .menu-mobile { display: none !important; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .menu-mobile { animation: none; }
+  }
+</style>
+
+<script>
+  const entete = document.querySelector<HTMLElement>('[data-entete]');
+  const burger = document.querySelector<HTMLButtonElement>('[data-burger]');
+  const menu = document.querySelector<HTMLElement>('[data-menu]');
+
+  const majOmbre = () => {
+    if (!entete) return;
+    entete.classList.toggle('collee', window.scrollY > 8);
+  };
+  majOmbre();
+  window.addEventListener('scroll', majOmbre, { passive: true });
+
+  burger?.addEventListener('click', () => {
+    if (!menu) return;
+    const ouvert = burger.getAttribute('aria-expanded') === 'true';
+    burger.setAttribute('aria-expanded', String(!ouvert));
+    menu.hidden = ouvert;
+  });
+
+  menu?.querySelectorAll('a').forEach((lien) => {
+    lien.addEventListener('click', () => {
+      menu.hidden = true;
+      burger?.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menu && !menu.hidden) {
+      menu.hidden = true;
+      burger?.setAttribute('aria-expanded', 'false');
+      burger?.focus();
+    }
+  });
+</script>

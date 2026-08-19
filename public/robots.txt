@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://elyostudio.fr/sitemap-index.xml

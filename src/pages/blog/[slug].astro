@@ -1,0 +1,207 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Icone from '../../components/Icone.astro';
+import BandeCta from '../../components/BandeCta.astro';
+import { site } from '../../data/site.js';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('articles');
+  return articles.map((article) => ({
+    params: { slug: article.id },
+    props: { article },
+  }));
+}
+
+type Props = { article: CollectionEntry<'articles'> };
+const { article } = Astro.props;
+const { Content } = await render(article);
+
+const tous = (await getCollection('articles')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+const suggestions = tous.filter((a) => a.id !== article.id).slice(0, 2);
+
+const dateFr = (d: Date) =>
+  d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+
+const titre = `${article.data.titreSeo ?? article.data.titre} | ${site.nom}`;
+
+const donnees = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: article.data.titre,
+  description: article.data.description,
+  datePublished: article.data.date.toISOString(),
+  author: { '@type': 'Person', name: 'Julien Duplouy' },
+  publisher: { '@type': 'Organization', name: site.nom, url: site.url },
+  mainEntityOfPage: `${site.url}/blog/${article.id}`,
+};
+---
+
+<Base titre={titre} description={article.data.description}>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(donnees)} />
+
+  <article>
+    <section class="tete">
+      <span class="halo halo-anime tete-halo"></span>
+      <div class="rail-etroit tete-contenu">
+        <nav class="fil" aria-label="Fil d’Ariane">
+          <a href="/">Accueil</a>
+          <span aria-hidden="true">/</span>
+          <a href="/blog">Le journal</a>
+        </nav>
+
+        <span class="meta reveal">
+          <span class="categorie">{article.data.categorie}</span>
+          <span>{dateFr(article.data.date)}</span>
+          <span>· {article.data.duree} de lecture</span>
+        </span>
+
+        <h1 class="reveal" style="--delai: 80ms">{article.data.titre}</h1>
+        <p class="chapeau reveal" style="--delai: 160ms">{article.data.description}</p>
+      </div>
+    </section>
+
+    <section class="section-serree">
+      <div class="rail-etroit">
+        <div class="prose corps reveal">
+          <Content />
+        </div>
+
+        <aside class="encart-auteur reveal">
+          <span class="auteur-initiales">JD</span>
+          <div>
+            <strong>Julien Duplouy</strong>
+            <p>
+              Je crée des sites internet pour les naturopathes depuis {site.ville}, près de Tarbes.
+              Une seule offre, un tarif affiché, et un audit vidéo gratuit pour commencer.
+            </p>
+            <a href="/audit-gratuit" class="lien-fleche">
+              Demander mon audit gratuit
+              <Icone nom="fleche" classe="fleche" />
+            </a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    {
+      suggestions.length > 0 && (
+        <section class="section-serree section-teintee">
+          <div class="rail-etroit">
+            <h2 class="suite-titre reveal">À lire ensuite</h2>
+            <div class="suite">
+              {suggestions.map((a, i) => (
+                <a href={`/blog/${a.id}`} class="carte carte-relief suite-carte reveal" style={`--delai: ${i * 80}ms`}>
+                  <span class="pastille">
+                    <Icone nom={a.data.icone} />
+                  </span>
+                  <span class="meta">
+                    <span class="categorie">{a.data.categorie}</span>
+                    <span>{a.data.duree}</span>
+                  </span>
+                  <h3 class="suite-carte-titre">{a.data.titre}</h3>
+                  <p>{a.data.description}</p>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      )
+    }
+  </article>
+
+  <BandeCta />
+</Base>
+
+<style>
+  .tete {
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(100% 70% at 85% 0%, rgba(223, 234, 226, 0.85), transparent 62%),
+      var(--creme);
+  }
+  .tete-halo {
+    width: 18rem; height: 18rem;
+    top: -8rem; right: -6rem;
+    background: rgba(232, 168, 92, 0.24);
+  }
+  .tete-contenu {
+    position: relative;
+    z-index: 1;
+    padding-block: clamp(2rem, 6vw, 3.5rem) clamp(1.8rem, 5vw, 3rem);
+  }
+
+  .fil {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--encre-3);
+    margin-bottom: 1.6rem;
+  }
+  .fil a { text-decoration: none; }
+  .fil a:hover { color: var(--terre); }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 0.7rem;
+    font-size: 0.8rem;
+    color: var(--encre-3);
+  }
+  .categorie {
+    padding: 0.22rem 0.65rem;
+    border-radius: var(--r-pilule);
+    background: var(--vert-clair);
+    color: var(--vert);
+    font-weight: 700;
+  }
+  .tete-contenu h1 { margin-top: 1.1rem; font-size: clamp(1.9rem, 5.6vw, 3rem); }
+  .tete-contenu .chapeau { margin-top: 1.2rem; }
+
+  .corps {
+    padding: clamp(1.4rem, 4vw, 2.4rem);
+    background: var(--blanc);
+    border: 1px solid var(--ligne);
+    border-radius: var(--r-2xl);
+    box-shadow: var(--ombre-m), var(--ombre-interne);
+  }
+
+  .encart-auteur {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.1rem;
+    align-items: start;
+    margin-top: 1.5rem;
+    padding: clamp(1.2rem, 3.4vw, 1.7rem);
+    border-radius: var(--r-xl);
+    border: 1px solid var(--ligne);
+    background: linear-gradient(160deg, #FFFFFF, var(--creme-2));
+    box-shadow: var(--ombre-s);
+  }
+  .auteur-initiales {
+    display: grid;
+    place-items: center;
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: var(--r-m);
+    background: linear-gradient(150deg, var(--vert-2), var(--vert));
+    color: #F2F7F3;
+    font-family: var(--police-titre);
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  .encart-auteur p { margin-block: 0.4rem 0.9rem; font-size: 0.94rem; color: var(--encre-2); }
+
+  .suite-titre { font-size: clamp(1.3rem, 3.4vw, 1.7rem); margin-bottom: 1.2rem; }
+  .suite { display: grid; gap: 1.15rem; }
+  .suite-carte { text-decoration: none; }
+  .suite-carte .meta { margin-block: 0.2rem 0.6rem; }
+  .suite-carte-titre { font-size: 1.1rem; margin-bottom: 0.5rem; }
+  @media (min-width: 760px) {
+    .suite { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+</style>

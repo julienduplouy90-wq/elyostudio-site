@@ -1,0 +1,206 @@
+---
+import Base from '../layouts/Base.astro';
+import EnPage from '../components/EnPage.astro';
+import Icone from '../components/Icone.astro';
+import BandeCta from '../components/BandeCta.astro';
+import { prix } from '../data/site.js';
+
+const titre = 'La méthode — de l’appel à la mise en ligne en 10 jours | Elyostudio';
+const description =
+  'Comment se déroule la création de votre site de naturopathe : un appel de 30 minutes, un questionnaire, la création, votre validation, puis la mise en ligne en dix jours ouvrés et le suivi mensuel.';
+
+const detail = [
+  {
+    n: '01',
+    titre: 'L’appel découverte, 30 minutes',
+    duree: 'Jour 0',
+    icone: 'video',
+    texte:
+      'On parle de votre pratique, de vos spécialités, du type de personnes que vous accompagnez et de ce que vous voulez changer. Je vous dis franchement si je peux vous aider.',
+    points: ['En visio, à l’heure qui vous arrange', 'Aucune préparation nécessaire', 'Sans engagement'],
+  },
+  {
+    n: '02',
+    titre: 'Le questionnaire de départ',
+    duree: 'Jours 1 à 2',
+    icone: 'document',
+    texte:
+      'Vous recevez un questionnaire guidé : vos spécialités, vos tarifs, vos horaires, vos photos. Une heure de votre temps, en plusieurs fois si vous préférez.',
+    points: ['Questions en français courant', 'Une liste précise des photos utiles', 'Je rédige les textes à partir de vos réponses'],
+  },
+  {
+    n: '03',
+    titre: 'La création et votre validation',
+    duree: 'Jours 3 à 8',
+    icone: 'gabarit',
+    texte:
+      'Je conçois le site, page par page, puis je vous le présente en vidéo. Vous demandez les ajustements que vous voulez ; rien ne part en ligne avant votre feu vert.',
+    points: ['Une présentation vidéo, pas un lien brut', 'Un tour d’ajustements compris', 'Relecture des textes ensemble'],
+  },
+  {
+    n: '04',
+    titre: 'La mise en ligne et le suivi',
+    duree: `Jour ${prix.delai.split(' ')[0]} puis chaque mois`,
+    icone: 'agenda',
+    texte:
+      'Le site part en ligne avec votre nom de domaine, la fiche Google est complétée et la prise de rendez-vous est testée de bout en bout. Ensuite, je veille dessus tous les mois.',
+    points: ['Fiche Google créée ou remise à plat', 'Réservation testée sur mobile', 'Un bilan une fois par an'],
+  },
+];
+
+const cotéVous = [
+  'Une heure pour le questionnaire de départ',
+  'Vos photos, ou un créneau pour en faire de bonnes',
+  'Une relecture des textes, à votre rythme',
+  'Un accès à votre fiche Google si elle existe déjà',
+];
+
+const cotéMoi = [
+  'La conception, la rédaction et l’intégration du site',
+  'Le nom de domaine, l’hébergement et les emails',
+  'La fiche Google et la prise de rendez-vous',
+  'La maintenance, les sauvegardes et l’assistance',
+];
+---
+
+<Base titre={titre} description={description}>
+  <EnPage
+    surtitre="La méthode"
+    titre="Dix jours ouvrés, quatre étapes, aucune réunion inutile"
+    chapeau="Vous n’avez pas à comprendre l’hébergement, le DNS ou le référencement. Vous répondez à un questionnaire, vous validez, et le site part en ligne."
+  >
+    <div class="groupe-btn marge-haut">
+      <a href="/rendez-vous" class="btn btn-principal btn-large">
+        Réserver l’appel de 30 minutes
+        <Icone nom="fleche" classe="fleche" />
+      </a>
+      <a href="/offre" class="btn btn-secondaire btn-large">Voir l’offre et le tarif</a>
+    </div>
+  </EnPage>
+
+  <section class="section">
+    <div class="rail">
+      <ol class="chrono">
+        {
+          detail.map((e, i) => (
+            <li class="chrono-item reveal" style={`--delai: ${i * 80}ms`}>
+              <div class="chrono-marqueur">
+                <span class="chrono-pastille"><Icone nom={e.icone} /></span>
+              </div>
+              <article class="chrono-carte">
+                <div class="chrono-entete">
+                  <span class="chrono-numero">{e.n}</span>
+                  <span class="chrono-duree">{e.duree}</span>
+                </div>
+                <h2 class="chrono-titre">{e.titre}</h2>
+                <p class="chrono-texte">{e.texte}</p>
+                <ul class="liste-cochee chrono-liste">
+                  {e.points.map((p) => <li>{p}</li>)}
+                </ul>
+              </article>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section-teintee">
+    <div class="rail">
+      <div class="entete-section reveal">
+        <span class="surtitre">Qui fait quoi</span>
+        <h2>Votre part du travail tient en une heure</h2>
+      </div>
+
+      <div class="deux-colonnes marge-haut-grand">
+        <div class="carte reveal">
+          <span class="pastille"><Icone nom="personnes" /></span>
+          <h3>De votre côté</h3>
+          <ul class="liste-cochee marge-haut-petit">
+            {cotéVous.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+        <div class="carte reveal" style="--delai: 100ms">
+          <span class="pastille pastille-terre"><Icone nom="outil" /></span>
+          <h3>De mon côté</h3>
+          <ul class="liste-cochee marge-haut-petit">
+            {cotéMoi.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <BandeCta
+    titre="Le premier pas ne coûte rien"
+    texte="Avant même de parler méthode, je regarde votre présence actuelle et je vous envoie une vidéo de 5 à 8 minutes avec ce que je changerais en priorité."
+  />
+</Base>
+
+<style>
+  .marge-haut { margin-top: 1.8rem; }
+  .marge-haut-petit { margin-top: 1rem; }
+  .marge-haut-grand { margin-top: clamp(2rem, 5vw, 3rem); }
+
+  .chrono { list-style: none; padding: 0; display: grid; gap: 1.2rem; }
+  .chrono-item { position: relative; display: grid; grid-template-columns: auto 1fr; gap: 1rem; }
+
+  .chrono-marqueur { position: relative; display: flex; justify-content: center; }
+  .chrono-marqueur::after {
+    content: '';
+    position: absolute;
+    top: 3.4rem;
+    bottom: -1.6rem;
+    width: 2px;
+    border-radius: 2px;
+    background: linear-gradient(180deg, rgba(46, 90, 75, 0.3), rgba(46, 90, 75, 0.05));
+  }
+  .chrono-item:last-child .chrono-marqueur::after { display: none; }
+
+  .chrono-pastille {
+    display: grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: var(--r-m);
+    background: linear-gradient(150deg, var(--vert-2), var(--vert));
+    color: #F2F7F3;
+    box-shadow: 0 12px 24px -16px rgba(46, 90, 75, 0.95);
+  }
+  .chrono-pastille :global(svg) { width: 1.4rem; height: 1.4rem; }
+
+  .chrono-carte {
+    padding: clamp(1.2rem, 3.6vw, 1.8rem);
+    background: var(--blanc);
+    border: 1px solid var(--ligne);
+    border-radius: var(--r-xl);
+    box-shadow: var(--ombre-s), var(--ombre-interne);
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+  .chrono-carte:hover { transform: translateY(-3px); box-shadow: var(--ombre-m); }
+
+  .chrono-entete { display: flex; align-items: center; gap: 0.8rem; }
+  .chrono-numero {
+    font-family: var(--police-titre);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--terre);
+  }
+  .chrono-duree {
+    padding: 0.2rem 0.65rem;
+    border-radius: var(--r-pilule);
+    background: var(--creme-2);
+    border: 1px solid var(--ligne);
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: var(--encre-3);
+  }
+  .chrono-titre { margin-top: 0.7rem; font-size: clamp(1.2rem, 3vw, 1.5rem); }
+  .chrono-texte { margin-top: 0.7rem; color: var(--encre-2); font-size: 0.99rem; }
+  .chrono-liste { margin-top: 1.1rem; }
+
+  .deux-colonnes { display: grid; gap: 1.15rem; }
+  @media (min-width: 800px) {
+    .deux-colonnes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+</style>

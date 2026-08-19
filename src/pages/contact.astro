@@ -1,0 +1,119 @@
+---
+import Base from '../layouts/Base.astro';
+import EnPage from '../components/EnPage.astro';
+import Icone from '../components/Icone.astro';
+import Formulaire from '../components/Formulaire.astro';
+import { site } from '../data/site.js';
+
+const titre = 'Contact — écrivons-nous | Elyostudio';
+const description = `Une question sur l’offre, le délai ou la méthode ? Écrivez à ${site.nom} : réponse sous 48 heures ouvrées. Studio basé à ${site.ville}, près de Tarbes, actif partout en France.`;
+---
+
+<Base titre={titre} description={description} barreMobile={false}>
+  <EnPage
+    surtitre="Contact"
+    titre="Une question ? Écrivez-moi"
+    chapeau="Je réponds moi-même, sous 48 heures ouvrées. Pas de formulaire qui tombe dans le vide, pas de service commercial entre nous."
+  />
+
+  <section class="section-serree">
+    <div class="rail contact-rail">
+      <div>
+        <Formulaire type="contact" />
+      </div>
+
+      <aside class="contact-aside">
+        <div class="carte carte-douce reveal">
+          <h2 class="aside-titre">En direct</h2>
+          <ul class="coordonnees">
+            <li>
+              <span class="coord-icone"><Icone nom="courrier" /></span>
+              <span>
+                <strong>Email</strong>
+                <a href={`mailto:${site.email}`}>{site.email}</a>
+              </span>
+            </li>
+            <li>
+              <span class="coord-icone"><Icone nom="telephone" /></span>
+              <span>
+                <strong>Téléphone</strong>
+                <a href={`tel:${site.telephoneLien}`}>{site.telephone}</a>
+              </span>
+            </li>
+            <li>
+              <span class="coord-icone"><Icone nom="position" /></span>
+              <span>
+                <strong>Studio</strong>
+                <em>{site.ville}, {site.region} — et partout en France, en visio.</em>
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="carte reveal" style="--delai: 90ms">
+          <span class="pastille pastille-terre"><Icone nom="video" /></span>
+          <h2 class="aside-titre">Plutôt un appel ?</h2>
+          <p class="texte-doux aside-texte">
+            Trente minutes en visio pour parler de votre cabinet et de vos objectifs. Choisissez
+            directement un créneau dans mon agenda.
+          </p>
+          <a href="/rendez-vous" class="btn btn-secondaire btn-large">
+            Réserver un appel découverte
+            <Icone nom="fleche" classe="fleche" />
+          </a>
+        </div>
+
+        <div class="carte reveal" style="--delai: 160ms">
+          <span class="pastille"><Icone nom="etincelle" /></span>
+          <h2 class="aside-titre">Ou commencez par l’audit</h2>
+          <p class="texte-doux aside-texte">
+            Une vidéo de 5 à 8 minutes sur votre présence actuelle, reçue sous 48 heures. Gratuite,
+            sans engagement.
+          </p>
+          <a href="/audit-gratuit" class="btn btn-principal btn-large">
+            Demander mon audit gratuit
+            <Icone nom="fleche" classe="fleche" />
+          </a>
+        </div>
+      </aside>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .contact-rail { display: grid; gap: 1.4rem; align-items: start; }
+  .contact-aside { display: grid; gap: 1.15rem; }
+
+  .aside-titre { font-size: 1.2rem; }
+  .aside-texte { margin-block: 0.7rem 1.2rem; font-size: 0.95rem; }
+
+  .coordonnees { list-style: none; padding: 0; margin-top: 1.1rem; display: grid; gap: 1rem; }
+  .coordonnees li { display: grid; grid-template-columns: auto 1fr; gap: 0.75rem; align-items: start; }
+  .coord-icone {
+    display: grid;
+    place-items: center;
+    width: 2.3rem;
+    height: 2.3rem;
+    border-radius: 0.8rem;
+    background: var(--blanc);
+    border: 1px solid var(--ligne);
+    color: var(--vert);
+    box-shadow: var(--ombre-xs);
+  }
+  .coord-icone :global(svg) { width: 1.15rem; height: 1.15rem; }
+  .coordonnees strong { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--encre-3); }
+  .coordonnees a, .coordonnees em {
+    display: block;
+    margin-top: 0.15rem;
+    font-style: normal;
+    font-size: 0.98rem;
+    color: var(--encre);
+    text-decoration: none;
+  }
+  .coordonnees a:hover { color: var(--terre); }
+  .coordonnees em { color: var(--encre-2); font-size: 0.92rem; }
+
+  @media (min-width: 960px) {
+    .contact-rail { grid-template-columns: 1.3fr 0.9fr; gap: 1.8rem; }
+  }
+</style>

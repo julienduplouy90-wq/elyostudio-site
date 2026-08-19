@@ -1,0 +1,56 @@
+---
+import Base from '../layouts/Base.astro';
+import Icone from '../components/Icone.astro';
+import { site } from '../data/site.js';
+
+const titre = 'Merci — votre demande est partie | Elyostudio';
+const description = 'Votre demande a bien été prise en compte. Réponse sous 48 heures ouvrées.';
+---
+
+<Base titre={titre} description={description} noindex barreMobile={false}>
+  <section class="merci">
+    <div class="rail-etroit merci-contenu">
+      <span class="merci-icone reveal"><Icone nom="coche" /></span>
+      <h1 class="reveal" style="--delai: 80ms">Merci, c’est bien parti</h1>
+      <p class="chapeau reveal" style="--delai: 160ms">
+        Je regarde votre demande et je vous réponds sous 48 heures ouvrées, depuis
+        <strong>{site.email}</strong>. Pensez à jeter un œil à vos indésirables si rien n’arrive.
+      </p>
+
+      <div class="groupe-btn reveal" style="--delai: 240ms">
+        <a href="/" class="btn btn-secondaire btn-large">Retour à l’accueil</a>
+        <a href="/blog" class="btn btn-principal btn-large">
+          Lire le journal en attendant
+          <Icone nom="fleche" classe="fleche" />
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .merci {
+    position: relative;
+    background:
+      radial-gradient(100% 70% at 50% 0%, rgba(223, 234, 226, 0.9), transparent 65%),
+      var(--creme);
+  }
+  .merci-contenu {
+    padding-block: clamp(3.5rem, 12vw, 7rem);
+    text-align: center;
+  }
+  .merci-icone {
+    display: inline-grid;
+    place-items: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    margin-bottom: 1.6rem;
+    border-radius: var(--r-l);
+    background: linear-gradient(150deg, var(--vert-2), var(--vert));
+    color: #F2F7F3;
+    box-shadow: 0 20px 40px -22px rgba(46, 90, 75, 0.95);
+  }
+  .merci-icone :global(svg) { width: 2rem; height: 2rem; stroke-width: 2.4; }
+  .merci-contenu .chapeau { margin-top: 1.2rem; }
+  .merci-contenu .groupe-btn { margin-top: 2.2rem; justify-content: center; }
+</style>

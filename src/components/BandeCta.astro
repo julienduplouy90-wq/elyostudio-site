@@ -1,0 +1,101 @@
+---
+import Icone from './Icone.astro';
+import { site } from '../data/site.js';
+
+interface Props {
+  titre?: string;
+  texte?: string;
+  bouton?: string;
+  lien?: string;
+}
+
+const {
+  titre = 'Voyons ce que votre présence en ligne peut donner',
+  texte = 'Je regarde votre site et votre fiche Google, puis je vous envoie une vidéo de 5 à 8 minutes : ce qui fonctionne, ce qui vous coûte des rendez-vous, et par quoi commencer. Gratuit, sans engagement, reçu sous 48 heures ouvrées.',
+  bouton = 'Recevoir mon audit vidéo gratuit',
+  lien = '/audit-gratuit',
+} = Astro.props;
+---
+
+<section class="bande">
+  <span class="halo halo-anime bande-halo-1"></span>
+  <span class="halo halo-anime-2 bande-halo-2"></span>
+
+  <div class="rail bande-contenu">
+    <div class="reveal">
+      <span class="bande-etiquette">
+        <span class="point"></span>
+        Deux places par mois
+      </span>
+      <h2 class="bande-titre">{titre}</h2>
+      <p class="bande-texte">{texte}</p>
+
+      <div class="groupe-btn bande-actions">
+        <a href={lien} class="btn btn-principal btn-large">
+          {bouton}
+          <Icone nom="fleche" classe="fleche" />
+        </a>
+        <a href={site.agenda} class="btn btn-clair btn-large" rel="noopener" target="_blank">
+          <Icone nom="video" />
+          Réserver un appel de 30 min
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .bande {
+    position: relative;
+    overflow: hidden;
+    margin-top: clamp(3rem, 8vw, 5rem);
+    background: linear-gradient(150deg, #2E5A4B 0%, #24473C 55%, #1D3A31 100%);
+    color: #F2F7F3;
+  }
+  .bande-halo-1 {
+    width: 22rem; height: 22rem;
+    top: -8rem; right: -6rem;
+    background: rgba(232, 168, 92, 0.32);
+  }
+  .bande-halo-2 {
+    width: 18rem; height: 18rem;
+    bottom: -8rem; left: -5rem;
+    background: rgba(184, 85, 47, 0.34);
+  }
+
+  .bande-contenu {
+    position: relative;
+    z-index: 1;
+    padding-block: clamp(3rem, 8vw, 5rem);
+  }
+  .bande-contenu > * { max-width: 52rem; }
+
+  .bande-etiquette {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.4rem 0.95rem;
+    border-radius: var(--r-pilule);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    background: rgba(255, 255, 255, 0.12);
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .bande-etiquette .point { background: var(--ambre); }
+
+  .bande-titre {
+    margin-top: 1.25rem;
+    color: #FFFFFF;
+    font-size: clamp(1.7rem, 4.6vw, 2.6rem);
+  }
+  .bande-texte {
+    margin-top: 1.1rem;
+    max-width: 44rem;
+    color: rgba(242, 247, 243, 0.86);
+    font-size: clamp(1rem, 2.2vw, 1.1rem);
+    line-height: 1.7;
+  }
+  .bande-actions { margin-top: 2rem; }
+</style>

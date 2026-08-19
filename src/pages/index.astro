@@ -1,0 +1,534 @@
+---
+import Base from '../layouts/Base.astro';
+import Icone from '../components/Icone.astro';
+import Maquette from '../components/Maquette.astro';
+import BandeCta from '../components/BandeCta.astro';
+import {
+  site,
+  prix,
+  problemes,
+  solutions,
+  etapes,
+  inclusCreation,
+  inclusMensuel,
+  nonPromis,
+  engagements,
+  comparatif,
+  faqs,
+} from '../data/site.js';
+
+const titre = 'Elyostudio — Sites internet pour naturopathes | Plus de rendez-vous';
+const description = `Studio indépendant dédié aux naturopathes. Un site qui vous rend visible et qui remplit votre agenda : ${prix.creation} à la signature, puis ${prix.mensuel}/mois pendant ${prix.duree}. En ligne en ${prix.delai}. Audit vidéo gratuit.`;
+
+const donnees = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'ProfessionalService',
+      '@id': `${site.url}/#studio`,
+      name: site.nom,
+      description: site.promesse,
+      url: site.url,
+      email: site.email,
+      telephone: site.telephoneLien,
+      priceRange: '€€',
+      areaServed: 'France',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '49 avenue du Bois',
+        postalCode: '65800',
+        addressLocality: 'Aureilhan',
+        addressRegion: 'Hautes-Pyrénées',
+        addressCountry: 'FR',
+      },
+      founder: { '@type': 'Person', name: 'Julien Duplouy' },
+      knowsAbout: ['Création de site internet', 'Référencement local', 'Naturopathie', 'Fiche Google'],
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': `${site.url}/#faq`,
+      mainEntity: faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    },
+  ],
+};
+---
+
+<Base titre={titre} description={description}>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(donnees)} />
+
+  <!-- ===== HÉROS ===== -->
+  <section class="heros">
+    <span class="halo halo-anime heros-halo-1"></span>
+    <span class="halo halo-anime-2 heros-halo-2"></span>
+
+    <div class="rail heros-rail">
+      <div class="heros-texte">
+        <span class="etiquette reveal">
+          <span class="point"></span>
+          Studio web dédié aux naturopathes
+        </span>
+
+        <h1 class="reveal" style="--delai: 90ms">
+          Vos futurs clients cherchent une naturopathe. Aujourd’hui, ils en trouvent
+          <span class="souligne">une autre</span>.
+        </h1>
+
+        <p class="chapeau reveal" style="--delai: 180ms">
+          Je crée le site qui vous rend visible dans votre secteur, avec une prise de rendez-vous que
+          l’on trouve en trois secondes. En ligne en {prix.delai}. {prix.creation} à la signature,
+          puis {prix.mensuel} par mois — et le site vous appartient.
+        </p>
+
+        <div class="groupe-btn reveal" style="--delai: 260ms">
+          <a href="/audit-gratuit" class="btn btn-principal btn-large">
+            Recevoir mon audit vidéo gratuit
+            <Icone nom="fleche" classe="fleche" />
+          </a>
+          <a href="/realisations" class="btn btn-secondaire btn-large">Voir un exemple</a>
+        </div>
+
+        <ul class="heros-preuves reveal" style="--delai: 340ms">
+          <li><Icone nom="horloge" /> En ligne en {prix.delai}</li>
+          <li><Icone nom="cadenas" /> Le site est à votre nom</li>
+          <li><Icone nom="etiquette" /> Tarif affiché, sans devis</li>
+        </ul>
+      </div>
+
+      <div class="heros-visuel reveal" style="--delai: 200ms">
+        <Maquette />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BANDEAU CHIFFRES ===== -->
+  <section class="chiffres">
+    <div class="rail chiffres-grille">
+      <div class="chiffre reveal">
+        <strong>7 sur 10</strong>
+        <span>des visites arrivent depuis un téléphone. Le site est conçu pour cet écran d’abord.</span>
+      </div>
+      <div class="chiffre reveal" style="--delai: 80ms">
+        <strong>{prix.delai}</strong>
+        <span>entre le questionnaire de départ et la mise en ligne de votre site.</span>
+      </div>
+      <div class="chiffre reveal" style="--delai: 160ms">
+        <strong>1 seul</strong>
+        <span>interlocuteur, du premier appel au suivi mensuel. Moi.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROBLÈME ===== -->
+  <section class="section">
+    <div class="rail">
+      <div class="entete-section reveal">
+        <span class="surtitre">Le constat</span>
+        <h2>Un bon praticien invisible reste un praticien vide</h2>
+        <p class="chapeau">
+          La plupart des naturopathes que je rencontre ne manquent ni de compétence ni de sérieux.
+          Il leur manque un chemin clair entre « je cherche une naturopathe » et « j’ai réservé ».
+        </p>
+      </div>
+
+      <div class="grille grille-3 espace-haut">
+        {
+          problemes.map((p, i) => (
+            <article class="carte carte-relief reveal" style={`--delai: ${i * 90}ms`}>
+              <span class="pastille pastille-terre">
+                <Icone nom={p.icone} />
+              </span>
+              <h3>{p.titre}</h3>
+              <p>{p.texte}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SOLUTION ===== -->
+  <section class="section section-teintee">
+    <div class="rail">
+      <div class="entete-section reveal">
+        <span class="surtitre">Ce que je mets en place</span>
+        <h2>Un dispositif complet, pas seulement « un joli site »</h2>
+        <p class="chapeau">
+          Le site est la pièce centrale, mais il ne suffit pas. Il lui faut une fiche Google tenue,
+          des pages qui répondent aux vraies questions et un bouton de rendez-vous impossible à rater.
+        </p>
+      </div>
+
+      <div class="grille grille-3 espace-haut">
+        {
+          solutions.map((s, i) => (
+            <article class="carte carte-relief reveal" style={`--delai: ${i * 70}ms`}>
+              <span class="pastille">
+                <Icone nom={s.icone} />
+              </span>
+              <h3>{s.titre}</h3>
+              <p>{s.texte}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MÉTHODE ===== -->
+  <section class="section">
+    <div class="rail">
+      <div class="entete-section reveal">
+        <span class="surtitre">La méthode</span>
+        <h2>Quatre étapes, dix jours ouvrés, zéro jargon</h2>
+      </div>
+
+      <ol class="etapes espace-haut">
+        {
+          etapes.map((e, i) => (
+            <li class="etape reveal" style={`--delai: ${i * 90}ms`}>
+              <span class="etape-numero">{e.n}</span>
+              <div class="etape-corps">
+                <h3>{e.titre}</h3>
+                <p>{e.texte}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+
+      <div class="reveal centre-mobile espace-haut-petit">
+        <a href="/methode" class="lien-fleche">
+          Voir la méthode en détail
+          <Icone nom="fleche" classe="fleche" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TARIF ===== -->
+  <section class="section section-teintee" id="tarif">
+    <div class="rail">
+      <div class="entete-section reveal">
+        <span class="surtitre">Le Pack Visibilité</span>
+        <h2>Une seule offre, un seul tarif, affiché</h2>
+        <p class="chapeau">
+          Pas de grille à trois colonnes ni de devis à rallonge. Ce que vous lisez ici est ce que
+          vous payez, que votre cabinet soit à Tarbes ou à Lille.
+        </p>
+      </div>
+
+      <div class="tarif espace-haut">
+        <article class="tarif-carte reveal">
+          <div class="tarif-entete">
+            <span class="tarif-libelle">À la signature</span>
+            <p class="tarif-prix">{prix.creation}</p>
+            <p class="tarif-note">La création complète, livrée en {prix.delai}.</p>
+          </div>
+          <ul class="liste-cochee">
+            {inclusCreation.map((item) => <li>{item}</li>)}
+          </ul>
+        </article>
+
+        <article class="tarif-carte tarif-carte-vedette reveal" style="--delai: 100ms">
+          <span class="tarif-ruban">Puis chaque mois</span>
+          <div class="tarif-entete">
+            <span class="tarif-libelle">Pendant {prix.duree}</span>
+            <p class="tarif-prix">{prix.mensuel}<small>/mois</small></p>
+            <p class="tarif-note">Le site reste rapide, sûr, à jour — et suivi.</p>
+          </div>
+          <ul class="liste-cochee">
+            {inclusMensuel.map((item) => <li>{item}</li>)}
+          </ul>
+          <a href="/audit-gratuit" class="btn btn-principal btn-large tarif-btn">
+            Commencer par l’audit gratuit
+            <Icone nom="fleche" classe="fleche" />
+          </a>
+        </article>
+      </div>
+
+      <div class="carte carte-douce reveal espace-haut-petit">
+        <h3>Ce que je ne promets pas</h3>
+        <p class="texte-doux marge-basse">
+          Autant le dire tout de suite, cela évite les malentendus au bout de trois mois.
+        </p>
+        <ul class="liste-cochee liste-croix grille-2-liste">
+          {nonPromis.map((item) => <li>{item}</li>)}
+        </ul>
+        <p class="texte-doux marge-haute">
+          Le contenu et la visibilité (nouvelles pages, articles, SEO suivi, animation de la fiche
+          Google) restent <strong>hors forfait</strong> et se décident au cas par cas.
+          <a href="/offre" class="lien-fleche marge-gauche">Voir le détail de l’offre</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COMPARATIF ===== -->
+  <section class="section">
+    <div class="rail">
+      <div class="entete-section reveal">
+        <span class="surtitre">La différence</span>
+        <h2>Ce qui change par rapport à une agence classique</h2>
+      </div>
+
+      <div class="comparatif espace-haut">
+        <div class="comparatif-colonne comparatif-autre reveal">
+          <h3>Souvent, ailleurs</h3>
+          <ul class="liste-cochee liste-croix">
+            {comparatif.map((c) => <li>{c.autre}</li>)}
+          </ul>
+        </div>
+        <div class="comparatif-colonne comparatif-elyo reveal" style="--delai: 110ms">
+          <h3>Chez {site.nom}</h3>
+          <ul class="liste-cochee">
+            {comparatif.map((c) => <li>{c.elyo}</li>)}
+          </ul>
+        </div>
+      </div>
+
+      <div class="grille grille-4 espace-haut">
+        {
+          engagements.map((e, i) => (
+            <article class="carte carte-relief reveal" style={`--delai: ${i * 70}ms`}>
+              <span class="pastille">
+                <Icone nom={e.icone} />
+              </span>
+              <h3>{e.titre}</h3>
+              <p>{e.texte}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="section section-teintee">
+    <div class="rail-etroit">
+      <div class="entete-section reveal">
+        <span class="surtitre">Questions fréquentes</span>
+        <h2>Ce que l’on me demande avant de se lancer</h2>
+      </div>
+
+      <div class="faq espace-haut">
+        {
+          faqs.map((f, i) => (
+            <details class="reveal" style={`--delai: ${i * 45}ms`}>
+              <summary>{f.q}</summary>
+              <p class="reponse">{f.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <BandeCta />
+</Base>
+
+<style>
+  /* --- Héros --- */
+  .heros {
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(110% 70% at 78% 6%, rgba(223, 234, 226, 0.9), transparent 62%),
+      radial-gradient(90% 60% at 5% 0%, rgba(248, 229, 218, 0.85), transparent 60%),
+      var(--creme);
+  }
+  .heros-halo-1 {
+    width: 24rem; height: 24rem;
+    top: -8rem; right: -8rem;
+    background: rgba(232, 168, 92, 0.28);
+  }
+  .heros-halo-2 {
+    width: 20rem; height: 20rem;
+    bottom: -10rem; left: -8rem;
+    background: rgba(46, 90, 75, 0.16);
+  }
+
+  .heros-rail {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: clamp(2rem, 6vw, 3.5rem);
+    padding-block: clamp(2.5rem, 8vw, 4.5rem) clamp(3rem, 9vw, 5.5rem);
+  }
+  .heros-texte h1 { margin-top: 1.4rem; }
+  .heros-texte .chapeau { margin-top: 1.4rem; max-width: 34rem; }
+  .heros-texte .groupe-btn { margin-top: 2rem; }
+
+  .heros-preuves {
+    list-style: none;
+    padding: 0;
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.4rem;
+    font-size: 0.88rem;
+    color: var(--encre-2);
+  }
+  .heros-preuves li { display: inline-flex; align-items: center; gap: 0.45rem; }
+  .heros-preuves :global(svg) { width: 1.05rem; height: 1.05rem; color: var(--vert); }
+
+  @media (min-width: 1024px) {
+    .heros-rail {
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 3rem;
+    }
+  }
+
+  /* --- Chiffres --- */
+  .chiffres {
+    border-block: 1px solid var(--ligne);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(246, 238, 227, 0.7));
+  }
+  .chiffres-grille {
+    display: grid;
+    gap: 1.4rem;
+    padding-block: clamp(1.8rem, 5vw, 2.6rem);
+  }
+  .chiffre { display: grid; gap: 0.35rem; }
+  .chiffre strong {
+    font-family: var(--police-titre);
+    font-size: clamp(1.5rem, 4vw, 1.95rem);
+    font-weight: 600;
+    color: var(--vert);
+  }
+  .chiffre span { font-size: 0.93rem; color: var(--encre-2); }
+  @media (min-width: 760px) {
+    .chiffres-grille { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  }
+
+  /* --- Espacements utilitaires --- */
+  .espace-haut { margin-top: clamp(2rem, 5vw, 3rem); }
+  .espace-haut-petit { margin-top: 1.6rem; }
+  .marge-basse { margin-bottom: 1.1rem; }
+  .marge-haute { margin-top: 1.4rem; font-size: 0.93rem; }
+  .marge-gauche { margin-left: 0.4rem; }
+  .centre-mobile { display: flex; justify-content: flex-start; }
+
+  /* --- Étapes --- */
+  .etapes {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 1rem;
+    counter-reset: etape;
+  }
+  .etape {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.1rem;
+    align-items: start;
+    padding: clamp(1.2rem, 3.4vw, 1.7rem);
+    background: var(--blanc);
+    border: 1px solid var(--ligne);
+    border-radius: var(--r-l);
+    box-shadow: var(--ombre-s), var(--ombre-interne);
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+  .etape:hover { transform: translateY(-3px); box-shadow: var(--ombre-m); }
+  .etape-numero {
+    display: grid;
+    place-items: center;
+    width: 2.9rem;
+    height: 2.9rem;
+    border-radius: var(--r-m);
+    background: linear-gradient(150deg, var(--vert-2), var(--vert));
+    color: #F2F7F3;
+    font-family: var(--police-titre);
+    font-size: 0.95rem;
+    font-weight: 600;
+    box-shadow: 0 10px 20px -14px rgba(46, 90, 75, 0.9);
+  }
+  .etape-corps h3 { margin-bottom: 0.4rem; }
+  .etape-corps p { color: var(--encre-2); font-size: 0.97rem; }
+  @media (min-width: 900px) {
+    .etapes { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.15rem; }
+  }
+
+  /* --- Tarif --- */
+  .tarif { display: grid; gap: 1.15rem; }
+  .tarif-carte {
+    position: relative;
+    padding: clamp(1.5rem, 4vw, 2.2rem);
+    background: var(--blanc);
+    border: 1px solid var(--ligne);
+    border-radius: var(--r-xl);
+    box-shadow: var(--ombre-m), var(--ombre-interne);
+  }
+  .tarif-carte-vedette {
+    background: linear-gradient(165deg, #FFFFFF, #FBF3E9);
+    border-color: rgba(184, 85, 47, 0.28);
+    box-shadow: var(--ombre-l), var(--ombre-interne);
+  }
+  .tarif-ruban {
+    position: absolute;
+    top: -0.85rem;
+    left: clamp(1.5rem, 4vw, 2.2rem);
+    padding: 0.35rem 0.9rem;
+    border-radius: var(--r-pilule);
+    background: linear-gradient(150deg, var(--terre), var(--terre-2));
+    color: #FFF6F1;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    box-shadow: 0 10px 20px -12px rgba(156, 69, 37, 0.9);
+  }
+  .tarif-entete { padding-bottom: 1.3rem; margin-bottom: 1.4rem; border-bottom: 1px solid var(--ligne); }
+  .tarif-libelle {
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--vert);
+  }
+  .tarif-prix {
+    margin-top: 0.5rem;
+    font-family: var(--police-titre);
+    font-size: clamp(2.4rem, 7vw, 3.2rem);
+    font-weight: 600;
+    line-height: 1;
+    color: var(--encre);
+  }
+  .tarif-prix small { font-size: 1rem; font-weight: 500; color: var(--encre-3); }
+  .tarif-note { margin-top: 0.7rem; color: var(--encre-2); font-size: 0.95rem; }
+  .tarif-btn { margin-top: 1.6rem; }
+  @media (min-width: 860px) {
+    .tarif { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+  }
+
+  .grille-2-liste { }
+  @media (min-width: 640px) {
+    .grille-2-liste { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem 1.5rem; }
+  }
+
+  /* --- Comparatif --- */
+  .comparatif { display: grid; gap: 1.15rem; }
+  .comparatif-colonne {
+    padding: clamp(1.3rem, 3.6vw, 1.9rem);
+    border-radius: var(--r-xl);
+    border: 1px solid var(--ligne);
+    box-shadow: var(--ombre-s);
+  }
+  .comparatif-colonne h3 { margin-bottom: 1.1rem; }
+  .comparatif-autre { background: rgba(255, 255, 255, 0.6); }
+  .comparatif-autre h3 { color: var(--encre-3); }
+  .comparatif-elyo {
+    background: linear-gradient(165deg, #FFFFFF, var(--vert-clair));
+    border-color: rgba(46, 90, 75, 0.22);
+    box-shadow: var(--ombre-m);
+  }
+  .comparatif-elyo h3 { color: var(--vert); }
+  @media (min-width: 800px) {
+    .comparatif { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+</style>

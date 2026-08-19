@@ -1,0 +1,99 @@
+---
+import Base from '../layouts/Base.astro';
+import EnPage from '../components/EnPage.astro';
+import Icone from '../components/Icone.astro';
+import { site } from '../data/site.js';
+
+const titre = 'Réserver un appel découverte de 30 minutes | Elyostudio';
+const description =
+  'Choisissez un créneau pour un appel de 30 minutes en visio : votre pratique, vos objectifs, et ce qu’un site bien conçu peut changer pour votre agenda. Sans engagement.';
+
+const points = [
+  'Trente minutes, en visio, à l’heure qui vous arrange',
+  'On parle de votre pratique et de votre patientèle, pas de technique',
+  'Je vous dis franchement si je peux vous aider, ou non',
+  'Aucun engagement à la fin de l’appel',
+];
+---
+
+<Base titre={titre} description={description} barreMobile={false}>
+  <EnPage
+    surtitre="Appel découverte"
+    titre="Trente minutes pour savoir si l’on avance ensemble"
+    chapeau="Un échange simple, sans préparation de votre part. Je vous pose des questions sur votre cabinet, vous m’en posez sur ma façon de travailler."
+  />
+
+  <section class="section-serree">
+    <div class="rail rdv-rail">
+      <div class="agenda carte reveal">
+        <iframe
+          src={site.agenda}
+          title="Agenda de réservation Elyostudio"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+        <p class="agenda-secours">
+          L’agenda ne s’affiche pas ?
+          <a href={site.agenda} target="_blank" rel="noopener" class="lien-fleche">
+            Ouvrir la page de réservation
+            <Icone nom="fleche" classe="fleche" />
+          </a>
+        </p>
+      </div>
+
+      <aside class="rdv-aside">
+        <div class="carte carte-douce reveal">
+          <span class="pastille"><Icone nom="video" /></span>
+          <h2 class="aside-titre">Comment ça se passe</h2>
+          <ul class="liste-cochee marge-haut-petit">
+            {points.map((p) => <li>{p}</li>)}
+          </ul>
+        </div>
+
+        <div class="carte reveal" style="--delai: 90ms">
+          <h2 class="aside-titre">Pas encore prête à parler ?</h2>
+          <p class="texte-doux aside-texte">
+            Commencez par l’audit vidéo : je regarde votre présence en ligne et je vous envoie mes
+            observations par email, sans échange téléphonique.
+          </p>
+          <a href="/audit-gratuit" class="btn btn-principal btn-large">
+            Recevoir l’audit gratuit
+            <Icone nom="fleche" classe="fleche" />
+          </a>
+        </div>
+      </aside>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .marge-haut-petit { margin-top: 1rem; }
+
+  .rdv-rail { display: grid; gap: 1.4rem; align-items: start; }
+  .rdv-aside { display: grid; gap: 1.15rem; }
+  .aside-titre { font-size: 1.2rem; }
+  .aside-texte { margin-block: 0.7rem 1.2rem; font-size: 0.95rem; }
+
+  .agenda { padding: 0.75rem; border-radius: var(--r-xl); overflow: hidden; }
+  .agenda iframe {
+    width: 100%;
+    height: min(78vh, 46rem);
+    min-height: 34rem;
+    border: 0;
+    border-radius: var(--r-l);
+    background: var(--creme-2);
+  }
+  .agenda-secours {
+    padding: 0.9rem 0.6rem 0.3rem;
+    font-size: 0.88rem;
+    color: var(--encre-2);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  @media (min-width: 1000px) {
+    .rdv-rail { grid-template-columns: 1.5fr 0.85fr; gap: 1.8rem; }
+  }
+</style>

@@ -1,0 +1,323 @@
+---
+import Icone from './Icone.astro';
+---
+
+<div class="maquette" aria-hidden="true">
+  <span class="halo halo-anime maquette-halo-1"></span>
+  <span class="halo halo-anime-2 maquette-halo-2"></span>
+
+  <!-- Fenêtre de navigateur -->
+  <div class="fenetre">
+    <div class="fenetre-barre">
+      <span class="pastilles"><i></i><i></i><i></i></span>
+      <span class="url">camille-naturopathe.fr</span>
+    </div>
+
+    <div class="fenetre-corps">
+      <div class="mini-entete">
+        <span class="mini-logo"></span>
+        <span class="mini-nav"><i></i><i></i><i></i></span>
+        <span class="mini-btn">Rendez-vous</span>
+      </div>
+
+      <div class="mini-hero">
+        <div class="mini-texte">
+          <span class="mini-etiquette">Naturopathe à Tarbes</span>
+          <span class="ligne ligne-1"></span>
+          <span class="ligne ligne-2"></span>
+          <span class="ligne ligne-3"></span>
+          <span class="mini-cta">Prendre rendez-vous</span>
+        </div>
+        <div class="mini-visuel">
+          <span class="feuille"><Icone nom="feuille" /></span>
+        </div>
+      </div>
+
+      <div class="mini-cartes">
+        <span class="mini-carte"><i></i><b></b></span>
+        <span class="mini-carte"><i></i><b></b></span>
+        <span class="mini-carte"><i></i><b></b></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Téléphone -->
+  <div class="telephone">
+    <div class="telephone-ecran">
+      <span class="tel-encoche"></span>
+      <span class="tel-titre"></span>
+      <span class="tel-ligne"></span>
+      <span class="tel-ligne courte"></span>
+      <span class="tel-bloc"></span>
+      <span class="tel-btn">Réserver</span>
+    </div>
+  </div>
+
+  <!-- Vignettes flottantes -->
+  <div class="vignette vignette-rdv">
+    <span class="vignette-icone"><Icone nom="coche" /></span>
+    <span class="vignette-texte">
+      <strong>Nouveau rendez-vous</strong>
+      <em>Mardi, 14 h 00</em>
+    </span>
+  </div>
+
+  <div class="vignette vignette-google">
+    <span class="vignette-icone vignette-icone-ambre"><Icone nom="position" /></span>
+    <span class="vignette-texte">
+      <strong>Fiche Google</strong>
+      <em>« naturopathe Tarbes »</em>
+    </span>
+  </div>
+</div>
+
+<style>
+  .maquette {
+    position: relative;
+    width: 100%;
+    max-width: 34rem;
+    margin-inline: auto;
+    padding-block: 2.5rem 3.5rem;
+    isolation: isolate;
+  }
+
+  .maquette-halo-1 {
+    width: 17rem; height: 17rem;
+    top: 0; right: -3rem;
+    background: rgba(232, 168, 92, 0.4);
+  }
+  .maquette-halo-2 {
+    width: 14rem; height: 14rem;
+    bottom: 1rem; left: -3rem;
+    background: rgba(46, 90, 75, 0.22);
+  }
+
+  /* --- Fenêtre --- */
+  .fenetre {
+    position: relative;
+    z-index: 2;
+    border-radius: var(--r-xl);
+    border: 1px solid var(--ligne);
+    background: var(--blanc);
+    box-shadow: var(--ombre-xl);
+    overflow: hidden;
+    transform: rotate(-1.1deg);
+    transition: transform var(--transition-lente);
+  }
+  .maquette:hover .fenetre { transform: rotate(0deg) translateY(-4px); }
+
+  .fenetre-barre {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.7rem 0.9rem;
+    background: var(--creme-2);
+    border-bottom: 1px solid var(--ligne);
+  }
+  .pastilles { display: flex; gap: 0.32rem; }
+  .pastilles i { width: 0.55rem; height: 0.55rem; border-radius: 50%; background: #D9CEC0; }
+  .pastilles i:first-child { background: #E9A79A; }
+  .pastilles i:nth-child(2) { background: #EFCF9A; }
+  .url {
+    flex: 1;
+    padding: 0.28rem 0.7rem;
+    border-radius: var(--r-pilule);
+    background: var(--blanc);
+    border: 1px solid var(--ligne);
+    font-size: 0.62rem;
+    color: var(--encre-3);
+    text-align: center;
+  }
+
+  .fenetre-corps { padding: 0.9rem; background: linear-gradient(180deg, #FFFFFF, #FDFAF5); }
+
+  .mini-entete {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--ligne);
+  }
+  .mini-logo {
+    width: 1.5rem; height: 1.5rem;
+    border-radius: 0.5rem;
+    background: linear-gradient(140deg, var(--vert-2), var(--vert));
+  }
+  .mini-nav { display: flex; gap: 0.4rem; flex: 1; }
+  .mini-nav i { width: 1.7rem; height: 0.32rem; border-radius: 2px; background: #E5DBCC; }
+  .mini-btn {
+    padding: 0.28rem 0.65rem;
+    border-radius: var(--r-pilule);
+    background: linear-gradient(150deg, var(--terre), var(--terre-2));
+    color: #FFF6F1;
+    font-size: 0.55rem;
+    font-weight: 600;
+  }
+
+  .mini-hero {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 0.9rem;
+    align-items: center;
+    padding: 1.1rem 0.2rem 1rem;
+  }
+  .mini-texte { display: grid; gap: 0.45rem; }
+  .mini-etiquette {
+    justify-self: start;
+    padding: 0.2rem 0.55rem;
+    border-radius: var(--r-pilule);
+    background: var(--vert-clair);
+    color: var(--vert);
+    font-size: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .ligne { height: 0.55rem; border-radius: var(--r-pilule); background: #E3D8C8; }
+  .ligne-1 { width: 92%; height: 0.72rem; background: #C9BCA9; }
+  .ligne-2 { width: 74%; height: 0.72rem; background: #C9BCA9; }
+  .ligne-3 { width: 58%; }
+  .mini-cta {
+    justify-self: start;
+    margin-top: 0.35rem;
+    padding: 0.4rem 0.85rem;
+    border-radius: var(--r-pilule);
+    background: linear-gradient(150deg, var(--vert-2), var(--vert));
+    color: #F1F7F2;
+    font-size: 0.58rem;
+    font-weight: 600;
+    box-shadow: 0 8px 16px -10px rgba(46, 90, 75, 0.9);
+  }
+
+  .mini-visuel {
+    aspect-ratio: 1;
+    border-radius: var(--r-l);
+    background:
+      radial-gradient(120% 120% at 20% 10%, rgba(232, 168, 92, 0.5), transparent 60%),
+      linear-gradient(160deg, var(--vert-clair), #CBDDD1);
+    display: grid;
+    place-items: center;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  }
+  .feuille { color: var(--vert); opacity: 0.65; }
+  .feuille :global(svg) { width: 2.4rem; height: 2.4rem; }
+
+  .mini-cartes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+  .mini-carte {
+    display: grid;
+    gap: 0.35rem;
+    padding: 0.6rem;
+    border-radius: var(--r-s);
+    background: var(--creme-2);
+    border: 1px solid var(--ligne);
+  }
+  .mini-carte i { width: 0.9rem; height: 0.9rem; border-radius: 50%; background: var(--terre-clair); }
+  .mini-carte b { height: 0.3rem; border-radius: 2px; background: #DCD1C0; }
+
+  /* --- Téléphone --- */
+  .telephone {
+    position: absolute;
+    z-index: 3;
+    right: -0.4rem;
+    bottom: 0.5rem;
+    width: 7.4rem;
+    padding: 0.4rem;
+    border-radius: 1.5rem;
+    background: linear-gradient(160deg, #34302B, #1E1B18);
+    box-shadow: var(--ombre-xl);
+    transform: rotate(3deg);
+    transition: transform var(--transition-lente);
+  }
+  .maquette:hover .telephone { transform: rotate(1deg) translateY(-6px); }
+
+  .telephone-ecran {
+    display: grid;
+    gap: 0.4rem;
+    padding: 0.75rem 0.6rem 0.7rem;
+    border-radius: 1.2rem;
+    background: linear-gradient(180deg, #FFFFFF, #FDF8F1);
+    min-height: 11rem;
+  }
+  .tel-encoche {
+    justify-self: center;
+    width: 2.1rem; height: 0.22rem;
+    border-radius: var(--r-pilule);
+    background: #E0D5C6;
+    margin-bottom: 0.25rem;
+  }
+  .tel-titre { height: 0.6rem; width: 82%; border-radius: 2px; background: #C9BCA9; }
+  .tel-ligne { height: 0.32rem; border-radius: 2px; background: #E3D8C8; }
+  .tel-ligne.courte { width: 62%; }
+  .tel-bloc {
+    height: 3.2rem;
+    border-radius: var(--r-m);
+    background:
+      radial-gradient(120% 120% at 80% 10%, rgba(232, 168, 92, 0.45), transparent 60%),
+      linear-gradient(150deg, var(--vert-clair), #CFE0D4);
+  }
+  .tel-btn {
+    margin-top: auto;
+    padding: 0.4rem;
+    border-radius: var(--r-pilule);
+    background: linear-gradient(150deg, var(--terre), var(--terre-2));
+    color: #FFF6F1;
+    font-size: 0.58rem;
+    font-weight: 700;
+    text-align: center;
+    box-shadow: 0 8px 14px -8px rgba(156, 69, 37, 0.9);
+  }
+
+  /* --- Vignettes --- */
+  .vignette {
+    position: absolute;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.55rem 0.85rem 0.55rem 0.6rem;
+    border-radius: var(--r-l);
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid var(--ligne);
+    box-shadow: var(--ombre-l);
+    backdrop-filter: blur(8px);
+  }
+  .vignette-icone {
+    display: grid;
+    place-items: center;
+    width: 1.8rem; height: 1.8rem;
+    border-radius: 0.7rem;
+    background: var(--vert-clair);
+    color: var(--vert);
+  }
+  .vignette-icone :global(svg) { width: 1rem; height: 1rem; }
+  .vignette-icone-ambre { background: var(--terre-clair); color: var(--terre); }
+  .vignette-texte { display: grid; line-height: 1.25; }
+  .vignette-texte strong { font-size: 0.74rem; }
+  .vignette-texte em { font-style: normal; font-size: 0.66rem; color: var(--encre-3); }
+
+  .vignette-rdv {
+    top: 0.4rem;
+    left: -0.6rem;
+    animation: flottement 9s ease-in-out infinite;
+  }
+  .vignette-google {
+    bottom: 3.4rem;
+    left: -0.8rem;
+    animation: flottement 11s ease-in-out infinite reverse;
+  }
+
+  @media (min-width: 420px) {
+    .telephone { width: 8.6rem; right: -1.2rem; }
+    .vignette-rdv { left: -1.6rem; }
+    .vignette-google { left: -2rem; }
+  }
+  @media (min-width: 1024px) {
+    .maquette { max-width: none; padding-block: 1rem 2rem; }
+    .telephone { width: 9.5rem; right: -2rem; bottom: -0.5rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vignette { animation: none; }
+    .fenetre, .telephone { transition: none; }
+  }
+</style>

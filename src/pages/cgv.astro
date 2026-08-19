@@ -1,0 +1,126 @@
+---
+import Base from '../layouts/Base.astro';
+import EnPage from '../components/EnPage.astro';
+import { site, prix } from '../data/site.js';
+
+const titre = 'Conditions générales de vente | Elyostudio';
+const description = `Conditions générales de vente du Pack Visibilité d’${site.nom} : paiement, engagement de ${prix.duree}, délais, modifications, propriété du site et absence de garantie de résultat.`;
+
+const articles = [
+  {
+    t: 'Objet',
+    d: `Les présentes conditions régissent la vente du Pack Visibilité proposé par ${site.entreprise.raison} sous la marque ${site.nom} : création d’un site internet, mise en place ou optimisation de la fiche Google, installation d’une prise de rendez-vous en ligne, puis suivi mensuel.`,
+  },
+  {
+    t: 'Prix et paiement',
+    d: `Le règlement de la création (${prix.creation}) est dû à la signature. Le suivi mensuel (${prix.mensuel}) est réglé chaque mois pendant la durée d’engagement. Les moyens de paiement acceptés sont indiqués sur le devis ou la facture. TVA non applicable, article 293 B du Code général des impôts.`,
+  },
+  {
+    t: 'Engagement de douze mois',
+    d: `Le suivi mensuel est engagé pour une durée de ${prix.duree} à compter de la mise en ligne. Passé cette période, il se poursuit mois par mois, sans nouvelle période d’engagement.`,
+  },
+  {
+    t: 'Éléments à fournir par le client',
+    d: 'Le client s’engage à fournir les éléments nécessaires à la réalisation du site (textes, photographies, informations sur les prestations, horaires, coordonnées). Un retard dans la transmission de ces éléments décale d’autant la date de mise en ligne.',
+  },
+  {
+    t: 'Délai de mise en ligne',
+    d: `La mise en ligne intervient sous ${prix.delai} à compter de la réception de l’ensemble des éléments nécessaires. Ce délai est indicatif et dépend de la disponibilité du client.`,
+  },
+  {
+    t: 'Modifications',
+    d: 'Les modifications courantes (textes, coordonnées, horaires) sont comprises dans le suivi mensuel, dans la limite de trente minutes par mois, et réalisées sous deux jours ouvrés. Au-delà, ainsi que pour les évolutions plus importantes et les prestations de contenu ou de visibilité, un devis est établi avant intervention.',
+  },
+  {
+    t: 'Propriété et transfert du site',
+    d: `Le site réalisé appartient au client. À la fin de l’engagement, ${site.nom} remet les accès nécessaires à l’autonomie du client ou à la reprise par un autre prestataire. Les données et le site restent récupérables à tout moment.`,
+  },
+  {
+    t: 'Outils tiers',
+    d: 'La prestation peut recourir à des outils tiers (hébergement, prise de rendez-vous, gestion de la fiche Google). Leurs conditions d’utilisation propres s’appliquent, et certains services peuvent faire l’objet d’un abonnement distinct à la charge du client.',
+  },
+  {
+    t: 'Absence de garantie de résultat',
+    d: `Aucune première place sur Google, aucun nombre de clients et aucun résultat commercial ne sont garantis. Les délais de référencement dépendent de la ville, du secteur et de facteurs externes. ${site.nom} ne gère pas les réseaux sociaux à la place du client et ne formule aucune promesse de soin ou de guérison.`,
+  },
+  {
+    t: 'Droit de rétractation',
+    d: 'Les prestations sont fournies à des professionnels dans le cadre de leur activité : le droit de rétractation applicable aux consommateurs ne s’applique pas, sauf accord particulier mentionné au devis.',
+  },
+  {
+    t: 'Résiliation',
+    d: 'En cas de manquement de l’une des parties à ses obligations, l’autre partie peut résilier la prestation après mise en demeure restée sans effet pendant quinze jours. Les sommes versées au titre de la création restent acquises ; le suivi mensuel déjà réglé n’est pas remboursé.',
+  },
+  {
+    t: 'Absence de reconduction automatique',
+    d: 'À l’issue des douze mois d’engagement, le suivi ne se reconduit pas automatiquement. Il se poursuit, le cas échéant, sur la base d’un accord explicite entre les parties.',
+  },
+  {
+    t: 'Données personnelles',
+    d: 'Les données collectées dans le cadre de la relation client sont traitées conformément à la politique de confidentialité, consultable sur le site.',
+  },
+  {
+    t: 'Litiges',
+    d: 'Les présentes conditions sont régies par le droit français. En cas de litige, une solution amiable sera recherchée en priorité. À défaut, les tribunaux français seront compétents.',
+  },
+];
+---
+
+<Base titre={titre} description={description} barreMobile={false}>
+  <EnPage
+    surtitre="Informations légales"
+    titre="Conditions générales de vente"
+    chapeau="Version applicable au Pack Visibilité. Elles complètent le devis signé, qui prévaut en cas de différence."
+    etroit
+  />
+
+  <section class="section-serree">
+    <div class="rail-etroit">
+      <p class="avis reveal">
+        Document à faire vérifier et à harmoniser avec le contrat avant la première signature.
+      </p>
+
+      <ol class="articles">
+        {
+          articles.map((a, i) => (
+            <li class="article reveal" style={`--delai: ${i * 30}ms`}>
+              <span class="article-numero">Article {i + 1}</span>
+              <h2 class="article-titre">{a.t}</h2>
+              <p class="article-texte">{a.d}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .avis {
+    padding: 0.95rem 1.2rem;
+    border-radius: var(--r-m);
+    background: var(--terre-clair);
+    border: 1px solid rgba(184, 85, 47, 0.25);
+    color: var(--terre-2);
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .articles { list-style: none; padding: 0; margin-top: 1.8rem; display: grid; gap: 1rem; }
+  .article {
+    padding: clamp(1.1rem, 3.2vw, 1.6rem);
+    background: var(--blanc);
+    border: 1px solid var(--ligne);
+    border-radius: var(--r-l);
+    box-shadow: var(--ombre-s);
+  }
+  .article-numero {
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--vert);
+  }
+  .article-titre { margin-top: 0.4rem; font-size: 1.15rem; }
+  .article-texte { margin-top: 0.6rem; color: var(--encre-2); font-size: 0.97rem; }
+</style>

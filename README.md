@@ -1,62 +1,80 @@
-# Elyostudio
+# Elyostudio — site de l'agence
 
-Site vitrine d'Elyostudio — agence de création de sites web pour naturopathes et praticiens du
-bien-être. Construit avec [Astro](https://astro.build), en sortie 100 % statique.
+Site vitrine d'**Elyostudio**, le studio de Julien Duplouy qui crée des sites internet pour les
+naturopathes. Astro 5, sortie 100 % statique, aucune base de données, aucun backend.
+
+- Adresse de production : <https://elyostudio.fr>
+- Branche de travail : `claude/site-astro`
+- Ce dossier est un **worktree git** du dépôt `elyostudio` (le `.git` pointe vers
+  `../elyostudio/.git/worktrees/elyostudio-astro`). Les autres versions du site vivent sur les
+  branches `claude/site-horizons` (React/Vite + PocketBase) et `claude/site-initial`.
 
 ## Démarrer
 
 ```bash
 npm install
-npm run dev      # http://localhost:4321/elyostudio
-npm run build    # génère dist/
-npm run preview  # prévisualise le build
+npm run dev
 ```
+
+| Commande                    | Effet                                          |
+| --------------------------- | ---------------------------------------------- |
+| `npm run dev`               | Serveur de développement (http://localhost:4321) |
+| `npm run build`             | Génère le site statique dans `dist/`            |
+| `npm run preview`           | Prévisualise le contenu de `dist/`              |
+| `node scripts/og.mjs`       | Régénère l'image de partage `public/og-elyostudio.png` |
+| `node scripts/typographie.mjs` | Applique les espaces insécables françaises aux fichiers de `src/` |
 
 ## Structure
 
 ```
 src/
-├─ components/     Entête, pied de page, FAQ, témoignages, CTA, icônes
-├─ content/blog/   Articles en Markdown (frontmatter validé par content.config.ts)
-├─ data/site.ts    Coordonnées, offres, tarifs, témoignages, FAQ — tout le contenu éditable
-├─ layouts/        Layout de base (SEO, Open Graph, données structurées)
-├─ pages/          Une page = un fichier .astro
-└─ styles/         global.css : palette, typographie, composants
-public/            Logo, favicon, robots.txt
+├─ data/site.js            → coordonnées, tarifs, offre, FAQ, réalisations (à éditer en priorité)
+├─ styles/global.css       → charte : couleurs, rayons, ombres, boutons, cartes, animations
+├─ layouts/Base.astro      → en-tête HTML, SEO, en-tête/pied de page, barre d'appel mobile
+├─ components/             → Entete, Pied, Logo, Maquette, BandeCta, Formulaire, EnPage, Icone
+├─ content/articles/*.md   → les articles du journal (front-matter + markdown)
+└─ pages/                  → une page = un fichier
+public/                    → logo, favicon, image de partage, robots.txt, CNAME
 ```
 
-Le contenu textuel des offres, tarifs, témoignages et FAQ se modifie dans **`src/data/site.ts`**
-uniquement — les pages le consomment.
+### Modifier le contenu courant
 
-## Avant la mise en ligne
+- **Tarifs, email, téléphone, agenda, textes de l'offre, FAQ** : `src/data/site.js`.
+- **Ajouter un article** : créer `src/content/articles/mon-article.md` avec le même front-matter
+  qu'un article existant. L'URL devient `/blog/mon-article`.
+- **Couleurs, rayons, ombres** : les variables en haut de `src/styles/global.css`.
 
-Tout ce qui reste à renseigner est marqué `PLACEHOLDER` ou `TODO` dans le code :
+## Identité
 
-- [ ] `src/data/site.ts` — e-mail, téléphone, ville, tarifs réels
-- [ ] `src/data/site.ts` — remplacer les réalisations et témoignages d'exemple (`exemple: true`)
-- [ ] `src/pages/contact.astro` — `ENDPOINT_FORMULAIRE` (identifiant Formspree ou autre service)
-- [ ] `src/pages/mentions-legales.astro` — raison sociale, SIRET, adresse, hébergeur
-- [ ] `src/pages/confidentialite.astro` — responsable de traitement, prestataires
-- [ ] `astro.config.mjs` — `site` et `base` selon l'hébergement final
+| Élément            | Valeur                                                       |
+| ------------------ | ------------------------------------------------------------ |
+| Vert profond       | `#2E5A4B` — couleur principale, texte de marque              |
+| Terracotta         | `#B8552F` (dégradé vers `#9C4525`) — appels à l'action        |
+| Ambre              | `#E8A85C` — halos, accents chauds                             |
+| Crème              | `#FCF8F2` / `#F6EEE3` — fonds                                 |
+| Encre              | `#23201C` — texte                                             |
+| Titres             | Fraunces Variable (axe SOFT), auto-hébergée                   |
+| Textes             | Inter Variable, auto-hébergée                                 |
+
+Le logo est un **soleil levant** : un demi-disque terracotta posé sur une ligne d'horizon verte,
+avec trois rayons. Déclinaisons dans `public/` : `logo-elyostudio.svg` (logo + nom),
+`logo-mark.svg` (symbole seul), `favicon.svg` (symbole sur pastille verte),
+`og-elyostudio.png` (image de partage 1200 × 630).
+
+Aucune police n'est chargée depuis un serveur tiers, aucun cookie n'est déposé : pas de bandeau de
+consentement nécessaire.
+
+## Formulaires
+
+Les formulaires (audit gratuit, contact) sont **statiques**. Deux modes :
+
+1. `site.endpointFormulaire` **vide** (par défaut) : à l'envoi, le navigateur ouvre un email
+   pré-rempli vers `site.email`, puis renvoie vers `/merci`.
+2. `site.endpointFormulaire` **renseigné** (Formspree, Web3Forms, Basin…) : le formulaire poste
+   directement vers ce service, sans JavaScript.
+
+Un champ piège (`_gotcha`) filtre les robots.
 
 ## Déploiement
 
-Le workflow `.github/workflows/deploy.yml` publie automatiquement sur GitHub Pages à chaque push
-sur `main` (activer Pages → Source : GitHub Actions dans les réglages du dépôt).
-
-Pour un hébergeur classique branché sur le dépôt (type Hostinger + Git), pointer le déploiement
-sur le dossier `dist/` généré par `npm run build`.
-
-### Passer à un nom de domaine propre
-
-Dans `astro.config.mjs` : remplacer `site` par `https://elyostudio.fr` et **supprimer** la ligne
-`base`. Mettre à jour l'URL du sitemap dans `public/robots.txt`.
-
-## Palette
-
-| Nom | HEX |
-|---|---|
-| Ardoise Forestière | `#2C3E35` |
-| Vert Sauge | `#7A9E7E` |
-| Ocre Solaire | `#E09F67` |
-| Sable Coton | `#F6F3EE` |
+Voir [DEPLOIEMENT.md](DEPLOIEMENT.md).

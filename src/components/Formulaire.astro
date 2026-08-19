@@ -1,0 +1,207 @@
+---
+import Icone from './Icone.astro';
+import { site } from '../data/site.js';
+
+interface Props {
+  type?: 'audit' | 'contact';
+}
+const { type = 'audit' } = Astro.props;
+
+const endpoint = site.endpointFormulaire;
+const sujet = type === 'audit' ? 'Demande d’audit vidéo gratuit' : 'Message depuis elyostudio.fr';
+const bouton = type === 'audit' ? 'Recevoir mon audit gratuit' : 'Envoyer mon message';
+---
+
+<form
+  class="formulaire carte reveal"
+  method="post"
+  action={endpoint || undefined}
+  data-formulaire
+  data-email={site.email}
+  data-sujet={sujet}
+  novalidate={false}
+>
+  <input type="hidden" name="_sujet" value={sujet} />
+  <p class="pot-de-miel" aria-hidden="true">
+    <label for={`site-web-${type}`}>Laissez ce champ vide</label>
+    <input id={`site-web-${type}`} type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+  </p>
+
+  <div class="formulaire-grille">
+    <div class="champ">
+      <label for={`prenom-${type}`}>Prénom et nom *</label>
+      <input id={`prenom-${type}`} name="nom" type="text" required autocomplete="name" placeholder="Camille Roux" />
+    </div>
+
+    <div class="champ">
+      <label for={`email-${type}`}>Email *</label>
+      <input id={`email-${type}`} name="email" type="email" required autocomplete="email" placeholder="vous@exemple.fr" />
+    </div>
+
+    <div class="champ">
+      <label for={`tel-${type}`}>Téléphone</label>
+      <input id={`tel-${type}`} name="telephone" type="tel" autocomplete="tel" placeholder="06 12 34 56 78" />
+      <span class="aide">Facultatif, si vous préférez qu’on s’appelle.</span>
+    </div>
+
+    <div class="champ">
+      <label for={`ville-${type}`}>Ville d’exercice{type === 'audit' ? ' *' : ''}</label>
+      <input
+        id={`ville-${type}`}
+        name="ville"
+        type="text"
+        required={type === 'audit'}
+        placeholder="Tarbes"
+      />
+    </div>
+
+    {
+      type === 'audit' && (
+        <>
+          <div class="champ champ-large">
+            <label for="site-actuel">Adresse de votre site actuel</label>
+            <input id="site-actuel" name="site" type="url" placeholder="https://…" />
+            <span class="aide">Laissez vide si vous n’en avez pas encore : c’est très bien aussi.</span>
+          </div>
+
+          <div class="champ champ-large">
+            <label for="situation">Où en êtes-vous ?</label>
+            <select id="situation" name="situation">
+              <option value="pas-de-site">Je n’ai pas encore de site</option>
+              <option value="site-a-refaire">J’ai un site, mais il ne m’apporte rien</option>
+              <option value="reseaux-uniquement">Je suis surtout sur les réseaux sociaux</option>
+              <option value="installation">Je m’installe bientôt</option>
+            </select>
+          </div>
+        </>
+      )
+    }
+
+    <div class="champ champ-large">
+      <label for={`message-${type}`}>
+        {type === 'audit' ? 'Vos spécialités, et ce que vous aimeriez changer' : 'Votre message *'}
+      </label>
+      <textarea
+        id={`message-${type}`}
+        name="message"
+        required={type === 'contact'}
+        placeholder={
+          type === 'audit'
+            ? 'Ex. : troubles digestifs et sommeil. J’aimerais avoir plus de premières consultations.'
+            : 'Dites-moi en quelques lignes ce dont vous avez besoin.'
+        }
+      ></textarea>
+    </div>
+  </div>
+
+  <label class="consentement">
+    <input type="checkbox" name="consentement" required />
+    <span>
+      J’accepte que mes informations soient utilisées pour me recontacter. Elles ne sont ni revendues
+      ni transmises à des tiers — voir la <a href="/confidentialite">politique de confidentialité</a>.
+    </span>
+  </label>
+
+  <button type="submit" class="btn btn-principal btn-large formulaire-envoi">
+    {bouton}
+    <Icone nom="fleche" classe="fleche" />
+  </button>
+
+  <p class="formulaire-note">
+    <Icone nom="bouclier" />
+    Réponse sous 48 heures ouvrées. Aucune newsletter automatique, aucun démarchage.
+  </p>
+</form>
+
+<style>
+  .formulaire {
+    display: grid;
+    gap: 1.35rem;
+    border-radius: var(--r-xl);
+    box-shadow: var(--ombre-m), var(--ombre-interne);
+  }
+
+  .formulaire-grille { display: grid; gap: 1.1rem; }
+  @media (min-width: 640px) {
+    .formulaire-grille { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .champ-large { grid-column: 1 / -1; }
+  }
+
+  .pot-de-miel {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  .consentement {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.7rem;
+    align-items: start;
+    font-size: 0.86rem;
+    color: var(--encre-2);
+  }
+  .consentement input {
+    width: 1.15rem;
+    height: 1.15rem;
+    margin-top: 0.18rem;
+    accent-color: var(--vert);
+  }
+  .consentement a { color: var(--vert); }
+
+  .formulaire-envoi { justify-self: stretch; }
+  @media (min-width: 560px) { .formulaire-envoi { justify-self: start; } }
+
+  .formulaire-note {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 0.85rem;
+    color: var(--encre-3);
+  }
+  .formulaire-note :global(svg) { width: 1.05rem; height: 1.05rem; color: var(--vert); flex: none; }
+</style>
+
+<script>
+  // Sans service d'envoi configuré, le formulaire prépare un email pré-rempli.
+  document.querySelectorAll<HTMLFormElement>('[data-formulaire]').forEach((form) => {
+    if (form.getAttribute('action')) return;
+
+    form.addEventListener('submit', (evenement) => {
+      evenement.preventDefault();
+      if (!form.reportValidity()) return;
+
+      const donnees = new FormData(form);
+      if (donnees.get('_gotcha')) return;
+
+      const etiquettes: Record<string, string> = {
+        nom: 'Nom',
+        email: 'Email',
+        telephone: 'Téléphone',
+        ville: 'Ville',
+        site: 'Site actuel',
+        situation: 'Situation',
+        message: 'Message',
+      };
+
+      const lignes = Object.entries(etiquettes)
+        .map(([cle, libelle]) => {
+          const valeur = String(donnees.get(cle) ?? '').trim();
+          return valeur ? `${libelle} : ${valeur}` : null;
+        })
+        .filter(Boolean)
+        .join('\n');
+
+      const destinataire = form.dataset.email ?? '';
+      const sujet = encodeURIComponent(form.dataset.sujet ?? 'Message depuis elyostudio.fr');
+      const corps = encodeURIComponent(lignes);
+
+      window.location.href = `mailto:${destinataire}?subject=${sujet}&body=${corps}`;
+      window.setTimeout(() => {
+        window.location.href = '/merci';
+      }, 900);
+    });
+  });
+</script>

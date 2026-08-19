@@ -1,0 +1,200 @@
+---
+import Base from '../layouts/Base.astro';
+import EnPage from '../components/EnPage.astro';
+import Icone from '../components/Icone.astro';
+import BandeCta from '../components/BandeCta.astro';
+import { realisations } from '../data/site.js';
+
+const titre = 'Réalisations — à quoi ressemble un site Elyostudio';
+const description =
+  'Des exemples concrets de sites de naturopathes : cinq pages, une page par spécialité, fiche Google et prise de rendez-vous en ligne. Pensés mobile d’abord.';
+
+const details = [
+  {
+    icone: 'mobile',
+    titre: 'Le téléphone d’abord',
+    texte:
+      'Chaque page est dessinée sur un écran de 375 pixels avant d’être élargie. Les boutons font au moins 48 pixels de haut, les textes restent lisibles sans zoomer.',
+  },
+  {
+    icone: 'agenda',
+    titre: 'Le rendez-vous à portée de pouce',
+    texte:
+      'Un bouton de réservation dans l’en-tête, un autre en bas d’écran sur mobile, et un rappel à la fin de chaque page. On ne cherche jamais comment vous joindre.',
+  },
+  {
+    icone: 'recherche',
+    titre: 'Une page par intention de recherche',
+    texte:
+      'Digestion, sommeil, périnatalité : une page par spécialité, avec les mots que vos futurs clients tapent réellement dans Google.',
+  },
+  {
+    icone: 'horloge',
+    titre: 'Des pages qui s’affichent tout de suite',
+    texte:
+      'Pas de constructeur lourd ni de dizaine de scripts. Les pages sont légères, ce qui plaît autant aux visiteurs pressés qu’à Google.',
+  },
+];
+---
+
+<Base titre={titre} description={description}>
+  <EnPage
+    surtitre="Réalisations"
+    titre="Ce que vous obtenez, concrètement"
+    chapeau="Voici les univers que je conçois pour des naturopathes. Chaque site suit la même ossature — celle qui mène au rendez-vous — puis prend les couleurs et le ton de la praticienne."
+  />
+
+  <section class="section-serree">
+    <div class="rail">
+      <div class="grille grille-3">
+        {
+          realisations.map((r, i) => (
+            <article class={`vitrine vitrine-${r.teinte} reveal`} style={`--delai: ${i * 90}ms`}>
+              <div class="apercu">
+                <div class="apercu-barre">
+                  <span></span><span></span><span></span>
+                </div>
+                <div class="apercu-corps">
+                  <span class="apercu-titre"></span>
+                  <span class="apercu-ligne"></span>
+                  <span class="apercu-ligne courte"></span>
+                  <span class="apercu-bouton">Prendre rendez-vous</span>
+                  <div class="apercu-grille">
+                    <span></span><span></span><span></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="vitrine-texte">
+                <span class="vitrine-sujet">{r.sujet}</span>
+                <h2 class="vitrine-titre">{r.titre}</h2>
+                <p>{r.texte}</p>
+                <ul class="vitrine-tags">
+                  {r.points.map((p) => <li>{p}</li>)}
+                </ul>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+
+      <p class="mention reveal">
+        <Icone nom="etincelle" />
+        Ces exemples sont des sites de démonstration, créés pour montrer la structure et le niveau de
+        finition. Les sites de mes clientes ne sont publiés ici qu’avec leur accord.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section-teintee">
+    <div class="rail">
+      <div class="entete-section reveal">
+        <span class="surtitre">Les partis pris</span>
+        <h2>Quatre choix qui font la différence sur l’agenda</h2>
+      </div>
+
+      <div class="grille grille-2 marge-haut-grand">
+        {
+          details.map((d, i) => (
+            <article class="carte carte-relief reveal" style={`--delai: ${i * 80}ms`}>
+              <span class="pastille"><Icone nom={d.icone} /></span>
+              <h3>{d.titre}</h3>
+              <p>{d.texte}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <BandeCta
+    titre="Envie de voir ce que ça donnerait pour votre cabinet ?"
+    texte="Dites-moi votre ville et vos spécialités : dans l’audit vidéo gratuit, je vous montre ce que je changerais chez vous en priorité, exemples à l’appui."
+  />
+</Base>
+
+<style>
+  .marge-haut-grand { margin-top: clamp(2rem, 5vw, 3rem); }
+
+  .vitrine {
+    display: grid;
+    overflow: hidden;
+    border: 1px solid var(--ligne);
+    border-radius: var(--r-xl);
+    background: var(--blanc);
+    box-shadow: var(--ombre-m), var(--ombre-interne);
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+  .vitrine:hover { transform: translateY(-5px); box-shadow: var(--ombre-l); }
+
+  .apercu {
+    padding: 0.7rem;
+    background: linear-gradient(160deg, var(--teinte-1), var(--teinte-2));
+  }
+  .vitrine-vert { --teinte-1: #DFEAE2; --teinte-2: #C7DCCF; }
+  .vitrine-terre { --teinte-1: #F8E5DA; --teinte-2: #EFD0BF; }
+  .vitrine-ambre { --teinte-1: #FAEBD3; --teinte-2: #F1DAB6; }
+
+  .apercu-barre { display: flex; gap: 0.3rem; padding: 0 0.2rem 0.55rem; }
+  .apercu-barre span { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: rgba(35, 32, 28, 0.14); }
+
+  .apercu-corps {
+    display: grid;
+    gap: 0.5rem;
+    padding: 1rem 0.9rem 1.1rem;
+    border-radius: var(--r-m);
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: var(--ombre-s);
+  }
+  .apercu-titre { height: 0.75rem; width: 78%; border-radius: 3px; background: #C9BCA9; }
+  .apercu-ligne { height: 0.35rem; border-radius: 3px; background: #E3D8C8; }
+  .apercu-ligne.courte { width: 55%; }
+  .apercu-bouton {
+    justify-self: start;
+    margin-top: 0.35rem;
+    padding: 0.35rem 0.8rem;
+    border-radius: var(--r-pilule);
+    background: linear-gradient(150deg, var(--terre), var(--terre-2));
+    color: #FFF6F1;
+    font-size: 0.6rem;
+    font-weight: 700;
+    box-shadow: 0 8px 14px -9px rgba(156, 69, 37, 0.9);
+  }
+  .apercu-grille { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.4rem; margin-top: 0.5rem; }
+  .apercu-grille span { height: 1.8rem; border-radius: var(--r-s); background: var(--creme-2); }
+
+  .vitrine-texte { padding: clamp(1.2rem, 3.4vw, 1.6rem); }
+  .vitrine-sujet {
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--vert);
+  }
+  .vitrine-titre { margin-top: 0.55rem; font-size: clamp(1.15rem, 3vw, 1.35rem); }
+  .vitrine-texte p { margin-top: 0.7rem; color: var(--encre-2); font-size: 0.96rem; }
+
+  .vitrine-tags { list-style: none; padding: 0; margin-top: 1.1rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .vitrine-tags li {
+    padding: 0.28rem 0.7rem;
+    border-radius: var(--r-pilule);
+    background: var(--creme-2);
+    border: 1px solid var(--ligne);
+    font-size: 0.76rem;
+    color: var(--encre-2);
+  }
+
+  .mention {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    margin-top: 2rem;
+    padding: 1rem 1.2rem;
+    border-radius: var(--r-l);
+    background: var(--creme-2);
+    border: 1px solid var(--ligne);
+    font-size: 0.9rem;
+    color: var(--encre-2);
+  }
+  .mention :global(svg) { flex: none; width: 1.1rem; height: 1.1rem; color: var(--terre); margin-top: 0.2rem; }
+</style>

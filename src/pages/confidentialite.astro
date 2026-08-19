@@ -1,0 +1,95 @@
+---
+import Base from '../layouts/Base.astro';
+import EnPage from '../components/EnPage.astro';
+import { site } from '../data/site.js';
+
+const titre = 'Politique de confidentialité | Elyostudio';
+const description = `Comment ${site.nom} collecte, utilise et conserve vos données personnelles. Aucune donnée n’est vendue ni cédée à un tiers à des fins commerciales.`;
+---
+
+<Base titre={titre} description={description} barreMobile={false}>
+  <EnPage
+    surtitre="Vos données"
+    titre="Politique de confidentialité"
+    chapeau="Le principe est simple : je collecte le minimum, je m’en sers pour vous répondre, et je ne le revends à personne."
+    etroit
+  />
+
+  <section class="section-serree">
+    <div class="rail-etroit prose reveal">
+      <h2>Responsable du traitement</h2>
+      <p>
+        {site.entreprise.raison}, SIREN {site.entreprise.siren}, {site.adresse}. Pour toute question
+        sur vos données : <a href={`mailto:${site.email}`}>{site.email}</a>.
+      </p>
+
+      <h2>Données collectées</h2>
+      <ul>
+        <li>
+          <strong>Via les formulaires du site</strong> (audit gratuit, contact) : nom, email,
+          téléphone si vous le renseignez, ville d’exercice, adresse de votre site actuel et contenu
+          de votre message.
+        </li>
+        <li>
+          <strong>Via la prise de rendez-vous</strong> : les informations que vous saisissez dans
+          l’agenda en ligne (nom, email, créneau choisi).
+        </li>
+        <li>
+          <strong>Via les échanges qui suivent</strong> : les informations que vous me transmettez
+          pour la réalisation de votre projet.
+        </li>
+      </ul>
+      <p>
+        Ce site ne dépose <strong>aucun cookie publicitaire ni traceur de mesure d’audience</strong>.
+        Aucun bandeau de consentement n’est donc nécessaire.
+      </p>
+
+      <h2>Finalités et base légale</h2>
+      <p>
+        Vos données servent uniquement à répondre à votre demande, préparer un audit ou un devis, et
+        assurer le suivi de la prestation. La base légale est votre consentement (formulaires) puis
+        l’exécution du contrat une fois la prestation engagée.
+      </p>
+
+      <h2>Durée de conservation</h2>
+      <ul>
+        <li>Demande sans suite : 12 mois à compter du dernier échange.</li>
+        <li>Relation client : durée de la prestation, puis 3 ans à des fins de suivi.</li>
+        <li>Documents comptables : 10 ans, conformément aux obligations légales.</li>
+      </ul>
+
+      <h2>Destinataires</h2>
+      <p>
+        Vos données ne sont ni vendues ni cédées à un tiers à des fins commerciales. Elles peuvent
+        être traitées par les prestataires techniques strictement nécessaires au fonctionnement du
+        service :
+      </p>
+      <ul>
+        <li>l’hébergeur du site ;</li>
+        <li>le service d’envoi et de réception des emails ;</li>
+        <li>l’outil de prise de rendez-vous en ligne (TidyCal), lorsque vous réservez un créneau.</li>
+      </ul>
+
+      <h2>Prise de rendez-vous en ligne</h2>
+      <p>
+        La page « Réserver un appel » affiche un agenda fourni par un service tiers. Lors de son
+        chargement, ce service peut déposer ses propres cookies techniques et recevoir votre adresse
+        IP. Si vous préférez l’éviter, écrivez-moi simplement par email.
+      </p>
+
+      <h2>Vos droits</h2>
+      <p>
+        Vous disposez d’un droit d’accès, de rectification, d’effacement, de limitation et
+        d’opposition sur vos données. Écrivez à <a href={`mailto:${site.email}`}>{site.email}</a> :
+        je réponds sous un mois. Vous pouvez également introduire une réclamation auprès de la CNIL
+        (<a href="https://www.cnil.fr" target="_blank" rel="noopener">cnil.fr</a>).
+      </p>
+
+      <h2>Sécurité</h2>
+      <p>
+        Le site est diffusé en HTTPS. Les échanges et documents liés à votre projet sont conservés sur
+        des comptes protégés par mot de passe et double authentification lorsque le service le permet.
+      </p>
+    </div>
+  </section>
+</Base>

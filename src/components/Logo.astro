@@ -1,0 +1,77 @@
+---
+interface Props {
+  compact?: boolean;
+  baseline?: boolean;
+  classe?: string;
+}
+const { compact = false, baseline = false, classe = '' } = Astro.props;
+---
+
+<span class:list={['logo', classe, { 'logo-compact': compact }]}>
+  <svg class="logo-marque" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+    <g class="logo-soleil">
+      <path d="M17 43 A15 15 0 0 1 47 43 Z" fill="var(--terre)" />
+      <g fill="none" stroke="var(--vert)" stroke-width="4.6" stroke-linecap="round" class="logo-rayons">
+        <path d="M32 12 V19" />
+        <path d="M13 21 L18 26" />
+        <path d="M51 21 L46 26" />
+      </g>
+    </g>
+    <path d="M8 47.5 H56" fill="none" stroke="var(--vert)" stroke-width="4.6" stroke-linecap="round" />
+  </svg>
+
+  {
+    !compact && (
+      <span class="logo-texte">
+        <span class="logo-mot">
+          Elyo<span class="logo-mot-2">studio</span>
+        </span>
+        {baseline && <span class="logo-baseline">Sites pour naturopathes</span>}
+      </span>
+    )
+  }
+</span>
+
+<style>
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--vert);
+    text-decoration: none;
+  }
+  .logo-marque {
+    width: 2.4rem;
+    height: 2.4rem;
+    flex: none;
+  }
+  .logo-soleil {
+    transform-origin: 32px 47px;
+    transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .logo-rayons { transition: opacity 420ms ease; }
+  :global(a:hover) .logo-soleil { transform: translateY(-2px) scale(1.04); }
+
+  .logo-texte { display: grid; line-height: 1.05; }
+  .logo-mot {
+    font-family: var(--police-titre);
+    font-size: 1.32rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--encre);
+    font-variation-settings: 'SOFT' 10;
+  }
+  .logo-mot-2 { color: var(--vert); }
+  .logo-baseline {
+    margin-top: 0.15rem;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.19em;
+    text-transform: uppercase;
+    color: var(--encre-3);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .logo-soleil { transition: none; }
+  }
+</style>

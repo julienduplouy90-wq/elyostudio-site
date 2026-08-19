@@ -1,0 +1,169 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import EnPage from '../../components/EnPage.astro';
+import Icone from '../../components/Icone.astro';
+import BandeCta from '../../components/BandeCta.astro';
+
+const titre = 'Le journal — visibilité et sites web pour naturopathes | Elyostudio';
+const description =
+  'Des articles concrets sur la visibilité des naturopathes : référencement local, contenu des pages, budget d’un site, fiche Google. Sans jargon et sans recette miracle.';
+
+const articles = (await getCollection('articles')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+const dateFr = (d: Date) =>
+  d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+
+const [une, ...suite] = articles;
+---
+
+<Base titre={titre} description={description}>
+  <EnPage
+    surtitre="Le journal"
+    titre="Ce que j’apprends en travaillant avec des naturopathes"
+    chapeau="Des articles utiles, écrits pour être lus par une praticienne pressée : ce qui marche, ce qui ne marche pas, et ce que je ferais à votre place."
+  />
+
+  <section class="section-serree">
+    <div class="rail">
+      {
+        une && (
+          <a href={`/blog/${une.id}`} class="une reveal">
+            <div class="une-visuel" aria-hidden="true">
+              <span class="une-icone">
+                <Icone nom={une.data.icone} />
+              </span>
+              <span class="une-halo" />
+            </div>
+            <div class="une-texte">
+              <span class="meta">
+                <span class="categorie">{une.data.categorie}</span>
+                <span>{dateFr(une.data.date)}</span>
+                <span>· {une.data.duree} de lecture</span>
+              </span>
+              <h2 class="une-titre">{une.data.titre}</h2>
+              <p class="une-extrait">{une.data.description}</p>
+              <span class="lien-fleche">
+                Lire l’article
+                <Icone nom="fleche" classe="fleche" />
+              </span>
+            </div>
+          </a>
+        )
+      }
+
+      <div class="grille grille-3 marge-haut">
+        {
+          suite.map((a, i) => (
+            <a href={`/blog/${a.id}`} class="carte carte-relief billet reveal" style={`--delai: ${i * 80}ms`}>
+              <span class="pastille">
+                <Icone nom={a.data.icone} />
+              </span>
+              <span class="meta">
+                <span class="categorie">{a.data.categorie}</span>
+                <span>{a.data.duree}</span>
+              </span>
+              <h2 class="billet-titre">{a.data.titre}</h2>
+              <p>{a.data.description}</p>
+              <span class="lien-fleche billet-lien">
+                Lire
+                <Icone nom="fleche" classe="fleche" />
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <BandeCta />
+</Base>
+
+<style>
+  .marge-haut { margin-top: 1.15rem; }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 0.7rem;
+    font-size: 0.8rem;
+    color: var(--encre-3);
+  }
+  .categorie {
+    padding: 0.22rem 0.65rem;
+    border-radius: var(--r-pilule);
+    background: var(--vert-clair);
+    color: var(--vert);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  /* Article en une */
+  .une {
+    display: grid;
+    overflow: hidden;
+    text-decoration: none;
+    border: 1px solid var(--ligne);
+    border-radius: var(--r-2xl);
+    background: var(--blanc);
+    box-shadow: var(--ombre-m), var(--ombre-interne);
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+  .une:hover { transform: translateY(-4px); box-shadow: var(--ombre-l); }
+
+  .une-visuel {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: 11rem;
+    overflow: hidden;
+    background:
+      radial-gradient(120% 120% at 20% 15%, rgba(232, 168, 92, 0.5), transparent 62%),
+      linear-gradient(155deg, var(--vert-clair), #C6DBCE);
+  }
+  .une-icone {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: var(--r-l);
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--vert);
+    box-shadow: var(--ombre-m);
+  }
+  .une-icone :global(svg) { width: 2rem; height: 2rem; }
+  .une-halo {
+    position: absolute;
+    width: 12rem; height: 12rem;
+    right: -3rem; bottom: -5rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.45);
+    filter: blur(24px);
+    animation: flottement 13s ease-in-out infinite;
+  }
+
+  .une-texte { padding: clamp(1.4rem, 4vw, 2.2rem); }
+  .une-titre {
+    margin-top: 0.9rem;
+    font-size: clamp(1.4rem, 3.8vw, 2rem);
+    color: var(--encre);
+  }
+  .une-extrait { margin-top: 0.9rem; color: var(--encre-2); }
+  .une .lien-fleche { margin-top: 1.4rem; }
+
+  @media (min-width: 900px) {
+    .une { grid-template-columns: 0.85fr 1.15fr; align-items: center; }
+    .une-visuel { min-height: 100%; }
+  }
+
+  /* Billets */
+  .billet { display: grid; align-content: start; text-decoration: none; }
+  .billet .meta { margin-bottom: 0.6rem; }
+  .billet-titre { font-size: 1.15rem; margin-bottom: 0.55rem; }
+  .billet-lien { justify-self: start; margin-top: 1.1rem; }
+</style>

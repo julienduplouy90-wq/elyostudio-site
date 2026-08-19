@@ -1,0 +1,61 @@
+---
+// Petites icônes au trait, dessinées à la main pour éviter toute dépendance.
+interface Props {
+  nom: string;
+  classe?: string;
+  taille?: string | number;
+}
+const { nom, classe = '', taille } = Astro.props;
+
+const traces: Record<string, string> = {
+  recherche: '<circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/>',
+  partage:
+    '<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5 15.4 17.5M15.4 6.5 8.6 10.5"/>',
+  agenda:
+    '<rect x="3" y="5" width="18" height="16" rx="4"/><path d="M8 3v4M16 3v4M3 11h18"/><path d="m9 16 2 2 4-4"/>',
+  gabarit: '<rect x="3" y="4" width="18" height="17" rx="4"/><path d="M3 9h18M9 21V9"/>',
+  document: '<path d="M14 3H8a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/>',
+  position: '<path d="M20 10c0 5.5-8 12-8 12s-8-6.5-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/>',
+  horloge: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5.5l3.5 2"/>',
+  mobile: '<rect x="6" y="2" width="12" height="20" rx="3.5"/><path d="M11 18.5h2"/>',
+  cadenas: '<rect x="4" y="10" width="16" height="11" rx="3.5"/><path d="M8 10V7a4 4 0 0 1 8 0"/><path d="M12 14.5v2.5"/>',
+  etiquette: '<path d="M3 11.6V5.5A2.5 2.5 0 0 1 5.5 3h6.1a2 2 0 0 1 1.4.6l7.4 7.4a2 2 0 0 1 0 2.8l-6.6 6.6a2 2 0 0 1-2.8 0L3.6 13a2 2 0 0 1-.6-1.4Z"/><circle cx="8" cy="8" r="1.4"/>',
+  personnes:
+    '<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16.5 5.2a3.5 3.5 0 0 1 0 6.6M18 20a6.4 6.4 0 0 0-2-4.7"/>',
+  bouclier: '<path d="M12 3 5 6v6c0 4.4 3 7.9 7 9 4-1.1 7-4.6 7-9V6Z"/><path d="m9 12 2 2 4-4"/>',
+  cle: '<path d="M14.5 3a6.5 6.5 0 1 0 5.2 10.4L21 15l-1.5 1.5L21 18l-2 2-1.5-1.5L16 20l-1.6-1.3A6.5 6.5 0 0 0 14.5 3Z"/><circle cx="11.5" cy="9.5" r="1.6"/>',
+  courrier: '<rect x="3" y="5" width="18" height="14" rx="4"/><path d="m4 8 7.1 4.6a2 2 0 0 0 2.2 0L20 8"/>',
+  telephone:
+    '<path d="M7 3.5 9 3l2 4-1.8 1.4a12 12 0 0 0 5.4 5.4L16 12l4 2-.5 2a2.5 2.5 0 0 1-2.8 1.9C10.9 17 7 13.1 5.1 6.3A2.5 2.5 0 0 1 7 3.5Z"/>',
+  video: '<rect x="2.5" y="6" width="13" height="12" rx="3.5"/><path d="m15.5 11 6-3.5v9l-6-3.5Z"/>',
+  etincelle:
+    '<path d="M12 3l1.7 4.6a4 4 0 0 0 2.4 2.4L20.5 12l-4.4 1.7a4 4 0 0 0-2.4 2.4L12 21l-1.7-4.9a4 4 0 0 0-2.4-2.4L3.5 12l4.4-2a4 4 0 0 0 2.4-2.4Z"/><path d="M19 3v3M20.5 4.5h-3"/>',
+  graphique: '<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',
+  feuille: '<path d="M4 20C4 10 10 5 20 4c-.6 10-6 16-16 16Z"/><path d="M4 20 20 4"/>',
+  outil: '<path d="M20 6a5 5 0 0 1-6.4 6.4L6 20l-2-2 7.6-7.6A5 5 0 0 1 18 4l-3 3 2 2 3-3Z"/>',
+  chevron: '<path d="m6 9 6 6 6-6"/>',
+  fleche: '<path d="M4 12h15M13 6l6 6-6 6"/>',
+  menu: '<path d="M4 7h16M4 12h16M4 17h16"/>',
+  croix: '<path d="M18 6 6 18M6 6l12 12"/>',
+  coche: '<path d="M20 6 9 17l-5-5"/>',
+  etoile: '<path d="m12 3 2.6 5.6 6 .8-4.4 4.2 1.1 6L12 16.8 6.7 19.6l1.1-6L3.4 9.4l6-.8Z"/>',
+};
+
+const trace = traces[nom] ?? traces.etincelle;
+const style = taille ? `width:${taille};height:${taille}` : undefined;
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.7"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+  focusable="false"
+  class={classe}
+  style={style}
+  set:html={trace}
+/>

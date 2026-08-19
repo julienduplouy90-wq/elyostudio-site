@@ -1,0 +1,268 @@
+---
+import Base from '../layouts/Base.astro';
+import EnPage from '../components/EnPage.astro';
+import Icone from '../components/Icone.astro';
+import BandeCta from '../components/BandeCta.astro';
+import { prix, inclusCreation, inclusMensuel, optionsHorsForfait, nonPromis, engagements } from '../data/site.js';
+
+const titre = `Le Pack Visibilité — ${prix.creation} puis ${prix.mensuel}/mois | Elyostudio`;
+const description = `L’offre unique d’Elyostudio pour les naturopathes : site de cinq pages, fiche Google, prise de rendez-vous en ligne. ${prix.creation} à la signature, puis ${prix.mensuel}/mois pendant ${prix.duree}. Tarif affiché, sans devis.`;
+
+const pourQui = [
+  'Vous exercez comme naturopathe, seule ou en cabinet partagé',
+  'Vous voulez un agenda mieux rempli, pas un site « vitrine » de plus',
+  'Vous préférez un tarif clair à un devis de trois pages',
+  'Vous n’avez ni le temps ni l’envie de gérer la technique',
+];
+
+const pasPourQui = [
+  'Vous cherchez le moins cher possible, sans suivi derrière',
+  'Vous voulez une boutique en ligne avec des dizaines de produits',
+  'Vous attendez une garantie de première place sur Google',
+  'Vous souhaitez déléguer entièrement vos réseaux sociaux',
+];
+---
+
+<Base titre={titre} description={description}>
+  <EnPage
+    surtitre="L’offre unique"
+    titre="Le Pack Visibilité"
+    chapeau="Tout ce qu’il faut pour qu’une personne qui cherche une naturopathe dans votre ville vous trouve, comprenne votre approche et réserve un créneau. Une seule offre, un seul tarif, écrit noir sur blanc."
+  >
+    <div class="groupe-btn marge-haut">
+      <a href="/audit-gratuit" class="btn btn-principal btn-large">
+        Recevoir mon audit gratuit
+        <Icone nom="fleche" classe="fleche" />
+      </a>
+      <a href="/methode" class="btn btn-secondaire btn-large">Comment ça se passe</a>
+    </div>
+  </EnPage>
+
+  <!-- Prix en deux temps -->
+  <section class="section-serree">
+    <div class="rail deux-temps">
+      <article class="temps reveal">
+        <span class="temps-libelle">1. À la signature</span>
+        <p class="temps-prix">{prix.creation}</p>
+        <p class="temps-note">Une fois, pour la création complète, livrée en {prix.delai}.</p>
+      </article>
+      <span class="temps-plus" aria-hidden="true">+</span>
+      <article class="temps temps-vedette reveal" style="--delai: 90ms">
+        <span class="temps-libelle">2. Puis chaque mois</span>
+        <p class="temps-prix">{prix.mensuel}<small>/mois</small></p>
+        <p class="temps-note">Pendant {prix.duree}, sans reconduction automatique ensuite.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Création -->
+  <section class="section">
+    <div class="rail">
+      <div class="entete-section reveal">
+        <span class="surtitre">Ce qui est livré</span>
+        <h2>À la création — {prix.creation}</h2>
+        <p class="chapeau">
+          Le dispositif complet, prêt à recevoir vos premiers rendez-vous. Pas un modèle repeint :
+          une structure pensée pour une pratique de naturopathe.
+        </p>
+      </div>
+
+      <div class="grille grille-2 marge-haut-grand">
+        {
+          inclusCreation.map((item, i) => (
+            <div class="carte carte-relief ligne-inclus reveal" style={`--delai: ${i * 60}ms`}>
+              <span class="puce"><Icone nom="coche" /></span>
+              <p class="ligne-inclus-texte">{item}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Mensuel -->
+  <section class="section section-teintee">
+    <div class="rail">
+      <div class="entete-section reveal">
+        <span class="surtitre">Ce qui tourne ensuite</span>
+        <h2>Chaque mois — {prix.mensuel}</h2>
+        <p class="chapeau">
+          Un site qui reste rapide, sûr et à jour, sans que vous ayez à y penser. C’est aussi ce qui
+          permet d’afficher {prix.creation} à la création plutôt qu’un tarif à quatre chiffres.
+        </p>
+      </div>
+
+      <div class="grille grille-2 marge-haut-grand">
+        {
+          inclusMensuel.map((item, i) => (
+            <div class="carte carte-relief ligne-inclus reveal" style={`--delai: ${i * 50}ms`}>
+              <span class="puce"><Icone nom="coche" /></span>
+              <p class="ligne-inclus-texte">{item}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Options -->
+  <section class="section">
+    <div class="rail">
+      <div class="entete-section reveal">
+        <span class="surtitre">Hors forfait</span>
+        <h2>Le contenu et la visibilité, quand vous le décidez</h2>
+        <p class="chapeau">
+          Tout ce qui touche à la création de contenu et au travail de visibilité est facturé à part,
+          sur devis. Vous l’activez au moment qui vous arrange, jamais par défaut.
+        </p>
+      </div>
+
+      <div class="grille grille-3 marge-haut-grand">
+        {
+          optionsHorsForfait.map((o, i) => (
+            <article class="carte carte-relief reveal" style={`--delai: ${i * 70}ms`}>
+              <span class="pastille pastille-terre"><Icone nom="etincelle" /></span>
+              <h3>{o.titre}</h3>
+              <p>{o.texte}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Pour qui / pas pour qui -->
+  <section class="section section-teintee">
+    <div class="rail">
+      <div class="entete-section reveal">
+        <span class="surtitre">Soyons honnêtes</span>
+        <h2>À qui cette offre s’adresse — et à qui elle ne s’adresse pas</h2>
+      </div>
+
+      <div class="deux-colonnes marge-haut-grand">
+        <div class="carte reveal">
+          <h3>C’est pour vous si…</h3>
+          <ul class="liste-cochee marge-haut-petit">
+            {pourQui.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+        <div class="carte reveal" style="--delai: 100ms">
+          <h3>Ce n’est pas pour vous si…</h3>
+          <ul class="liste-cochee liste-croix marge-haut-petit">
+            {pasPourQui.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+      </div>
+
+      <div class="carte carte-douce reveal marge-haut-grand">
+        <h3>Ce que je ne promets pas</h3>
+        <ul class="liste-cochee liste-croix marge-haut-petit">
+          {nonPromis.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Engagements -->
+  <section class="section">
+    <div class="rail">
+      <div class="entete-section reveal">
+        <span class="surtitre">Les garde-fous</span>
+        <h2>Quatre engagements qui ne bougent pas</h2>
+      </div>
+      <div class="grille grille-4 marge-haut-grand">
+        {
+          engagements.map((e, i) => (
+            <article class="carte carte-relief reveal" style={`--delai: ${i * 70}ms`}>
+              <span class="pastille"><Icone nom={e.icone} /></span>
+              <h3>{e.titre}</h3>
+              <p>{e.texte}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <BandeCta
+    titre="On regarde votre situation avant de parler d’offre"
+    texte="L’audit vidéo gratuit me permet de vous dire si le Pack Visibilité a du sens pour vous — et parfois de vous dire que non, en vous indiquant ce qui serait plus utile."
+  />
+</Base>
+
+<style>
+  .marge-haut { margin-top: 1.8rem; }
+  .marge-haut-petit { margin-top: 1rem; }
+  .marge-haut-grand { margin-top: clamp(2rem, 5vw, 3rem); }
+
+  .deux-temps {
+    display: grid;
+    gap: 0.9rem;
+    align-items: stretch;
+    padding-block: clamp(1.5rem, 4vw, 2.5rem);
+  }
+  .temps {
+    padding: clamp(1.3rem, 4vw, 1.9rem);
+    border-radius: var(--r-xl);
+    border: 1px solid var(--ligne);
+    background: var(--blanc);
+    box-shadow: var(--ombre-m), var(--ombre-interne);
+  }
+  .temps-vedette {
+    background: linear-gradient(165deg, #FFFFFF, #FBF3E9);
+    border-color: rgba(184, 85, 47, 0.28);
+    box-shadow: var(--ombre-l), var(--ombre-interne);
+  }
+  .temps-libelle {
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--vert);
+  }
+  .temps-prix {
+    margin-top: 0.5rem;
+    font-family: var(--police-titre);
+    font-size: clamp(2.3rem, 7vw, 3rem);
+    font-weight: 600;
+    line-height: 1;
+  }
+  .temps-prix small { font-size: 1rem; font-weight: 500; color: var(--encre-3); }
+  .temps-note { margin-top: 0.7rem; color: var(--encre-2); font-size: 0.95rem; }
+  .temps-plus {
+    display: grid;
+    place-items: center;
+    font-family: var(--police-titre);
+    font-size: 1.6rem;
+    color: var(--encre-3);
+  }
+  @media (min-width: 800px) {
+    .deux-temps { grid-template-columns: 1fr auto 1fr; gap: 1.2rem; }
+  }
+
+  .ligne-inclus {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 1.05rem 1.2rem;
+    border-radius: var(--r-l);
+  }
+  .ligne-inclus-texte { font-size: 0.98rem; color: var(--encre); }
+  .puce {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 2.1rem;
+    height: 2.1rem;
+    border-radius: 50%;
+    background: var(--vert-clair);
+    color: var(--vert);
+    box-shadow: var(--ombre-xs);
+  }
+  .puce :global(svg) { width: 1.1rem; height: 1.1rem; stroke-width: 2.4; }
+
+  .deux-colonnes { display: grid; gap: 1.15rem; }
+  @media (min-width: 800px) {
+    .deux-colonnes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+</style>
