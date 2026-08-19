@@ -1,18 +1,45 @@
-// Copie le tableau de bord Sveltia CMS depuis node_modules vers public/admin/.
-// Lancé automatiquement avant `npm run dev` et `npm run build`, de sorte que le
-// fichier n'est pas versionné et suit toujours la version installée du paquet.
+// Copie, depuis node_modules vers public/, les deux ressources qui doivent
+// porter un nom de fichier stable. Lancé automatiquement avant `npm run dev`
+// et `npm run build` ; rien de tout cela n'est versionné.
 //
-// L'auto-hébergement évite de dépendre d'un CDN pour charger l'interface
-// d'administration (le fichier fait près de 2 Mo).
+//   public/admin/sveltia-cms.js   le tableau de bord du CMS (près de 2 Mo,
+//                                 auto-hébergé pour ne dépendre d'aucun CDN)
+//   public/fonts/newsreader-*.woff2  la police des titres, préchargée dans
+//                                 l'en-tête : un fichier passé par le build
+//                                 reçoit un nom haché, impossible à cibler.
 import { copyFileSync, existsSync, mkdirSync } from 'node:fs';
 
-const source = new URL('../node_modules/@sveltia/cms/dist/sveltia-cms.js', import.meta.url);
-const dossier = new URL('../public/admin/', import.meta.url);
+const copier = (de, vers, libelle) => {
+  try {
+    copyFileSync(new URL(de, import.meta.url), new URL(vers, import.meta.url));
+    return true;
+  } catch (erreur) {
+    console.warn(`${libelle} non copié :`, erreur.message);
+    return false;
+  }
+};
 
-try {
-  if (!existsSync(dossier)) mkdirSync(dossier, { recursive: true });
-  copyFileSync(source, new URL('sveltia-cms.js', dossier));
+const creer = (dossier) => {
+  const url = new URL(dossier, import.meta.url);
+  if (!existsSync(url)) mkdirSync(url, { recursive: true });
+};
+
+creer('../public/admin/');
+if (copier('../node_modules/@sveltia/cms/dist/sveltia-cms.js', '../public/admin/sveltia-cms.js', 'CMS')) {
   console.log('CMS copié dans public/admin/sveltia-cms.js');
-} catch (erreur) {
-  console.warn('CMS non copié :', erreur.message);
 }
+
+creer('../public/fonts/');
+let polices = 0;
+for (const sous of ['latin', 'latin-ext']) {
+  if (
+    copier(
+      `../node_modules/@fontsource-variable/newsreader/files/newsreader-${sous}-wght-normal.woff2`,
+      `../public/fonts/newsreader-${sous}.woff2`,
+      'Police',
+    )
+  ) {
+    polices += 1;
+  }
+}
+if (polices) console.log(`Police des titres copiée dans public/fonts/ (${polices} fichiers)`);

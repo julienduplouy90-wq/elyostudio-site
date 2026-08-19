@@ -1,0 +1,217 @@
+---
+import Base from '../layouts/Base.astro';
+import EnPage from '../components/EnPage.astro';
+import Icone from '../components/Icone.astro';
+import BlocTarif from '../components/BlocTarif.astro';
+import AutresVilles from '../components/AutresVilles.astro';
+import BandeCta from '../components/BandeCta.astro';
+import { site, prix } from '../data/site.js';
+
+const titre = 'Site internet pour naturopathe à Pau | ElyoStudio';
+const description =
+  'Création de site pour naturopathe à Pau : un marché du bien-être mature où une page générique ne suffit plus. 590 € puis 49 €/mois, sans devis.';
+
+const questions = [
+  {
+    q: 'Travaillez-vous avec des praticiennes du Béarn alors que vous êtes dans les Hautes-Pyrénées ?',
+    a: 'Oui, et le département n’a aucune incidence sur le travail. Pau est à environ quarante-cinq minutes d’Aureilhan : un déplacement est possible pour un premier rendez-vous si vous y tenez. Le reste — questionnaire, présentation du site, ajustements — se fait en visio, comme avec les praticiennes de Bordeaux ou de Lille.',
+  },
+  {
+    q: 'Pourquoi faut-il plus de pages à Pau qu’ailleurs ?',
+    a: 'Parce que la concurrence y est réelle. Sur un marché où plusieurs praticiennes soignent leur présence en ligne, une page unique qui parle de tout ne se positionne sur rien. Ce sont les pages par spécialité, écrites chacune pour une recherche précise, qui vont chercher la visibilité. C’est plus de travail, et c’est justement ce que couvre la publication mensuelle.',
+  },
+  {
+    q: 'Faut-il viser Pau seule ou toute l’agglomération ?',
+    a: 'Les deux, mais pas de la même façon. La recherche « naturopathe Pau » est la plus disputée ; les communes de l’agglomération et le reste du Béarn sont beaucoup moins travaillés. Une page principale sur Pau et une mention explicite de votre commune et de votre zone de déplacement couvrent les deux terrains.',
+  },
+];
+
+const donnees = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': `${site.url}/creation-site-internet-naturopathe-pau#faq`,
+  mainEntity: questions.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<Base
+  titre={titre}
+  description={description}
+  filAriane={[
+    { nom: 'Création de site pour naturopathe', lien: '/creation-site-internet-naturopathe' },
+    { nom: 'Pau', lien: '/creation-site-internet-naturopathe-pau' },
+  ]}
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(donnees)} />
+
+  <EnPage
+    surtitre="Béarn"
+    titre="Création de site internet pour naturopathe à Pau"
+    chapeau="À Pau, le bien-être n’est pas un marché émergent : il est installé. Cela veut dire une demande solide, et des consœurs qui travaillent déjà leur visibilité. Une page générique n’y suffit plus."
+  >
+    <div class="groupe-btn marge-haut">
+      <a href="/audit-gratuit" class="btn btn-principal btn-large">
+        Recevoir mon audit vidéo gratuit
+        <Icone nom="fleche" classe="fleche" />
+      </a>
+      <a href="/offre" class="btn btn-secondaire btn-large">Voir le tarif</a>
+    </div>
+  </EnPage>
+
+  <section class="section-serree">
+    <div class="rail-etroit prose reveal">
+      <p>
+        Pau change d’échelle par rapport au reste de la région : ville universitaire, bassin d’emploi
+        important, offre de soins et de bien-être nettement plus fournie qu’ailleurs dans le
+        Sud-Ouest intérieur. Pour une naturopathe, cela signifie une chose simple : le public existe,
+        il est habitué à consulter, mais il compare davantage. Une praticienne qui s’installe en
+        Béarn n’a pas à convaincre que la naturopathie a un intérêt — cette conversation est déjà
+        faite. Elle doit convaincre que c’est elle, plutôt qu’une autre, qu’il faut aller voir. Le
+        travail de référencement y compte donc plus qu’à Tarbes ou à Bagnères, et il se joue sur la
+        précision plutôt que sur la présence.
+      </p>
+
+      <h2>Ce que cherchent les futurs patients en Béarn</h2>
+      <p>
+        Le vocabulaire est plus averti qu’ailleurs. On y voit des recherches sur le microbiote, la
+        périnatalité, l’accompagnement du sportif, la charge mentale, la ménopause — c’est-à-dire des
+        demandes déjà orientées, formulées par des personnes qui savent à peu près ce qu’elles
+        veulent. Elles ne cherchent pas une naturopathe : elles cherchent une naturopathe pour un
+        sujet.
+      </p>
+      <p>
+        Concrètement, cela veut dire qu’une page d’accueil, même excellente, ne capte que la partie
+        émergée de la demande. Le trafic utile arrive sur des pages de spécialité, chacune écrite
+        pour une intention de recherche précise, avec les mots employés par les personnes concernées
+        plutôt qu’avec le vocabulaire de la profession.
+      </p>
+      <p>
+        Deuxième point : la mobilité. À Pau, on se déplace facilement dans l’agglomération, mais la
+        question du stationnement et de l’accès pèse dans la décision, en particulier pour une
+        première consultation. Ces informations pratiques méritent d’être visibles sans avoir à les
+        chercher.
+      </p>
+
+      <h2>Un marché mature : ce que cela change pour votre site</h2>
+      <p>
+        Quand plusieurs praticiennes soignent leur présence en ligne, la question n’est plus « ai-je
+        un site », mais « mon site répond-il mieux que les autres à cette recherche précise ». Trois
+        conséquences pratiques.
+      </p>
+      <p>
+        D’abord, la profondeur passe avant l’étendue. Mieux vaut trois pages solides sur trois sujets
+        que vous maîtrisez qu’une page fourre-tout mentionnant douze indications. Chaque page
+        supplémentaire est une porte d’entrée de plus, à condition qu’elle traite vraiment son sujet.
+      </p>
+      <p>
+        Ensuite, la régularité devient un facteur de classement. Sur un marché où personne ne bouge,
+        un site figé tient ses positions ; sur un marché actif comme Pau, il recule mécaniquement. La
+        publication mensuelle comprise dans l’abonnement n’est pas un supplément d’âme : c’est ce qui
+        empêche votre site de redescendre.
+      </p>
+      <p>
+        Enfin, les avis pèsent lourd. Sur les recherches locales concurrentielles, une fiche Google
+        vivante — photos récentes, publications, réponses aux avis — fait souvent la différence entre
+        deux praticiennes également compétentes.
+        <a href="/blog/fiche-google-business-naturopathe">Comment tenir sa fiche Google</a> détaille
+        ce travail, qui est compris dans le suivi mensuel.
+      </p>
+      <p class="marqueur">
+        [À COMPLÉTER PAR JULIEN : un élément concret sur le Béarn — un quartier de Pau où les cabinets
+        se regroupent, un salon ou un réseau de praticiens local, une école de naturopathie proche.
+        C’est ce type de détail vérifiable qui rend la page crédible et unique.]
+      </p>
+
+      <h2>Trois pages de spécialité qui trouvent leur public en Béarn</h2>
+      <p>
+        Le choix des pages n’est pas cosmétique : chacune vise une recherche différente et attire un
+        profil différent. Voici trois exemples de découpage qui fonctionnent, à adapter à ce que vous
+        pratiquez réellement — il ne s’agit jamais d’écrire une page sur un sujet que vous
+        n’accompagnez pas.
+      </p>
+      <p>
+        <strong>Digestion et microbiote.</strong> C’est la porte d’entrée la plus fréquente vers la
+        naturopathie, et la recherche la plus explicite. Une page qui décrit les situations concrètes
+        — ballonnements récurrents, inconfort après les repas, transit irrégulier — parle bien plus
+        que le mot « détoxification ».
+      </p>
+      <p>
+        <strong>Sommeil et fatigue persistante.</strong> Public large, formulations variées, très peu
+        de pages sérieuses en face. C’est souvent la page qui ramène le plus de premiers rendez-vous,
+        à condition d’écrire avec les mots des personnes concernées plutôt qu’avec ceux du métier.
+      </p>
+      <p>
+        <strong>Périnatalité ou périodes de transition.</strong> Public plus restreint mais très
+        décidé, qui cherche une praticienne spécifiquement formée. Une page claire sur ce que vous
+        accompagnez, et sur ce que vous n’accompagnez pas, évite les rendez-vous mal ciblés autant
+        qu’elle en attire des justes.
+      </p>
+      <p>
+        Une quatrième page arrive le mois suivant, puis une cinquième : c’est le principe de la
+        publication mensuelle, et c’est ainsi qu’un site gagne du terrain sur un marché disputé.
+      </p>
+
+      <h2>Ce qui est livré</h2>
+      <ul>
+        <li>Un site de cinq pages, dont une page par spécialité réellement recherchée.</li>
+        <li>Une fiche Google Business Profile complétée et réglée sur votre zone de déplacement.</li>
+        <li>La prise de rendez-vous en ligne, avec les informations d’accès et de stationnement.</li>
+        <li>Les textes rédigés à partir de vos réponses, dans le vocabulaire de vos futurs patients.</li>
+        <li>Votre nom de domaine et votre adresse email professionnelle.</li>
+        <li>Une page principale ciblant Pau, plus la mention de votre commune si vous exercez dans l’agglomération.</li>
+        <li>La mise en ligne en {prix.delai}.</li>
+      </ul>
+
+      <h2>Le tarif</h2>
+    </div>
+  </section>
+
+  <section class="section-serree">
+    <div class="rail-etroit reveal">
+      <BlocTarif ville="Pau" />
+    </div>
+  </section>
+
+  <section class="section-serree">
+    <div class="rail-etroit prose reveal">
+      <h2>Vous n’êtes pas à Pau ?</h2>
+      <AutresVilles
+        actuelle="Pau"
+        intro="Ce qui vaut en Béarn ne vaut pas dans les Hautes-Pyrénées : densité, saisonnalité et type de clientèle diffèrent d’un secteur à l’autre. Voici les autres pages."
+      />
+
+      <h2>Questions fréquentes</h2>
+      <div class="faq marge-haut">
+        {
+          questions.map((f, i) => (
+            <details open={i === 0}>
+              <summary>{f.q}</summary>
+              <p class="reponse">{f.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <BandeCta
+    titre="Où en êtes-vous face aux autres praticiennes paloises ?"
+    texte="Je compare votre présence à celle des praticiennes qui sortent sur les recherches béarnaises, et je vous envoie une vidéo de 2 à 3 minutes avec les 3 points qui vous coûtent le plus de rendez-vous."
+  />
+</Base>
+
+<style>
+  .marge-haut { margin-top: 1.6rem; }
+  .marqueur {
+    padding: 1rem 1.2rem;
+    border-radius: var(--r-m);
+    background: var(--terre-clair);
+    border: 1px solid rgba(184, 85, 47, 0.25);
+    color: var(--terre-2);
+    font-size: 0.92rem;
+  }
+</style>

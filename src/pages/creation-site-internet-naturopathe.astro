@@ -1,0 +1,285 @@
+---
+import Base from '../layouts/Base.astro';
+import EnPage from '../components/EnPage.astro';
+import Icone from '../components/Icone.astro';
+import BlocTarif from '../components/BlocTarif.astro';
+import BandeCta from '../components/BandeCta.astro';
+import { site, prix, villes } from '../data/site.js';
+
+const titre = 'Création de site internet pour naturopathe | ElyoStudio';
+const description =
+  'Un site de naturopathe conçu pour être trouvé et pour remplir un agenda : cinq pages, fiche Google, prise de rendez-vous. 590 € puis 49 €/mois.';
+
+const questions = [
+  {
+    q: 'Faut-il un site quand on débute son activité de naturopathe ?',
+    a: 'Pas forcément le premier mois. Faites d’abord une dizaine de consultations : vous saurez alors à qui vous vous adressez et avec quels mots, et vos pages seront infiniment plus justes. En revanche, dès que vous répétez les mêmes explications par message plusieurs fois par semaine, le site vous fait gagner du temps autant que des rendez-vous.',
+  },
+  {
+    q: 'Un site remplace-t-il la fiche Google ?',
+    a: 'Non, les deux se répondent. La fiche vous fait apparaître dans l’encart cartographique, le site convainc et permet de réserver. Une fiche sans site plafonne vite ; un site sans fiche se prive du levier local le plus rentable. C’est pour cela que les deux sont compris dans la même offre.',
+  },
+  {
+    q: 'Puis-je écrire moi-même les textes de mon site ?',
+    a: 'Oui, et c’est même une bonne idée pour la page qui vous présente. Pour le reste, je pars de vos réponses au questionnaire et je rédige : c’est plus rapide pour vous, et les pages sont construites pour répondre à une recherche précise. Vous relisez et corrigez tout avant la mise en ligne.',
+  },
+  {
+    q: 'Que se passe-t-il si je change de ville ou d’adresse de cabinet ?',
+    a: 'On met à jour le site, la fiche Google et les pages concernées. C’est compris dans le suivi mensuel, sans supplément, et c’est justement le genre de changement qui coûte cher en visibilité quand personne ne s’en occupe.',
+  },
+];
+
+const donnees = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': `${site.url}/creation-site-internet-naturopathe#faq`,
+  mainEntity: questions.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<Base
+  titre={titre}
+  description={description}
+  filAriane={[{ nom: 'Création de site pour naturopathe', lien: '/creation-site-internet-naturopathe' }]}
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(donnees)} />
+
+  <EnPage
+    surtitre="Création de site internet"
+    titre="Création de site internet pour naturopathe"
+    chapeau="Un site de naturopathe n’a pas à être beau pour être utile : il doit être trouvé, compris, et déboucher sur un rendez-vous. C’est le seul objectif de ce que je construis."
+  >
+    <div class="groupe-btn marge-haut">
+      <a href="/audit-gratuit" class="btn btn-principal btn-large">
+        Recevoir mon audit vidéo gratuit
+        <Icone nom="fleche" classe="fleche" />
+      </a>
+      <a href="/offre" class="btn btn-secondaire btn-large">Voir le tarif</a>
+    </div>
+  </EnPage>
+
+  <section class="section-serree">
+    <div class="rail-etroit prose reveal">
+      <p>
+        La plupart des naturopathes que je rencontre ont déjà quelque chose en ligne : un compte
+        Instagram tenu régulièrement, une fiche sur un annuaire de praticiens, parfois un site fait
+        il y a trois ans et jamais rouvert depuis. Et pourtant, quand une personne de leur ville
+        tape « naturopathe » dans Google, elles n’apparaissent pas. Ce n’est pas une question de
+        talent ni de sérieux : c’est une question de dispositif. Un site de praticienne qui fonctionne
+        repose sur trois choses simples — être trouvable sur les recherches que font réellement vos
+        futurs clients, dire en dix secondes à qui vous vous adressez, et rendre la prise de
+        rendez-vous évidente. Le reste est décoration.
+      </p>
+
+      <h2>Pourquoi le site d’une naturopathe ne ressemble pas à un autre site</h2>
+      <p>
+        Une personne qui cherche une naturopathe ne se comporte pas comme une personne qui cherche un
+        plombier ou un restaurant. Elle hésite. Elle ne sait pas toujours ce qu’est une consultation,
+        combien de séances il faudra, ni si sa situation vous concerne. Elle compare deux ou trois
+        praticiennes, souvent tard le soir, sur son téléphone. Elle a besoin d’être rassurée avant
+        d’être convaincue.
+      </p>
+      <p>
+        Cela change complètement ce que le site doit contenir. Les pages qui pèsent le plus ne sont
+        pas celles qui parlent de naturopathie en général, mais celles qui décrivent une situation
+        précise : la fatigue qui ne passe pas malgré le sommeil, les troubles digestifs qui reviennent,
+        la période de transition hormonale. Le visiteur doit se reconnaître, pas apprendre une
+        définition.
+      </p>
+      <p>
+        Cela change aussi le vocabulaire. Le cadre légal impose une prudence réelle : une naturopathe
+        n’est pas un professionnel de santé au sens du code de la santé publique, et son site ne peut
+        pas promettre de soigner, de guérir ni de traiter quoi que ce soit. Cette contrainte n’est pas
+        un handicap, elle oblige à écrire mieux : on parle d’accompagnement, de terrain, d’hygiène de
+        vie, de ce qui se passe pendant une séance. C’est plus honnête, et c’est plus convaincant.
+      </p>
+
+      <h2>Ce que contient un site de naturopathe qui remplit un agenda</h2>
+      <p>
+        Cinq pages suffisent, à condition qu’elles soient les bonnes. Une page d’accueil qui dit en une
+        phrase ce que vous faites, pour qui et où, avec un bouton de rendez-vous visible sans faire
+        défiler l’écran. Une page par spécialité importante — c’est celle qui capte les recherches
+        précises, et celle qui manque presque toujours. Une page qui vous présente vraiment, avec une
+        photo récente et votre parcours, car c’est souvent la plus lue. Une page qui explique le
+        déroulé d’une consultation, sa durée et son tarif, parce que l’absence de prix est perçue
+        comme une mauvaise nouvelle. Une page de contact avec la prise de rendez-vous en ligne.
+      </p>
+      <p>
+        À cela s’ajoute une exigence non négociable : le site doit être impeccable sur téléphone. La
+        majorité des visites arrivent depuis un mobile, souvent en réseau moyen. Concrètement, cela
+        veut dire des pages légères qui s’affichent en moins de trois secondes, des boutons assez
+        grands pour le pouce, un texte lisible sans zoomer, et un numéro de téléphone cliquable.
+      </p>
+      <p>
+        <a href="/blog/que-mettre-page-accueil-praticien">La structure de page qui convertit</a> est
+        détaillée dans le journal, bloc par bloc, si vous voulez la mettre en place vous-même.
+      </p>
+
+      <h2>Le référencement local, ce qui fait vraiment la différence</h2>
+      <p>
+        Un site invisible ne sert à rien, et la visibilité d’une praticienne se joue à l’échelle d’une
+        ville, pas d’un pays. Le levier le plus rentable n’est même pas le site : c’est la fiche Google
+        Business Profile, gratuite, qui décide de votre présence dans l’encart cartographique. Une
+        catégorie principale bien choisie, une adresse et des horaires cohérents avec le site, des
+        photos réelles du cabinet, une description précise, et des avis auxquels vous répondez : cela
+        suffit à passer devant des praticiennes installées depuis plus longtemps que vous.
+      </p>
+      <p>
+        Vient ensuite la structure du site. Une page unique intitulée « Mes prestations » qui parle de
+        tout ne se positionne sur rien, parce que Google ne sait pas quelle question elle traite. Une
+        page par intention de recherche, en revanche, se positionne sur cette intention. C’est le même
+        contenu, réparti autrement, et le résultat n’a rien à voir.
+      </p>
+      <p>
+        Enfin, la régularité. Google privilégie ce qui bouge : un site livré puis laissé tel quel perd
+        du terrain mois après mois, sans que rien de visible ne se produise. C’est exactement la raison
+        pour laquelle mon offre comprend une publication mensuelle plutôt qu’un simple hébergement.
+        <a href="/blog/referencement-local-naturopathe">Le guide complet du référencement local</a>
+        détaille chaque levier, dans l’ordre où les mettre en place.
+      </p>
+
+      <h2>Les erreurs qui coûtent le plus de rendez-vous</h2>
+      <p>
+        Elles sont toujours les mêmes, et aucune n’est une question de goût.
+      </p>
+      <p>
+        <strong>Le site qui parle de la naturopathie au lieu de parler de la visiteuse.</strong> Une
+        page qui définit la discipline, cite ses grands principes et détaille les techniques employées
+        n’intéresse que les personnes déjà convaincues. Celle qui hésite veut lire sa propre
+        situation, pas une définition.
+      </p>
+      <p>
+        <strong>Le tarif absent.</strong> Cacher le prix ne repousse pas la question, elle la remplace
+        par une inquiétude. Une consultation affichée avec sa durée et son montant filtre les
+        demandes mal ciblées et rassure les autres.
+      </p>
+      <p>
+        <strong>Le formulaire à dix champs.</strong> Chaque champ supplémentaire fait perdre des
+        demandes. Un prénom, un email, une phrase suffisent pour un premier contact.
+      </p>
+      <p>
+        <strong>Le site jamais rouvert depuis sa mise en ligne.</strong> C’est le plus fréquent, et le
+        plus coûteux. Un site figé perd ses positions lentement, sans rien manifester : on ne
+        s’aperçoit de rien avant de constater, un an plus tard, que le téléphone sonne moins.
+      </p>
+      <p>
+        <strong>Les promesses de guérison.</strong> Outre le risque juridique réel, elles font fuir
+        les visiteurs les plus sérieux, qui savent qu’une naturopathe accompagne et ne soigne pas.
+      </p>
+
+      <h2>Ce qu’un site ne fera pas à votre place</h2>
+      <p>
+        Autant l’écrire ici : un site ne crée pas de la demande là où il n’y en a pas, ne remplace pas
+        le bouche-à-oreille, et ne compense pas une pratique qui cherche encore son public. Il capte
+        une demande existante et lui donne un chemin. Si vous démarrez tout juste, faites d’abord vos
+        premières consultations : vous saurez ensuite quoi écrire, et le site sera bien meilleur.
+      </p>
+      <p>
+        Il ne garantit pas non plus une première place sur Google. Personne ne peut la garantir, et
+        celui qui vous la promet vous ment ou parle d’une requête que personne ne tape. Ce qui se
+        pilote, en revanche, c’est le nombre de portes d’entrée, la qualité des réponses apportées, et
+        la régularité de la publication.
+      </p>
+
+      <h2>Ce qui est livré, et ce qui se passe ensuite</h2>
+      <p>
+        Le site est en ligne en {prix.delai}, avec votre nom de domaine, votre adresse email
+        professionnelle, votre fiche Google créée ou remise à plat et la prise de rendez-vous testée
+        de bout en bout. Puis, chaque mois, une page ou un article de plus se publie, la fiche est
+        entretenue, et vous recevez un rapport d’une page : visites, origine du trafic, appels reçus
+        depuis la fiche, demandes de rendez-vous.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-serree">
+    <div class="rail-etroit reveal">
+      <BlocTarif />
+    </div>
+  </section>
+
+  <section class="section-serree">
+    <div class="rail-etroit prose reveal">
+      <h2>Ce que l’on attend de vous : environ deux heures</h2>
+      <p>
+        C’est la question qui revient le plus souvent, et la réponse rassure : un appel de trente
+        minutes pour parler de votre pratique, une heure pour remplir un questionnaire guidé sans
+        aucun terme technique, une relecture des textes à votre rythme. Vous fournissez vos photos, ou
+        je vous indique précisément lesquelles prendre. Le reste — conception, rédaction, mise en
+        ligne, hébergement, fiche Google — ne vous demande rien.
+      </p>
+
+      <h2>Où j’interviens</h2>
+      <p>
+        Je travaille depuis {site.ville}, à côté de Tarbes, avec des naturopathes partout en France :
+        tout se fait en visio et par email, sans contrainte géographique. Dans les Hautes-Pyrénées et
+        le Béarn, la proximité change en revanche quelque chose au référencement local, et j’ai écrit
+        une page par secteur.
+      </p>
+      <ul class="liens-villes">
+        {
+          villes.map((v) => (
+            <li>
+              <a href={v.lien}>
+                <strong>{v.nom}</strong>
+                <span>{v.accroche}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <h2>Questions fréquentes</h2>
+      <div class="faq marge-haut">
+        {
+          questions.map((f, i) => (
+            <details open={i === 0}>
+              <summary>{f.q}</summary>
+              <p class="reponse">{f.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <BandeCta />
+</Base>
+
+<style>
+  .marge-haut { margin-top: 1.6rem; }
+
+  .liens-villes {
+    list-style: none;
+    padding: 0;
+    margin-top: 1.4rem;
+    display: grid;
+    gap: 0.8rem;
+  }
+  .liens-villes a {
+    display: grid;
+    gap: 0.2rem;
+    padding: 1rem 1.2rem;
+    border: 1px solid var(--ligne);
+    border-radius: var(--r-l);
+    background: var(--blanc);
+    box-shadow: var(--ombre-s);
+    text-decoration: none;
+    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  }
+  .liens-villes a:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--ombre-m);
+    border-color: rgba(46, 90, 75, 0.25);
+  }
+  .liens-villes strong { color: var(--vert); font-size: 1rem; }
+  .liens-villes span { color: var(--encre-2); font-size: 0.92rem; }
+
+  @media (min-width: 640px) {
+    .liens-villes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+</style>

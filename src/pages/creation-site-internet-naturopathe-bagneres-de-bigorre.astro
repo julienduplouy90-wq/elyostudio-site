@@ -1,0 +1,214 @@
+---
+import Base from '../layouts/Base.astro';
+import EnPage from '../components/EnPage.astro';
+import Icone from '../components/Icone.astro';
+import BlocTarif from '../components/BlocTarif.astro';
+import AutresVilles from '../components/AutresVilles.astro';
+import BandeCta from '../components/BandeCta.astro';
+import { site, prix } from '../data/site.js';
+
+const titre = 'Site de naturopathe à Bagnères-de-Bigorre | ElyoStudio';
+const description =
+  'Création de site pour naturopathe à Bagnères-de-Bigorre : capter les habitants de la vallée et les curistes de passage. 590 € puis 49 €/mois.';
+
+const questions = [
+  {
+    q: 'Une commune de cette taille justifie-t-elle un vrai site ?',
+    a: 'Oui, et pour une raison inverse à celle qu’on imagine : plus la commune est petite, moins la concurrence en ligne est travaillée. Se positionner sur « naturopathe Bagnères-de-Bigorre » demande peu d’efforts et se tient dans la durée. Le site sert alors autant à être trouvé qu’à rassurer une personne qui hésite à faire de la route.',
+  },
+  {
+    q: 'Comment toucher les curistes sans négliger les habitants ?',
+    a: 'En ajoutant, sans rien enlever. Le cœur du site reste votre patientèle de la vallée, qui revient et qui recommande. Une page dédiée aux séjours — consultation ponctuelle, accompagnement pendant une cure, informations pratiques — capte la clientèle saisonnière sans brouiller le message principal.',
+  },
+  {
+    q: 'J’interviens sur plusieurs communes de la vallée, comment le montrer ?',
+    a: 'En le disant explicitement, ce que presque personne ne fait. Nommez les communes où vous consultez ou vous déplacez, précisez les jours, indiquez le temps de trajet depuis Bagnères. Ces recherches sont peu concurrentielles et vous les occuperez sans difficulté, à condition d’écrire les noms de communes quelque part sur le site.',
+  },
+];
+
+const donnees = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': `${site.url}/creation-site-internet-naturopathe-bagneres-de-bigorre#faq`,
+  mainEntity: questions.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<Base
+  titre={titre}
+  description={description}
+  filAriane={[
+    { nom: 'Création de site pour naturopathe', lien: '/creation-site-internet-naturopathe' },
+    { nom: 'Bagnères-de-Bigorre', lien: '/creation-site-internet-naturopathe-bagneres-de-bigorre' },
+  ]}
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(donnees)} />
+
+  <EnPage
+    surtitre="Vallée de Campan et Haute-Bigorre"
+    titre="Création de site internet pour naturopathe à Bagnères-de-Bigorre"
+    chapeau="Une commune thermale, une vallée, une clientèle en partie saisonnière : ici, la naturopathie s’inscrit dans un territoire qui parle déjà de bien-être. Encore faut-il que votre site le dise."
+  >
+    <div class="groupe-btn marge-haut">
+      <a href="/audit-gratuit" class="btn btn-principal btn-large">
+        Recevoir mon audit vidéo gratuit
+        <Icone nom="fleche" classe="fleche" />
+      </a>
+      <a href="/offre" class="btn btn-secondaire btn-large">Voir le tarif</a>
+    </div>
+  </EnPage>
+
+  <section class="section-serree">
+    <div class="rail-etroit prose reveal">
+      <p>
+        Bagnères-de-Bigorre a un avantage que peu de communes de cette taille possèdent : le
+        thermalisme y a installé, depuis très longtemps, l’idée qu’on vient y prendre soin de soi.
+        Une naturopathe n’a donc pas à justifier sa présence, ce qui représente une économie
+        d’argumentation considérable par rapport à d’autres secteurs. En contrepartie, le bassin de
+        population est plus restreint, la clientèle se répartit sur plusieurs communes de la vallée,
+        et une partie de l’activité suit le rythme des saisons. Un site conçu pour une grande ville
+        ne fonctionne pas ici : il faut penser vallée plutôt que commune, et année entière plutôt que
+        mois moyen.
+      </p>
+
+      <h2>Ce que cherchent les habitants de la vallée</h2>
+      <p>
+        La première question n’est pas « qui est cette praticienne », mais « où consulte-t-elle et
+        quel jour ». Sur un territoire où l’on prend la voiture pour tout, le trajet fait partie de
+        la décision. Une page qui indique clairement le lieu, les jours de consultation, le
+        stationnement et éventuellement les communes où vous vous déplacez lève l’essentiel des
+        hésitations.
+      </p>
+      <p>
+        La deuxième particularité, c’est le poids du bouche-à-oreille. Dans une petite ville, on vous
+        recommande par votre prénom, puis la personne cherche votre nom sur Google pour vérifier.
+        Elle ne vous découvre pas, elle vous confirme. Si elle ne trouve rien, ou une fiche vide, le
+        doute s’installe alors même que vous étiez recommandée. Le site remplit ici une fonction de
+        confirmation, au moins autant que de découverte.
+      </p>
+      <p>
+        Troisième point : les recherches locales y sont très peu disputées. Se positionner sur
+        « naturopathe Bagnères-de-Bigorre » et sur les communes environnantes demande un travail
+        modeste et tient dans le temps, à condition que quelqu’un le fasse une fois correctement.
+      </p>
+
+      <h2>Le thermalisme et la saisonnalité, à exploiter et à amortir</h2>
+      <p>
+        Les curistes forment un public à part : présents pour une durée déterminée, déjà engagés dans
+        une démarche de santé, souvent disponibles en journée. Ils ne deviendront pas des patients
+        réguliers, mais ils remplissent des créneaux et parlent de vous ensuite. Les toucher demande
+        une page distincte, qui répond à leurs questions à eux — durée d’une consultation,
+        possibilité d’un accompagnement pendant le séjour, tarif, réservation immédiate — plutôt que
+        de leur servir la page prévue pour une patientèle locale.
+      </p>
+      <p>
+        La saisonnalité, elle, se travaille en amont. Si l’activité connaît des creux, ce sont les
+        mois où la publication de contenu compte le plus : ce que vous publiez en basse saison
+        alimente la visibilité de la saison suivante, parce que Google met plusieurs semaines à
+        prendre en compte une nouvelle page. C’est exactement ce que finance la publication mensuelle
+        comprise dans l’abonnement — une page de plus chaque mois, indépendamment de votre agenda du
+        moment.
+      </p>
+      <p>
+        Enfin, la vallée elle-même est un actif. Nommer les communes où vous intervenez ouvre autant
+        de portes d’entrée supplémentaires, sur des recherches que personne ne travaille.
+        <a href="/blog/referencement-local-naturopathe">Le guide du référencement local</a> explique
+        comment le faire sans tomber dans la liste artificielle de noms de villes, qui, elle, est
+        pénalisée.
+      </p>
+      <p class="marqueur">
+        [À COMPLÉTER PAR JULIEN : la réalité de la Haute-Bigorre — communes de la vallée où consulter
+        a du sens, rythme réel des saisons, éventuels liens avec les établissements thermaux ou les
+        professionnels du bien-être locaux. Deux phrases vraies suffisent à rendre cette page
+        incomparable.]
+      </p>
+
+      <h2>Trois publics, trois entrées sur le site</h2>
+      <p>
+        Une praticienne de la Haute-Bigorre s’adresse en réalité à trois personnes différentes, et le
+        site gagne à leur ouvrir trois portes plutôt qu’un couloir unique.
+      </p>
+      <p>
+        <strong>L’habitante de la vallée.</strong> Elle vous a peut-être entendue en pharmacie ou chez
+        une amie. Elle cherche votre nom, veut savoir où et quand vous consultez, et si vous
+        accompagnez ce qui la préoccupe. Sa page, c’est l’accueil et les pages de spécialité.
+      </p>
+      <p>
+        <strong>Le curiste.</strong> Il est là deux ou trois semaines, souvent disponible en journée,
+        déjà dans une démarche de santé. Il ne connaît ni la ville ni vous. Sa page, c’est une page
+        « pendant votre séjour » avec les informations pratiques et un agenda réservable.
+      </p>
+      <p>
+        <strong>La personne des communes voisines.</strong> Elle accepte de faire de la route, mais
+        veut savoir combien de temps, quel jour, et si le déplacement en vaut la peine. Sa page, c’est
+        celle qui nomme les communes et précise vos jours de consultation.
+      </p>
+      <p>
+        Ces trois entrées ne demandent pas trois sites : elles demandent trois pages écrites pour
+        trois questions distinctes. C’est exactement le rythme d’une publication par mois.
+      </p>
+
+      <h2>Ce qui est livré</h2>
+      <ul>
+        <li>Un site de cinq pages, pensé pour une clientèle répartie sur plusieurs communes.</li>
+        <li>Une page dédiée aux séjours et aux curistes, avec réservation immédiate.</li>
+        <li>Une fiche Google Business Profile réglée sur Bagnères-de-Bigorre et votre zone de déplacement.</li>
+        <li>Les jours et lieux de consultation mis en évidence, pas enterrés en bas de page.</li>
+        <li>Les textes rédigés à partir de vos réponses, relus par vous.</li>
+        <li>Votre nom de domaine et votre adresse email professionnelle.</li>
+        <li>La mise en ligne en {prix.delai}.</li>
+      </ul>
+
+      <h2>Le tarif</h2>
+    </div>
+  </section>
+
+  <section class="section-serree">
+    <div class="rail-etroit reveal">
+      <BlocTarif ville="Bagnères-de-Bigorre" />
+    </div>
+  </section>
+
+  <section class="section-serree">
+    <div class="rail-etroit prose reveal">
+      <h2>Vous n’êtes pas à Bagnères-de-Bigorre ?</h2>
+      <AutresVilles
+        actuelle="Bagnères-de-Bigorre"
+        intro="Densité, saisonnalité, type de clientèle : chaque secteur demande un raisonnement différent. Voici les autres pages."
+      />
+
+      <h2>Questions fréquentes</h2>
+      <div class="faq marge-haut">
+        {
+          questions.map((f, i) => (
+            <details open={i === 0}>
+              <summary>{f.q}</summary>
+              <p class="reponse">{f.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <BandeCta
+    titre="Êtes-vous trouvable dans la vallée ?"
+    texte="Je tape les recherches faites depuis Bagnères et les communes autour, je regarde ce qui sort, et je vous envoie une vidéo de 2 à 3 minutes avec les 3 points qui vous coûtent le plus de rendez-vous."
+  />
+</Base>
+
+<style>
+  .marge-haut { margin-top: 1.6rem; }
+  .marqueur {
+    padding: 1rem 1.2rem;
+    border-radius: var(--r-m);
+    background: var(--terre-clair);
+    border: 1px solid rgba(184, 85, 47, 0.25);
+    color: var(--terre-2);
+    font-size: 0.92rem;
+  }
+</style>

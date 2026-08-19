@@ -19,6 +19,7 @@ import vitrines from './realisations.json';
 export const site = reglages.site;
 export const prix = reglages.prix;
 export const navigation = reglages.navigation;
+export const villes = reglages.villes;
 
 export const problemes = accueil.problemes;
 export const solutions = accueil.solutions;

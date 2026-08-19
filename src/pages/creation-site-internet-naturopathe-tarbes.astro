@@ -1,0 +1,221 @@
+---
+import Base from '../layouts/Base.astro';
+import EnPage from '../components/EnPage.astro';
+import Icone from '../components/Icone.astro';
+import BlocTarif from '../components/BlocTarif.astro';
+import AutresVilles from '../components/AutresVilles.astro';
+import BandeCta from '../components/BandeCta.astro';
+import { site, prix } from '../data/site.js';
+
+const titre = 'Site internet pour naturopathe à Tarbes | ElyoStudio';
+const description =
+  'Création de site pour naturopathe à Tarbes : se distinguer sur le marché le plus dense du département. Studio à Aureilhan, 590 € puis 49 €/mois.';
+
+const questions = [
+  {
+    q: 'Combien de naturopathes exercent à Tarbes ?',
+    a: 'Assez pour que le hasard ne suffise plus. Le bassin tarbais est le plus dense des Hautes-Pyrénées, et une personne qui cherche une praticienne y a le choix entre plusieurs profils qu’elle ne sait pas départager. C’est précisément ce qui rend la clarté du site déterminante : celle qui explique le plus nettement à qui elle s’adresse récupère le rendez-vous.',
+  },
+  {
+    q: 'Mon cabinet est à Séméac, pas à Tarbes. Est-ce un problème ?',
+    a: 'Au contraire, c’est une information à exploiter. Les recherches se font par ville, et personne ne travaille sérieusement les communes du bassin : Séméac, Aureilhan, Ibos, Odos, Laloubère. Une page qui nomme votre commune et explique votre accès depuis Tarbes vous rend visible sur un terrain vide, en plus des recherches tarbaises.',
+  },
+  {
+    q: 'Peut-on se voir en vrai plutôt qu’en visio ?',
+    a: 'Oui. Le studio est à Aureilhan, à quelques minutes de Tarbes : pour les praticiennes du bassin, un rendez-vous sur place ou dans votre cabinet est possible. Ce n’est pas indispensable — tout fonctionne très bien à distance — mais c’est proposé.',
+  },
+];
+
+const donnees = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': `${site.url}/creation-site-internet-naturopathe-tarbes#faq`,
+  mainEntity: questions.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<Base
+  titre={titre}
+  description={description}
+  filAriane={[
+    { nom: 'Création de site pour naturopathe', lien: '/creation-site-internet-naturopathe' },
+    { nom: 'Tarbes', lien: '/creation-site-internet-naturopathe-tarbes' },
+  ]}
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(donnees)} />
+
+  <EnPage
+    surtitre="Hautes-Pyrénées"
+    titre="Création de site internet pour naturopathe à Tarbes"
+    chapeau="Sur le bassin tarbais, vous n’êtes pas la seule à proposer un accompagnement en naturopathie. Votre site doit donc faire une chose de plus qu’ailleurs : dire nettement à qui vous vous adressez."
+  >
+    <div class="groupe-btn marge-haut">
+      <a href="/audit-gratuit" class="btn btn-principal btn-large">
+        Recevoir mon audit vidéo gratuit
+        <Icone nom="fleche" classe="fleche" />
+      </a>
+      <a href="/offre" class="btn btn-secondaire btn-large">Voir le tarif</a>
+    </div>
+  </EnPage>
+
+  <section class="section-serree">
+    <div class="rail-etroit prose reveal">
+      <p>
+        Tarbes est la préfecture des Hautes-Pyrénées, et de loin le secteur le plus animé du
+        département en matière de bien-être. Pour une naturopathe, c’est une bonne et une mauvaise
+        nouvelle. La bonne : la demande existe, les habitudes de consultation sont installées, et
+        les gens cherchent activement sur Google avant de prendre rendez-vous. La mauvaise : vous
+        n’êtes pas seule sur cette recherche, et une personne qui découvre trois praticiennes en
+        même temps choisit celle qu’elle comprend le plus vite. À Tarbes, la visibilité ne suffit
+        plus — il faut aussi être lisible. Mon studio est installé à Aureilhan, à quelques minutes
+        du centre : je connais ce bassin, ses communes et la façon dont on s’y déplace.
+      </p>
+
+      <h2>Ce que cherche une personne du secteur tarbais avant de prendre rendez-vous</h2>
+      <p>
+        Elle tape rarement « naturopathie ». Elle tape ce qui lui arrive : la fatigue qui ne passe
+        pas, le ventre qui la gêne depuis des mois, le sommeil qui se dégrade, parfois simplement
+        « naturopathe Tarbes ». Puis elle ouvre trois onglets et compare en quelques minutes, le plus
+        souvent sur son téléphone.
+      </p>
+      <p>
+        Ce qu’elle veut savoir tient en quatre points : est-ce que cette praticienne s’occupe de mon
+        problème à moi, comment se passe une première consultation, combien ça coûte, et comment je
+        prends rendez-vous maintenant. Un site tarbais qui répond à ces quatre questions en moins
+        d’une minute gagne face à un site plus joli qui les noie dans une présentation de la
+        naturopathie.
+      </p>
+      <p>
+        La deuxième particularité locale, c’est le déplacement. Sur le bassin, on accepte volontiers
+        de faire dix minutes de voiture, à condition de savoir où l’on va et où se garer. Indiquer
+        clairement l’adresse, le stationnement et l’accès vaut, ici, plusieurs paragraphes de
+        présentation.
+      </p>
+
+      <h2>Se distinguer quand on n’est pas la seule : la situation tarbaise</h2>
+      <p>
+        Sur un marché dense, la tentation est d’élargir : dire que l’on accompagne tout le monde, sur
+        tous les sujets, pour ne rater personne. C’est l’erreur la plus coûteuse. Google ne sait pas
+        sur quelle recherche vous positionner, et la visiteuse ne sait pas si vous êtes la bonne
+        personne. La page qui parle de tout ne parle à personne.
+      </p>
+      <p>
+        La méthode qui fonctionne à Tarbes consiste à faire l’inverse : deux ou trois spécialités
+        assumées, chacune avec sa propre page, écrite avec les mots des personnes concernées. Une
+        naturopathe qui traite en profondeur la digestion et le sommeil devancera, sur ces
+        recherches-là, une consœur généraliste mieux installée. C’est le seul terrain où l’on peut
+        gagner vite sans budget publicitaire.
+      </p>
+      <p>
+        Deuxième levier, et il est propre au bassin : les communes autour. Aureilhan, Séméac, Ibos,
+        Odos, Laloubère font partie du même bassin de vie, et les recherches qui les mentionnent sont
+        presque désertes. Une page qui nomme votre commune, explique votre accès depuis Tarbes et
+        cite les alentours capte une demande que personne ne travaille.
+      </p>
+      <p>
+        Troisième levier, le plus rentable : la fiche Google Business Profile. Sur les recherches
+        locales, c’est elle qui décide de votre présence dans l’encart cartographique, avant même le
+        site.
+        <a href="/blog/referencement-local-naturopathe">Le guide du référencement local</a> détaille
+        ce qu’il faut y renseigner, dans quel ordre.
+      </p>
+      <p class="marqueur">
+        [À COMPLÉTER PAR JULIEN : une observation concrète sur le marché tarbais — un quartier où les
+        cabinets se concentrent, une école ou un réseau de praticiens local, une habitude de
+        recommandation entre professionnels. Un détail vrai et vérifiable vaut mieux que trois
+        paragraphes généraux.]
+      </p>
+
+      <h2>Ce que je regarde en premier sur un site tarbais</h2>
+      <p>
+        Quand j’ouvre le site d’une praticienne du secteur, je vérifie cinq choses dans cet ordre, et
+        elles suffisent presque toujours à expliquer pourquoi l’agenda ne se remplit pas.
+      </p>
+      <p>
+        <strong>La première phrase.</strong> Dit-elle ce que vous faites, pour qui, et où ? « Bienvenue
+        sur mon site » et les citations inspirantes coûtent les dix secondes qui décident de tout.
+      </p>
+      <p>
+        <strong>La présence du mot de la ville.</strong> Tarbes, ou votre commune, doit apparaître
+        dans le titre de la page d’accueil, dans le texte, et dans la fiche Google. C’est élémentaire,
+        et c’est absent une fois sur deux.
+      </p>
+      <p>
+        <strong>Le bouton de rendez-vous.</strong> Est-il visible sans faire défiler l’écran, sur
+        téléphone ? Renvoie-t-il vers un agenda, ou vers un formulaire qui demandera deux jours
+        d’allers-retours par email ?
+      </p>
+      <p>
+        <strong>Les pages de spécialité.</strong> Y en a-t-il, ou tout est-il rassemblé dans une page
+        « prestations » ? C’est la différence entre apparaître sur trois recherches et sur une seule.
+      </p>
+      <p>
+        <strong>Le temps d’affichage.</strong> Sur un forfait mobile ordinaire, dans une rue de
+        Tarbes, combien de temps avant que le texte apparaisse ? Au-delà de trois secondes, une partie
+        des visiteurs est déjà repartie.
+      </p>
+
+      <h2>Ce qui est livré</h2>
+      <ul>
+        <li>Un site de cinq pages, avec une page dédiée à chacune de vos spécialités.</li>
+        <li>Une fiche Google Business Profile créée ou remise à plat, réglée sur le bassin tarbais.</li>
+        <li>La prise de rendez-vous en ligne, installée et testée depuis un téléphone.</li>
+        <li>Les textes rédigés à partir de vos réponses, relus et validés par vous.</li>
+        <li>Votre nom de domaine et votre adresse email professionnelle.</li>
+        <li>Une page qui nomme votre commune et vos conditions d’accès, si vous exercez hors de Tarbes.</li>
+        <li>La mise en ligne en {prix.delai}.</li>
+      </ul>
+
+      <h2>Le tarif</h2>
+    </div>
+  </section>
+
+  <section class="section-serree">
+    <div class="rail-etroit reveal">
+      <BlocTarif ville="Tarbes" />
+    </div>
+  </section>
+
+  <section class="section-serree">
+    <div class="rail-etroit prose reveal">
+      <h2>Vous n’êtes pas à Tarbes ?</h2>
+      <AutresVilles
+        actuelle="Tarbes"
+        intro="Le raisonnement change d’une ville à l’autre : la concurrence, la clientèle et même la saisonnalité ne sont pas les mêmes. J’ai écrit une page par secteur."
+      />
+
+      <h2>Questions fréquentes</h2>
+      <div class="faq marge-haut">
+        {
+          questions.map((f, i) => (
+            <details open={i === 0}>
+              <summary>{f.q}</summary>
+              <p class="reponse">{f.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <BandeCta
+    titre="Voyons ce que donne votre visibilité sur Tarbes"
+    texte="Je tape les recherches que font vos futurs clients du bassin tarbais, je regarde votre site et votre fiche Google, et je vous envoie une vidéo de 2 à 3 minutes avec les 3 points qui vous coûtent le plus de rendez-vous."
+  />
+</Base>
+
+<style>
+  .marge-haut { margin-top: 1.6rem; }
+  .marqueur {
+    padding: 1rem 1.2rem;
+    border-radius: var(--r-m);
+    background: var(--terre-clair);
+    border: 1px solid rgba(184, 85, 47, 0.25);
+    color: var(--terre-2);
+    font-size: 0.92rem;
+  }
+</style>

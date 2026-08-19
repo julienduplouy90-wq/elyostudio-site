@@ -1,0 +1,212 @@
+---
+import Base from '../layouts/Base.astro';
+import EnPage from '../components/EnPage.astro';
+import Icone from '../components/Icone.astro';
+import BlocTarif from '../components/BlocTarif.astro';
+import AutresVilles from '../components/AutresVilles.astro';
+import BandeCta from '../components/BandeCta.astro';
+import { site, prix } from '../data/site.js';
+
+const titre = 'Site internet pour naturopathe à Lourdes | ElyoStudio';
+const description =
+  'Création de site pour naturopathe à Lourdes : une clientèle locale et une clientèle de passage, qui ne cherchent pas la même chose. 590 € puis 49 €/mois.';
+
+const questions = [
+  {
+    q: 'Faut-il une version anglaise du site quand on exerce à Lourdes ?',
+    a: 'Pas nécessairement l’ensemble du site. Une page unique en anglais, qui explique ce qu’est une consultation, sa durée, son tarif et comment réserver, couvre l’essentiel du besoin d’une clientèle de passage. C’est un travail ciblé, et c’est typiquement le genre de page que l’on peut publier dans le cadre du suivi mensuel.',
+  },
+  {
+    q: 'Une clientèle de passage vaut-elle la peine d’être visée ?',
+    a: 'Elle ne remplace pas la patientèle locale, qui reste votre base : le passage ne revient pas, et un accompagnement en naturopathie se construit sur plusieurs séances. Mais une consultation ponctuelle réservée le matin pour l’après-midi remplit un créneau qui serait resté vide, et cela se joue entièrement sur la rapidité du site à répondre.',
+  },
+  {
+    q: 'Comment gérer deux publics sur le même site ?',
+    a: 'En les séparant clairement plutôt qu’en cherchant un texte qui parle aux deux. Une page d’accueil et des pages de spécialité pour la patientèle locale, une page « consultation ponctuelle » pour le passage, avec ses informations pratiques et sa réservation immédiate. Chacune répond à une recherche différente, et aucune ne dilue l’autre.',
+  },
+];
+
+const donnees = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': `${site.url}/creation-site-internet-naturopathe-lourdes#faq`,
+  mainEntity: questions.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<Base
+  titre={titre}
+  description={description}
+  filAriane={[
+    { nom: 'Création de site pour naturopathe', lien: '/creation-site-internet-naturopathe' },
+    { nom: 'Lourdes', lien: '/creation-site-internet-naturopathe-lourdes' },
+  ]}
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(donnees)} />
+
+  <EnPage
+    surtitre="Hautes-Pyrénées"
+    titre="Création de site internet pour naturopathe à Lourdes"
+    chapeau="Exercer à Lourdes, c’est composer avec deux publics qui n’ont rien en commun : des habitants que vous accompagnerez sur la durée, et des visiteurs de passage qui décident en quelques minutes."
+  >
+    <div class="groupe-btn marge-haut">
+      <a href="/audit-gratuit" class="btn btn-principal btn-large">
+        Recevoir mon audit vidéo gratuit
+        <Icone nom="fleche" classe="fleche" />
+      </a>
+      <a href="/offre" class="btn btn-secondaire btn-large">Voir le tarif</a>
+    </div>
+  </EnPage>
+
+  <section class="section-serree">
+    <div class="rail-etroit prose reveal">
+      <p>
+        Lourdes ne se compare à aucune autre ville des Hautes-Pyrénées. C’est une commune de taille
+        moyenne qui accueille toute l’année une population de passage sans rapport avec son nombre
+        d’habitants. Pour la plupart des commerces, c’est une évidence intégrée depuis longtemps.
+        Pour une naturopathe, c’est une singularité qu’on exploite rarement : le site doit servir
+        deux personnes très différentes. L’une habite à dix minutes et cherchera une praticienne pour
+        plusieurs mois. L’autre est là pour quelques jours, ressent un besoin ponctuel, et n’ira pas
+        plus loin que le premier résultat capable de lui donner une heure de rendez-vous.
+      </p>
+
+      <h2>Deux publics, deux recherches, deux parcours</h2>
+      <p>
+        La patientèle locale se comporte comme partout ailleurs : elle compare, elle lit la page qui
+        vous présente, elle veut comprendre votre approche et savoir combien de séances seront
+        nécessaires. Elle prend son temps, souvent plusieurs jours entre la première visite du site
+        et le rendez-vous.
+      </p>
+      <p>
+        La clientèle de passage fonctionne à l’opposé. Elle cherche depuis un téléphone, parfois en
+        marchant, avec une question immédiate : y a-t-il quelqu’un de disponible aujourd’hui ou
+        demain, où est-ce, combien de temps, combien ça coûte. Elle ne lira pas votre parcours. Si
+        elle doit envoyer un email et attendre une réponse, elle est déjà partie.
+      </p>
+      <p>
+        Conséquence directe sur la conception : la réservation en ligne n’est pas un confort à
+        Lourdes, c’est la condition d’existence de ce second public. Un agenda qui affiche les
+        créneaux libres du jour transforme une recherche en consultation ; un formulaire de contact
+        ne le fera pas.
+      </p>
+
+      <h2>Ce que la ville impose au site</h2>
+      <p>
+        <strong>Le mobile avant tout.</strong> Cette clientèle navigue en déplacement, souvent en
+        réseau moyen. Une page qui met plus de trois secondes à s’afficher est abandonnée avant
+        d’avoir été lue. C’est vrai partout, c’est décisif ici.
+      </p>
+      <p>
+        <strong>Les informations pratiques en évidence.</strong> Adresse, accès à pied depuis le
+        centre, stationnement, horaires d’ouverture réels, durée de la consultation, tarif. Ce sont
+        les premières choses cherchées par quelqu’un qui ne connaît pas la ville, et ce sont
+        justement celles que la plupart des sites de praticiens enterrent en bas de page.
+      </p>
+      <p>
+        <strong>Une page en anglais, éventuellement.</strong> Une seule page suffit : ce qu’est une
+        consultation, sa durée, son prix, comment réserver. C’est un investissement modeste sur un
+        terrain où, à ma connaissance, quasiment personne ne se place.
+      </p>
+      <p>
+        <strong>Une fiche Google irréprochable.</strong> Pour une recherche faite sur place, l’encart
+        cartographique est souvent le seul écran consulté. Horaires exacts, photos récentes, appel en
+        un geste, itinéraire : la fiche fait ici une partie du travail du site.
+      </p>
+      <p class="marqueur">
+        [À COMPLÉTER PAR JULIEN : la réalité du flux à Lourdes — saisonnalité réelle, périodes creuses,
+        proportion approximative de clientèle de passage constatée par une praticienne du secteur. Ne
+        rien inventer ici : une phrase vraie vaut mieux qu’un paragraphe plausible.]
+      </p>
+
+      <h2>Le parcours d’une personne de passage, minute par minute</h2>
+      <p>
+        Il est utile de se représenter concrètement ce qui se joue, parce que tout se décide en très
+        peu de temps.
+      </p>
+      <p>
+        <strong>Minute une.</strong> Elle tape « naturopathe Lourdes » sur son téléphone. Ce qu’elle
+        voit d’abord, ce n’est pas votre site : c’est l’encart cartographique, avec trois fiches
+        Google, leurs horaires et leur note. Si votre fiche est incomplète ou vos horaires faux, la
+        partie est déjà perdue.
+      </p>
+      <p>
+        <strong>Minute deux.</strong> Elle ouvre la fiche qui l’inspire le plus et regarde deux
+        choses : est-ce ouvert aujourd’hui, et où est-ce exactement. Un numéro cliquable et un
+        itinéraire suffisent souvent à déclencher l’appel, sans passage par le site.
+      </p>
+      <p>
+        <strong>Minute trois.</strong> Si elle veut en savoir plus, elle ouvre le site. Elle cherche
+        le prix, la durée, et un bouton pour réserver. Trois informations. Si la page met quatre
+        secondes à s’afficher ou si le tarif est introuvable, elle retourne à la liste.
+      </p>
+      <p>
+        <strong>Minute quatre.</strong> Elle réserve, ou elle appelle. Tout le reste — votre parcours,
+        votre approche, vos formations — ne sera lu qu’après, éventuellement, une fois le rendez-vous
+        pris. Ce n’est pas dévalorisant : c’est simplement l’ordre dans lequel les choses se passent
+        pour ce public-là.
+      </p>
+
+      <h2>Ce qui est livré</h2>
+      <ul>
+        <li>Un site de cinq pages, avec un parcours distinct pour la patientèle locale et pour le passage.</li>
+        <li>Une page « consultation ponctuelle » avec réservation immédiate et informations pratiques.</li>
+        <li>Une fiche Google Business Profile réglée sur Lourdes, horaires et photos compris.</li>
+        <li>Un site allégé au maximum, pensé pour l’affichage en mobilité.</li>
+        <li>Les textes rédigés à partir de vos réponses, relus par vous.</li>
+        <li>Votre nom de domaine et votre adresse email professionnelle.</li>
+        <li>La mise en ligne en {prix.delai}.</li>
+      </ul>
+
+      <h2>Le tarif</h2>
+    </div>
+  </section>
+
+  <section class="section-serree">
+    <div class="rail-etroit reveal">
+      <BlocTarif ville="Lourdes" />
+    </div>
+  </section>
+
+  <section class="section-serree">
+    <div class="rail-etroit prose reveal">
+      <h2>Vous n’êtes pas à Lourdes ?</h2>
+      <AutresVilles
+        actuelle="Lourdes"
+        intro="Le double public lourdais est une exception locale. Ailleurs, le raisonnement est différent — voici les autres pages."
+      />
+
+      <h2>Questions fréquentes</h2>
+      <div class="faq marge-haut">
+        {
+          questions.map((f, i) => (
+            <details open={i === 0}>
+              <summary>{f.q}</summary>
+              <p class="reponse">{f.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <BandeCta
+    titre="Votre site capte-t-il les deux publics de Lourdes ?"
+    texte="Je le parcours comme le ferait une personne de passage, puis comme une habitante, et je vous envoie une vidéo de 2 à 3 minutes avec les 3 points qui vous coûtent le plus de rendez-vous."
+  />
+</Base>
+
+<style>
+  .marge-haut { margin-top: 1.6rem; }
+  .marqueur {
+    padding: 1rem 1.2rem;
+    border-radius: var(--r-m);
+    background: var(--terre-clair);
+    border: 1px solid rgba(184, 85, 47, 0.25);
+    color: var(--terre-2);
+    font-size: 0.92rem;
+  }
+</style>

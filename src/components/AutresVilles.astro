@@ -1,0 +1,55 @@
+---
+// Liens vers les autres pages locales et vers la page pivot.
+import { villes } from '../data/site.js';
+
+interface Props {
+  /** Ville de la page courante, exclue de la liste. */
+  actuelle: string;
+  /** Phrase d'introduction, propre à chaque page. */
+  intro: string;
+}
+const { actuelle, intro } = Astro.props;
+const autres = villes.filter((v) => v.nom !== actuelle);
+---
+
+<p>{intro}</p>
+<ul class="autres-villes">
+  {
+    autres.map((v) => (
+      <li>
+        <a href={v.lien}>Naturopathe à {v.nom}</a>
+      </li>
+    ))
+  }
+  <li>
+    <a href="/creation-site-internet-naturopathe">La page générale, sans ville</a>
+  </li>
+</ul>
+
+<style>
+  .autres-villes {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+  .autres-villes a {
+    display: inline-block;
+    padding: 0.55rem 1rem;
+    border-radius: var(--r-pilule);
+    border: 1px solid var(--ligne-forte);
+    background: var(--blanc);
+    box-shadow: var(--ombre-xs);
+    font-size: 0.92rem;
+    color: var(--vert);
+    text-decoration: none;
+    transition: transform var(--transition), box-shadow var(--transition), color var(--transition);
+  }
+  .autres-villes a:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--ombre-s);
+    color: var(--terre);
+  }
+</style>

@@ -1,7 +1,7 @@
 ---
 import Logo from './Logo.astro';
 import Icone from './Icone.astro';
-import { site, prix } from '../data/site.js';
+import { site, prix, villes } from '../data/site.js';
 
 const annee = new Date().getFullYear();
 ---
@@ -9,7 +9,7 @@ const annee = new Date().getFullYear();
 <footer class="pied">
   <div class="rail pied-haut">
     <div class="pied-marque">
-      <a href="/" class="pied-logo" aria-label="ElyoStudio, accueil"><Logo /></a>
+      <a href="/" class="pied-logo"><Logo /></a>
       <p class="pied-promesse">{site.promesse}</p>
       <p class="pied-lieu">
         <Icone nom="position" /> {site.ville}, {site.region} — et partout en France, en visio.
@@ -33,6 +33,17 @@ const annee = new Date().getFullYear();
           <li><a href="/rendez-vous">Réserver un appel</a></li>
           <li><a href="/blog">Le journal</a></li>
           <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="pied-titre">Par secteur</h2>
+        <ul>
+          <li><a href="/creation-site-internet-naturopathe">Création de site pour naturopathe</a></li>
+          {villes.map((v) => (
+            <li>
+              <a href={v.lien}>Naturopathe à {v.nom}</a>
+            </li>
+          ))}
         </ul>
       </div>
       <div>
@@ -132,10 +143,11 @@ const annee = new Date().getFullYear();
   .pied-legal a:hover { color: var(--terre); }
 
   @media (min-width: 640px) {
-    .pied-colonnes { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .pied-colonnes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
   @media (min-width: 960px) {
-    .pied-haut { grid-template-columns: 1.1fr 1.4fr; gap: 3.5rem; }
+    .pied-haut { grid-template-columns: 0.9fr 1.6fr; gap: 3rem; }
+    .pied-colonnes { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.6rem; }
     .pied-bas { grid-template-columns: 1fr auto; align-items: center; }
   }
 </style>

@@ -9,7 +9,8 @@
     "preview": "astro preview",
     "check": "astro check",
     "predev": "node scripts/copier-cms.mjs",
-    "prebuild": "node scripts/copier-cms.mjs"
+    "prebuild": "node scripts/copier-cms.mjs",
+    "postbuild": "node scripts/sitemap-alias.mjs && node scripts/audit-meta.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.6.0",

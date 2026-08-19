@@ -54,3 +54,6 @@ for (const chemin of pages.sort()) {
 
 console.log('-'.repeat(80));
 console.log(alertes === 0 ? 'Aucune alerte.' : `${alertes} page(s) à revoir.`);
+
+// Le build échoue si une page publique n'a pas de title, de description ou de h1 unique.
+if (alertes > 0) process.exit(1);

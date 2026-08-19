@@ -18,6 +18,23 @@
       "siren": "904 940 889",
       "activite": "Conseil en communication et marketing digital, création de sites internet",
       "tva": "TVA non applicable, article 293 B du Code général des impôts"
+    },
+    "zonesDesservies": [
+      "Tarbes",
+      "Pau",
+      "Lourdes",
+      "Bagnères-de-Bigorre",
+      "Auch",
+      "Toulouse"
+    ],
+    "geo": {
+      "latitude": "",
+      "longitude": ""
+    },
+    "horaires": {
+      "jours": "Du lundi au vendredi",
+      "ouverture": "",
+      "fermeture": ""
     }
   },
   "prix": {
@@ -46,6 +63,28 @@
     {
       "texte": "À propos",
       "lien": "/a-propos"
+    }
+  ],
+  "villes": [
+    {
+      "nom": "Tarbes",
+      "lien": "/creation-site-internet-naturopathe-tarbes",
+      "accroche": "Le marché le plus dense du département, à cinq minutes du studio."
+    },
+    {
+      "nom": "Pau",
+      "lien": "/creation-site-internet-naturopathe-pau",
+      "accroche": "Une ville plus grande, un marché du bien-être plus mature."
+    },
+    {
+      "nom": "Lourdes",
+      "lien": "/creation-site-internet-naturopathe-lourdes",
+      "accroche": "Une clientèle locale et une clientèle de passage, à traiter différemment."
+    },
+    {
+      "nom": "Bagnères-de-Bigorre",
+      "lien": "/creation-site-internet-naturopathe-bagneres-de-bigorre",
+      "accroche": "Territoire thermal, clientèle en partie saisonnière."
     }
   ]
 }
