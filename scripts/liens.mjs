@@ -45,8 +45,12 @@ for (const fichier of fichiers) {
     if (!cible || cible === source) continue;
     if (entrants.has(cible)) {
       entrants.set(cible, entrants.get(cible) + 1);
-    } else if (!/\.(png|jpe?g|svg|xml|txt|webmanifest|ico|css|js|json)$/.test(cible)) {
-      const existe = existsSync(join('dist', cible.replace(/\/$/, ''), 'index.html'));
+    } else if (!/\.(png|jpe?g|svg|xml|txt|webmanifest|ico|css|js|json|woff2?|avif|webp|pdf)$/.test(cible)) {
+      // Une page existe si dist/<url>/index.html est là ; un fichier joint,
+      // s'il est là tel quel. Les deux comptent comme cible valable.
+      const existe =
+        existsSync(join('dist', cible.replace(/\/$/, ''), 'index.html')) ||
+        existsSync(join('dist', cible));
       if (!existe) casses.push(`${source} → ${brut}`);
     }
   }
