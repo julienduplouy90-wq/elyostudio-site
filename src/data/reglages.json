@@ -1,0 +1,51 @@
+{
+  "site": {
+    "nom": "ElyoStudio",
+    "domaine": "elyostudio.fr",
+    "url": "https://elyostudio.fr",
+    "baseline": "Sites internet pour naturopathes",
+    "promesse": "Le studio qui aide les naturopathes à remplir leur agenda grâce à leur site et à leur visibilité en ligne.",
+    "ville": "Aureilhan",
+    "region": "Hautes-Pyrénées",
+    "adresse": "49 avenue du Bois, 65800 Aureilhan",
+    "email": "julien.duplouy90@gmail.com",
+    "telephone": "06 42 46 12 41",
+    "telephoneLien": "+33642461241",
+    "agenda": "https://tidycal.com/julienduplouy90/appel-decouverte-site",
+    "endpointFormulaire": "",
+    "entreprise": {
+      "raison": "Julien Duplouy EI",
+      "siren": "904 940 889",
+      "activite": "Conseil en communication et marketing digital, création de sites internet",
+      "tva": "TVA non applicable, article 293 B du Code général des impôts"
+    }
+  },
+  "prix": {
+    "creation": "590 €",
+    "mensuel": "49 €",
+    "duree": "12 mois",
+    "delai": "10 jours ouvrés"
+  },
+  "navigation": [
+    {
+      "texte": "L’offre",
+      "lien": "/offre"
+    },
+    {
+      "texte": "La méthode",
+      "lien": "/methode"
+    },
+    {
+      "texte": "Réalisations",
+      "lien": "/realisations"
+    },
+    {
+      "texte": "Le journal",
+      "lien": "/blog"
+    },
+    {
+      "texte": "À propos",
+      "lien": "/a-propos"
+    }
+  ]
+}

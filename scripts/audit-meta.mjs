@@ -14,6 +14,11 @@ const parcourir = (dossier) => {
 };
 parcourir('dist');
 
+// Le tableau de bord du CMS n'est pas une page publique.
+const publiques = pages.filter((p) => !p.split(/[\\/]/).includes('admin'));
+pages.length = 0;
+pages.push(...publiques);
+
 const LIMITE_TITRE = 60;
 const LIMITE_DESC = 160;
 let alertes = 0;

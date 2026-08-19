@@ -24,12 +24,20 @@ npm run dev
 | `node scripts/og.mjs`       | Régénère l'image de partage `public/og-elyostudio.png` |
 | `node scripts/typographie.mjs` | Applique les espaces insécables françaises aux fichiers de `src/` |
 | `node scripts/audit-meta.mjs` | Contrôle la longueur des title/meta et les signaux SEO de `dist/` |
+| `node scripts/copier-cms.mjs` | Recopie le tableau de bord du CMS dans `public/admin/` (automatique avant dev et build) |
+
+## Modifier le contenu sans coder
+
+Un tableau de bord est disponible sur <https://elyostudio.fr/admin/> : articles du
+journal, coordonnées, tarifs, listes de l’offre, FAQ et réalisations. Voir
+[CMS.md](CMS.md) pour la connexion et le fonctionnement.
 
 ## Structure
 
 ```
 src/
-├─ data/site.js            → coordonnées, tarifs, offre, FAQ, réalisations (à éditer en priorité)
+├─ data/*.json             → contenu éditable depuis le CMS (réglages, accueil, offre, faq, réalisations)
+├─ data/site.js            → expose ces JSON aux pages
 ├─ styles/global.css       → charte : couleurs, rayons, ombres, boutons, cartes, animations
 ├─ layouts/Base.astro      → en-tête HTML, SEO, en-tête/pied de page, barre d'appel mobile
 ├─ components/             → Entete, Pied, Logo, Maquette, BandeCta, Formulaire, EnPage, Icone

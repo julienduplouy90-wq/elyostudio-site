@@ -1,0 +1,73 @@
+{
+  "problemes": [
+    {
+      "icone": "recherche",
+      "titre": "On vous cherche, on ne vous trouve pas",
+      "texte": "Une personne tape « naturopathe » suivi de votre ville. Vous n’apparaissez pas. Elle prend rendez-vous ailleurs, sans avoir jamais su que vous existiez."
+    },
+    {
+      "icone": "partage",
+      "titre": "Votre visibilité appartient à une plateforme",
+      "texte": "Tout repose sur un réseau social ou un annuaire. Les règles changent, votre page se noie dans le flux, et vous ne maîtrisez rien de ce qui se passe."
+    },
+    {
+      "icone": "agenda",
+      "titre": "Votre site ne mène pas au rendez-vous",
+      "texte": "Le site existe, mais le chemin jusqu’à la prise de rendez-vous reste flou. Les visiteurs lisent, hésitent, puis repartent sans rien réserver."
+    }
+  ],
+  "solutions": [
+    {
+      "icone": "gabarit",
+      "titre": "Un site de cinq pages pensé pour convaincre",
+      "texte": "Une structure claire qui présente votre pratique, rassure et conduit naturellement vers la prise de rendez-vous."
+    },
+    {
+      "icone": "document",
+      "titre": "Une page par spécialité",
+      "texte": "Digestion, sommeil, périnatalité : chaque approche a sa page, lisible pour vos visiteurs comme pour Google."
+    },
+    {
+      "icone": "position",
+      "titre": "Une fiche Google qui travaille pour vous",
+      "texte": "Création ou remise à plat de votre fiche établissement, pour exister dans les recherches locales et sur la carte."
+    },
+    {
+      "icone": "agenda",
+      "titre": "La prise de rendez-vous en ligne",
+      "texte": "Vos futurs clients choisissent un créneau en trois clics, sans échange d’emails ni coup de téléphone à rattraper."
+    },
+    {
+      "icone": "horloge",
+      "titre": "En ligne en dix jours ouvrés",
+      "texte": "Du questionnaire de départ à la mise en ligne, dix jours ouvrés suffisent. Sans réunion interminable."
+    },
+    {
+      "icone": "mobile",
+      "titre": "Impeccable sur téléphone",
+      "texte": "Sept visites sur dix arrivent depuis un mobile. Le site est conçu d’abord pour l’écran de téléphone, ensuite pour l’ordinateur."
+    }
+  ],
+  "etapes": [
+    {
+      "n": "01",
+      "titre": "Un échange de 30 minutes",
+      "texte": "On parle de votre pratique, de votre patientèle et de ce que vous voulez obtenir. En visio, sans jargon et sans engagement."
+    },
+    {
+      "n": "02",
+      "titre": "Un questionnaire simple",
+      "texte": "Vous m’envoyez vos informations et vos photos grâce à un questionnaire guidé. Rien de technique, une heure de votre temps."
+    },
+    {
+      "n": "03",
+      "titre": "La création, puis votre validation",
+      "texte": "Je conçois le site, je vous le présente en vidéo, on ajuste ensemble. Rien n’est mis en ligne avant votre feu vert."
+    },
+    {
+      "n": "04",
+      "titre": "La mise en ligne et le suivi",
+      "texte": "Le site part en ligne, la fiche Google est activée. Chaque mois, je surveille, je mets à jour et je vous rends compte."
+    }
+  ]
+}

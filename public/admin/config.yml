@@ -1,0 +1,220 @@
+# Configuration de Sveltia CMS — https://sveltiacms.app
+#
+# Connexion : "Se connecter avec un jeton d'accès" fonctionne sans rien
+# installer (voir CMS.md). La ligne base_url ci-dessous ne sert qu'au bouton
+# "Se connecter avec GitHub" en un clic, qui suppose un worker Cloudflare.
+
+backend:
+  name: github
+  repo: julienduplouy90-wq/elyostudio-site
+  branch: main
+  # base_url: https://votre-worker.workers.dev  # facultatif, voir CMS.md
+  commit_messages:
+    create: 'Ajoute {{collection}} « {{slug}} » depuis le CMS'
+    update: 'Modifie {{collection}} « {{slug}} » depuis le CMS'
+    delete: 'Supprime {{collection}} « {{slug}} » depuis le CMS'
+    uploadMedia: 'Ajoute l’image {{path}} depuis le CMS'
+    deleteMedia: 'Supprime l’image {{path}} depuis le CMS'
+
+# Pour tester sans rien installer : lancer `npx @sveltia/cms-proxy-server` puis
+# `npm run dev`, et ouvrir http://localhost:4321/admin/ — les modifications sont
+# écrites directement dans les fichiers locaux.
+local_backend: true
+
+publish_mode: simple
+media_folder: public/images
+public_folder: /images
+locale: fr
+slug:
+  encoding: ascii
+  clean_accents: true
+
+collections:
+  # ------------------------------------------------------------------ ARTICLES
+  - name: articles
+    label: Articles du journal
+    label_singular: article
+    description: Les articles publiés sur /blog. Un article par fiche.
+    folder: src/content/articles
+    create: true
+    extension: md
+    format: frontmatter
+    slug: '{{slug}}'
+    preview_path: blog/{{slug}}
+    summary: '{{titre}}'
+    sortable_fields: [date, titre]
+    fields:
+      - { name: titre, label: Titre de l’article, widget: string }
+      - {
+          name: titreSeo,
+          label: Titre court pour Google,
+          widget: string,
+          required: false,
+          hint: '47 caractères maximum. Laissé vide, le titre complet est utilisé.',
+        }
+      - {
+          name: description,
+          label: Description pour Google,
+          widget: text,
+          hint: 'Entre 120 et 150 caractères. C’est le texte affiché sous le titre dans les résultats.',
+        }
+      - {
+          name: categorie,
+          label: Catégorie,
+          widget: select,
+          options: ['Se lancer', 'Visibilité', 'Budget', 'Contenu'],
+        }
+      - { name: date, label: Date de publication, widget: datetime, time_format: false, picker_utc: false }
+      - { name: duree, label: Temps de lecture, widget: string, hint: 'Par exemple : 6 min' }
+      - {
+          name: icone,
+          label: Icône,
+          widget: select,
+          default: etincelle,
+          options:
+            [recherche, position, etiquette, gabarit, agenda, document, horloge, mobile, etincelle, graphique, feuille],
+        }
+      - { name: body, label: Contenu de l’article, widget: markdown }
+
+  # ------------------------------------------------------------------ RÉGLAGES
+  - name: reglages
+    label: Réglages du site
+    files:
+      - name: coordonnees
+        label: Coordonnées, tarifs et menu
+        file: src/data/reglages.json
+        description: Ce qui apparaît partout sur le site — à modifier avec précaution.
+        fields:
+          - name: site
+            label: Le studio
+            widget: object
+            fields:
+              - { name: nom, label: Nom affiché, widget: string }
+              - { name: domaine, label: Domaine, widget: string }
+              - { name: url, label: Adresse complète, widget: string }
+              - { name: baseline, label: Signature sous le logo, widget: string }
+              - { name: promesse, label: Phrase de promesse, widget: text }
+              - { name: ville, label: Ville, widget: string }
+              - { name: region, label: Département, widget: string }
+              - { name: adresse, label: Adresse postale, widget: string }
+              - { name: email, label: Email de contact, widget: string }
+              - { name: telephone, label: Téléphone affiché, widget: string }
+              - { name: telephoneLien, label: Téléphone cliquable, widget: string, hint: 'Format +33…' }
+              - { name: agenda, label: Lien de l’agenda TidyCal, widget: string }
+              - {
+                  name: endpointFormulaire,
+                  label: Adresse d’envoi des formulaires,
+                  widget: string,
+                  required: false,
+                  hint: 'Vide = les demandes ouvrent un email pré-rempli chez le visiteur.',
+                }
+              - name: entreprise
+                label: Mentions légales
+                widget: object
+                fields:
+                  - { name: raison, label: Raison sociale, widget: string }
+                  - { name: siren, label: SIREN, widget: string }
+                  - { name: activite, label: Activité, widget: string }
+                  - { name: tva, label: Mention de TVA, widget: string }
+          - name: prix
+            label: Tarifs
+            widget: object
+            fields:
+              - { name: creation, label: Prix de création, widget: string }
+              - { name: mensuel, label: Prix mensuel, widget: string }
+              - { name: duree, label: Durée d’engagement, widget: string }
+              - { name: delai, label: Délai de mise en ligne, widget: string }
+          - name: navigation
+            label: Menu principal
+            widget: list
+            fields:
+              - { name: texte, label: Intitulé, widget: string }
+              - { name: lien, label: Adresse, widget: string }
+
+  # ------------------------------------------------------------------- CONTENU
+  - name: contenu
+    label: Contenu des pages
+    files:
+      - name: accueil
+        label: Accueil — constat, dispositif, méthode
+        file: src/data/accueil.json
+        fields:
+          - name: problemes
+            label: Le constat
+            widget: list
+            fields:
+              - { name: icone, label: Icône, widget: string }
+              - { name: titre, label: Titre, widget: string }
+              - { name: texte, label: Texte, widget: text }
+          - name: solutions
+            label: Ce que je mets en place
+            widget: list
+            fields:
+              - { name: icone, label: Icône, widget: string }
+              - { name: titre, label: Titre, widget: string }
+              - { name: texte, label: Texte, widget: text }
+          - name: etapes
+            label: Les étapes de la méthode
+            widget: list
+            fields:
+              - { name: n, label: Numéro, widget: string }
+              - { name: titre, label: Titre, widget: string }
+              - { name: texte, label: Texte, widget: text }
+
+      - name: offre
+        label: Offre — ce qui est compris
+        file: src/data/offre.json
+        fields:
+          - { name: inclusCreation, label: Compris à la création, widget: list, field: { name: ligne, label: Ligne, widget: string } }
+          - { name: inclusMensuel, label: Compris chaque mois, widget: list, field: { name: ligne, label: Ligne, widget: string } }
+          - name: optionsHorsForfait
+            label: Options hors forfait
+            widget: list
+            fields:
+              - { name: titre, label: Titre, widget: string }
+              - { name: texte, label: Texte, widget: text }
+          - { name: nonPromis, label: Ce que je ne promets pas, widget: list, field: { name: ligne, label: Ligne, widget: string } }
+          - name: engagements
+            label: Les engagements
+            widget: list
+            fields:
+              - { name: icone, label: Icône, widget: string }
+              - { name: titre, label: Titre, widget: string }
+              - { name: texte, label: Texte, widget: text }
+          - name: comparatif
+            label: Comparatif avec une agence
+            widget: list
+            fields:
+              - { name: autre, label: Souvent ailleurs, widget: text }
+              - { name: elyo, label: Chez ElyoStudio, widget: text }
+
+      - name: faq
+        label: Questions fréquentes
+        file: src/data/faq.json
+        fields:
+          - name: faqs
+            label: FAQ de l’accueil
+            widget: list
+            fields:
+              - { name: q, label: Question, widget: string }
+              - { name: a, label: Réponse, widget: text }
+          - name: faqsOffre
+            label: FAQ de la page offre
+            widget: list
+            fields:
+              - { name: q, label: Question, widget: string }
+              - { name: a, label: Réponse, widget: text }
+
+      - name: realisations
+        label: Réalisations
+        file: src/data/realisations.json
+        fields:
+          - name: realisations
+            label: Les exemples affichés
+            widget: list
+            fields:
+              - { name: titre, label: Titre, widget: string }
+              - { name: sujet, label: Spécialité, widget: string }
+              - { name: texte, label: Description, widget: text }
+              - { name: points, label: Étiquettes, widget: list, field: { name: point, label: Étiquette, widget: string } }
+              - { name: teinte, label: Teinte, widget: select, options: [vert, terre, ambre] }

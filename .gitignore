@@ -5,3 +5,6 @@ dist/
 .env.*
 .DS_Store
 *.log
+
+# Tableau de bord du CMS, recopié à chaque build depuis node_modules
+public/admin/sveltia-cms.js
