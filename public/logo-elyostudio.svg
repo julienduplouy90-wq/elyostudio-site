@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 80" role="img" aria-label="Elyostudio — sites pour naturopathes">
-  <title>Elyostudio</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 80" role="img" aria-label="ElyoStudio — sites pour naturopathes">
+  <title>ElyoStudio</title>
   <g transform="translate(6 8)">
     <path d="M17 43 A15 15 0 0 1 47 43 Z" fill="#C25E36"/>
     <g fill="none" stroke="#2E5A4B" stroke-width="4.6" stroke-linecap="round">
@@ -11,7 +11,7 @@
   </g>
   <text x="80" y="47"
         font-family="Fraunces, 'Fraunces Variable', Georgia, 'Times New Roman', serif"
-        font-size="34" font-weight="600" letter-spacing="-0.4" fill="#23201C">Elyo<tspan fill="#2E5A4B">studio</tspan></text>
+        font-size="34" font-weight="600" letter-spacing="-0.4" fill="#23201C">Elyo<tspan fill="#2E5A4B">Studio</tspan></text>
   <text x="82" y="64"
         font-family="Inter, 'Inter Variable', system-ui, sans-serif"
         font-size="10.5" font-weight="500" letter-spacing="3.2" fill="#6E6053">SITES POUR NATUROPATHES</text>

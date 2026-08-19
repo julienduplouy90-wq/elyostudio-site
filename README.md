@@ -1,6 +1,6 @@
-# Elyostudio — site de l'agence
+# ElyoStudio — site de l'agence
 
-Site vitrine d'**Elyostudio**, le studio de Julien Duplouy qui crée des sites internet pour les
+Site vitrine d'**ElyoStudio**, le studio de Julien Duplouy qui crée des sites internet pour les
 naturopathes. Astro 5, sortie 100 % statique, aucune base de données, aucun backend.
 
 - Adresse de production : <https://elyostudio.fr>

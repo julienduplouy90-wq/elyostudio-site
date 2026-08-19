@@ -1,7 +1,7 @@
 // Données centrales du site. Tout ce qui se modifie souvent est ici.
 
 export const site = {
-  nom: 'Elyostudio',
+  nom: 'ElyoStudio',
   domaine: 'elyostudio.fr',
   url: 'https://elyostudio.fr',
   baseline: 'Sites internet pour naturopathes',

@@ -37,7 +37,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" v
       <path d="M8 47.5 H56"/>
     </g>
   </g>
-  <text x="200" y="128" font-family="Georgia, 'Times New Roman', serif" font-size="42" font-weight="bold" fill="#23201C">Elyostudio</text>
+  <text x="200" y="128" font-family="Georgia, 'Times New Roman', serif" font-size="42" font-weight="bold" fill="#23201C">ElyoStudio</text>
 
   <!-- Titre -->
   <text x="88" y="286" font-family="Georgia, 'Times New Roman', serif" font-size="76" font-weight="bold" fill="#23201C">Sites internet pour</text>
