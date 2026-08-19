@@ -5,11 +5,11 @@ import Icone from '../components/Icone.astro';
 import Formulaire from '../components/Formulaire.astro';
 import { site } from '../data/site.js';
 
-const titre = 'Contact — écrivons-nous | ElyoStudio';
-const description = `Une question sur l’offre, le délai ou la méthode ? Écrivez à ${site.nom} : réponse sous 48 heures ouvrées. Studio basé à ${site.ville}, près de Tarbes, actif partout en France.`;
+const titre = 'Contacter ElyoStudio, sites pour naturopathes';
+const description = `Une question sur l’offre, le délai ou la méthode ? J’y réponds moi-même sous 48 heures ouvrées. Studio basé près de Tarbes, actif partout en France.`;
 ---
 
-<Base titre={titre} description={description} barreMobile={false}>
+<Base titre={titre} description={description} barreMobile={false} filAriane={[{ nom: "Contact", lien: "/contact" }]}>
   <EnPage
     surtitre="Contact"
     titre="Une question ? Écrivez-moi"

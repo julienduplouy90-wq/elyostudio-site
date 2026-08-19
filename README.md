@@ -23,6 +23,7 @@ npm run dev
 | `npm run preview`           | Prévisualise le contenu de `dist/`              |
 | `node scripts/og.mjs`       | Régénère l'image de partage `public/og-elyostudio.png` |
 | `node scripts/typographie.mjs` | Applique les espaces insécables françaises aux fichiers de `src/` |
+| `node scripts/audit-meta.mjs` | Contrôle la longueur des title/meta et les signaux SEO de `dist/` |
 
 ## Structure
 
@@ -53,7 +54,7 @@ public/                    → logo, favicon, image de partage, robots.txt, CNAM
 | Ambre              | `#E8A85C` — halos, accents chauds                             |
 | Crème              | `#FCF8F2` / `#F6EEE3` — fonds                                 |
 | Encre              | `#23201C` — texte                                             |
-| Titres             | Fraunces Variable (axe SOFT), auto-hébergée                   |
+| Titres             | Newsreader Variable (axe opsz), auto-hébergée                 |
 | Textes             | Inter Variable, auto-hébergée                                 |
 
 Le logo est un **soleil levant** : un demi-disque terracotta posé sur une ligne d'horizon verte,

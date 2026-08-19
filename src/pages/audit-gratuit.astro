@@ -5,9 +5,9 @@ import Icone from '../components/Icone.astro';
 import Formulaire from '../components/Formulaire.astro';
 import { site } from '../data/site.js';
 
-const titre = 'Audit vidéo gratuit de votre présence en ligne | ElyoStudio';
+const titre = 'Audit vidéo gratuit de votre visibilité | ElyoStudio';
 const description =
-  'Recevez sous 48 heures une vidéo de 5 à 8 minutes : ce que voit une personne qui cherche une naturopathe dans votre ville, ce qui vous coûte des rendez-vous, et par quoi commencer. Gratuit, sans engagement.';
+  'Une vidéo de 5 à 8 minutes sur votre site et votre fiche Google : ce qui vous coûte des rendez-vous et par quoi commencer. Gratuit, sous 48 h.';
 
 const contenuAudit = [
   {
@@ -52,7 +52,7 @@ const questions = [
 ];
 ---
 
-<Base titre={titre} description={description} barreMobile={false}>
+<Base titre={titre} description={description} barreMobile={false} filAriane={[{ nom: "Audit gratuit", lien: "/audit-gratuit" }]}>
   <EnPage
     surtitre="Audit vidéo gratuit"
     titre="Je regarde votre présence en ligne, et je vous montre ce qui cloche"

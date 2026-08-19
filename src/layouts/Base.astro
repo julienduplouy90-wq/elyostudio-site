@@ -1,5 +1,5 @@
 ---
-import '@fontsource-variable/fraunces/soft.css';
+import '@fontsource-variable/newsreader/opsz.css';
 import '@fontsource-variable/inter/wght.css';
 import '../styles/global.css';
 
@@ -14,12 +14,111 @@ interface Props {
   image?: string;
   noindex?: boolean;
   barreMobile?: boolean;
+  filAriane?: { nom: string; lien: string }[];
+  typeOg?: string;
 }
 
-const { titre, description, image = '/og-elyostudio.png', noindex = false, barreMobile = true } = Astro.props;
+const {
+  titre,
+  description,
+  image = '/og-elyostudio.png',
+  noindex = false,
+  barreMobile = true,
+  filAriane = [],
+  typeOg = 'website',
+} = Astro.props;
 
 const canonique = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', Astro.site ?? site.url).href;
 const imageAbsolue = new URL(image, Astro.site ?? site.url).href;
+
+// Données structurées communes à toutes les pages.
+const donneesCommunes = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': ['ProfessionalService', 'Organization'],
+      '@id': `${site.url}/#studio`,
+      name: site.nom,
+      alternateName: 'Elyo Studio',
+      description: site.promesse,
+      url: site.url,
+      logo: `${site.url}/logo-elyostudio.svg`,
+      image: `${site.url}/og-elyostudio.png`,
+      email: site.email,
+      telephone: site.telephoneLien,
+      priceRange: '€€',
+      currenciesAccepted: 'EUR',
+      areaServed: { '@type': 'Country', name: 'France' },
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '49 avenue du Bois',
+        postalCode: '65800',
+        addressLocality: site.ville,
+        addressRegion: site.region,
+        addressCountry: 'FR',
+      },
+      founder: { '@id': `${site.url}/#julien` },
+      knowsAbout: [
+        'Création de site internet',
+        'Référencement local',
+        'Fiche Google Business Profile',
+        'Naturopathie',
+        'Prise de rendez-vous en ligne',
+      ],
+    },
+    {
+      '@type': 'Person',
+      '@id': `${site.url}/#julien`,
+      name: 'Julien Duplouy',
+      jobTitle: 'Fondateur d’ElyoStudio, concepteur de sites pour naturopathes',
+      worksFor: { '@id': `${site.url}/#studio` },
+      url: `${site.url}/a-propos`,
+      email: site.email,
+      knowsAbout: ['Référencement local', 'Rédaction web', 'Sites pour praticiens du bien-être'],
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: site.ville,
+        addressRegion: site.region,
+        addressCountry: 'FR',
+      },
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${site.url}/#site`,
+      url: site.url,
+      name: site.nom,
+      inLanguage: 'fr-FR',
+      publisher: { '@id': `${site.url}/#studio` },
+    },
+    {
+      '@type': 'WebPage',
+      '@id': `${canonique}#page`,
+      url: canonique,
+      name: titre,
+      description,
+      inLanguage: 'fr-FR',
+      isPartOf: { '@id': `${site.url}/#site` },
+      about: { '@id': `${site.url}/#studio` },
+    },
+    ...(filAriane.length
+      ? [
+          {
+            '@type': 'BreadcrumbList',
+            '@id': `${canonique}#fil`,
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Accueil', item: site.url },
+              ...filAriane.map((etape, i) => ({
+                '@type': 'ListItem',
+                position: i + 2,
+                name: etape.nom,
+                item: new URL(etape.lien, site.url).href,
+              })),
+            ],
+          },
+        ]
+      : []),
+  ],
+};
 ---
 
 <!doctype html>
@@ -30,13 +129,22 @@ const imageAbsolue = new URL(image, Astro.site ?? site.url).href;
     <title>{titre}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonique} />
+    <link rel="alternate" hreflang="fr-fr" href={canonique} />
+    <link rel="alternate" hreflang="fr" href={canonique} />
+    <link rel="alternate" hreflang="x-default" href={canonique} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
+    {!noindex && <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />}
+    <meta name="author" content="Julien Duplouy" />
+    <meta name="geo.region" content="FR-65" />
+    <meta name="geo.placename" content={site.ville} />
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/favicon.svg" />
     <meta name="theme-color" content="#FCF8F2" />
 
-    <meta property="og:type" content="website" />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(donneesCommunes)} />
+
+    <meta property="og:type" content={typeOg} />
     <meta property="og:locale" content="fr_FR" />
     <meta property="og:site_name" content={site.nom} />
     <meta property="og:title" content={titre} />

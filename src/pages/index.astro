@@ -17,33 +17,12 @@ import {
   faqs,
 } from '../data/site.js';
 
-const titre = 'ElyoStudio — Sites internet pour naturopathes | Plus de rendez-vous';
-const description = `Studio indépendant dédié aux naturopathes. Un site qui vous rend visible et qui remplit votre agenda : ${prix.creation} à la signature, puis ${prix.mensuel}/mois pendant ${prix.duree}. En ligne en ${prix.delai}. Audit vidéo gratuit.`;
+const titre = 'Création de site internet pour naturopathe | ElyoStudio';
+const description = `Studio spécialisé dans les sites internet de naturopathes : visibilité locale, fiche Google et prise de rendez-vous. ${prix.creation} puis ${prix.mensuel}/mois.`;
 
 const donnees = {
   '@context': 'https://schema.org',
   '@graph': [
-    {
-      '@type': 'ProfessionalService',
-      '@id': `${site.url}/#studio`,
-      name: site.nom,
-      description: site.promesse,
-      url: site.url,
-      email: site.email,
-      telephone: site.telephoneLien,
-      priceRange: '€€',
-      areaServed: 'France',
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: '49 avenue du Bois',
-        postalCode: '65800',
-        addressLocality: 'Aureilhan',
-        addressRegion: 'Hautes-Pyrénées',
-        addressCountry: 'FR',
-      },
-      founder: { '@type': 'Person', name: 'Julien Duplouy' },
-      knowsAbout: ['Création de site internet', 'Référencement local', 'Naturopathie', 'Fiche Google'],
-    },
     {
       '@type': 'FAQPage',
       '@id': `${site.url}/#faq`,
@@ -52,6 +31,23 @@ const donnees = {
         name: f.q,
         acceptedAnswer: { '@type': 'Answer', text: f.a },
       })),
+    },
+    {
+      '@type': 'Service',
+      '@id': `${site.url}/#pack-visibilite`,
+      name: 'Pack Visibilité — site internet pour naturopathe',
+      serviceType: 'Création de site internet et référencement local',
+      provider: { '@id': `${site.url}/#studio` },
+      areaServed: { '@type': 'Country', name: 'France' },
+      audience: { '@type': 'Audience', audienceType: 'Naturopathes et praticiens du bien-être' },
+      offers: {
+        '@type': 'Offer',
+        price: '590',
+        priceCurrency: 'EUR',
+        description: `${prix.creation} à la signature, puis ${prix.mensuel} par mois pendant ${prix.duree}.`,
+        url: `${site.url}/offre`,
+        availability: 'https://schema.org/InStock',
+      },
     },
   ],
 };
@@ -73,14 +69,19 @@ const donnees = {
         </span>
 
         <h1 class="reveal" style="--delai: 90ms">
-          Vos futurs clients cherchent une naturopathe. Aujourd’hui, ils en trouvent
-          <span class="souligne">une autre</span>.
+          Un site internet de naturopathe qui remplit
+          <span class="souligne">votre agenda</span>
         </h1>
 
         <p class="chapeau reveal" style="--delai: 180ms">
-          Je crée le site qui vous rend visible dans votre secteur, avec une prise de rendez-vous que
-          l’on trouve en trois secondes. En ligne en {prix.delai}. {prix.creation} à la signature,
-          puis {prix.mensuel} par mois — et le site vous appartient.
+          Vos futurs clients cherchent une naturopathe sur Google. Aujourd’hui, ils en trouvent une
+          autre. Je crée le site et la visibilité locale qui vous rendent trouvable dans votre
+          secteur, avec une prise de rendez-vous en ligne repérable en trois secondes.
+        </p>
+
+        <p class="chapeau chapeau-serre reveal" style="--delai: 220ms">
+          En ligne en {prix.delai}. {prix.creation} à la signature, puis {prix.mensuel} par mois — et
+          le site vous appartient.
         </p>
 
         <div class="groupe-btn reveal" style="--delai: 260ms">
@@ -174,6 +175,63 @@ const donnees = {
             </article>
           ))
         }
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VISIBILITÉ LOCALE ===== -->
+  <section class="section">
+    <div class="rail">
+      <div class="entete-section reveal">
+        <span class="surtitre">Comment on devient visible</span>
+        <h2>Le référencement local d’une naturopathe, en clair</h2>
+        <p class="chapeau">
+          Être trouvée sur une recherche du type « naturopathe » suivi du nom de votre ville ne tient
+          pas à un secret. Cela tient à quatre choses, faites correctement et tenues dans la durée.
+        </p>
+      </div>
+
+      <div class="grille grille-2 espace-haut">
+        <article class="carte carte-relief reveal">
+          <span class="pastille"><Icone nom="position" /></span>
+          <h3>Une fiche Google Business Profile complète</h3>
+          <p>
+            Catégorie « Naturopathe », adresse et horaires cohérents avec le site, photos du cabinet,
+            description précise, avis clients auxquels vous répondez. C’est le levier le plus
+            rentable, et il est gratuit — <a href="/blog/referencement-local-naturopathe">le guide
+            complet est ici</a>.
+          </p>
+        </article>
+
+        <article class="carte carte-relief reveal" style="--delai: 80ms">
+          <span class="pastille"><Icone nom="document" /></span>
+          <h3>Une page par intention de recherche</h3>
+          <p>
+            Digestion et microbiote, sommeil, fatigue chronique, périnatalité : une page par sujet
+            réellement recherché, avec les mots que vos futurs clients tapent, plutôt qu’une seule
+            page « prestations » qui parle de tout.
+          </p>
+        </article>
+
+        <article class="carte carte-relief reveal" style="--delai: 160ms">
+          <span class="pastille"><Icone nom="horloge" /></span>
+          <h3>Des pages légères, qui s’affichent vite</h3>
+          <p>
+            Plus de la moitié des visiteurs abandonnent une page qui met plus de trois secondes à
+            s’afficher sur mobile. Le site est construit sans constructeur lourd : pages statiques,
+            images compressées, aucun script inutile.
+          </p>
+        </article>
+
+        <article class="carte carte-relief reveal" style="--delai: 240ms">
+          <span class="pastille"><Icone nom="agenda" /></span>
+          <h3>Un parcours qui mène au rendez-vous</h3>
+          <p>
+            Tarifs lisibles, déroulé de la première consultation, réponses aux objections courantes,
+            et un bouton de réservation présent sur chaque écran — <a
+              href="/blog/que-mettre-page-accueil-praticien">la structure de page qui convertit</a>.
+          </p>
+        </article>
       </div>
     </div>
   </section>
@@ -360,6 +418,7 @@ const donnees = {
   }
   .heros-texte h1 { margin-top: 1.4rem; }
   .heros-texte .chapeau { margin-top: 1.4rem; max-width: 34rem; }
+  .heros-texte .chapeau-serre { margin-top: 0.9rem; font-size: 1rem; color: var(--encre-2); }
   .heros-texte .groupe-btn { margin-top: 2rem; }
 
   .heros-preuves {

@@ -1,0 +1,10 @@
+import { chromium } from 'playwright-core';
+const d='C:/Users/duplo/AppData/Local/Temp/claude/C--Users-duplo-OneDrive-Documents/757d19d7-e53b-4424-a5cb-9be93267a5c8/scratchpad';
+const n=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe'});
+const c=await n.newContext({viewport:{width:1100,height:1000},deviceScaleFactor:1.4});
+const p=await c.newPage();
+await p.goto('file:///'+d+'/polices.html',{waitUntil:'networkidle'});
+await p.waitForTimeout(1500);
+await p.screenshot({path:`${d}/comparaison-polices.png`,fullPage:true});
+await n.close();
+console.log('ok');

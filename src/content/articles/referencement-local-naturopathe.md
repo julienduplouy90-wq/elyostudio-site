@@ -1,7 +1,7 @@
 ---
 titre: 'Être trouvée sur Google quand on est naturopathe : le guide du référencement local'
 titreSeo: 'Référencement local pour naturopathe'
-description: "Fiche Google Business, mots-clés de ville, avis clients : les leviers concrets pour apparaître quand quelqu’un cherche un naturopathe près de chez lui."
+description: "Fiche Google Business, mots-clés de ville, avis clients : les leviers concrets pour apparaître quand on cherche une naturopathe près de chez soi."
 categorie: 'Visibilité'
 date: 2026-06-23
 duree: '8 min'

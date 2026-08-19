@@ -4,9 +4,9 @@ import EnPage from '../components/EnPage.astro';
 import Icone from '../components/Icone.astro';
 import { site } from '../data/site.js';
 
-const titre = 'Réserver un appel découverte de 30 minutes | ElyoStudio';
+const titre = 'Réserver un appel découverte | ElyoStudio';
 const description =
-  'Choisissez un créneau pour un appel de 30 minutes en visio : votre pratique, vos objectifs, et ce qu’un site bien conçu peut changer pour votre agenda. Sans engagement.';
+  'Trente minutes en visio pour parler de votre cabinet, de vos objectifs et de ce qu’un site bien conçu peut changer. Sans engagement.';
 
 const points = [
   'Trente minutes, en visio, à l’heure qui vous arrange',
@@ -16,7 +16,7 @@ const points = [
 ];
 ---
 
-<Base titre={titre} description={description} barreMobile={false}>
+<Base titre={titre} description={description} barreMobile={false} filAriane={[{ nom: "Rendez-vous", lien: "/rendez-vous" }]}>
   <EnPage
     surtitre="Appel découverte"
     titre="Trente minutes pour savoir si l’on avance ensemble"

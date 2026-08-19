@@ -5,9 +5,9 @@ import EnPage from '../../components/EnPage.astro';
 import Icone from '../../components/Icone.astro';
 import BandeCta from '../../components/BandeCta.astro';
 
-const titre = 'Le journal — visibilité et sites web pour naturopathes | ElyoStudio';
+const titre = 'Le journal — visibilité des naturopathes | ElyoStudio';
 const description =
-  'Des articles concrets sur la visibilité des naturopathes : référencement local, contenu des pages, budget d’un site, fiche Google. Sans jargon et sans recette miracle.';
+  'Référencement local, contenu des pages, budget d’un site, fiche Google : des articles concrets pour les naturopathes qui veulent être trouvées.';
 
 const articles = (await getCollection('articles')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
@@ -19,7 +19,7 @@ const dateFr = (d: Date) =>
 const [une, ...suite] = articles;
 ---
 
-<Base titre={titre} description={description}>
+<Base titre={titre} description={description} filAriane={[{ nom: "Le journal", lien: "/blog" }]}>
   <EnPage
     surtitre="Le journal"
     titre="Ce que j’apprends en travaillant avec des naturopathes"

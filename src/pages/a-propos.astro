@@ -5,9 +5,9 @@ import Icone from '../components/Icone.astro';
 import BandeCta from '../components/BandeCta.astro';
 import { site } from '../data/site.js';
 
-const titre = 'À propos — Julien Duplouy, fondateur d’ElyoStudio | Aureilhan, près de Tarbes';
+const titre = 'Julien Duplouy, fondateur d’ElyoStudio';
 const description =
-  'ElyoStudio est un studio indépendant fondé par Julien Duplouy, basé à Aureilhan près de Tarbes. Une seule spécialité : les sites internet qui remplissent l’agenda des naturopathes.';
+  'Studio indépendant fondé par Julien Duplouy, à Aureilhan près de Tarbes. Une seule spécialité : les sites internet de naturopathes.';
 
 const valeurs = [
   {
@@ -37,7 +37,7 @@ const valeurs = [
 ];
 ---
 
-<Base titre={titre} description={description}>
+<Base titre={titre} description={description} filAriane={[{ nom: "À propos", lien: "/a-propos" }]}>
   <EnPage
     surtitre="À propos"
     titre="Un studio, une spécialité, un interlocuteur"

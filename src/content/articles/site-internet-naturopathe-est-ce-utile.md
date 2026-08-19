@@ -1,7 +1,7 @@
 ---
 titre: 'Un site internet, est-ce vraiment utile quand on est naturopathe ?'
-titreSeo: 'Site internet pour naturopathe : est-ce utile ?'
-description: "Instagram suffit-il pour remplir un agenda de consultations ? Ce qu’un site apporte réellement à un praticien du bien-être, et les cas où il ne sert à rien."
+titreSeo: 'Site internet pour naturopathe : utile ?'
+description: "Instagram suffit-il à remplir un agenda de consultations ? Ce qu’un site apporte vraiment à un praticien, et les cas où il ne sert à rien."
 categorie: 'Se lancer'
 date: 2026-07-14
 duree: '6 min'

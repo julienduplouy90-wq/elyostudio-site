@@ -4,7 +4,7 @@ import EnPage from '../components/EnPage.astro';
 import { site } from '../data/site.js';
 
 const titre = 'Mentions légales | ElyoStudio';
-const description = `Mentions légales du site ${site.domaine}, édité par ${site.entreprise.raison}, SIREN ${site.entreprise.siren}, ${site.ville}, ${site.region}.`;
+const description = `Mentions légales du site ${site.domaine}, édité par ${site.entreprise.raison}, SIREN ${site.entreprise.siren}, à ${site.ville} dans les ${site.region}.`;
 ---
 
 <Base titre={titre} description={description} barreMobile={false}>

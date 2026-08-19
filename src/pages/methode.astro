@@ -5,9 +5,9 @@ import Icone from '../components/Icone.astro';
 import BandeCta from '../components/BandeCta.astro';
 import { prix } from '../data/site.js';
 
-const titre = 'La méthode — de l’appel à la mise en ligne en 10 jours | ElyoStudio';
+const titre = 'Votre site de naturopathe en 10 jours | ElyoStudio';
 const description =
-  'Comment se déroule la création de votre site de naturopathe : un appel de 30 minutes, un questionnaire, la création, votre validation, puis la mise en ligne en dix jours ouvrés et le suivi mensuel.';
+  'Quatre étapes, dix jours ouvrés : appel de 30 minutes, questionnaire, création puis mise en ligne. Sans jargon, sans réunion inutile.';
 
 const detail = [
   {
@@ -63,7 +63,7 @@ const cotéMoi = [
 ];
 ---
 
-<Base titre={titre} description={description}>
+<Base titre={titre} description={description} filAriane={[{ nom: "La méthode", lien: "/methode" }]}>
   <EnPage
     surtitre="La méthode"
     titre="Dix jours ouvrés, quatre étapes, aucune réunion inutile"

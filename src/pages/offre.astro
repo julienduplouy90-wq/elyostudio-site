@@ -3,10 +3,41 @@ import Base from '../layouts/Base.astro';
 import EnPage from '../components/EnPage.astro';
 import Icone from '../components/Icone.astro';
 import BandeCta from '../components/BandeCta.astro';
-import { prix, inclusCreation, inclusMensuel, optionsHorsForfait, nonPromis, engagements } from '../data/site.js';
+import { site, prix, inclusCreation, inclusMensuel, optionsHorsForfait, nonPromis, engagements, faqsOffre } from '../data/site.js';
 
-const titre = `Le Pack Visibilité — ${prix.creation} puis ${prix.mensuel}/mois | ElyoStudio`;
-const description = `L’offre unique d’ElyoStudio pour les naturopathes : site de cinq pages, fiche Google, prise de rendez-vous en ligne. ${prix.creation} à la signature, puis ${prix.mensuel}/mois pendant ${prix.duree}. Tarif affiché, sans devis.`;
+const titre = `Pack Visibilité : ${prix.creation} puis ${prix.mensuel}/mois | ElyoStudio`;
+const description = `Le prix d’un site de naturopathe chez ElyoStudio : ${prix.creation} à la signature, puis ${prix.mensuel}/mois pendant ${prix.duree}. Tout est compris, sans devis.`;
+
+const donnees = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'FAQPage',
+      '@id': `${site.url}/offre#faq`,
+      mainEntity: faqsOffre.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    },
+    {
+      '@type': 'Product',
+      '@id': `${site.url}/offre#pack`,
+      name: 'Pack Visibilité',
+      description:
+        'Site internet de cinq pages pour naturopathe, fiche Google et prise de rendez-vous en ligne, avec suivi mensuel.',
+      brand: { '@id': `${site.url}/#studio` },
+      offers: {
+        '@type': 'Offer',
+        price: '590',
+        priceCurrency: 'EUR',
+        availability: 'https://schema.org/InStock',
+        url: `${site.url}/offre`,
+        description: `${prix.creation} à la signature, puis ${prix.mensuel} par mois pendant ${prix.duree}.`,
+      },
+    },
+  ],
+};
 
 const pourQui = [
   'Vous exercez comme naturopathe, seule ou en cabinet partagé',
@@ -23,7 +54,9 @@ const pasPourQui = [
 ];
 ---
 
-<Base titre={titre} description={description}>
+<Base titre={titre} description={description} filAriane={[{ nom: "L’offre et le tarif", lien: "/offre" }]}>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(donnees)} />
+
   <EnPage
     surtitre="L’offre unique"
     titre="Le Pack Visibilité"
@@ -178,6 +211,27 @@ const pasPourQui = [
               <h3>{e.titre}</h3>
               <p>{e.texte}</p>
             </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Questions sur le tarif -->
+  <section class="section section-teintee">
+    <div class="rail-etroit">
+      <div class="entete-section reveal">
+        <span class="surtitre">Questions de tarif</span>
+        <h2>Ce que l’on me demande sur le prix</h2>
+      </div>
+
+      <div class="faq marge-haut-grand">
+        {
+          faqsOffre.map((f, i) => (
+            <details class="reveal" style={`--delai: ${i * 45}ms`} open={i === 0}>
+              <summary>{f.q}</summary>
+              <p class="reponse">{f.a}</p>
+            </details>
           ))
         }
       </div>

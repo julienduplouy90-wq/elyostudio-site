@@ -272,3 +272,30 @@ export const realisations = [
     teinte: 'ambre',
   },
 ];
+
+export const faqsOffre = [
+  {
+    q: 'Que paie-t-on exactement avec les 590 € ?',
+    a: 'La conception et la mise en ligne complètes : un site de cinq pages, une page par spécialité, la rédaction des textes à partir de vos réponses, la fiche Google, la prise de rendez-vous en ligne, le nom de domaine et l’adresse email professionnelle.',
+  },
+  {
+    q: 'Et les 49 € par mois, à quoi servent-ils ?',
+    a: 'À faire tourner le site : hébergement sécurisé, maintenance, sauvegardes, surveillance, statistiques, assistance par email et trente minutes de modifications par mois. C’est ce forfait qui permet d’afficher 590 € à la création plutôt qu’un tarif à quatre chiffres.',
+  },
+  {
+    q: 'Y a-t-il des frais cachés ?',
+    a: 'Non. Le nom de domaine et l’hébergement sont compris pendant les douze mois. Seules les prestations de contenu et de visibilité — nouvelle page, article, SEO suivi, animation de la fiche Google — sont facturées à part, sur devis accepté à l’avance.',
+  },
+  {
+    q: 'Le tarif change-t-il selon ma ville ou ma taille de cabinet ?',
+    a: 'Non, le tarif est le même pour tout le monde, à Tarbes comme à Lille. C’est le principe d’une offre unique : vous savez ce que vous payez avant de me contacter.',
+  },
+  {
+    q: 'Que se passe-t-il si j’arrête au bout de douze mois ?',
+    a: 'Le site vous appartient. L’abonnement s’arrête sans reconduction automatique, et je vous remets les accès pour que vous repreniez l’hébergement vous-même ou avec un autre prestataire.',
+  },
+  {
+    q: 'Puis-je payer la création en plusieurs fois ?',
+    a: 'C’est possible sur demande, en deux ou trois échéances pendant la réalisation. Dites-le au moment du devis, cela ne change pas le montant total.',
+  },
+];

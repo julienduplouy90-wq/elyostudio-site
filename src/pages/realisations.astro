@@ -5,9 +5,9 @@ import Icone from '../components/Icone.astro';
 import BandeCta from '../components/BandeCta.astro';
 import { realisations } from '../data/site.js';
 
-const titre = 'Réalisations — à quoi ressemble un site ElyoStudio';
+const titre = 'Exemples de sites de naturopathes | ElyoStudio';
 const description =
-  'Des exemples concrets de sites de naturopathes : cinq pages, une page par spécialité, fiche Google et prise de rendez-vous en ligne. Pensés mobile d’abord.';
+  'À quoi ressemble un site ElyoStudio : cinq pages, une par spécialité, fiche Google et prise de rendez-vous, pensé pour le mobile.';
 
 const details = [
   {
@@ -37,7 +37,7 @@ const details = [
 ];
 ---
 
-<Base titre={titre} description={description}>
+<Base titre={titre} description={description} filAriane={[{ nom: "Réalisations", lien: "/realisations" }]}>
   <EnPage
     surtitre="Réalisations"
     titre="Ce que vous obtenez, concrètement"
