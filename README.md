@@ -4,7 +4,7 @@ Site vitrine d'**ElyoStudio**, le studio de Julien Duplouy qui crée des sites i
 naturopathes. Astro 5, sortie 100 % statique, aucune base de données, aucun backend.
 
 - Adresse de production : <https://elyostudio.fr>
-- Branche de travail : `claude/site-astro`
+- Dépôt : <https://github.com/julienduplouy90-wq/elyostudio-site> (public) — branche de travail `claude/site-astro`, déploiement automatique depuis `main`
 - Ce dossier est un **worktree git** du dépôt `elyostudio` (le `.git` pointe vers
   `../elyostudio/.git/worktrees/elyostudio-astro`). Les autres versions du site vivent sur les
   branches `claude/site-horizons` (React/Vite + PocketBase) et `claude/site-initial`.
