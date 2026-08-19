@@ -47,9 +47,20 @@ const valeurs = [
   <section class="section-serree">
     <div class="rail portrait-rail">
       <div class="portrait-carte reveal">
-        <div class="portrait-visuel" aria-hidden="true">
-          <span class="portrait-initiales">JD</span>
-          <span class="portrait-halo"></span>
+        <div class="portrait-visuel">
+          <img
+            class="portrait-photo"
+            src="/images/julien-duplouy-220.webp"
+            srcset="/images/julien-duplouy-220.webp 220w, /images/julien-duplouy-440.webp 440w"
+            sizes="(min-width: 900px) 200px, 45vw"
+            width="220"
+            height="220"
+            alt="Julien Duplouy, fondateur d’ElyoStudio"
+            fetchpriority="high"
+          />
+          <span class="portrait-anneau" aria-hidden="true"></span>
+          <span class="portrait-pastille portrait-pastille-terre" aria-hidden="true"></span>
+          <span class="portrait-pastille portrait-pastille-vert" aria-hidden="true"></span>
         </div>
         <div class="portrait-infos">
           <h2 class="portrait-nom">Julien Duplouy</h2>
@@ -140,33 +151,38 @@ const valeurs = [
     background: linear-gradient(165deg, #FFFFFF, var(--creme-2));
     box-shadow: var(--ombre-m), var(--ombre-interne);
   }
+  /* Le portrait est livré déjà détouré en rond ; le cadre, lui, est dessiné
+     ici avec les jetons de la charte, donc net à toutes les tailles. */
   .portrait-visuel {
     position: relative;
-    display: grid;
-    place-items: center;
-    height: 9rem;
-    border-radius: var(--r-l);
-    background:
-      radial-gradient(120% 120% at 25% 15%, rgba(232, 168, 92, 0.45), transparent 62%),
-      linear-gradient(150deg, var(--vert-clair), #C7DCCF);
-    overflow: hidden;
+    width: min(12.5rem, 62%);
+    margin-inline: auto;
+    aspect-ratio: 1;
   }
-  .portrait-initiales {
-    font-family: var(--police-titre);
-    font-size: 3rem;
-    font-weight: 600;
-    color: var(--vert);
-    letter-spacing: -0.03em;
-  }
-  .portrait-halo {
-    position: absolute;
-    width: 9rem; height: 9rem;
-    right: -3rem; bottom: -4rem;
+  .portrait-photo {
+    display: block;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
-    filter: blur(20px);
-    animation: flottement 12s ease-in-out infinite;
+    background: linear-gradient(150deg, var(--vert-clair), #C7DCCF);
+    box-shadow: var(--ombre-m);
   }
+  .portrait-anneau {
+    position: absolute;
+    inset: -0.6rem;
+    border-radius: 50%;
+    border: 2px solid var(--or);
+    opacity: 0.55;
+  }
+  .portrait-pastille {
+    position: absolute;
+    width: 1.05rem;
+    height: 1.05rem;
+    border-radius: 50%;
+    border: 2px solid var(--creme);
+  }
+  .portrait-pastille-terre { background: var(--terre); right: 0.15rem; bottom: 1.1rem; }
+  .portrait-pastille-vert { background: var(--vert); left: -0.7rem; top: 3rem; }
   .portrait-nom { margin-top: 1.3rem; font-size: 1.4rem; }
   .portrait-role { color: var(--terre); font-weight: 600; font-size: 0.95rem; }
   .portrait-liste { list-style: none; padding: 0; margin-top: 1.2rem; display: grid; gap: 0.65rem; }

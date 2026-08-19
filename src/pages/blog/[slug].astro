@@ -80,7 +80,16 @@ const donnees = {
         <p class="chapeau reveal" style="--delai: 160ms">{article.data.description}</p>
 
         <div class="signature reveal" style="--delai: 220ms">
-          <span class="signature-initiales" aria-hidden="true">JD</span>
+          <img
+            class="signature-photo"
+            src="/images/julien-duplouy-112.webp"
+            width="112"
+            height="112"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+          />
           <span class="signature-texte">
             <strong>Julien Duplouy</strong>
             <em>Fondateur d’{site.nom}, sites internet pour naturopathes — {site.ville}</em>
@@ -111,7 +120,15 @@ const donnees = {
         </div>
 
         <aside class="encart-auteur reveal">
-          <span class="auteur-initiales">JD</span>
+          <img
+            class="auteur-photo"
+            src="/images/julien-duplouy-112.webp"
+            width="112"
+            height="112"
+            alt="Julien Duplouy"
+            loading="lazy"
+            decoding="async"
+          />
           <div>
             <strong>Julien Duplouy</strong>
             <p>
@@ -209,18 +226,14 @@ const donnees = {
     gap: 0.8rem;
     margin-top: 1.8rem;
   }
-  .signature-initiales {
-    display: grid;
-    place-items: center;
+  .signature-photo {
+    display: block;
     width: 2.7rem;
     height: 2.7rem;
     flex: none;
-    border-radius: var(--r-m);
+    border-radius: 50%;
     background: linear-gradient(150deg, var(--vert-2), var(--vert));
-    color: #f2f7f3;
-    font-family: var(--police-titre);
-    font-size: 0.9rem;
-    font-weight: 600;
+    box-shadow: 0 0 0 2px var(--creme), 0 0 0 3px rgba(217, 184, 114, 0.5);
   }
   .signature-texte { display: grid; line-height: 1.35; }
   .signature-texte strong { font-size: 0.95rem; }
@@ -278,17 +291,14 @@ const donnees = {
     background: linear-gradient(160deg, #FFFFFF, var(--creme-2));
     box-shadow: var(--ombre-s);
   }
-  .auteur-initiales {
-    display: grid;
-    place-items: center;
+  .auteur-photo {
+    display: block;
     width: 3.2rem;
     height: 3.2rem;
-    border-radius: var(--r-m);
+    flex: none;
+    border-radius: 50%;
     background: linear-gradient(150deg, var(--vert-2), var(--vert));
-    color: #F2F7F3;
-    font-family: var(--police-titre);
-    font-size: 1.1rem;
-    font-weight: 600;
+    box-shadow: 0 0 0 2px var(--creme), 0 0 0 3px rgba(217, 184, 114, 0.5);
   }
   .encart-auteur p { margin-block: 0.4rem 0.9rem; font-size: 0.94rem; color: var(--encre-2); }
 
