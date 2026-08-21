@@ -24,8 +24,8 @@ const actif = (lien: string) => chemin === lien || (lien !== '/' && chemin.start
     </nav>
 
     <div class="entete-actions">
-      <a href="/audit-gratuit" class="btn btn-principal entete-cta">
-        Audit gratuit
+      <a href="/diagnostic" class="btn btn-principal entete-cta">
+        Diagnostic gratuit
         <Icone nom="fleche" classe="fleche" />
       </a>
       <button type="button" class="entete-burger" data-burger aria-expanded="false" aria-controls="menu-mobile">
@@ -48,8 +48,8 @@ const actif = (lien: string) => chemin === lien || (lien !== '/' && chemin.start
       }
       <a href="/contact" class:list={['menu-mobile-lien', { actif: actif('/contact') }]}>Contact</a>
     </nav>
-    <a href="/audit-gratuit" class="btn btn-principal btn-large">
-      Recevoir mon audit vidéo gratuit
+    <a href="/diagnostic" class="btn btn-principal btn-large">
+      Faire le diagnostic gratuit — 7 min
       <Icone nom="fleche" classe="fleche" />
     </a>
   </div>

@@ -3,78 +3,77 @@ import Base from '../layouts/Base.astro';
 import EnPage from '../components/EnPage.astro';
 import Icone from '../components/Icone.astro';
 import BandeCta from '../components/BandeCta.astro';
-import { prix } from '../data/site.js';
 
-const titre = 'Votre site de naturopathe en 10 jours | ElyoStudio';
+const titre = 'La méthode : 21 jours de socle, un an de filet | ElyoStudio';
 const description =
-  'Quatre étapes, dix jours ouvrés : appel de 30 minutes, questionnaire, création puis mise en ligne. Sans jargon, sans réunion inutile.';
+  'Bilan de 30 minutes, trois semaines pour poser le socle — positionnement, offre, site, visibilité — puis douze mois de filet. Sans jargon, sans réunion inutile.';
 
 const detail = [
   {
     n: '01',
-    titre: 'L’appel découverte, 30 minutes',
+    titre: 'Le bilan de 30 minutes',
     duree: 'Jour 0',
     icone: 'video',
     texte:
-      'On parle de votre pratique, de vos spécialités, du type de personnes que vous accompagnez et de ce que vous voulez changer. Je vous dis franchement si je peux vous aider.',
-    points: ['En visio, à l’heure qui vous arrange', 'Aucune préparation nécessaire', 'Sans engagement'],
+      'On fait le point sur votre situation : où vous en êtes, ce qui freine, ce que vous voulez construire. Vous repartez avec des priorités claires — et je vous dis franchement si je peux vous aider.',
+    points: ['En visio, à l’heure qui vous arrange', 'Offert, sans engagement', 'Encore mieux si vous avez fait le diagnostic avant'],
   },
   {
     n: '02',
-    titre: 'Le questionnaire de départ',
-    duree: 'Jours 1 à 2',
-    icone: 'document',
+    titre: 'Semaine 1 : positionnement, offre et tarifs',
+    duree: 'Jours 1 à 7',
+    icone: 'recherche',
     texte:
-      'Vous recevez un questionnaire guidé : vos spécialités, vos tarifs, vos horaires, vos photos. Une heure de votre temps, en plusieurs fois si vous préférez.',
-    points: ['Questions en français courant', 'Une liste précise des photos utiles', 'Je rédige les textes à partir de vos réponses'],
+      'Qui vous aidez, sur quoi, comment, à quel prix. Deux séances de travail et un questionnaire guidé : à la fin de la semaine, votre positionnement tient en une phrase et vos offres en une page.',
+    points: ['Deux séances de travail en visio', 'Votre offre d’entrée structurée, tarifs posés', 'La base de tous les textes du site'],
   },
   {
     n: '03',
-    titre: 'La création et votre validation',
-    duree: 'Jours 3 à 8',
+    titre: 'Semaines 2 et 3 : site, fiche Google, rendez-vous',
+    duree: 'Jours 8 à 21',
     icone: 'gabarit',
     texte:
-      'Je conçois le site, page par page, puis je vous le présente en vidéo. Vous demandez les ajustements que vous voulez ; rien ne part en ligne avant votre feu vert.',
-    points: ['Une présentation vidéo, pas un lien brut', 'Un tour d’ajustements compris', 'Relecture des textes ensemble'],
+      'Je construis le site autour du positionnement posé, j’installe la prise de rendez-vous en ligne, je crée ou remets à plat votre fiche Google. Vous validez tout en vidéo ; rien ne part en ligne sans votre feu vert.',
+    points: ['Textes rédigés à partir de nos échanges', 'Réservation testée de bout en bout, mobile compris', 'En ligne au jour 21, fiche Google active'],
   },
   {
     n: '04',
-    titre: 'La mise en ligne et le suivi',
-    duree: `Jour ${prix.delai.split(' ')[0]} puis chaque mois`,
-    icone: 'agenda',
+    titre: 'Douze mois de Filet',
+    duree: 'Mois 1 à 12',
+    icone: 'bouclier',
     texte:
-      'Le site part en ligne avec votre nom de domaine, la fiche Google est complétée et la prise de rendez-vous est testée de bout en bout. Ensuite, je veille dessus tous les mois.',
-    points: ['Fiche Google créée ou remise à plat', 'Réservation testée sur mobile', 'Un bilan une fois par an'],
+      'Un entretien de 90 minutes pose votre plan d’action écrit. Ensuite, chaque fois que vous bloquez : une séance de 20 minutes sous 72 h ouvrées, une décision claire, un compte rendu. Et un bilan à 6 mois, puis à 12.',
+    points: ['À la demande, sans programme imposé', 'Un sujet précis par séance', 'Un compte rendu écrit après chacune'],
   },
 ];
 
 const cotéVous = [
+  'Deux séances de travail la première semaine, puis vos validations',
   'Une heure pour le questionnaire de départ',
   'Vos photos, ou un créneau pour en faire de bonnes',
-  'Une relecture des textes, à votre rythme',
-  'Un accès à votre fiche Google si elle existe déjà',
+  'Dire quand ça bloque — c’est le principe du Filet',
 ];
 
 const cotéMoi = [
+  'Le cadrage du positionnement, de l’offre et des tarifs',
   'La conception, la rédaction et l’intégration du site',
-  'Le nom de domaine, l’hébergement et les emails',
-  'La fiche Google et la prise de rendez-vous',
-  'La maintenance, les sauvegardes et l’assistance',
+  'Le nom de domaine, l’hébergement, la fiche Google, la prise de rendez-vous',
+  'Les séances de déblocage, les comptes rendus et les bilans',
 ];
 ---
 
 <Base titre={titre} description={description} filAriane={[{ nom: "La méthode", lien: "/methode" }]}>
   <EnPage
     surtitre="La méthode"
-    titre="Dix jours ouvrés, quatre étapes, aucune réunion inutile"
-    chapeau="Vous n’avez pas à comprendre l’hébergement, le DNS ou le référencement. Vous répondez à un questionnaire, vous validez, et le site part en ligne."
+    titre="Trois semaines pour le socle, douze mois de filet"
+    chapeau="Vous n’avez pas à comprendre l’hébergement, le DNS ou le référencement. On clarifie, je construis, vous validez — puis je reste à portée de visio pendant un an."
   >
     <div class="groupe-btn marge-haut">
       <a href="/rendez-vous" class="btn btn-principal btn-large">
-        Réserver l’appel de 30 minutes
+        Réserver mon bilan de lancement
         <Icone nom="fleche" classe="fleche" />
       </a>
-      <a href="/offre" class="btn btn-secondaire btn-large">Voir l’offre et le tarif</a>
+      <a href="/offre" class="btn btn-secondaire btn-large">Voir l’accompagnement et le tarif</a>
     </div>
   </EnPage>
 
@@ -109,7 +108,7 @@ const cotéMoi = [
     <div class="rail">
       <div class="entete-section reveal">
         <span class="surtitre">Qui fait quoi</span>
-        <h2>Votre part du travail tient en une heure</h2>
+        <h2>Votre part du travail reste tenable, même en activité</h2>
       </div>
 
       <div class="deux-colonnes marge-haut-grand">
@@ -133,7 +132,7 @@ const cotéMoi = [
 
   <BandeCta
     titre="Le premier pas ne coûte rien"
-    texte="Avant même de parler méthode, je regarde votre présence actuelle et je vous envoie une vidéo de 2 à 3 minutes avec les 3 points qui vous coûtent le plus de rendez-vous."
+    texte="Faites le diagnostic des 5 fondations : quinze questions, sept minutes, votre score et vos trois priorités. Vous saurez précisément où vous en êtes avant même qu’on se parle."
   />
 </Base>
 

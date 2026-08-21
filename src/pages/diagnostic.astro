@@ -1,0 +1,502 @@
+---
+import Base from '../layouts/Base.astro';
+import EnPage from '../components/EnPage.astro';
+import Icone from '../components/Icone.astro';
+import { site } from '../data/site.js';
+
+const titre = 'Le diagnostic des 5 fondations — 7 minutes | ElyoStudio';
+const description =
+  'Votre activité de thérapeute repose-t-elle sur des bases suffisamment solides ? Quinze questions, un score sur 100, vos trois priorités. Gratuit, en 7 minutes.';
+---
+
+<Base
+  titre={titre}
+  description={description}
+  barreMobile={false}
+  filAriane={[{ nom: 'Le diagnostic', lien: '/diagnostic' }]}
+>
+  <EnPage
+    surtitre="Le diagnostic des 5 fondations"
+    titre="Votre activité repose-t-elle sur des bases suffisamment solides ?"
+    chapeau="Quinze questions, sept minutes. À la fin : votre score sur 100, vos forces, vos points faibles et les trois priorités à travailler — puis, si vous le souhaitez, on les regarde ensemble."
+  />
+
+  <section class="section-serree">
+    <div class="rail-etroit">
+      <!-- ÉCRAN 0 : parcours -->
+      <div class="carte diag-carte" id="ecran-parcours">
+        <p class="diag-question-titre">Pour commencer, où en êtes-vous ?</p>
+        <div class="diag-options" role="group" aria-label="Votre situation">
+          <button type="button" class="diag-option" data-parcours="lancement">
+            <strong>Je prépare mon lancement</strong>
+            <span>Vous démarrez, ou vous exercez depuis peu et tout reste à structurer.</span>
+          </button>
+          <button type="button" class="diag-option" data-parcours="installe">
+            <strong>Je suis déjà installé, mais ça ne décolle pas assez</strong>
+            <span>L’activité existe, les rendez-vous ne suivent pas au rythme espéré.</span>
+          </button>
+        </div>
+        <p class="diag-note">
+          Cinq fondations passées en revue : positionnement, offre et tarifs, site et crédibilité,
+          visibilité locale, prise de rendez-vous et acquisition.
+        </p>
+      </div>
+
+      <!-- ÉCRAN 1 : questions (rempli par le script) -->
+      <div class="carte diag-carte" id="ecran-questions" hidden>
+        <div class="diag-progression">
+          <span id="diag-etape-libelle">Question 1 sur 15</span>
+          <div class="diag-barre" role="progressbar" aria-valuemin="0" aria-valuemax="15" aria-valuenow="0" id="diag-barre">
+            <span class="diag-barre-remplie" id="diag-barre-remplie"></span>
+          </div>
+        </div>
+        <p class="diag-fondation" id="diag-fondation"></p>
+        <fieldset class="diag-fieldset">
+          <legend class="diag-question-titre" id="diag-question"></legend>
+          <div class="diag-options" id="diag-reponses"></div>
+        </fieldset>
+        <button type="button" class="diag-retour" id="diag-retour" hidden>← Question précédente</button>
+      </div>
+
+      <!-- ÉCRAN 2 : email -->
+      <div class="carte diag-carte" id="ecran-email" hidden>
+        <p class="diag-question-titre">C’est terminé. Où envoyer votre synthèse ?</p>
+        <p class="diag-note diag-note-haut">
+          Vos résultats s’affichent juste après, et vous recevez la synthèse écrite par email sous
+          24 h ouvrées.
+        </p>
+        <form id="diag-form-email" novalidate>
+          <label class="diag-label" for="diag-email">Votre adresse email</label>
+          <div class="diag-email-ligne">
+            <input
+              type="email"
+              id="diag-email"
+              name="email"
+              required
+              autocomplete="email"
+              placeholder="vous@exemple.fr"
+              class="diag-input"
+            />
+            <button type="submit" class="btn btn-principal" id="diag-envoyer">
+              Voir mes résultats
+              <Icone nom="fleche" classe="fleche" />
+            </button>
+          </div>
+          <p class="diag-erreur" id="diag-email-erreur" hidden>
+            Cette adresse ne semble pas valide — vérifiez-la, puis réessayez.
+          </p>
+          <p class="diag-rgpd">
+            Votre email sert uniquement à vous envoyer cette synthèse et, au plus, quelques conseils
+            en lien avec vos résultats. Pas de newsletter cachée, désinscription en une réponse.
+          </p>
+        </form>
+      </div>
+
+      <!-- ÉCRAN 3 : résultats -->
+      <div id="ecran-resultats" hidden>
+        <div class="carte diag-carte diag-resultat-entete">
+          <p class="diag-fondation">Votre résultat</p>
+          <p class="diag-score"><span id="diag-score">0</span><small>/100</small></p>
+          <p class="diag-verdict" id="diag-verdict"></p>
+        </div>
+
+        <div class="carte diag-carte">
+          <p class="diag-question-titre">Vos cinq fondations</p>
+          <ul class="diag-jauges" id="diag-jauges"></ul>
+        </div>
+
+        <div class="carte diag-carte">
+          <p class="diag-question-titre">Vos trois priorités</p>
+          <ol class="diag-priorites" id="diag-priorites"></ol>
+        </div>
+
+        <div class="carte diag-carte diag-cta">
+          <p class="diag-question-titre" id="diag-cta-titre">
+            Vous souhaitez analyser vos résultats avec moi ?
+          </p>
+          <p class="diag-note diag-note-haut" id="diag-cta-texte"></p>
+          <a href="/rendez-vous" class="btn btn-principal btn-large" id="diag-cta-btn">
+            Réserver mon bilan de lancement offert — 30 min
+            <Icone nom="fleche" classe="fleche" />
+          </a>
+          <p class="diag-rgpd">
+            Trente minutes en visio, gratuites et sans engagement. Ce n’est pas une séance de
+            coaching complète : on relit vos résultats, vous repartez avec vos priorités clarifiées,
+            et on vérifie si l’accompagnement <a href="/offre">Terre Ferme</a> vous correspond.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  // ------------------------------------------------------------------
+  // Le diagnostic des 5 fondations. Tout se calcule dans le navigateur :
+  // aucune réponse n'est envoyée tant que l'email n'est pas confirmé.
+  // À la confirmation, une ligne part vers un formulaire Google (voir
+  // COLLECTE) qui alimente une feuille de calcul — si la constante est
+  // vide ou que l'envoi échoue, les résultats s'affichent quand même.
+  // ------------------------------------------------------------------
+
+  // Renseigné après création du formulaire de collecte ; laisser vide pour
+  // désactiver l'envoi sans casser la page.
+  const COLLECTE = {
+    action:
+      'https://docs.google.com/forms/d/e/1FAIpQLSdTqTCJt2-EX-ZsMxTYDk94tqgXrYcktPak_Cu5s4-sZA9Grw/formResponse',
+    champs: {
+      email: 'entry.986306673',
+      parcours: 'entry.1907146775',
+      score: 'entry.2051534627',
+      detail: 'entry.1905745993',
+    },
+  };
+
+  const FONDATIONS = [
+    { nom: 'Positionnement', action: 'Écrivez la phrase « J’aide [qui] à [obtenir quoi] grâce à [votre approche] », puis testez-la à voix haute sur cinq personnes. Si vous devez l’expliquer, elle n’est pas prête.' },
+    { nom: 'Offre et tarifs', action: 'Structurez une offre d’entrée claire : un nom, un déroulé, une durée, un tarif assumé — et affichez-la telle quelle, sans « à partir de ».' },
+    { nom: 'Site et crédibilité', action: 'Une page bien faite vaut mieux qu’un site brouillon : qui vous êtes, pour qui, le déroulé d’une séance, et un bouton de rendez-vous visible sans défiler.' },
+    { nom: 'Visibilité locale', action: 'Complétez votre fiche Google à 100 % — catégorie exacte, photos récentes, horaires — et demandez deux avis à d’anciens clients cette semaine.' },
+    { nom: 'Rendez-vous et acquisition', action: 'Installez une prise de rendez-vous en ligne et placez le lien partout où l’on vous trouve : fiche Google, signature d’email, réseaux.' },
+  ];
+
+  // 3 questions par fondation, pondérées 7 + 7 + 6 = 20 points.
+  // Chaque option vaut une fraction du poids : 0, un tiers, deux tiers, tout.
+  const QUESTIONS = [
+    // Positionnement
+    { f: 0, poids: 7, q: 'Quand on vous demande ce que vous faites, votre réponse tient-elle en une phrase claire ?', options: ['Non — je réponds différemment selon la personne', 'J’ai une idée, mais elle reste floue', 'Oui, mais très générale : « j’aide les gens à aller mieux »', 'Oui : qui j’aide, sur quoi, et comment'] },
+    { f: 0, poids: 7, q: 'Votre client idéal, sauriez-vous le décrire précisément ?', options: ['Tout le monde peut bénéficier de ma pratique', 'Un public large, pas vraiment défini', 'Je l’ai en tête, mais je ne l’ai jamais formulé', 'Oui : sa situation, son problème, ce qu’il attend'] },
+    { f: 0, poids: 6, q: 'Pourquoi vous, plutôt qu’un autre praticien de votre ville ?', options: ['Honnêtement, je ne saurais pas répondre', 'Des qualités générales : l’écoute, la bienveillance…', 'Quelques éléments qui me distinguent, mal formulés', 'Une combinaison claire, que je sais expliquer simplement'] },
+    // Offre et tarifs
+    { f: 1, poids: 7, q: 'Vos prestations sont-elles structurées en offres lisibles ?', options: ['Je facture à la séance, sans structure particulière', 'Quelques formules existent, mais peu lisibles', 'Des offres définies, mais mal présentées', 'Des offres claires, avec un point d’entrée évident'] },
+    { f: 1, poids: 7, q: 'Et vos tarifs ?', options: ['Je les improvise, ou j’ai du mal à les annoncer', 'Fixés, mais trop bas — je le sais', 'Fixés, mais jamais réévalués ni vraiment assumés', 'Posés, affichés, cohérents avec mon positionnement'] },
+    { f: 1, poids: 6, q: 'Un nouveau client comprend-il facilement par où commencer avec vous ?', options: ['Non, il faut que je lui explique de vive voix', 'Ça dépend des cas', 'Oui, à condition qu’il me contacte d’abord', 'Oui : le parcours d’entrée est évident, même sans me parler'] },
+    // Site et crédibilité
+    { f: 2, poids: 7, q: 'Où en est votre site aujourd’hui ?', options: ['Je n’ai pas de site', 'Une page ou un site daté, qui ne me ressemble plus', 'Un site correct, mais qui n’amène pas de rendez-vous', 'Un site professionnel, clair et à jour'] },
+    { f: 2, poids: 7, q: 'Que trouve-t-on en tapant votre nom sur Google ?', options: ['Rien, ou presque', 'Des profils d’annuaires épars, pas toujours à jour', 'Mon site et quelques traces cohérentes', 'Une présence cohérente et rassurante, que je maîtrise'] },
+    { f: 2, poids: 6, q: 'Vos textes — présentation, prestations — sont-ils travaillés ?', options: ['Ils ne sont pas écrits', 'Écrits vite, jamais relus depuis', 'Corrects, mais génériques : ils pourraient être ceux d’un autre', 'Travaillés, dans mes mots, adressés à mon client idéal'] },
+    // Visibilité locale
+    { f: 3, poids: 7, q: 'Votre fiche Google Business Profile ?', options: ['Je n’en ai pas — ou je ne sais pas', 'Elle existe, mais vide ou inexacte', 'Remplie, mais jamais animée depuis', 'Complète : photos, avis, horaires, à jour'] },
+    { f: 3, poids: 7, q: 'Sur « votre métier + votre ville », vous apparaissez ?', options: ['Je n’ai jamais regardé', 'Non, je n’apparais pas', 'Dans le lot, mais pas en tête', 'Oui, dans les premiers résultats'] },
+    { f: 3, poids: 6, q: 'Les avis clients ?', options: ['Aucun', 'Quelques-uns, jamais sollicités', 'J’en demande de temps en temps', 'Une démarche régulière — et je réponds à chacun'] },
+    // Rendez-vous et acquisition
+    { f: 4, poids: 7, q: 'Prendre rendez-vous avec vous, concrètement ?', options: ['Il faut m’appeler ou m’écrire, puis attendre ma réponse', 'Par messages, ça va ça vient', 'Un agenda en ligne existe, mais peu visible', 'Réservation en ligne simple, visible partout'] },
+    { f: 4, poids: 7, q: 'D’où viennent vos clients aujourd’hui ?', options: ['Je ne sais pas vraiment', 'Uniquement du bouche-à-oreille', 'Bouche-à-oreille, plus un canal qui commence à donner', 'Plusieurs sources, que je connais et que je suis'] },
+    { f: 4, poids: 6, q: 'Votre plan d’acquisition pour les trois prochains mois ?', options: ['Il n’existe pas', 'Des idées, jamais tenues dans la durée', 'Un plan, mais trop ambitieux pour mon agenda', 'Un plan simple, que je tiens semaine après semaine'] },
+  ];
+
+  const etat = { parcours: '', index: 0, reponses: new Array(QUESTIONS.length).fill(-1) };
+
+  const $ = (id) => document.getElementById(id);
+  const ecrans = {
+    parcours: $('ecran-parcours'),
+    questions: $('ecran-questions'),
+    email: $('ecran-email'),
+    resultats: $('ecran-resultats'),
+  };
+
+  function montrer(nom) {
+    Object.entries(ecrans).forEach(([cle, el]) => { el.hidden = cle !== nom; });
+    ecrans[nom].closest('section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function afficherQuestion() {
+    const q = QUESTIONS[etat.index];
+    $('diag-etape-libelle').textContent = `Question ${etat.index + 1} sur ${QUESTIONS.length}`;
+    $('diag-fondation').textContent = `Fondation ${q.f + 1} — ${FONDATIONS[q.f].nom}`;
+    $('diag-question').textContent = q.q;
+    $('diag-barre').setAttribute('aria-valuenow', String(etat.index));
+    $('diag-barre-remplie').style.width = `${(etat.index / QUESTIONS.length) * 100}%`;
+    $('diag-retour').hidden = etat.index === 0;
+
+    const conteneur = $('diag-reponses');
+    conteneur.innerHTML = '';
+    q.options.forEach((texte, i) => {
+      const bouton = document.createElement('button');
+      bouton.type = 'button';
+      bouton.className = 'diag-option diag-option-simple';
+      if (etat.reponses[etat.index] === i) bouton.classList.add('diag-option-choisie');
+      bouton.innerHTML = `<strong>${texte}</strong>`;
+      bouton.addEventListener('click', () => {
+        etat.reponses[etat.index] = i;
+        if (etat.index < QUESTIONS.length - 1) {
+          etat.index += 1;
+          afficherQuestion();
+        } else {
+          montrer('email');
+          $('diag-email').focus();
+        }
+      });
+      conteneur.appendChild(bouton);
+    });
+  }
+
+  function calculer() {
+    const parFondation = FONDATIONS.map(() => ({ obtenu: 0, max: 0 }));
+    QUESTIONS.forEach((q, i) => {
+      const choix = Math.max(0, etat.reponses[i]);
+      parFondation[q.f].obtenu += (q.poids * choix) / (q.options.length - 1);
+      parFondation[q.f].max += q.poids;
+    });
+    const detail = parFondation.map((s) => Math.round((s.obtenu / s.max) * 100));
+    const score = Math.round(parFondation.reduce((somme, s) => somme + s.obtenu, 0));
+    return { score, detail };
+  }
+
+  function verdict(score, parcours) {
+    const lancement = parcours === 'lancement';
+    if (score < 40) {
+      return lancement
+        ? 'Vos fondations sont encore à construire — c’est normal à ce stade, et c’est exactement le bon moment pour les poser dans le bon ordre, avant d’investir du temps ou de l’argent au mauvais endroit.'
+        : 'Votre activité tourne sur des fondations fragiles : beaucoup d’énergie dépensée pour des résultats en dessous de ce que votre pratique mérite. La bonne nouvelle : c’est structurel, donc ça se corrige.';
+    }
+    if (score < 70) {
+      return lancement
+        ? 'De vraies bases existent déjà — il reste des trous ciblés qui freineront votre lancement si rien ne bouge. Les trois priorités ci-dessous vous disent où porter l’effort en premier.'
+        : 'Des bases réelles, des trous ciblés : votre activité ne demande pas tout à refaire, elle demande de consolider deux ou trois fondations précises. C’est le cas le plus fréquent, et le plus rapide à débloquer.';
+    }
+    return lancement
+      ? 'Vos fondations sont étonnamment solides pour un lancement. Restez sur cette lancée — un regard extérieur ponctuel peut suffire à sécuriser les derniers choix.'
+      : 'Vos fondations sont solides. Si les résultats ne suivent pas encore, la question est probablement fine — un canal, une page, un tarif — et se règle mieux à deux, en séance courte.';
+  }
+
+  function afficherResultats() {
+    const { score, detail } = calculer();
+
+    $('diag-score').textContent = String(score);
+    $('diag-verdict').textContent = verdict(score, etat.parcours);
+
+    const jauges = $('diag-jauges');
+    jauges.innerHTML = '';
+    detail.forEach((pct, i) => {
+      const item = document.createElement('li');
+      const classe = pct >= 70 ? 'diag-jauge-forte' : pct >= 45 ? 'diag-jauge-moyenne' : 'diag-jauge-faible';
+      const libelle = pct >= 70 ? 'un point fort' : pct >= 45 ? 'à consolider' : 'prioritaire';
+      item.innerHTML =
+        `<div class="diag-jauge-ligne"><span>${FONDATIONS[i].nom}</span><span class="diag-jauge-note">${pct} % — ${libelle}</span></div>` +
+        `<div class="diag-jauge"><span class="diag-jauge-remplie ${classe}" style="width:${Math.max(4, pct)}%"></span></div>`;
+      jauges.appendChild(item);
+    });
+
+    const priorites = $('diag-priorites');
+    priorites.innerHTML = '';
+    detail
+      .map((pct, i) => ({ pct, i }))
+      .sort((a, b) => a.pct - b.pct)
+      .slice(0, 3)
+      .forEach(({ i }) => {
+        const item = document.createElement('li');
+        item.innerHTML = `<strong>${FONDATIONS[i].nom}</strong><p>${FONDATIONS[i].action}</p>`;
+        priorites.appendChild(item);
+      });
+
+    const lancement = etat.parcours === 'lancement';
+    $('diag-cta-btn').childNodes[0].textContent = lancement
+      ? 'Réserver mon bilan de lancement offert — 30 min '
+      : 'Réserver mon bilan de développement offert — 30 min ';
+    $('diag-cta-texte').textContent = lancement
+      ? 'Trente minutes pour relire ces résultats ensemble et transformer vos trois priorités en plan de lancement concret.'
+      : 'Trente minutes pour relire ces résultats ensemble et décider par quelle fondation reprendre le développement.';
+
+    montrer('resultats');
+  }
+
+  function envoyerCollecte(email) {
+    if (!COLLECTE.action) return;
+    const { score, detail } = calculer();
+    const donnees = new FormData();
+    donnees.append(COLLECTE.champs.email, email);
+    donnees.append(COLLECTE.champs.parcours, etat.parcours);
+    donnees.append(COLLECTE.champs.score, String(score));
+    donnees.append(
+      COLLECTE.champs.detail,
+      FONDATIONS.map((f, i) => `${f.nom}: ${detail[i]}%`).join(' | ') +
+        ' || réponses: ' + etat.reponses.join(','),
+    );
+    fetch(COLLECTE.action, { method: 'POST', mode: 'no-cors', body: donnees }).catch(() => {});
+  }
+
+  document.querySelectorAll('[data-parcours]').forEach((bouton) => {
+    bouton.addEventListener('click', () => {
+      etat.parcours = bouton.dataset.parcours;
+      montrer('questions');
+      afficherQuestion();
+    });
+  });
+
+  $('diag-retour').addEventListener('click', () => {
+    if (etat.index > 0) {
+      etat.index -= 1;
+      afficherQuestion();
+    }
+  });
+
+  $('diag-form-email').addEventListener('submit', (evenement) => {
+    evenement.preventDefault();
+    const champ = $('diag-email');
+    const email = champ.value.trim();
+    const valide = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+    $('diag-email-erreur').hidden = valide;
+    if (!valide) {
+      champ.focus();
+      return;
+    }
+    envoyerCollecte(email);
+    afficherResultats();
+  });
+</script>
+
+<style is:global>
+  .diag-carte {
+    margin-top: 1.2rem;
+    padding: clamp(1.4rem, 4vw, 2rem);
+  }
+  .diag-carte:first-child { margin-top: 0; }
+
+  .diag-question-titre {
+    font-family: var(--police-titre);
+    font-size: clamp(1.25rem, 3.2vw, 1.55rem);
+    font-weight: 600;
+    color: var(--encre);
+    padding: 0;
+  }
+  .diag-fieldset { border: 0; padding: 0; margin: 0; }
+
+  .diag-fondation {
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--terre);
+    margin-bottom: 0.6rem;
+  }
+
+  .diag-progression { margin-bottom: 1.3rem; }
+  .diag-progression span:first-child {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--encre-2);
+    margin-bottom: 0.5rem;
+  }
+  .diag-barre {
+    height: 0.45rem;
+    border-radius: var(--r-pilule);
+    background: var(--vert-clair);
+    overflow: hidden;
+  }
+  .diag-barre-remplie {
+    display: block;
+    height: 100%;
+    width: 0;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--vert), #4A7A68);
+    transition: width 0.35s ease;
+  }
+
+  .diag-options { display: grid; gap: 0.7rem; margin-top: 1.1rem; }
+  .diag-option {
+    display: grid;
+    gap: 0.3rem;
+    padding: 1rem 1.15rem;
+    text-align: left;
+    border: 1px solid var(--ligne);
+    border-radius: var(--r-l);
+    background: var(--blanc);
+    cursor: pointer;
+    font: inherit;
+    color: var(--encre);
+    box-shadow: var(--ombre-xs);
+    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  }
+  .diag-option:hover, .diag-option:focus-visible {
+    transform: translateY(-2px);
+    border-color: rgba(46, 90, 75, 0.45);
+    box-shadow: var(--ombre-s);
+  }
+  .diag-option strong { font-weight: 600; font-size: 0.98rem; }
+  .diag-option span { font-size: 0.9rem; color: var(--encre-2); }
+  .diag-option-choisie { border-color: var(--vert); background: var(--vert-clair); }
+
+  .diag-retour {
+    margin-top: 1.2rem;
+    border: 0;
+    background: none;
+    font: inherit;
+    font-size: 0.92rem;
+    color: var(--encre-2);
+    cursor: pointer;
+    padding: 0.4rem 0;
+  }
+  .diag-retour:hover { color: var(--encre); }
+
+  .diag-note { margin-top: 1.2rem; font-size: 0.92rem; color: var(--encre-2); }
+  .diag-note-haut { margin-top: 0.6rem; }
+
+  .diag-label {
+    display: block;
+    margin-top: 1.2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--encre);
+  }
+  .diag-email-ligne { display: grid; gap: 0.7rem; margin-top: 0.5rem; }
+  .diag-input {
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--ligne);
+    border-radius: var(--r-m);
+    font: inherit;
+    background: var(--blanc);
+    color: var(--encre);
+  }
+  .diag-input:focus-visible { outline: 2px solid var(--vert); outline-offset: 1px; }
+  .diag-erreur { margin-top: 0.6rem; font-size: 0.9rem; color: var(--terre); }
+  .diag-rgpd { margin-top: 1rem; font-size: 0.84rem; color: var(--encre-3); }
+  @media (min-width: 640px) {
+    .diag-email-ligne { grid-template-columns: 1fr auto; align-items: stretch; }
+  }
+
+  .diag-resultat-entete { text-align: center; }
+  .diag-score {
+    font-family: var(--police-titre);
+    font-size: clamp(3.2rem, 10vw, 4.5rem);
+    font-weight: 600;
+    line-height: 1;
+    color: var(--vert);
+    margin-top: 0.4rem;
+  }
+  .diag-score small { font-size: 1.4rem; color: var(--encre-3); font-weight: 500; }
+  .diag-verdict {
+    max-width: 36rem;
+    margin: 1rem auto 0;
+    color: var(--encre-2);
+    font-size: 1.02rem;
+    line-height: 1.65;
+  }
+
+  .diag-jauges { list-style: none; padding: 0; margin-top: 1.2rem; display: grid; gap: 1rem; }
+  .diag-jauge-ligne {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.94rem;
+    margin-bottom: 0.4rem;
+  }
+  .diag-jauge-note { color: var(--encre-2); font-size: 0.88rem; white-space: nowrap; }
+  .diag-jauge {
+    height: 0.55rem;
+    border-radius: var(--r-pilule);
+    background: rgba(35, 32, 28, 0.07);
+    overflow: hidden;
+  }
+  .diag-jauge-remplie { display: block; height: 100%; border-radius: inherit; }
+  .diag-jauge-forte { background: linear-gradient(90deg, var(--vert), #4A7A68); }
+  .diag-jauge-moyenne { background: linear-gradient(90deg, #C89A4B, var(--or)); }
+  .diag-jauge-faible { background: linear-gradient(90deg, var(--terre), #D07A52); }
+
+  .diag-priorites { padding-left: 1.2rem; margin-top: 1rem; display: grid; gap: 1rem; }
+  .diag-priorites strong { font-size: 1rem; }
+  .diag-priorites p { margin-top: 0.25rem; font-size: 0.94rem; color: var(--encre-2); }
+
+  .diag-cta { text-align: left; }
+  .diag-cta .btn { margin-top: 1.2rem; }
+</style>

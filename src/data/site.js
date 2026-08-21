@@ -6,7 +6,7 @@
 //
 //   reglages.json     coordonnées, tarifs, navigation
 //   accueil.json      constat, dispositif, étapes de la méthode
-//   offre.json        listes du Pack Visibilité, engagements, comparatif
+//   offre.json        listes du Socle et du Filet, engagements, comparatif
 //   faq.json          questions fréquentes (accueil et page offre)
 //   realisations.json cartes de la page Réalisations
 
@@ -25,8 +25,8 @@ export const problemes = accueil.problemes;
 export const solutions = accueil.solutions;
 export const etapes = accueil.etapes;
 
-export const inclusCreation = offre.inclusCreation;
-export const inclusMensuel = offre.inclusMensuel;
+export const socle = offre.socle;
+export const filet = offre.filet;
 export const optionsHorsForfait = offre.optionsHorsForfait;
 export const nonPromis = offre.nonPromis;
 export const engagements = offre.engagements;

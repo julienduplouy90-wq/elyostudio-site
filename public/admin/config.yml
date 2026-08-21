@@ -120,10 +120,10 @@ collections:
             label: Tarifs
             widget: object
             fields:
-              - { name: creation, label: Prix de création, widget: string }
-              - { name: mensuel, label: Prix mensuel, widget: string }
-              - { name: duree, label: Durée d’engagement, widget: string }
-              - { name: delai, label: Délai de mise en ligne, widget: string }
+              - { name: total, label: Prix total de l’accompagnement, widget: string }
+              - { name: paiement3x, label: Paiement en trois fois, widget: string }
+              - { name: duree, label: Durée du Filet, widget: string }
+              - { name: delai, label: Délai de mise en ligne du Socle, widget: string }
           - name: navigation
             label: Menu principal
             widget: list
@@ -165,8 +165,8 @@ collections:
         label: Offre — ce qui est compris
         file: src/data/offre.json
         fields:
-          - { name: inclusCreation, label: Compris à la création, widget: list, field: { name: ligne, label: Ligne, widget: string } }
-          - { name: inclusMensuel, label: Compris chaque mois, widget: list, field: { name: ligne, label: Ligne, widget: string } }
+          - { name: socle, label: Le Socle (21 jours), widget: list, field: { name: ligne, label: Ligne, widget: string } }
+          - { name: filet, label: Le Filet (12 mois), widget: list, field: { name: ligne, label: Ligne, widget: string } }
           - name: optionsHorsForfait
             label: Options hors forfait
             widget: list

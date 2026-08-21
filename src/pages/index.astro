@@ -10,15 +10,15 @@ import {
   problemes,
   solutions,
   etapes,
-  inclusCreation,
-  inclusMensuel,
+  socle,
+  filet,
   nonPromis,
   engagements,
   faqs,
 } from '../data/site.js';
 
-const titre = 'Création de site internet pour naturopathe | ElyoStudio';
-const description = `Studio spécialisé dans les sites internet de naturopathes : visibilité locale, fiche Google et prise de rendez-vous. ${prix.creation} puis ${prix.mensuel}/mois.`;
+const titre = 'Studio de lancement pour thérapeutes | ElyoStudio';
+const description = `Positionnement, offre, site, visibilité locale : le socle en ${prix.delai}, puis un an d’accompagnement à la demande. ${prix.total}, tout compris.`;
 
 const donnees = {
   '@context': 'https://schema.org',
@@ -34,17 +34,20 @@ const donnees = {
     },
     {
       '@type': 'Service',
-      '@id': `${site.url}/#pack-visibilite`,
-      name: 'Pack Visibilité — site internet pour naturopathe',
-      serviceType: 'Création de site internet et référencement local',
+      '@id': `${site.url}/#terre-ferme`,
+      name: 'Terre Ferme — lancement et accompagnement pour thérapeutes',
+      serviceType: 'Positionnement, création de site internet, visibilité locale et accompagnement',
       provider: { '@id': `${site.url}/#studio` },
       areaServed: { '@type': 'Country', name: 'France' },
-      audience: { '@type': 'Audience', audienceType: 'Naturopathes et praticiens du bien-être' },
+      audience: {
+        '@type': 'Audience',
+        audienceType: 'Thérapeutes et professionnels indépendants de l’accompagnement',
+      },
       offers: {
         '@type': 'Offer',
-        price: '590',
+        price: '1998',
         priceCurrency: 'EUR',
-        description: `${prix.creation} à la signature, puis ${prix.mensuel} par mois pendant ${prix.duree}.`,
+        description: `${prix.total} comptant, ou ${prix.paiement3x} sans frais. Socle livré en ${prix.delai}, accompagnement pendant ${prix.duree}.`,
         url: `${site.url}/offre`,
         availability: 'https://schema.org/InStock',
       },
@@ -65,36 +68,31 @@ const donnees = {
       <div class="heros-texte">
         <span class="etiquette reveal">
           <span class="point"></span>
-          Studio web dédié aux naturopathes
+          Studio de lancement — thérapeutes &amp; accompagnants
         </span>
 
         <h1 class="reveal" style="--delai: 90ms">
-          Un site internet de naturopathe qui remplit
-          <span class="souligne">votre agenda</span>
+          Le socle de votre activité en 21 jours.
+          <span class="souligne">Puis un filet pendant un an.</span>
         </h1>
 
         <p class="chapeau reveal" style="--delai: 180ms">
-          Vos futurs clients cherchent une naturopathe sur Google. Aujourd’hui, ils en trouvent une
-          autre. Je crée le site et la visibilité locale qui vous rendent trouvable dans votre
-          secteur, avec une prise de rendez-vous en ligne repérable en trois secondes.
-        </p>
-
-        <p class="chapeau chapeau-serre reveal" style="--delai: 220ms">
-          En ligne en {prix.delai}. {prix.creation} à la signature, puis {prix.mensuel} par mois — et
-          le site vous appartient.
+          Positionnement, offre, tarifs, site professionnel, visibilité locale : en trois semaines,
+          on pose ensemble des fondations solides. Ensuite, chaque fois que vous bloquez, une séance
+          de 20 minutes sous 72 h ouvrées — pendant douze mois.
         </p>
 
         <div class="groupe-btn reveal" style="--delai: 260ms">
-          <a href="/audit-gratuit" class="btn btn-principal btn-large">
-            Recevoir mon audit vidéo gratuit
+          <a href="/diagnostic" class="btn btn-principal btn-large">
+            Faire le diagnostic gratuit — 7 min
             <Icone nom="fleche" classe="fleche" />
           </a>
-          <a href="/realisations" class="btn btn-secondaire btn-large">Voir un exemple</a>
+          <a href="/offre" class="btn btn-secondaire btn-large">Découvrir l’accompagnement</a>
         </div>
 
         <ul class="heros-preuves reveal" style="--delai: 340ms">
           <li><Icone nom="horloge" /> En ligne en {prix.delai}</li>
-          <li><Icone nom="cadenas" /> Le site est à votre nom</li>
+          <li><Icone nom="bouclier" /> {prix.duree} d’accompagnement compris</li>
           <li><Icone nom="etiquette" /> Tarif affiché, sans devis</li>
         </ul>
       </div>
@@ -109,16 +107,16 @@ const donnees = {
   <section class="chiffres">
     <div class="rail chiffres-grille">
       <div class="chiffre reveal">
-        <strong>7 sur 10</strong>
-        <span>des visites arrivent depuis un téléphone. Le site est conçu pour cet écran d’abord.</span>
+        <strong>{prix.delai}</strong>
+        <span>entre notre premier échange et la mise en ligne de votre socle complet.</span>
       </div>
       <div class="chiffre reveal" style="--delai: 80ms">
-        <strong>{prix.delai}</strong>
-        <span>entre le questionnaire de départ et la mise en ligne de votre site.</span>
+        <strong>{prix.duree}</strong>
+        <span>de filet : une séance de déblocage sous 72 h ouvrées, chaque fois que vous en avez besoin.</span>
       </div>
       <div class="chiffre reveal" style="--delai: 160ms">
         <strong>1 seul</strong>
-        <span>interlocuteur, du premier appel au suivi mensuel. Moi.</span>
+        <span>interlocuteur, du premier bilan au dernier compte rendu. Moi.</span>
       </div>
     </div>
   </section>
@@ -128,10 +126,11 @@ const donnees = {
     <div class="rail">
       <div class="entete-section reveal">
         <span class="surtitre">Le constat</span>
-        <h2>Un bon praticien invisible reste un praticien vide</h2>
+        <h2>Un bon praticien sur des bases fragiles reste un praticien qui rame</h2>
         <p class="chapeau">
-          La plupart des naturopathes que je rencontre ne manquent ni de compétence ni de sérieux.
-          Il leur manque un chemin clair entre « je cherche une naturopathe » et « j’ai réservé ».
+          La plupart des thérapeutes que je rencontre ne manquent ni de compétence ni de sérieux.
+          Il leur manque des fondations : un positionnement net, une offre lisible, une présence
+          qu’on trouve — et quelqu’un à qui parler quand une décision coince.
         </p>
       </div>
 
@@ -151,15 +150,16 @@ const donnees = {
     </div>
   </section>
 
-  <!-- ===== SOLUTION ===== -->
+  <!-- ===== LE SOCLE ===== -->
   <section class="section section-teintee">
     <div class="rail">
       <div class="entete-section reveal">
-        <span class="surtitre">Ce que je mets en place</span>
-        <h2>Un dispositif complet, pas seulement « un joli site »</h2>
+        <span class="surtitre">Premier temps — {prix.delai}</span>
+        <h2>Le Socle : une présence professionnelle, claire et crédible</h2>
         <p class="chapeau">
-          Le site est la pièce centrale, mais il ne suffit pas. Il lui faut une fiche Google tenue,
-          des pages qui répondent aux vraies questions et un bouton de rendez-vous impossible à rater.
+          Pas un site posé sur du flou : on clarifie d’abord ce que vous faites et pour qui, puis
+          on construit tout le reste dans le bon ordre. Résultat au jour 21 : une activité
+          présentable, trouvable et prête à recevoir des rendez-vous.
         </p>
       </div>
 
@@ -179,59 +179,53 @@ const donnees = {
     </div>
   </section>
 
-  <!-- ===== VISIBILITÉ LOCALE ===== -->
+  <!-- ===== LE FILET ===== -->
   <section class="section">
     <div class="rail">
       <div class="entete-section reveal">
-        <span class="surtitre">Comment on devient visible</span>
-        <h2>Le référencement local d’une naturopathe, en clair</h2>
+        <span class="surtitre">Deuxième temps — {prix.duree}</span>
+        <h2>Le Filet : vous n’êtes plus jamais seul face à une décision</h2>
         <p class="chapeau">
-          Être trouvée sur une recherche du type « naturopathe » suivi du nom de votre ville ne tient
-          pas à un secret. Cela tient à quatre choses, faites correctement et tenues dans la durée — le
-          détail complet est sur la page <a href="/creation-site-internet-naturopathe">création de
-          site internet pour naturopathe</a>.
+          Après la mise en ligne commence le vrai quotidien : un tarif à trancher, un canal à
+          choisir, une page qui ne convertit pas. Le Filet est là pour ça — pas un programme
+          hebdomadaire imposé, une aide au moment précis où vous bloquez.
         </p>
       </div>
 
       <div class="grille grille-2 espace-haut">
         <article class="carte carte-relief reveal">
-          <span class="pastille"><Icone nom="position" /></span>
-          <h3>Une fiche Google Business Profile complète</h3>
+          <span class="pastille"><Icone nom="video" /></span>
+          <h3>Un entretien initial de 90 minutes</h3>
           <p>
-            Catégorie « Naturopathe », adresse et horaires cohérents avec le site, photos du cabinet,
-            description précise, avis clients auxquels vous répondez. C’est le levier le plus
-            rentable, et il est gratuit — <a href="/blog/referencement-local-naturopathe">le guide
-            complet est ici</a>.
+            On pose votre plan d’action pour l’année, par écrit. C’est votre feuille de route :
+            vous la gardez, on s’y réfère à chaque séance.
           </p>
         </article>
 
         <article class="carte carte-relief reveal" style="--delai: 80ms">
-          <span class="pastille"><Icone nom="document" /></span>
-          <h3>Une page par intention de recherche</h3>
+          <span class="pastille"><Icone nom="horloge" /></span>
+          <h3>Des séances de déblocage de 20 minutes</h3>
           <p>
-            Digestion et microbiote, sommeil, fatigue chronique, périnatalité : une page par sujet
-            réellement recherché, avec les mots que vos futurs clients tapent, plutôt qu’une seule
-            page « prestations » qui parle de tout.
+            Un rendez-vous proposé sous 72 heures ouvrées, un seul sujet par séance, une décision
+            claire à la fin. Pas de tour d’horizon flou qui repart dans tous les sens.
           </p>
         </article>
 
         <article class="carte carte-relief reveal" style="--delai: 160ms">
-          <span class="pastille"><Icone nom="horloge" /></span>
-          <h3>Des pages légères, qui s’affichent vite</h3>
+          <span class="pastille"><Icone nom="document" /></span>
+          <h3>Un compte rendu après chaque séance</h3>
           <p>
-            Plus de la moitié des visiteurs abandonnent une page qui met plus de trois secondes à
-            s’afficher sur mobile. Le site est construit sans constructeur lourd : pages statiques,
-            images compressées, aucun script inutile.
+            Ce qui a été décidé, ce que vous faites, ce que je fais. Synthétique, écrit, daté —
+            pour que les décisions tiennent au-delà de la conversation.
           </p>
         </article>
 
         <article class="carte carte-relief reveal" style="--delai: 240ms">
-          <span class="pastille"><Icone nom="agenda" /></span>
-          <h3>Un parcours qui mène au rendez-vous</h3>
+          <span class="pastille"><Icone nom="coche" /></span>
+          <h3>Un bilan à 6 mois, un autre à 12</h3>
           <p>
-            Tarifs lisibles, déroulé de la première consultation, réponses aux objections courantes,
-            et un bouton de réservation présent sur chaque écran — <a
-              href="/blog/que-mettre-page-accueil-praticien">la structure de page qui convertit</a>.
+            On regarde ce qui a avancé, ce qui freine encore, et on ajuste le plan. Même si vous
+            n’avez pas eu besoin du filet entre-temps — c’est bon signe.
           </p>
         </article>
       </div>
@@ -239,11 +233,11 @@ const donnees = {
   </section>
 
   <!-- ===== MÉTHODE ===== -->
-  <section class="section">
+  <section class="section section-teintee">
     <div class="rail">
       <div class="entete-section reveal">
-        <span class="surtitre">La méthode</span>
-        <h2>Quatre étapes, dix jours ouvrés, zéro jargon</h2>
+        <span class="surtitre">Le déroulement</span>
+        <h2>Quatre étapes, du premier échange au bilan final</h2>
       </div>
 
       <ol class="etapes espace-haut">
@@ -270,41 +264,43 @@ const donnees = {
   </section>
 
   <!-- ===== TARIF ===== -->
-  <section class="section section-teintee" id="tarif">
+  <section class="section" id="tarif">
     <div class="rail">
       <div class="entete-section reveal">
-        <span class="surtitre">Le Pack Visibilité</span>
-        <h2>Une seule offre, un seul tarif, affiché</h2>
+        <span class="surtitre">Terre Ferme — l’accompagnement</span>
+        <h2>Un seul accompagnement, un seul tarif, affiché</h2>
         <p class="chapeau">
-          Pas de grille à trois colonnes ni de devis à rallonge. Ce que vous lisez ici est ce que
-          vous payez, que votre cabinet soit à Tarbes ou à Lille.
+          Pas de grille à trois colonnes ni de « tarif sur demande ». Ce que vous lisez ici est ce
+          que vous payez : {prix.total} comptant, ou {prix.paiement3x} sans frais.
         </p>
       </div>
 
       <div class="tarif espace-haut">
         <article class="tarif-carte reveal">
           <div class="tarif-entete">
-            <span class="tarif-libelle">À la signature</span>
-            <p class="tarif-prix">{prix.creation}</p>
-            <p class="tarif-note">La création complète, livrée en {prix.delai}.</p>
+            <span class="tarif-libelle">Le Socle — {prix.delai}</span>
+            <p class="tarif-prix">{prix.total}</p>
+            <p class="tarif-note">
+              Tout compris, Filet inclus. Ou {prix.paiement3x}, sans frais.
+            </p>
           </div>
           <ul class="liste-cochee">
-            {inclusCreation.map((item) => <li>{item}</li>)}
+            {socle.map((item) => <li>{item}</li>)}
           </ul>
         </article>
 
         <article class="tarif-carte tarif-carte-vedette reveal" style="--delai: 100ms">
-          <span class="tarif-ruban">Puis chaque mois</span>
+          <span class="tarif-ruban">Compris pendant {prix.duree}</span>
           <div class="tarif-entete">
-            <span class="tarif-libelle">Pendant {prix.duree}</span>
-            <p class="tarif-prix">{prix.mensuel}<small>/mois</small></p>
-            <p class="tarif-note">Le site reste rapide, sûr, à jour — et suivi.</p>
+            <span class="tarif-libelle">Le Filet — {prix.duree}</span>
+            <p class="tarif-prix">Compris</p>
+            <p class="tarif-note">L’accompagnement à la demande, sans supplément ni abonnement.</p>
           </div>
           <ul class="liste-cochee">
-            {inclusMensuel.map((item) => <li>{item}</li>)}
+            {filet.map((item) => <li>{item}</li>)}
           </ul>
-          <a href="/audit-gratuit" class="btn btn-principal btn-large tarif-btn">
-            Commencer par l’audit gratuit
+          <a href="/rendez-vous" class="btn btn-principal btn-large tarif-btn">
+            Réserver mon bilan de lancement
             <Icone nom="fleche" classe="fleche" />
           </a>
         </article>
@@ -319,23 +315,24 @@ const donnees = {
           {nonPromis.map((item) => <li>{item}</li>)}
         </ul>
         <p class="texte-doux marge-haute">
-          Restent <strong>hors forfait</strong> : une refonte complète, une boutique en ligne, la
-          publicité payante et la gestion des réseaux sociaux.
-          <a href="/offre" class="lien-fleche marge-gauche">Voir le détail de l’offre</a>
+          Restent <strong>hors accompagnement</strong> : la publicité payante, une boutique en
+          ligne, la gestion de vos réseaux sociaux.
+          <a href="/offre" class="lien-fleche marge-gauche">Voir le détail de l’accompagnement</a>
         </p>
       </div>
     </div>
   </section>
 
   <!-- ===== COMPARATIF ===== -->
-  <section class="section">
+  <section class="section section-teintee">
     <div class="rail">
       <div class="entete-section reveal">
         <span class="surtitre">La différence</span>
-        <h2>Quatre façons d’avoir un site, et ce qu’elles donnent au bout d’un an</h2>
+        <h2>Un site seul, un coaching seul, ou les fondations et le filet</h2>
         <p class="chapeau">
-          Un freelance à 1 200 € est un choix parfaitement légitime si vous voulez un site qui
-          existe. Mon offre sert à autre chose : à ce qui se passe une fois le site en ligne.
+          Un site à 800 € ou un coach sont des choix légitimes — si votre positionnement est déjà
+          clair, ou si vous aimez construire seul. Terre Ferme sert à autre chose : tout poser dans
+          le bon ordre, puis tenir la première année.
         </p>
       </div>
 
@@ -360,7 +357,7 @@ const donnees = {
   </section>
 
   <!-- ===== FAQ ===== -->
-  <section class="section section-teintee">
+  <section class="section">
     <div class="rail-etroit">
       <div class="entete-section reveal">
         <span class="surtitre">Questions fréquentes</span>
@@ -413,7 +410,6 @@ const donnees = {
   }
   .heros-texte h1 { margin-top: 1.4rem; }
   .heros-texte .chapeau { margin-top: 1.4rem; max-width: 34rem; }
-  .heros-texte .chapeau-serre { margin-top: 0.9rem; font-size: 1rem; color: var(--encre-2); }
   .heros-texte .groupe-btn { margin-top: 2rem; }
 
   .heros-preuves {
@@ -553,7 +549,6 @@ const donnees = {
     line-height: 1;
     color: var(--encre);
   }
-  .tarif-prix small { font-size: 1rem; font-weight: 500; color: var(--encre-3); }
   .tarif-note { margin-top: 0.7rem; color: var(--encre-2); font-size: 0.95rem; }
   .tarif-btn { margin-top: 1.6rem; }
   @media (min-width: 860px) {
@@ -564,5 +559,4 @@ const donnees = {
   @media (min-width: 640px) {
     .grille-2-liste { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem 1.5rem; }
   }
-
 </style>

@@ -1,102 +1,124 @@
 {
-  "inclusCreation": [
-    "Un site professionnel de cinq pages",
-    "Une page dédiée à chacune de vos spécialités",
-    "La création ou l’optimisation de votre fiche Google",
-    "La prise de rendez-vous en ligne installée et testée",
-    "Le nom de domaine et l’adresse email professionnelle",
-    "Les textes rédigés avec vous, à partir de nos échanges",
-    "La mise en ligne en dix jours ouvrés"
+  "socle": [
+    "La clarification de votre positionnement : qui vous aidez, sur quoi, comment",
+    "La structuration de votre offre et de vos tarifs",
+    "Un site professionnel construit autour de ce positionnement",
+    "La prise de rendez-vous en ligne, installée et testée",
+    "Votre fiche Google Business créée ou remise à plat",
+    "Les bases du référencement local posées proprement",
+    "Un plan d’acquisition réaliste, adapté à votre énergie et à votre agenda",
+    "Le tout en ligne sous 21 jours"
   ],
-  "inclusMensuel": [
-    "Une nouvelle page ou un article publié chaque mois",
-    "L’animation et la mise à jour de votre fiche Google Business",
-    "Un rapport mensuel d’une page : visites, origine du trafic, appels depuis la fiche Google, demandes de rendez-vous",
-    "Des modifications illimitées, réalisées sous 48 heures",
-    "Trente minutes de visio par trimestre",
-    "Un hébergement sécurisé et rapide",
-    "La maintenance technique, les sauvegardes et la surveillance",
-    "Une assistance par email, avec une vraie réponse",
-    "Vos données et votre site récupérables à tout moment"
+  "filet": [
+    "Un entretien initial de 90 minutes pour poser votre plan",
+    "Un plan d’action écrit, que vous gardez",
+    "Des séances de déblocage de 20 minutes, à la demande",
+    "Un rendez-vous proposé sous 72 heures ouvrées",
+    "Un sujet précis par séance, pas de tour d’horizon flou",
+    "Une décision claire et des actions concrètes à chaque fois",
+    "Un compte rendu synthétique après chaque séance",
+    "Un bilan complet à 6 mois, un autre à 12 mois",
+    "Aucun programme hebdomadaire imposé",
+    "Aucune promesse irréaliste sur le nombre de clients"
   ],
   "optionsHorsForfait": [
     {
-      "titre": "Une refonte complète",
-      "texte": "Repartir d’une page blanche : nouvelle identité, nouvelle structure, nouveaux textes."
-    },
-    {
-      "titre": "Une boutique en ligne",
-      "texte": "Vendre des produits, des cures ou des ateliers avec paiement et gestion des commandes."
+      "titre": "La rédaction d’articles en continu",
+      "texte": "Des articles réguliers qui répondent aux questions que se posent vos futurs clients avant de réserver."
     },
     {
       "titre": "La publicité payante",
-      "texte": "Campagnes Google Ads ou réseaux sociaux, avec le budget publicitaire qui va avec."
+      "texte": "Google Ads ou Meta : je peux vous orienter, mais la gestion de campagnes sort du cadre de l’accompagnement."
     },
     {
-      "titre": "La gestion des réseaux sociaux",
-      "texte": "Publier à votre place sur Instagram ou Facebook, et animer votre communauté."
+      "titre": "Une boutique en ligne",
+      "texte": "La vente de produits demande un dispositif à part entière, qui se chiffre séparément."
+    },
+    {
+      "titre": "La gestion de vos réseaux sociaux",
+      "texte": "Je vous aide à décider quoi y faire — je ne publie pas à votre place."
     }
   ],
   "nonPromis": [
-    "Aucune première place sur Google garantie",
     "Aucun nombre de clients garanti",
+    "Aucune première place sur Google garantie",
+    "Pas de programme hebdomadaire imposé",
     "Pas de réseaux sociaux gérés à votre place",
-    "Pas de boutique en ligne complexe",
-    "Aucune promesse de soin ou de guérison"
+    "Aucune promesse de revenus ou de « cabinet plein en 90 jours »"
   ],
   "engagements": [
     {
       "icone": "cadenas",
-      "titre": "Le site vous appartient",
-      "texte": "Nom de domaine, contenus, fichiers : tout est à votre nom et récupérable quand vous le souhaitez."
+      "titre": "Tout vous appartient",
+      "texte": "Nom de domaine, site, textes, plan d’action : tout est à votre nom et reste à vous, accompagnement terminé ou non."
     },
     {
       "icone": "etiquette",
       "titre": "Un tarif affiché",
-      "texte": "Le même prix pour tout le monde, écrit noir sur blanc. Pas de devis à rallonge ni de surprise."
+      "texte": "Le même prix pour tout le monde, écrit noir sur blanc avant le premier échange. Pas de devis à rallonge."
     },
     {
       "icone": "personnes",
       "titre": "Un interlocuteur unique",
-      "texte": "Vous m’écrivez, c’est moi qui réponds et qui fais le travail. Pas de service commercial intermédiaire."
+      "texte": "Vous m’écrivez, c’est moi qui réponds, qui construis et qui vous accompagne. Pas d’équipe interchangeable."
     },
     {
       "icone": "bouclier",
-      "titre": "Aucune reconduction automatique",
-      "texte": "Au bout de douze mois, l’abonnement s’arrête si vous ne demandez rien. Vous décidez de la suite."
+      "titre": "Douze mois, pas un de plus",
+      "texte": "Le filet s’arrête de lui-même au bout d’un an. Aucune reconduction automatique, aucun abonnement caché."
     }
   ],
   "comparatif": {
     "colonnes": [
       "Ne rien faire",
-      "Le faire soi-même",
-      "Un freelance à 1 200 €",
+      "Un site seul",
+      "Un coaching seul",
       "ElyoStudio"
     ],
     "lignes": [
       {
         "critere": "Coût la première année",
-        "valeurs": ["0 €", "0 à 300 €", "1 200 €", "1 178 €"]
+        "valeurs": [
+          "0 €",
+          "800 à 3 000 €",
+          "1 500 à 4 000 €",
+          "1 998 €"
+        ]
       },
       {
-        "critere": "Votre temps",
-        "valeurs": ["0 h", "30 à 40 h", "3 h", "2 h"]
-      },
-      {
-        "critere": "Le site vous appartient",
-        "valeurs": ["—", "oui", "oui", "oui"]
-      },
-      {
-        "critere": "Référencement au départ",
-        "valeurs": ["—", "rarement", "oui", "oui"]
-      },
-      {
-        "critere": "Ce qui se passe après le premier mois",
+        "critere": "Ce que vous avez au départ",
         "valeurs": [
           "rien",
-          "rien",
-          "rien",
-          "une page publiée chaque mois, fiche Google entretenue, rapport de résultats"
+          "un site, sur un positionnement resté flou",
+          "des idées plus claires, rien de construit",
+          "positionnement, offre, site, fiche Google, plan"
+        ]
+      },
+      {
+        "critere": "Quand vous bloquez trois mois plus tard",
+        "valeurs": [
+          "vous restez bloqué",
+          "le prestataire a terminé sa mission",
+          "une séance de plus à payer",
+          "une séance de 20 min sous 72 h, comprise"
+        ]
+      },
+      {
+        "critere": "Qui fait le travail",
+        "valeurs": [
+          "—",
+          "lui, une fois",
+          "vous, seul entre les séances",
+          "moi pour le socle, vous et moi pour la suite"
+        ]
+      },
+      {
+        "critere": "Au bout d’un an",
+        "valeurs": [
+          "rien n’a changé",
+          "un site qui vieillit",
+          "des notes de séances",
+          "une activité posée, un an de décisions tenues"
         ]
       }
     ]

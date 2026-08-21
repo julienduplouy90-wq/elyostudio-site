@@ -3,8 +3,8 @@
     "nom": "ElyoStudio",
     "domaine": "elyostudio.fr",
     "url": "https://elyostudio.fr",
-    "baseline": "Sites internet pour naturopathes",
-    "promesse": "Le studio qui aide les naturopathes à remplir leur agenda grâce à leur site et à leur visibilité en ligne.",
+    "baseline": "Studio de lancement pour thérapeutes",
+    "promesse": "Le studio qui aide les thérapeutes à construire une activité claire, visible et durable.",
     "ville": "Aureilhan",
     "region": "Hautes-Pyrénées",
     "adresse": "49 avenue du Bois, 65800 Aureilhan",
@@ -38,26 +38,30 @@
     }
   },
   "prix": {
-    "creation": "590 €",
-    "mensuel": "49 €",
+    "total": "1 998 €",
+    "paiement3x": "3 × 666 €",
     "duree": "12 mois",
-    "delai": "10 jours ouvrés"
+    "delai": "21 jours"
   },
   "navigation": [
     {
-      "texte": "L’offre",
+      "texte": "Accompagnement",
       "lien": "/offre"
     },
     {
-      "texte": "La méthode",
+      "texte": "Méthode",
       "lien": "/methode"
+    },
+    {
+      "texte": "Diagnostic",
+      "lien": "/diagnostic"
     },
     {
       "texte": "Réalisations",
       "lien": "/realisations"
     },
     {
-      "texte": "Le journal",
+      "texte": "Journal",
       "lien": "/blog"
     },
     {

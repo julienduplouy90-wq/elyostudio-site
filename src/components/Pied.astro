@@ -20,7 +20,7 @@ const annee = new Date().getFullYear();
       <div>
         <h2 class="pied-titre">Le studio</h2>
         <ul>
-          <li><a href="/offre">L’offre et le tarif</a></li>
+          <li><a href="/offre">L’accompagnement et le tarif</a></li>
           <li><a href="/methode">La méthode</a></li>
           <li><a href="/realisations">Réalisations</a></li>
           <li><a href="/a-propos">À propos</a></li>
@@ -29,8 +29,9 @@ const annee = new Date().getFullYear();
       <div>
         <h2 class="pied-titre">Avancer</h2>
         <ul>
+          <li><a href="/diagnostic">Le diagnostic des 5 fondations</a></li>
           <li><a href="/audit-gratuit">Audit vidéo gratuit</a></li>
-          <li><a href="/rendez-vous">Réserver un appel</a></li>
+          <li><a href="/rendez-vous">Réserver mon bilan de 30 min</a></li>
           <li><a href="/blog">Le journal</a></li>
           <li><a href="/contact">Contact</a></li>
         </ul>
@@ -53,7 +54,7 @@ const annee = new Date().getFullYear();
           <li><a href={`tel:${site.telephoneLien}`}>{site.telephone}</a></li>
         </ul>
         <p class="pied-tarif">
-          <strong>{prix.creation}</strong> à la signature, puis <strong>{prix.mensuel}</strong>/mois pendant {prix.duree}.
+          <strong>{prix.total}</strong> tout compris — ou {prix.paiement3x} sans frais.
         </p>
       </div>
     </nav>

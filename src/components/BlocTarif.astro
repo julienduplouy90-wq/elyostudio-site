@@ -1,7 +1,7 @@
 ---
 // Bloc tarif partagé par la page pivot et les pages villes.
 import Icone from './Icone.astro';
-import { prix, inclusCreation } from '../data/site.js';
+import { prix, socle } from '../data/site.js';
 
 interface Props {
   /** Ville citée dans la phrase d'introduction, si la page en concerne une. */
@@ -13,29 +13,29 @@ const { ville } = Astro.props;
 <div class="bloc-tarif">
   <div class="bloc-tarif-prix">
     <div>
-      <span class="bloc-tarif-libelle">À la signature</span>
-      <p class="bloc-tarif-montant">{prix.creation}</p>
-      <p class="bloc-tarif-note">La création complète, en ligne en {prix.delai}.</p>
+      <span class="bloc-tarif-libelle">L’accompagnement complet</span>
+      <p class="bloc-tarif-montant">{prix.total}</p>
+      <p class="bloc-tarif-note">Socle en ligne en {prix.delai}, puis {prix.duree} de suivi compris.</p>
     </div>
-    <span class="bloc-tarif-plus" aria-hidden="true">+</span>
+    <span class="bloc-tarif-plus" aria-hidden="true">ou</span>
     <div>
-      <span class="bloc-tarif-libelle">Puis chaque mois</span>
-      <p class="bloc-tarif-montant">{prix.mensuel}<small>/mois</small></p>
-      <p class="bloc-tarif-note">Pendant {prix.duree}, sans reconduction automatique.</p>
+      <span class="bloc-tarif-libelle">En trois fois, sans frais</span>
+      <p class="bloc-tarif-montant">{prix.paiement3x}</p>
+      <p class="bloc-tarif-note">Le même montant, réparti sur trois mois.</p>
     </div>
   </div>
 
   <div class="bloc-tarif-detail">
     <p class="bloc-tarif-intro">
       Le même tarif {ville ? `à ${ville} qu’ailleurs en France` : 'pour tout le monde'}, affiché sans
-      devis préalable. Ce qui est livré à la création :
+      devis préalable. Ce que le Socle construit en trois semaines :
     </p>
     <ul class="liste-cochee">
-      {inclusCreation.slice(0, 5).map((item) => <li>{item}</li>)}
+      {socle.slice(0, 5).map((item) => <li>{item}</li>)}
     </ul>
     <p class="bloc-tarif-mensuel">
-      Et chaque mois : une nouvelle page ou un article publié, votre fiche Google entretenue, un
-      rapport d’une page, des modifications illimitées sous 48 heures.
+      Et pendant douze mois : des séances de déblocage de 20 minutes à la demande, un rendez-vous
+      proposé sous 72 h ouvrées, un compte rendu après chaque séance, un bilan à 6 et 12 mois.
     </p>
     <a href="/offre" class="lien-fleche">
       Voir l’offre en détail

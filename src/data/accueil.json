@@ -2,72 +2,72 @@
   "problemes": [
     {
       "icone": "recherche",
-      "titre": "On vous cherche, on ne vous trouve pas",
-      "texte": "Une personne tape « naturopathe » suivi de votre ville. Vous n’apparaissez pas. Elle prend rendez-vous ailleurs, sans avoir jamais su que vous existiez."
+      "titre": "Bon dans votre pratique, invisible en dehors",
+      "texte": "Une personne cherche un praticien comme vous dans votre ville. Elle en trouve un autre. Pas meilleur — juste visible, avec une offre lisible et un bouton de rendez-vous."
+    },
+    {
+      "icone": "etiquette",
+      "titre": "Une offre floue, des tarifs qui vous gênent",
+      "texte": "Vous savez accompagner, mais présenter vos prestations et annoncer vos prix reste inconfortable. Résultat : chacun repart avec une idée différente de ce que vous faites."
     },
     {
       "icone": "partage",
-      "titre": "Votre visibilité appartient à une plateforme",
-      "texte": "Tout repose sur un réseau social ou un annuaire. Les règles changent, votre page se noie dans le flux, et vous ne maîtrisez rien de ce qui se passe."
-    },
-    {
-      "icone": "agenda",
-      "titre": "Votre site ne mène pas au rendez-vous",
-      "texte": "Le site existe, mais le chemin jusqu’à la prise de rendez-vous reste flou. Les visiteurs lisent, hésitent, puis repartent sans rien réserver."
+      "titre": "Seul face à chaque décision",
+      "texte": "Site ou pas site, Instagram ou fiche Google, baisser ou assumer ses tarifs : chaque choix prend des semaines, faute de quelqu’un à qui poser la question au bon moment."
     }
   ],
   "solutions": [
     {
+      "icone": "recherche",
+      "titre": "Un positionnement clarifié",
+      "texte": "Qui vous aidez, sur quoi, comment. Une phrase que vous pouvez dire sans hésiter, et sur laquelle tout le reste s’appuie."
+    },
+    {
+      "icone": "etiquette",
+      "titre": "Une offre et des tarifs structurés",
+      "texte": "Des prestations lisibles, un chemin d’entrée évident pour un nouveau client, des prix posés et assumés."
+    },
+    {
       "icone": "gabarit",
-      "titre": "Un site de cinq pages pensé pour convaincre",
-      "texte": "Une structure claire qui présente votre pratique, rassure et conduit naturellement vers la prise de rendez-vous."
-    },
-    {
-      "icone": "document",
-      "titre": "Une page par spécialité",
-      "texte": "Digestion, sommeil, périnatalité : chaque approche a sa page, lisible pour vos visiteurs comme pour Google."
-    },
-    {
-      "icone": "position",
-      "titre": "Une fiche Google qui travaille pour vous",
-      "texte": "Création ou remise à plat de votre fiche établissement, pour exister dans les recherches locales et sur la carte."
+      "titre": "Un site professionnel qui vous ressemble",
+      "texte": "Construit autour de votre positionnement, pas l’inverse. Clair, rapide, impeccable sur téléphone."
     },
     {
       "icone": "agenda",
       "titre": "La prise de rendez-vous en ligne",
-      "texte": "Vos futurs clients choisissent un créneau en trois clics, sans échange d’emails ni coup de téléphone à rattraper."
+      "texte": "Vos futurs clients choisissent un créneau en trois clics, sans échange d’emails ni téléphone à rattraper."
     },
     {
-      "icone": "horloge",
-      "titre": "En ligne en dix jours ouvrés",
-      "texte": "Du questionnaire de départ à la mise en ligne, dix jours ouvrés suffisent. Sans réunion interminable."
+      "icone": "position",
+      "titre": "Une visibilité locale posée proprement",
+      "texte": "Fiche Google créée ou remise à plat, bases du référencement local en place : on vous trouve dans votre secteur."
     },
     {
-      "icone": "mobile",
-      "titre": "Impeccable sur téléphone",
-      "texte": "Sept visites sur dix arrivent depuis un mobile. Le site est conçu d’abord pour l’écran de téléphone, ensuite pour l’ordinateur."
+      "icone": "document",
+      "titre": "Un plan d’acquisition réaliste",
+      "texte": "Pas trente-six canaux : un plan simple, adapté à votre énergie et à votre agenda, que vous pouvez tenir."
     }
   ],
   "etapes": [
     {
       "n": "01",
-      "titre": "Un échange de 30 minutes",
-      "texte": "On parle de votre pratique, de votre patientèle et de ce que vous voulez obtenir. En visio, sans jargon et sans engagement."
+      "titre": "Le bilan de 30 minutes",
+      "texte": "On fait le point sur votre situation, en visio. Vous repartez avec une lecture claire de ce qui freine — et je vous dis franchement si je peux vous aider."
     },
     {
       "n": "02",
-      "titre": "Un questionnaire simple",
-      "texte": "Vous m’envoyez vos informations et vos photos grâce à un questionnaire guidé. Rien de technique, une heure de votre temps."
+      "titre": "Trois semaines pour poser le Socle",
+      "texte": "Positionnement, offre, tarifs, site, fiche Google, plan d’acquisition : on construit ensemble, à un rythme soutenu mais tenable."
     },
     {
       "n": "03",
-      "titre": "La création, puis votre validation",
-      "texte": "Je conçois le site, je vous le présente en vidéo, on ajuste ensemble. Rien n’est mis en ligne avant votre feu vert."
+      "titre": "La mise en ligne, jour 21",
+      "texte": "Votre présence part en ligne, complète et cohérente. Rien n’est publié sans votre validation."
     },
     {
       "n": "04",
-      "titre": "La mise en ligne et le suivi",
-      "texte": "Le site part en ligne, la fiche Google est activée. Chaque mois, je surveille, je mets à jour et je vous rends compte."
+      "titre": "Douze mois de Filet",
+      "texte": "Chaque fois que vous bloquez : une séance de 20 minutes sous 72 h ouvrées, une décision claire, un compte rendu. Et un bilan à 6 puis 12 mois."
     }
   ]
 }

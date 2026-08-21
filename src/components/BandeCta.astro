@@ -10,10 +10,10 @@ interface Props {
 }
 
 const {
-  titre = 'Voyons ce que votre présence en ligne peut donner',
-  texte = 'Je regarde votre site et votre fiche Google, puis je vous envoie une vidéo de 2 à 3 minutes : les 3 points qui vous coûtent le plus de rendez-vous. Gratuit, sans engagement, reçu sous 48 heures ouvrées.',
-  bouton = 'Recevoir mon audit vidéo gratuit',
-  lien = '/audit-gratuit',
+  titre = 'Vos fondations sont-elles assez solides ?',
+  texte = 'Quinze questions, sept minutes : votre score sur 100, vos forces, vos points faibles et les trois priorités à travailler. Gratuit, sans engagement — et vous gardez la synthèse.',
+  bouton = 'Faire le diagnostic gratuit — 7 min',
+  lien = '/diagnostic',
 } = Astro.props;
 ---
 
@@ -35,9 +35,9 @@ const {
           {bouton}
           <Icone nom="fleche" classe="fleche" />
         </a>
-        <a href={site.agenda} class="btn btn-clair btn-large" rel="noopener" target="_blank">
+        <a href="/rendez-vous" class="btn btn-clair btn-large">
           <Icone nom="video" />
-          Réserver un appel de 30 min
+          Réserver mon bilan de lancement
         </a>
       </div>
     </div>

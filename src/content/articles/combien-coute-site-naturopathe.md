@@ -51,10 +51,10 @@ S’il tient en trois lignes et un prix, demandez le détail. S’il mentionne u
 
 ## Ce que je facture, et pourquoi
 
-Le Pack Visibilité, c’est **590 € à la signature, puis 49 € par mois pendant douze mois**. Les 590 € couvrent la création : un site de cinq pages, une page par spécialité, la fiche Google, la prise de rendez-vous en ligne, le nom de domaine, l’adresse email professionnelle et la mise en ligne en dix jours ouvrés.
+Chez ElyoStudio, l’accompagnement s’appelle Terre Ferme : **1 998 € tout compris, ou trois paiements de 666 € sans frais**. Ce n’est pas le prix d’un site — c’est le prix d’un lancement complet, en deux temps.
 
-Les 49 € mensuels couvrent le travail qui suit la mise en ligne : une nouvelle page ou un article publié chaque mois, l’animation de la fiche Google, un rapport mensuel d’une page, des modifications illimitées sous 48 heures, trente minutes de visio par trimestre, plus l’hébergement, la maintenance, les sauvegardes et l’assistance.
+D’abord le Socle, en 21 jours : la clarification de votre positionnement et de vos tarifs, un site professionnel construit autour, la prise de rendez-vous en ligne, la fiche Google et les bases du référencement local, plus un plan d’acquisition réaliste. Ensuite le Filet, pendant douze mois : des séances de déblocage de 20 minutes à la demande, proposées sous 72 heures ouvrées, avec un compte rendu écrit après chacune et un bilan à 6 puis 12 mois.
 
-Restent en option, facturés à part : une refonte complète, une boutique en ligne, la publicité payante et la gestion des réseaux sociaux. Je préfère le dire clairement plutôt que de gonfler un forfait dont vous n’auriez pas l’usage.
+Restent en option, facturés à part : la rédaction d’articles en continu, une boutique en ligne, la publicité payante et la gestion des réseaux sociaux. Je préfère le dire clairement plutôt que de gonfler un forfait dont vous n’auriez pas l’usage.
 
-Le site vous appartient. Passé les douze mois, sans nouvelle demande de votre part, l’abonnement s’arrête et vous pouvez reprendre l’hébergement vous-même.
+Le site vous appartient. Passé les douze mois, l’accompagnement s’arrête de lui-même, sans reconduction, et vous reprenez l’hébergement à votre nom si vous le souhaitez.
