@@ -13,6 +13,9 @@
   # Une seule adresse canonique : sans www
   RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
   RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+  # Page Réalisations retirée : l'ancienne adresse renvoie vers l'accompagnement
+  RewriteRule ^realisations/?$ /offre/ [R=301,L]
 </IfModule>
 
 # ------------------------------------------------------------------ Page 404

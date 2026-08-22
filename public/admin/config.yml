@@ -215,16 +215,3 @@ collections:
               - { name: q, label: Question, widget: string }
               - { name: a, label: Réponse, widget: text }
 
-      - name: realisations
-        label: Réalisations
-        file: src/data/realisations.json
-        fields:
-          - name: realisations
-            label: Les exemples affichés
-            widget: list
-            fields:
-              - { name: titre, label: Titre, widget: string }
-              - { name: sujet, label: Spécialité, widget: string }
-              - { name: texte, label: Description, widget: text }
-              - { name: points, label: Étiquettes, widget: list, field: { name: point, label: Étiquette, widget: string } }
-              - { name: teinte, label: Teinte, widget: select, options: [vert, terre, ambre] }
