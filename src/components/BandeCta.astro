@@ -10,8 +10,8 @@ interface Props {
 }
 
 const {
-  titre = 'Vos fondations sont-elles assez solides ?',
-  texte = 'Quinze questions, sept minutes : votre score sur 100, vos forces, vos points faibles et les trois priorités à travailler. Gratuit, sans engagement — et vous gardez la synthèse.',
+  titre = 'Votre cabinet repose-t-il sur des bases assez solides ?',
+  texte = 'Quinze questions, sept minutes : votre score sur 100, vos points forts, vos points faibles et les trois priorités de votre cabinet. Gratuit, sans engagement — et vous gardez la synthèse.',
   bouton = 'Faire le diagnostic gratuit — 7 min',
   lien = '/diagnostic',
 } = Astro.props;
@@ -37,7 +37,7 @@ const {
         </a>
         <a href="/rendez-vous" class="btn btn-clair btn-large">
           <Icone nom="video" />
-          Réserver mon bilan de lancement
+          Échange découverte — offert
         </a>
       </div>
     </div>
@@ -49,18 +49,18 @@ const {
     position: relative;
     overflow: hidden;
     margin-top: clamp(3rem, 8vw, 5rem);
-    background: linear-gradient(150deg, #2E5A4B 0%, #24473C 55%, #1D3A31 100%);
-    color: #F2F7F3;
+    background: linear-gradient(150deg, #1C2E57 0%, #162447 55%, #0F1A33 100%);
+    color: #F4F6FA;
   }
   .bande-halo-1 {
     width: 22rem; height: 22rem;
     top: -8rem; right: -6rem;
-    background: rgba(232, 168, 92, 0.32);
+    background: rgba(217, 160, 106, 0.32);
   }
   .bande-halo-2 {
     width: 18rem; height: 18rem;
     bottom: -8rem; left: -5rem;
-    background: rgba(184, 85, 47, 0.34);
+    background: rgba(192, 102, 60, 0.34);
   }
 
   .bande-contenu {

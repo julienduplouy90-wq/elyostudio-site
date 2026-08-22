@@ -3,8 +3,8 @@
     "nom": "ElyoStudio",
     "domaine": "elyostudio.fr",
     "url": "https://elyostudio.fr",
-    "baseline": "Studio de lancement pour thérapeutes",
-    "promesse": "Le studio qui aide les thérapeutes à construire une activité claire, visible et durable.",
+    "baseline": "Développement de cabinet & sites web",
+    "promesse": "ElyoStudio aide les thérapeutes, praticiens bien-être, professeurs de yoga et coachs à développer leur cabinet sans devenir experts en marketing : positionnement, site, visibilité locale, acquisition, et un accompagnement humain pendant 6 mois.",
     "ville": "Aureilhan",
     "region": "Hautes-Pyrénées",
     "adresse": "49 avenue du Bois, 65800 Aureilhan",
@@ -12,6 +12,7 @@
     "telephone": "06 42 46 12 41",
     "telephoneLien": "+33642461241",
     "agenda": "https://tidycal.com/julienduplouy90/appel-decouverte-site",
+    "lienPaiement": "",
     "endpointFormulaire": "",
     "entreprise": {
       "raison": "Julien Duplouy EI",
@@ -38,18 +39,19 @@
     }
   },
   "prix": {
-    "total": "1 998 €",
-    "paiement3x": "3 × 666 €",
-    "duree": "12 mois",
-    "delai": "21 jours"
+    "total": "990 €",
+    "paiement3x": "3 × 330 €",
+    "duree": "6 mois",
+    "placesFondateur": "10",
+    "tarifSuivant": "1 490 €"
   },
   "navigation": [
     {
-      "texte": "Accompagnement",
+      "texte": "L’accompagnement",
       "lien": "/offre"
     },
     {
-      "texte": "Méthode",
+      "texte": "La méthode",
       "lien": "/methode"
     },
     {

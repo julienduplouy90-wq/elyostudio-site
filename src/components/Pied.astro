@@ -29,9 +29,10 @@ const annee = new Date().getFullYear();
       <div>
         <h2 class="pied-titre">Avancer</h2>
         <ul>
+          <li><a href="/demarrer">Démarrer</a></li>
           <li><a href="/diagnostic">Le diagnostic des 5 fondations</a></li>
           <li><a href="/audit-gratuit">Audit vidéo gratuit</a></li>
-          <li><a href="/rendez-vous">Réserver mon bilan de 30 min</a></li>
+          <li><a href="/rendez-vous">Échange découverte</a></li>
           <li><a href="/blog">Le journal</a></li>
           <li><a href="/contact">Contact</a></li>
         </ul>
@@ -54,7 +55,7 @@ const annee = new Date().getFullYear();
           <li><a href={`tel:${site.telephoneLien}`}>{site.telephone}</a></li>
         </ul>
         <p class="pied-tarif">
-          <strong>{prix.total}</strong> tout compris — ou {prix.paiement3x} sans frais.
+          <strong>{prix.total}</strong> pour {prix.duree} — ou {prix.paiement3x} sans frais. Tarif fondateur, {prix.placesFondateur} places.
         </p>
       </div>
     </nav>
@@ -74,7 +75,7 @@ const annee = new Date().getFullYear();
   .pied {
     position: relative;
     background:
-      radial-gradient(90% 120% at 85% 0%, rgba(223, 234, 226, 0.6), transparent 55%),
+      radial-gradient(90% 120% at 85% 0%, rgba(230, 236, 247, 0.6), transparent 55%),
       var(--creme-2);
     border-top: 1px solid var(--ligne);
   }

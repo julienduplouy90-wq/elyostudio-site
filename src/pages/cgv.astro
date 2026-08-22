@@ -9,15 +9,15 @@ const description = `CGV du Pack Visibilité : paiement, engagement de ${prix.du
 const articles = [
   {
     t: 'Objet',
-    d: `Les présentes conditions régissent la vente de l’accompagnement « Terre Ferme » proposé par ${site.entreprise.raison} sous la marque ${site.nom} : clarification du positionnement et de l’offre, création d’un site internet, mise en place ou optimisation de la fiche Google, installation d’une prise de rendez-vous en ligne, puis accompagnement à la demande pendant ${prix.duree}.`,
+    d: `Les présentes conditions régissent la vente de l’accompagnement ElyoStudio proposé par ${site.entreprise.raison} sous la marque ${site.nom} : diagnostic de l’activité, positionnement, clarification de l’offre et des tarifs, stratégie marketing, création ou optimisation du site internet, optimisation de la conversion, fiche Google Business Profile, référencement local, stratégie de contenu, acquisition, suivi des résultats et optimisation continue pendant ${prix.duree}, ainsi que l’accès à Elyo Direct (accompagnement à la demande) pendant cette durée.`,
   },
   {
     t: 'Prix et paiement',
-    d: `Le prix total de l’accompagnement est de ${prix.total}, payable comptant à la signature, ou en trois échéances mensuelles de 666 € sans frais, la première à la signature. Les moyens de paiement acceptés sont indiqués sur la facture. TVA non applicable, article 293 B du Code général des impôts.`,
+    d: `Le prix total de l’accompagnement est de ${prix.total}, payable comptant à la signature, ou en trois échéances mensuelles de 330 € sans frais, la première à la signature. Ce prix correspond au tarif de lancement, réservé aux ${prix.placesFondateur} premiers clients ; il est indiqué sur le site au moment de la commande. Les moyens de paiement acceptés sont indiqués sur la page de paiement ou la facture. TVA non applicable, article 293 B du Code général des impôts.`,
   },
   {
     t: 'Durée de l’accompagnement',
-    d: `L’accompagnement comprend une phase de construction d’environ trois semaines, puis une période d’accompagnement à la demande de ${prix.duree} à compter de la mise en ligne. Il prend fin de plein droit à l’issue de cette période, sans reconduction.`,
+    d: `L’accompagnement est conclu pour une durée de ${prix.duree} à compter de la date de démarrage. Il prend fin de plein droit à l’issue de cette période, sans reconduction.`,
   },
   {
     t: 'Éléments à fournir par le client',
@@ -25,11 +25,11 @@ const articles = [
   },
   {
     t: 'Délai de mise en ligne',
-    d: `La mise en ligne intervient sous ${prix.delai} à compter de la réception de l’ensemble des éléments nécessaires. Ce délai est indicatif et dépend de la disponibilité du client.`,
+    d: `La mise en ligne du site intervient dans les premières semaines de l’accompagnement, à compter de la réception de l’ensemble des éléments nécessaires. Ce délai est indicatif et dépend de la disponibilité du client.`,
   },
   {
-    t: 'Modifications',
-    d: 'L’accompagnement comprend, pendant les douze mois : des séances de déblocage de 20 minutes à la demande, avec un rendez-vous proposé sous 72 heures ouvrées, un compte rendu après chaque séance, ainsi qu’un bilan à 6 mois et à 12 mois. Restent hors accompagnement, sur devis accepté à l’avance : rédaction d’articles en continu, boutique en ligne, publicité payante et gestion des réseaux sociaux.',
+    t: 'Elyo Direct et frais à la charge du client',
+    d: 'Elyo Direct désigne l’accompagnement à la demande compris pendant les six mois : le client sollicite ElyoStudio par message lorsqu’il en a besoin, et ElyoStudio répond par le canal le plus adapté (message, vocal, vidéo, document, visioconférence lorsque nécessaire), dans un délai raisonnable aux jours ouvrés. Elyo Direct ne constitue ni un engagement de disponibilité permanente, ni un volume d’heures de visioconférence illimité. Restent à la charge du client : les budgets publicitaires éventuels et les outils tiers (agenda en ligne, emailing, hébergement au-delà de la première année, etc.).',
   },
   {
     t: 'Propriété et transfert du site',
@@ -41,7 +41,7 @@ const articles = [
   },
   {
     t: 'Absence de garantie de résultat',
-    d: `Aucune première place sur Google, aucun nombre de clients et aucun résultat commercial ne sont garantis. Les délais de référencement dépendent de la ville, du secteur et de facteurs externes. ${site.nom} ne gère pas les réseaux sociaux à la place du client et ne formule aucune promesse de soin ou de guérison.`,
+    d: `Aucun nombre de patients ou de clients, aucun résultat commercial et aucun positionnement sur Google ne sont garantis. Les délais de référencement dépendent de la ville, du secteur et de facteurs externes. ${site.nom} ne gère pas les réseaux sociaux à la place du client et ne formule aucune promesse de soin ou de guérison.`,
   },
   {
     t: 'Droit de rétractation',
@@ -53,7 +53,7 @@ const articles = [
   },
   {
     t: 'Absence de reconduction automatique',
-    d: 'À l’issue des douze mois, l’accompagnement ne se reconduit pas automatiquement. Un suivi ultérieur fait, le cas échéant, l’objet d’un accord explicite et distinct entre les parties.',
+    d: 'À l’issue des six mois, l’accompagnement ne se reconduit pas automatiquement. Un suivi ultérieur fait, le cas échéant, l’objet d’un accord explicite et distinct entre les parties.',
   },
   {
     t: 'Données personnelles',
@@ -100,7 +100,7 @@ const articles = [
     padding: 0.95rem 1.2rem;
     border-radius: var(--r-m);
     background: var(--terre-clair);
-    border: 1px solid rgba(184, 85, 47, 0.25);
+    border: 1px solid rgba(192, 102, 60, 0.25);
     color: var(--terre-2);
     font-size: 0.9rem;
     font-weight: 500;

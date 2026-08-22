@@ -101,6 +101,7 @@ collections:
               - { name: telephone, label: Téléphone affiché, widget: string }
               - { name: telephoneLien, label: Téléphone cliquable, widget: string, hint: 'Format +33…' }
               - { name: agenda, label: Lien de l’agenda TidyCal, widget: string }
+              - { name: lienPaiement, label: Lien de la page de paiement (Systeme.io), widget: string, required: false, hint: "Vide = le bouton Démarrer mène à l’échange découverte" }
               - {
                   name: endpointFormulaire,
                   label: Adresse d’envoi des formulaires,
@@ -120,10 +121,11 @@ collections:
             label: Tarifs
             widget: object
             fields:
-              - { name: total, label: Prix total de l’accompagnement, widget: string }
+              - { name: total, label: Prix de l’accompagnement, widget: string }
               - { name: paiement3x, label: Paiement en trois fois, widget: string }
-              - { name: duree, label: Durée du Filet, widget: string }
-              - { name: delai, label: Délai de mise en ligne du Socle, widget: string }
+              - { name: duree, label: Durée de l’accompagnement, widget: string }
+              - { name: placesFondateur, label: Nombre de places au tarif fondateur, widget: string }
+              - { name: tarifSuivant, label: Tarif après la phase de lancement, widget: string }
           - name: navigation
             label: Menu principal
             widget: list
@@ -165,15 +167,29 @@ collections:
         label: Offre — ce qui est compris
         file: src/data/offre.json
         fields:
-          - { name: socle, label: Le Socle (21 jours), widget: list, field: { name: ligne, label: Ligne, widget: string } }
-          - { name: filet, label: Le Filet (12 mois), widget: list, field: { name: ligne, label: Ligne, widget: string } }
-          - name: optionsHorsForfait
-            label: Options hors forfait
+          - name: phases
+            label: Les quatre phases
             widget: list
             fields:
+              - { name: icone, label: Icône, widget: string }
+              - { name: periode, label: Période, widget: string }
               - { name: titre, label: Titre, widget: string }
-              - { name: texte, label: Texte, widget: text }
-          - { name: nonPromis, label: Ce que je ne promets pas, widget: list, field: { name: ligne, label: Ligne, widget: string } }
+              - { name: texte, label: Phrase d’introduction, widget: string }
+              - { name: points, label: Points, widget: list, field: { name: ligne, label: Ligne, widget: string } }
+          - name: elyoDirect
+            label: Elyo Direct
+            widget: object
+            fields:
+              - { name: accroche, label: Accroche, widget: string }
+              - { name: situations, label: Situations, widget: list, field: { name: ligne, label: Ligne, widget: string } }
+              - name: canaux
+                label: Canaux
+                widget: list
+                fields:
+                  - { name: icone, label: Icône, widget: string }
+                  - { name: titre, label: Titre, widget: string }
+                  - { name: texte, label: Texte, widget: string }
+          - { name: pourQui, label: Pour qui, widget: list, field: { name: ligne, label: Ligne, widget: string } }
           - name: engagements
             label: Les engagements
             widget: list
@@ -181,12 +197,6 @@ collections:
               - { name: icone, label: Icône, widget: string }
               - { name: titre, label: Titre, widget: string }
               - { name: texte, label: Texte, widget: text }
-          - name: comparatif
-            label: Comparatif avec une agence
-            widget: list
-            fields:
-              - { name: autre, label: Souvent ailleurs, widget: text }
-              - { name: elyo, label: Chez ElyoStudio, widget: text }
 
       - name: faq
         label: Questions fréquentes

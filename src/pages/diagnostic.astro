@@ -6,7 +6,7 @@ import { site } from '../data/site.js';
 
 const titre = 'Le diagnostic des 5 fondations — 7 minutes | ElyoStudio';
 const description =
-  'Votre activité de thérapeute repose-t-elle sur des bases suffisamment solides ? Quinze questions, un score sur 100, vos trois priorités. Gratuit, en 7 minutes.';
+  'Votre cabinet repose-t-il sur des bases suffisamment solides ? Quinze questions, un score sur 100, vos trois priorités. Gratuit, en 7 minutes.';
 ---
 
 <Base
@@ -17,7 +17,7 @@ const description =
 >
   <EnPage
     surtitre="Le diagnostic des 5 fondations"
-    titre="Votre activité repose-t-elle sur des bases suffisamment solides ?"
+    titre="Votre cabinet repose-t-il sur des bases suffisamment solides ?"
     chapeau="Quinze questions, sept minutes. À la fin : votre score sur 100, vos forces, vos points faibles et les trois priorités à travailler — puis, si vous le souhaitez, on les regarde ensemble."
   />
 
@@ -33,7 +33,7 @@ const description =
           </button>
           <button type="button" class="diag-option" data-parcours="installe">
             <strong>Je suis déjà installé, mais ça ne décolle pas assez</strong>
-            <span>L’activité existe, les rendez-vous ne suivent pas au rythme espéré.</span>
+            <span>Le cabinet existe, les rendez-vous ne suivent pas au rythme espéré.</span>
           </button>
         </div>
         <p class="diag-note">
@@ -111,18 +111,21 @@ const description =
         </div>
 
         <div class="carte diag-carte diag-cta">
-          <p class="diag-question-titre" id="diag-cta-titre">
-            Vous souhaitez analyser vos résultats avec moi ?
-          </p>
+          <p class="diag-question-titre" id="diag-cta-titre">Et maintenant ?</p>
           <p class="diag-note diag-note-haut" id="diag-cta-texte"></p>
-          <a href="/rendez-vous" class="btn btn-principal btn-large" id="diag-cta-btn">
-            Réserver mon bilan de lancement offert — 30 min
-            <Icone nom="fleche" classe="fleche" />
-          </a>
+          <div class="groupe-btn diag-actions">
+            <a href="/demarrer" class="btn btn-principal btn-large" id="diag-cta-btn">
+              Démarrer l’accompagnement — 990 €
+              <Icone nom="fleche" classe="fleche" />
+            </a>
+            <a href="/rendez-vous" class="btn btn-secondaire btn-large" id="diag-cta-rdv">
+              Analyser mes résultats avec Julien
+            </a>
+          </div>
           <p class="diag-rgpd">
-            Trente minutes en visio, gratuites et sans engagement. Ce n’est pas une séance de
-            coaching complète : on relit vos résultats, vous repartez avec vos priorités clarifiées,
-            et on vérifie si l’accompagnement <a href="/offre">Terre Ferme</a> vous correspond.
+            L’échange découverte est un appel court, offert et sans engagement : on relit vos
+            résultats ensemble et on vérifie si <a href="/offre">l’accompagnement</a> vous
+            correspond. Ce n’est pas une séance de coaching complète.
           </p>
         </div>
       </div>
@@ -291,12 +294,9 @@ const description =
       });
 
     const lancement = etat.parcours === 'lancement';
-    $('diag-cta-btn').childNodes[0].textContent = lancement
-      ? 'Réserver mon bilan de lancement offert — 30 min '
-      : 'Réserver mon bilan de développement offert — 30 min ';
     $('diag-cta-texte').textContent = lancement
-      ? 'Trente minutes pour relire ces résultats ensemble et transformer vos trois priorités en plan de lancement concret.'
-      : 'Trente minutes pour relire ces résultats ensemble et décider par quelle fondation reprendre le développement.';
+      ? 'Vous partez avec vos trois priorités. Si vous voulez les mettre en place dans le bon ordre, avec quelqu’un à vos côtés pendant six mois, l’accompagnement commence ici — ou par un appel court si vous préférez en parler d’abord.'
+      : 'Vous savez maintenant par quelle fondation reprendre le développement de votre cabinet. L’accompagnement de six mois sert exactement à ça — ou commencez par un appel court pour relire ces résultats ensemble.';
 
     montrer('resultats');
   }
@@ -410,7 +410,7 @@ const description =
   }
   .diag-option:hover, .diag-option:focus-visible {
     transform: translateY(-2px);
-    border-color: rgba(46, 90, 75, 0.45);
+    border-color: rgba(28, 46, 87, 0.45);
     box-shadow: var(--ombre-s);
   }
   .diag-option strong { font-weight: 600; font-size: 0.98rem; }
@@ -485,7 +485,7 @@ const description =
   .diag-jauge {
     height: 0.55rem;
     border-radius: var(--r-pilule);
-    background: rgba(35, 32, 28, 0.07);
+    background: rgba(17, 26, 46, 0.07);
     overflow: hidden;
   }
   .diag-jauge-remplie { display: block; height: 100%; border-radius: inherit; }
@@ -498,5 +498,5 @@ const description =
   .diag-priorites p { margin-top: 0.25rem; font-size: 0.94rem; color: var(--encre-2); }
 
   .diag-cta { text-align: left; }
-  .diag-cta .btn { margin-top: 1.2rem; }
+  .diag-actions { margin-top: 1.2rem; }
 </style>

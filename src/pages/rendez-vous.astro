@@ -2,25 +2,25 @@
 import Base from '../layouts/Base.astro';
 import EnPage from '../components/EnPage.astro';
 import Icone from '../components/Icone.astro';
-import { site } from '../data/site.js';
+import { site, prix, lienDemarrer } from '../data/site.js';
 
-const titre = 'Réserver votre bilan de 30 minutes | ElyoStudio';
+const titre = 'Échange découverte : un appel court, offert | ElyoStudio';
 const description =
-  'Trente minutes en visio pour faire le point sur votre activité, repartir avec vos priorités et vérifier si l’accompagnement vous correspond. Offert.';
+  'Un appel court en visio pour faire le point sur votre cabinet et vérifier ensemble que l’accompagnement ElyoStudio vous correspond. Offert, sans engagement.';
 
 const obtenez = [
   'Une lecture extérieure et honnête de votre situation',
   'Deux ou trois priorités concrètes, à garder même si l’on ne travaille pas ensemble',
-  'Une réponse franche : Terre Ferme vous correspond, ou non',
+  'Une réponse franche : l’accompagnement vous correspond, ou non',
   'Aucun engagement, aucune relance insistante ensuite',
 ];
 ---
 
-<Base titre={titre} description={description} barreMobile={false} filAriane={[{ nom: "Le bilan de 30 minutes", lien: "/rendez-vous" }]}>
+<Base titre={titre} description={description} barreMobile={false} filAriane={[{ nom: "Échange découverte", lien: "/rendez-vous" }]}>
   <EnPage
-    surtitre="Le bilan de 30 minutes — offert"
-    titre="On fait le point sur votre activité, en trente minutes"
-    chapeau="Bilan de lancement si vous démarrez, bilan de développement si vous êtes déjà installé : trente minutes en visio pour poser votre situation à plat et repartir avec des priorités claires. Ce n’est pas une séance de coaching complète — c’est le point de départ."
+    surtitre="Échange découverte — offert"
+    titre="Besoin d’en parler avant de démarrer ? Prenons un appel court."
+    chapeau="Une vingtaine de minutes en visio pour poser votre situation à plat : où en est votre cabinet, ce qui freine, et si l’accompagnement est le bon choix pour vous. Ce n’est pas une séance de coaching — c’est une vérification, dans les deux sens."
   />
 
   <section class="section-serree">
@@ -51,12 +51,24 @@ const obtenez = [
         </div>
 
         <div class="carte reveal" style="--delai: 90ms">
+          <h2 class="aside-titre">Déjà décidé ?</h2>
+          <p class="texte-doux aside-texte">
+            L’appel n’est pas obligatoire. Si vous êtes prêt, vous démarrez directement :
+            {prix.total} pour {prix.duree}, ou {prix.paiement3x} sans frais.
+          </p>
+          <a href={lienDemarrer} class="btn btn-principal btn-large">
+            Démarrer — {prix.total}
+            <Icone nom="fleche" classe="fleche" />
+          </a>
+        </div>
+
+        <div class="carte reveal" style="--delai: 160ms">
           <h2 class="aside-titre">Pas encore prêt à en parler ?</h2>
           <p class="texte-doux aside-texte">
             Commencez par le diagnostic des 5 fondations : quinze questions, sept minutes, et vous
-            arrivez au bilan avec vos résultats déjà en main.
+            arrivez à l’appel avec vos résultats en main.
           </p>
-          <a href="/diagnostic" class="btn btn-principal btn-large">
+          <a href="/diagnostic" class="lien-fleche">
             Faire le diagnostic gratuit
             <Icone nom="fleche" classe="fleche" />
           </a>

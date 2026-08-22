@@ -3,77 +3,78 @@ import Base from '../layouts/Base.astro';
 import EnPage from '../components/EnPage.astro';
 import Icone from '../components/Icone.astro';
 import BandeCta from '../components/BandeCta.astro';
+import { lienDemarrer } from '../data/site.js';
 
-const titre = 'La méthode : 21 jours de socle, un an de filet | ElyoStudio';
+const titre = 'La méthode : six mois, quatre phases | ElyoStudio';
 const description =
-  'Bilan de 30 minutes, trois semaines pour poser le socle — positionnement, offre, site, visibilité — puis douze mois de filet. Sans jargon, sans réunion inutile.';
+  'Démarrage, rendez-vous de lancement, mise en place du système, puis six mois d’accompagnement à la demande. Sans jargon, sans réunion inutile.';
 
 const detail = [
   {
     n: '01',
-    titre: 'Le bilan de 30 minutes',
+    titre: 'Vous démarrez',
     duree: 'Jour 0',
-    icone: 'video',
+    icone: 'etiquette',
     texte:
-      'On fait le point sur votre situation : où vous en êtes, ce qui freine, ce que vous voulez construire. Vous repartez avec des priorités claires — et je vous dis franchement si je peux vous aider.',
-    points: ['En visio, à l’heure qui vous arrange', 'Offert, sans engagement', 'Encore mieux si vous avez fait le diagnostic avant'],
+      'En ligne, directement — ou après un échange découverte si vous préférez en parler d’abord. Vous recevez un questionnaire d’accueil guidé : votre pratique, vos patients, vos offres, vos outils.',
+    points: ['Pas d’appel commercial obligatoire', 'Une heure de questionnaire, en plusieurs fois si besoin', 'Un créneau pour le rendez-vous de lancement'],
   },
   {
     n: '02',
-    titre: 'Semaine 1 : positionnement, offre et tarifs',
-    duree: 'Jours 1 à 7',
-    icone: 'recherche',
+    titre: 'Le rendez-vous de lancement',
+    duree: 'Semaine 1',
+    icone: 'video',
     texte:
-      'Qui vous aidez, sur quoi, comment, à quel prix. Deux séances de travail et un questionnaire guidé : à la fin de la semaine, votre positionnement tient en une phrase et vos offres en une page.',
-    points: ['Deux séances de travail en visio', 'Votre offre d’entrée structurée, tarifs posés', 'La base de tous les textes du site'],
+      'Une visio pour poser le diagnostic de votre cabinet : d’où viennent vos rendez-vous, ce qui freine, votre positionnement, vos offres et vos tarifs. On en sort avec le plan des six mois, par écrit.',
+    points: ['Diagnostic de l’activité', 'Positionnement et offres clarifiés', 'Une feuille de route écrite, que vous gardez'],
   },
   {
     n: '03',
-    titre: 'Semaines 2 et 3 : site, fiche Google, rendez-vous',
-    duree: 'Jours 8 à 21',
+    titre: 'La mise en place du système',
+    duree: 'Semaines 2 à 6',
     icone: 'gabarit',
     texte:
-      'Je construis le site autour du positionnement posé, j’installe la prise de rendez-vous en ligne, je crée ou remets à plat votre fiche Google. Vous validez tout en vidéo ; rien ne part en ligne sans votre feu vert.',
-    points: ['Textes rédigés à partir de nos échanges', 'Réservation testée de bout en bout, mobile compris', 'En ligne au jour 21, fiche Google active'],
+      'Je construis, vous validez : site créé ou optimisé, prise de rendez-vous en ligne, fiche Google Business Profile, bases du référencement local, stratégie de contenu. Les premières semaines sont les plus denses.',
+    points: ['Textes rédigés avec vous, dans vos mots', 'Réservation testée de bout en bout, mobile compris', 'Fiche Google complète et active'],
   },
   {
     n: '04',
-    titre: 'Douze mois de Filet',
-    duree: 'Mois 1 à 12',
+    titre: 'Six mois avec Elyo Direct',
+    duree: 'Mois 1 à 6',
     icone: 'bouclier',
     texte:
-      'Un entretien de 90 minutes pose votre plan d’action écrit. Ensuite, chaque fois que vous bloquez : une séance de 20 minutes sous 72 h ouvrées, une décision claire, un compte rendu. Et un bilan à 6 mois, puis à 12.',
-    points: ['À la demande, sans programme imposé', 'Un sujet précis par séance', 'Un compte rendu écrit après chacune'],
+      'Acquisition mise en route, publicité locale si pertinente, suivi des résultats, optimisation continue. Et dès le premier jour : une question, un blocage, une publication à valider — vous me sollicitez, je réponds par le canal le plus efficace.',
+    points: ['Message, vocal, petite vidéo, document, visio quand c’est utile', 'Sans compteur, pendant toute la durée', 'Ce qui amène des rendez-vous est renforcé, le reste est coupé'],
   },
 ];
 
 const cotéVous = [
-  'Deux séances de travail la première semaine, puis vos validations',
-  'Une heure pour le questionnaire de départ',
+  'Le questionnaire d’accueil, puis vos validations',
   'Vos photos, ou un créneau pour en faire de bonnes',
-  'Dire quand ça bloque — c’est le principe du Filet',
+  'Quelques heures par semaine au début, beaucoup moins ensuite',
+  'Dire quand ça bloque — c’est tout l’intérêt d’Elyo Direct',
 ];
 
 const cotéMoi = [
-  'Le cadrage du positionnement, de l’offre et des tarifs',
-  'La conception, la rédaction et l’intégration du site',
-  'Le nom de domaine, l’hébergement, la fiche Google, la prise de rendez-vous',
-  'Les séances de déblocage, les comptes rendus et les bilans',
+  'Le diagnostic, le positionnement, les offres et les tarifs',
+  'Le site, la prise de rendez-vous, la fiche Google, le référencement local',
+  'Le plan d’acquisition, le suivi des résultats, les ajustements',
+  'Les réponses, les retours et les décisions, tout au long des six mois',
 ];
 ---
 
 <Base titre={titre} description={description} filAriane={[{ nom: "La méthode", lien: "/methode" }]}>
   <EnPage
     surtitre="La méthode"
-    titre="Trois semaines pour le socle, douze mois de filet"
-    chapeau="Vous n’avez pas à comprendre l’hébergement, le DNS ou le référencement. On clarifie, je construis, vous validez — puis je reste à portée de visio pendant un an."
+    titre="Six mois, quatre phases, et quelqu’un à vos côtés"
+    chapeau="Vous n’avez pas à comprendre l’hébergement, le référencement ou les campagnes. On pose le diagnostic, je construis, vous validez — et vous restez acteur de votre développement, guidé à chaque étape."
   >
     <div class="groupe-btn marge-haut">
-      <a href="/rendez-vous" class="btn btn-principal btn-large">
-        Réserver mon bilan de lancement
+      <a href={lienDemarrer} class="btn btn-principal btn-large">
+        Démarrer — 990 €
         <Icone nom="fleche" classe="fleche" />
       </a>
-      <a href="/offre" class="btn btn-secondaire btn-large">Voir l’accompagnement et le tarif</a>
+      <a href="/offre" class="btn btn-secondaire btn-large">Voir l’accompagnement en détail</a>
     </div>
   </EnPage>
 
@@ -108,7 +109,7 @@ const cotéMoi = [
     <div class="rail">
       <div class="entete-section reveal">
         <span class="surtitre">Qui fait quoi</span>
-        <h2>Votre part du travail reste tenable, même en activité</h2>
+        <h2>Qui fait quoi pendant les six mois</h2>
       </div>
 
       <div class="deux-colonnes marge-haut-grand">
@@ -152,7 +153,7 @@ const cotéMoi = [
     bottom: -1.6rem;
     width: 2px;
     border-radius: 2px;
-    background: linear-gradient(180deg, rgba(46, 90, 75, 0.3), rgba(46, 90, 75, 0.05));
+    background: linear-gradient(180deg, rgba(28, 46, 87, 0.3), rgba(28, 46, 87, 0.05));
   }
   .chrono-item:last-child .chrono-marqueur::after { display: none; }
 
@@ -163,8 +164,8 @@ const cotéMoi = [
     height: 3rem;
     border-radius: var(--r-m);
     background: linear-gradient(150deg, var(--vert-2), var(--vert));
-    color: #F2F7F3;
-    box-shadow: 0 12px 24px -16px rgba(46, 90, 75, 0.95);
+    color: #F4F6FA;
+    box-shadow: 0 12px 24px -16px rgba(28, 46, 87, 0.95);
   }
   .chrono-pastille :global(svg) { width: 1.4rem; height: 1.4rem; }
 

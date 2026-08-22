@@ -51,10 +51,10 @@ S’il tient en trois lignes et un prix, demandez le détail. S’il mentionne u
 
 ## Ce que je facture, et pourquoi
 
-Chez ElyoStudio, l’accompagnement s’appelle Terre Ferme : **1 998 € tout compris, ou trois paiements de 666 € sans frais**. Ce n’est pas le prix d’un site — c’est le prix d’un lancement complet, en deux temps.
+Chez ElyoStudio, le site n’est pas vendu seul : il fait partie d’un accompagnement de six mois à **990 €, ou trois paiements de 330 € sans frais** — un tarif fondateur, réservé aux dix premiers cabinets, le temps de mesurer précisément les résultats et d’affiner la méthode.
 
-D’abord le Socle, en 21 jours : la clarification de votre positionnement et de vos tarifs, un site professionnel construit autour, la prise de rendez-vous en ligne, la fiche Google et les bases du référencement local, plus un plan d’acquisition réaliste. Ensuite le Filet, pendant douze mois : des séances de déblocage de 20 minutes à la demande, proposées sous 72 heures ouvrées, avec un compte rendu écrit après chacune et un bilan à 6 puis 12 mois.
+Ces six mois comprennent le diagnostic de votre activité, votre positionnement, la clarification de vos offres et de vos tarifs, la création ou l’optimisation de votre site, la prise de rendez-vous en ligne, votre fiche Google, les bases du référencement local, un plan d’acquisition, le suivi des résultats — et Elyo Direct : quelqu’un à vos côtés, sans compteur, chaque fois que vous bloquez.
 
-Restent en option, facturés à part : la rédaction d’articles en continu, une boutique en ligne, la publicité payante et la gestion des réseaux sociaux. Je préfère le dire clairement plutôt que de gonfler un forfait dont vous n’auriez pas l’usage.
+Restent à votre charge les budgets publicitaires éventuels et les outils tiers. Je préfère le dire clairement plutôt que de gonfler un forfait dont vous n’auriez pas l’usage.
 
-Le site vous appartient. Passé les douze mois, l’accompagnement s’arrête de lui-même, sans reconduction, et vous reprenez l’hébergement à votre nom si vous le souhaitez.
+Le site vous appartient. Passé les six mois, l’accompagnement s’arrête de lui-même, sans reconduction, et vous reprenez l’hébergement à votre nom si vous le souhaitez.

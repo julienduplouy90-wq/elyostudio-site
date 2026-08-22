@@ -3,11 +3,10 @@ import Base from '../layouts/Base.astro';
 import EnPage from '../components/EnPage.astro';
 import Icone from '../components/Icone.astro';
 import BandeCta from '../components/BandeCta.astro';
-import Comparatif from '../components/Comparatif.astro';
-import { site, prix, socle, filet, optionsHorsForfait, nonPromis, engagements, faqsOffre } from '../data/site.js';
+import { site, prix, phases, elyoDirect, pourQui, engagements, faqsOffre, lienDemarrer } from '../data/site.js';
 
-const titre = `Terre Ferme : ${prix.total}, socle + filet ${prix.duree} | ElyoStudio`;
-const description = `Le socle de votre activité en ${prix.delai} — positionnement, offre, site, visibilité — puis ${prix.duree} d’accompagnement. ${prix.total} ou ${prix.paiement3x}.`;
+const titre = `L’accompagnement ElyoStudio : ${prix.total} pour ${prix.duree} | ElyoStudio`;
+const description = `Diagnostic, positionnement, site, fiche Google, référencement local, acquisition, suivi — et Elyo Direct pendant ${prix.duree}. ${prix.total} ou ${prix.paiement3x}, tarif fondateur.`;
 
 const donnees = {
   '@context': 'https://schema.org',
@@ -23,254 +22,166 @@ const donnees = {
     },
     {
       '@type': 'Product',
-      '@id': `${site.url}/offre#terre-ferme`,
-      name: 'Terre Ferme',
+      '@id': `${site.url}/offre#accompagnement`,
+      name: 'Accompagnement ElyoStudio — 6 mois',
       description:
-        'Accompagnement pour thérapeutes indépendants : positionnement, offre, site professionnel, visibilité locale en 21 jours, puis douze mois d’accompagnement à la demande.',
+        'Développement de cabinet pour thérapeutes, praticiens bien-être, professeurs de yoga et coachs : diagnostic, positionnement, site, visibilité locale, acquisition, suivi, et Elyo Direct pendant 6 mois.',
       brand: { '@id': `${site.url}/#studio` },
       offers: {
         '@type': 'Offer',
-        price: '1998',
+        price: '990',
         priceCurrency: 'EUR',
-        availability: 'https://schema.org/InStock',
+        availability: 'https://schema.org/LimitedAvailability',
         url: `${site.url}/offre`,
-        description: `${prix.total} comptant, ou ${prix.paiement3x} sans frais.`,
+        description: `${prix.total} comptant, ou ${prix.paiement3x} sans frais. Tarif fondateur, ${prix.placesFondateur} places.`,
       },
     },
   ],
 };
-
-const pourQui = [
-  'Vous êtes thérapeute ou professionnel de l’accompagnement, en lancement ou déjà installé',
-  'Votre activité repose sur des bases que vous sentez fragiles : positionnement, offre, visibilité',
-  'Vous voulez construire une fois, proprement — pas empiler les rustines',
-  'Vous préférez décider vite avec un avis extérieur que ruminer seul pendant des semaines',
-];
-
-const pasPourQui = [
-  'Vous cherchez uniquement un site, le moins cher possible',
-  'Vous attendez un programme qui promet un cabinet plein en 90 jours',
-  'Vous voulez déléguer entièrement votre communication sans vous impliquer',
-  'Vous n’avez pas trois semaines à consacrer au lancement, même par petites touches',
-];
-
-const deroulement = [
-  {
-    periode: 'Avant de commencer',
-    titre: 'Le bilan de 30 minutes',
-    texte:
-      'On fait le point sur votre situation, gratuitement et sans engagement. Si Terre Ferme n’est pas ce qu’il vous faut, je vous le dis et je vous indique quoi faire à la place.',
-  },
-  {
-    periode: 'Semaine 1',
-    titre: 'Positionnement, offre et tarifs',
-    texte:
-      'Qui vous aidez, sur quoi, comment, à quel prix. C’est la semaine la plus exigeante — et celle qui porte tout le reste.',
-  },
-  {
-    periode: 'Semaines 2 et 3',
-    titre: 'Site, fiche Google, prise de rendez-vous',
-    texte:
-      'Je construis votre site autour du positionnement posé, j’installe la prise de rendez-vous, je crée ou remets à plat votre fiche Google. Vous validez, jour 21 : tout est en ligne.',
-  },
-  {
-    periode: 'Dès la mise en ligne',
-    titre: 'L’entretien de 90 minutes et le plan d’action',
-    texte:
-      'On pose votre feuille de route pour l’année, par écrit. Elle sert de référence à toutes les séances qui suivront.',
-  },
-  {
-    periode: 'Pendant 12 mois',
-    titre: 'Le Filet, à la demande',
-    texte:
-      'Un blocage ? Une séance de 20 minutes sous 72 h ouvrées : un sujet, une décision, un compte rendu. Et un bilan complet à 6 mois, puis à 12.',
-  },
-];
 ---
 
 <Base titre={titre} description={description} filAriane={[{ nom: "L’accompagnement", lien: "/offre" }]}>
   <script type="application/ld+json" is:inline set:html={JSON.stringify(donnees)} />
 
   <EnPage
-    surtitre="L’accompagnement"
-    titre="Terre Ferme : le socle en 21 jours, le filet pendant un an"
-    chapeau="Je construis le socle de votre activité — positionnement, offre, site, visibilité — en trois semaines. Puis je reste à vos côtés pendant douze mois, pour chaque décision qui bloque. Un seul accompagnement, un seul tarif, écrit noir sur blanc."
+    surtitre="L’accompagnement ElyoStudio"
+    titre="Six mois pour mettre en place le système qui remplit votre agenda"
+    chapeau="Diagnostic, positionnement, offres et tarifs, site, fiche Google, référencement local, contenu, acquisition, suivi des résultats. Et pendant toute la durée, Elyo Direct : quelqu’un à vos côtés, sans compteur."
   >
     <div class="groupe-btn marge-haut">
-      <a href="/rendez-vous" class="btn btn-principal btn-large">
-        Réserver mon bilan de lancement
+      <a href={lienDemarrer} class="btn btn-principal btn-large">
+        Démarrer — {prix.total}
         <Icone nom="fleche" classe="fleche" />
       </a>
-      <a href="/diagnostic" class="btn btn-secondaire btn-large">Faire d’abord le diagnostic</a>
+      <a href="/rendez-vous" class="btn btn-secondaire btn-large">J’ai besoin d’en parler d’abord</a>
     </div>
   </EnPage>
 
-  <!-- Prix en deux temps -->
-  <section class="section-serree">
-    <div class="rail deux-temps">
-      <article class="temps temps-vedette reveal">
-        <span class="temps-libelle">L’accompagnement complet</span>
-        <p class="temps-prix">{prix.total}</p>
-        <p class="temps-note">Socle et Filet compris. Rien d’autre à payer pendant {prix.duree}.</p>
-      </article>
-      <span class="temps-plus" aria-hidden="true">ou</span>
-      <article class="temps reveal" style="--delai: 90ms">
-        <span class="temps-libelle">En trois fois, sans frais</span>
-        <p class="temps-prix">{prix.paiement3x}</p>
-        <p class="temps-note">Le même montant, réparti sur trois mois. Rien de plus à la fin.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- Le Socle -->
+  <!-- Les quatre phases -->
   <section class="section">
     <div class="rail">
       <div class="entete-section reveal">
-        <span class="surtitre">Premier temps — {prix.delai}</span>
-        <h2>Le Socle : tout ce qui se construit en trois semaines</h2>
+        <span class="surtitre">Ce qui est mis en place</span>
+        <h2>Quatre phases, dans le bon ordre</h2>
         <p class="chapeau">
-          Une présence professionnelle claire et crédible, bâtie dans le bon ordre : d’abord ce que
-          vous faites et pour qui, ensuite seulement le site et la visibilité qui le portent.
+          On ne commence pas par le site. On commence par comprendre votre cabinet, puis on
+          construit chaque brique sur la précédente — jusqu’à ce que l’ensemble amène des
+          rendez-vous de façon régulière.
         </p>
       </div>
 
-      <div class="grille grille-2 marge-haut-grand">
+      <div class="phases marge-haut-grand">
         {
-          socle.map((item, i) => (
-            <div class="carte carte-relief ligne-inclus reveal" style={`--delai: ${i * 60}ms`}>
-              <span class="puce"><Icone nom="coche" /></span>
-              <p class="ligne-inclus-texte">{item}</p>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <!-- Le Filet -->
-  <section class="section section-teintee">
-    <div class="rail">
-      <div class="entete-section reveal">
-        <span class="surtitre">Deuxième temps — {prix.duree}</span>
-        <h2>Le Filet : de l’aide au moment précis où vous bloquez</h2>
-        <p class="chapeau">
-          La mise en ligne n’est pas la fin, c’est le début. Pendant un an, chaque blocage a une
-          issue : une séance courte, une décision claire, un compte rendu. Sans programme imposé,
-          sans séances pour remplir le calendrier.
-        </p>
-      </div>
-
-      <div class="grille grille-2 marge-haut-grand">
-        {
-          filet.map((item, i) => (
-            <div class="carte carte-relief ligne-inclus reveal" style={`--delai: ${i * 50}ms`}>
-              <span class="puce"><Icone nom="coche" /></span>
-              <p class="ligne-inclus-texte">{item}</p>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <!-- Déroulement -->
-  <section class="section">
-    <div class="rail">
-      <div class="entete-section reveal">
-        <span class="surtitre">Le déroulement</span>
-        <h2>De notre premier échange au bilan des 12 mois</h2>
-      </div>
-
-      <ol class="frise marge-haut-grand">
-        {
-          deroulement.map((e, i) => (
-            <li class="frise-etape reveal" style={`--delai: ${i * 80}ms`}>
-              <span class="frise-periode">{e.periode}</span>
-              <div class="frise-corps">
-                <h3>{e.titre}</h3>
-                <p>{e.texte}</p>
+          phases.map((p, i) => (
+            <article class="phase carte reveal" style={`--delai: ${i * 80}ms`}>
+              <div class="phase-entete">
+                <span class="pastille"><Icone nom={p.icone} /></span>
+                <div>
+                  <span class="phase-periode">{p.periode}</span>
+                  <h3>{p.titre}</h3>
+                </div>
               </div>
-            </li>
-          ))
-        }
-      </ol>
-    </div>
-  </section>
-
-  <!-- Pour qui / pas pour qui -->
-  <section class="section section-teintee">
-    <div class="rail">
-      <div class="entete-section reveal">
-        <span class="surtitre">Soyons honnêtes</span>
-        <h2>À qui cet accompagnement s’adresse — et à qui il ne s’adresse pas</h2>
-      </div>
-
-      <div class="deux-colonnes marge-haut-grand">
-        <div class="carte reveal">
-          <h3>C’est pour vous si…</h3>
-          <ul class="liste-cochee marge-haut-petit">
-            {pourQui.map((item) => <li>{item}</li>)}
-          </ul>
-        </div>
-        <div class="carte reveal" style="--delai: 100ms">
-          <h3>Ce n’est pas pour vous si…</h3>
-          <ul class="liste-cochee liste-croix marge-haut-petit">
-            {pasPourQui.map((item) => <li>{item}</li>)}
-          </ul>
-        </div>
-      </div>
-
-      <div class="carte carte-douce reveal marge-haut-grand">
-        <h3>Ce que je ne promets pas</h3>
-        <ul class="liste-cochee liste-croix marge-haut-petit">
-          {nonPromis.map((item) => <li>{item}</li>)}
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Comparatif -->
-  <section class="section">
-    <div class="rail">
-      <div class="entete-section reveal">
-        <span class="surtitre">Les alternatives</span>
-        <h2>Un site seul, un coaching seul, ou les deux dans le bon ordre</h2>
-        <p class="chapeau">
-          Chacune de ces options est défendable, selon votre point de départ. Voici ce qu’elles
-          coûtent, ce qu’elles vous laissent au départ — et surtout ce qui se passe le jour où vous
-          bloquez.
-        </p>
-      </div>
-
-      <div class="marge-haut-grand reveal">
-        <Comparatif />
-      </div>
-    </div>
-  </section>
-
-  <!-- Hors accompagnement -->
-  <section class="section section-teintee">
-    <div class="rail">
-      <div class="entete-section reveal">
-        <span class="surtitre">Hors accompagnement</span>
-        <h2>Ce que Terre Ferme ne couvre pas</h2>
-        <p class="chapeau">
-          Tout le reste est compris. Ces prestations-là sortent du cadre et se chiffrent à part, sur
-          devis accepté à l’avance — ou ne se font simplement pas ici.
-        </p>
-      </div>
-
-      <div class="grille grille-2 marge-haut-grand">
-        {
-          optionsHorsForfait.map((o, i) => (
-            <article class="carte carte-relief reveal" style={`--delai: ${i * 70}ms`}>
-              <span class="pastille pastille-terre"><Icone nom="etincelle" /></span>
-              <h3>{o.titre}</h3>
-              <p>{o.texte}</p>
+              <p class="phase-texte">{p.texte}</p>
+              <ul class="liste-cochee phase-points">
+                {p.points.map((point) => <li>{point}</li>)}
+              </ul>
             </article>
           ))
         }
       </div>
+    </div>
+  </section>
+
+  <!-- Elyo Direct -->
+  <section class="section section-sombre" id="elyo-direct">
+    <span class="halo halo-anime direct-halo"></span>
+    <div class="rail direct-rail">
+      <div class="direct-texte reveal">
+        <span class="surtitre surtitre-clair">Elyo Direct — compris pendant {prix.duree}</span>
+        <h2>{elyoDirect.accroche}</h2>
+        <p class="direct-chapeau">
+          Le principe n’est pas la visio illimitée. C’est de ne jamais rester bloqué seul : vous me
+          sollicitez quand vous en avez besoin, et je vous réponds par le canal le plus efficace
+          pour la situation.
+        </p>
+        <ul class="direct-situations">
+          {elyoDirect.situations.map((s) => <li>{s}</li>)}
+        </ul>
+      </div>
+      <div class="direct-canaux">
+        {
+          elyoDirect.canaux.map((c, i) => (
+            <article class="direct-canal reveal" style={`--delai: ${i * 80}ms`}>
+              <span class="direct-icone"><Icone nom={c.icone} /></span>
+              <div>
+                <h3>{c.titre}</h3>
+                <p>{c.texte}</p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Pour qui -->
+  <section class="section">
+    <div class="rail pourqui-rail">
+      <div class="entete-section reveal">
+        <span class="surtitre">Pour qui</span>
+        <h2>Les professionnels de l’accompagnement, en lancement ou déjà installés</h2>
+        <p class="chapeau">
+          Le vocabulaire change d’un métier à l’autre — patients, élèves, clients — mais la
+          mécanique est la même : être trouvé, être compris, transformer cette visibilité en
+          rendez-vous.
+        </p>
+      </div>
+      <ul class="liste-cochee pourqui-liste reveal" style="--delai: 120ms">
+        {pourQui.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Tarif fondateur -->
+  <section class="section section-teintee" id="tarif">
+    <div class="rail">
+      <div class="entete-section reveal">
+        <span class="surtitre">Tarif fondateur</span>
+        <h2>{prix.total} pour {prix.duree}, réservé aux {prix.placesFondateur} premiers cabinets</h2>
+        <p class="chapeau">
+          Je lance cet accompagnement et je travaille avec mes premiers cabinets pour affiner la
+          méthode, mesurer précisément les résultats et construire mes premiers retours
+          d’expérience. En contrepartie, les {prix.placesFondateur} premiers bénéficient de ce tarif — il
+          passera ensuite à {prix.tarifSuivant}. Ce n’est pas une promotion artificielle : c’est le
+          prix de la phase de lancement d’ElyoStudio.
+        </p>
+      </div>
+
+      <div class="deux-temps marge-haut-grand">
+        <article class="temps temps-vedette reveal">
+          <span class="temps-libelle">Comptant</span>
+          <p class="temps-prix">{prix.total}</p>
+          <p class="temps-note">Les {prix.duree} complets, Elyo Direct compris. Rien d’autre à payer à ElyoStudio.</p>
+        </article>
+        <span class="temps-plus" aria-hidden="true">ou</span>
+        <article class="temps reveal" style="--delai: 90ms">
+          <span class="temps-libelle">En trois fois, sans frais</span>
+          <p class="temps-prix">{prix.paiement3x}</p>
+          <p class="temps-note">Le même montant, réparti sur trois mois. Rien de plus à la fin.</p>
+        </article>
+      </div>
+
+      <div class="groupe-btn tarif-actions reveal">
+        <a href={lienDemarrer} class="btn btn-principal btn-large">
+          Démarrer — {prix.total}
+          <Icone nom="fleche" classe="fleche" />
+        </a>
+        <a href="/rendez-vous" class="btn btn-secondaire btn-large">Échange découverte</a>
+      </div>
+      <p class="tarif-mention reveal">
+        Les budgets publicitaires éventuels et les outils tiers (agenda en ligne, emailing,
+        hébergement après la première année) restent à votre charge.
+      </p>
     </div>
   </section>
 
@@ -279,7 +190,7 @@ const deroulement = [
     <div class="rail">
       <div class="entete-section reveal">
         <span class="surtitre">Les garde-fous</span>
-        <h2>Quatre engagements qui ne bougent pas</h2>
+        <h2>Quatre choses qui ne bougent pas</h2>
       </div>
       <div class="grille grille-4 marge-haut-grand">
         {
@@ -295,12 +206,12 @@ const deroulement = [
     </div>
   </section>
 
-  <!-- Questions sur le tarif -->
+  <!-- Questions -->
   <section class="section section-teintee">
     <div class="rail-etroit">
       <div class="entete-section reveal">
-        <span class="surtitre">Questions de tarif</span>
-        <h2>Ce que l’on me demande sur le prix</h2>
+        <span class="surtitre">Questions sur l’accompagnement</span>
+        <h2>Ce que l’on me demande avant de démarrer</h2>
       </div>
 
       <div class="faq marge-haut-grand">
@@ -317,114 +228,103 @@ const deroulement = [
   </section>
 
   <BandeCta
-    titre="On vérifie d’abord que c’est le bon choix pour vous"
-    texte="Le bilan de 30 minutes sert exactement à ça : faire le point sur votre situation, vous donner deux ou trois priorités claires — et vous dire franchement si Terre Ferme vous correspond, ou non."
+    titre="Pas sûr que ce soit le bon moment ?"
+    texte="Faites le diagnostic des 5 fondations : en sept minutes, vous saurez où en est votre cabinet et par quoi commencer. Puis, si vous voulez en parler, l’échange découverte est offert."
   />
 </Base>
 
 <style>
   .marge-haut { margin-top: 1.8rem; }
-  .marge-haut-petit { margin-top: 1rem; }
   .marge-haut-grand { margin-top: clamp(2rem, 5vw, 3rem); }
 
-  .deux-temps {
-    display: grid;
-    gap: 0.9rem;
-    align-items: stretch;
-    padding-block: clamp(1.5rem, 4vw, 2.5rem);
-  }
-  .temps {
-    padding: clamp(1.3rem, 4vw, 1.9rem);
-    border-radius: var(--r-xl);
-    border: 1px solid var(--ligne);
-    background: var(--blanc);
-    box-shadow: var(--ombre-m), var(--ombre-interne);
-  }
-  .temps-vedette {
-    background: linear-gradient(165deg, #FFFFFF, #FBF3E9);
-    border-color: rgba(184, 85, 47, 0.28);
-    box-shadow: var(--ombre-l), var(--ombre-interne);
-  }
-  .temps-libelle {
-    font-size: 0.76rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--vert);
-  }
-  .temps-prix {
-    margin-top: 0.5rem;
-    font-family: var(--police-titre);
-    font-size: clamp(2.3rem, 7vw, 3rem);
-    font-weight: 600;
-    line-height: 1;
-  }
-  .temps-note { margin-top: 0.7rem; color: var(--encre-2); font-size: 0.95rem; }
-  .temps-plus {
-    display: grid;
-    place-items: center;
-    font-family: var(--police-titre);
-    font-size: 1.3rem;
-    font-style: italic;
-    color: var(--encre-3);
-  }
-  @media (min-width: 800px) {
-    .deux-temps { grid-template-columns: 1fr auto 1fr; gap: 1.2rem; }
-  }
-
-  .ligne-inclus {
-    display: flex;
-    align-items: center;
-    gap: 0.85rem;
-    padding: 1.05rem 1.2rem;
-    border-radius: var(--r-l);
-  }
-  .ligne-inclus-texte { font-size: 0.98rem; color: var(--encre); }
-  .puce {
-    display: grid;
-    place-items: center;
-    flex: none;
-    width: 2.1rem;
-    height: 2.1rem;
-    border-radius: 50%;
-    background: var(--vert-clair);
-    color: var(--vert);
-    box-shadow: var(--ombre-xs);
-  }
-  .puce :global(svg) { width: 1.1rem; height: 1.1rem; stroke-width: 2.4; }
-
-  .deux-colonnes { display: grid; gap: 1.15rem; }
-  @media (min-width: 800px) {
-    .deux-colonnes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  }
-
-  /* --- Frise du déroulement --- */
-  .frise {
-    list-style: none;
-    padding: 0;
-    display: grid;
-    gap: 1rem;
-  }
-  .frise-etape {
-    display: grid;
-    gap: 0.5rem;
-    padding: clamp(1.2rem, 3.4vw, 1.7rem);
-    background: var(--blanc);
-    border: 1px solid var(--ligne);
-    border-radius: var(--r-l);
-    box-shadow: var(--ombre-s), var(--ombre-interne);
-  }
-  .frise-periode {
+  /* Phases */
+  .phases { display: grid; gap: 1.15rem; }
+  .phase { display: grid; gap: 0.9rem; }
+  .phase-entete { display: flex; gap: 1rem; align-items: center; }
+  .phase-entete .pastille { margin: 0; flex: none; }
+  .phase-periode {
+    display: block;
     font-size: 0.74rem;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--terre);
+    margin-bottom: 0.2rem;
   }
-  .frise-corps h3 { margin-bottom: 0.35rem; }
-  .frise-corps p { color: var(--encre-2); font-size: 0.97rem; }
+  .phase-texte { color: var(--encre-2); }
+  .phase-points { gap: 0.6rem; font-size: 0.95rem; }
   @media (min-width: 860px) {
-    .frise-etape { grid-template-columns: 11rem 1fr; gap: 1.4rem; align-items: start; }
-    .frise-periode { padding-top: 0.35rem; }
+    .phases { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
+
+  /* Elyo Direct */
+  .section-sombre {
+    position: relative;
+    overflow: hidden;
+    color: #FFFFFF;
+    background: linear-gradient(150deg, #0F1A33 0%, #1C2E57 60%, #22396B 100%);
+  }
+  .direct-halo { width: 26rem; height: 26rem; top: -10rem; right: -8rem; background: rgba(217, 160, 106, 0.22); }
+  .direct-rail { position: relative; z-index: 1; display: grid; gap: clamp(2rem, 5vw, 3.5rem); }
+  .surtitre-clair { color: var(--ambre); }
+  .direct-texte h2 { color: #FFFFFF; }
+  .direct-chapeau { margin-top: 1.1rem; max-width: 34rem; color: rgba(255, 255, 255, 0.82); line-height: 1.7; }
+  .direct-situations { list-style: none; padding: 0; margin-top: 1.4rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .direct-situations li {
+    padding: 0.45rem 0.9rem;
+    border-radius: var(--r-pilule);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.08);
+    font-size: 0.88rem;
+  }
+  .direct-canaux { display: grid; gap: 0.9rem; }
+  .direct-canal {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    align-items: start;
+    padding: 1.1rem 1.2rem;
+    border-radius: var(--r-l);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.06);
+  }
+  .direct-icone {
+    display: grid;
+    place-items: center;
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: var(--r-m);
+    background: rgba(217, 160, 106, 0.18);
+    color: var(--ambre);
+  }
+  .direct-icone :global(svg) { width: 1.3rem; height: 1.3rem; }
+  .direct-canal h3 { color: #FFFFFF; font-size: 1.05rem; margin-bottom: 0.3rem; }
+  .direct-canal p { color: rgba(255, 255, 255, 0.76); font-size: 0.93rem; }
+  @media (min-width: 960px) { .direct-rail { grid-template-columns: 1.1fr 0.9fr; align-items: center; } }
+
+  /* Pour qui */
+  .pourqui-rail { display: grid; gap: clamp(1.5rem, 4vw, 3rem); align-items: start; }
+  .pourqui-liste { gap: 0.9rem; font-size: 1.02rem; }
+  @media (min-width: 900px) {
+    .pourqui-rail { grid-template-columns: 1.1fr 0.9fr; }
+    .pourqui-rail .entete-section { margin-bottom: 0; }
+  }
+
+  /* Tarif */
+  .deux-temps { display: grid; gap: 0.9rem; align-items: stretch; }
+  .temps {
+    padding: clamp(1.3rem, 4vw, 1.9rem);
+    border-radius: var(--r-xl);
+    border: 1px solid var(--ligne);
+    background: var(--blanc);
+    box-shadow: var(--ombre-m);
+  }
+  .temps-vedette { border-color: rgba(192, 102, 60, 0.35); box-shadow: var(--ombre-l); }
+  .temps-libelle { font-size: 0.76rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--vert); }
+  .temps-prix { margin-top: 0.5rem; font-family: var(--police-titre); font-size: clamp(2.3rem, 7vw, 3rem); font-weight: 600; line-height: 1; }
+  .temps-note { margin-top: 0.7rem; color: var(--encre-2); font-size: 0.95rem; }
+  .temps-plus { display: grid; place-items: center; font-family: var(--police-titre); font-size: 1.3rem; font-style: italic; color: var(--encre-3); }
+  @media (min-width: 800px) { .deux-temps { grid-template-columns: 1fr auto 1fr; gap: 1.2rem; } }
+  .tarif-actions { margin-top: 1.6rem; }
+  .tarif-mention { margin-top: 1rem; font-size: 0.86rem; color: var(--encre-3); max-width: 44rem; }
 </style>

@@ -3,22 +3,27 @@ import Base from '../layouts/Base.astro';
 import Icone from '../components/Icone.astro';
 import Maquette from '../components/Maquette.astro';
 import BandeCta from '../components/BandeCta.astro';
-import Comparatif from '../components/Comparatif.astro';
 import {
   site,
   prix,
   problemes,
   solutions,
   etapes,
-  socle,
-  filet,
-  nonPromis,
-  engagements,
+  elyoDirect,
+  pourQui,
   faqs,
+  lienDemarrer,
 } from '../data/site.js';
 
-const titre = 'Studio de lancement pour thérapeutes | ElyoStudio';
-const description = `Positionnement, offre, site, visibilité locale : le socle en ${prix.delai}, puis un an d’accompagnement à la demande. ${prix.total}, tout compris.`;
+const titre = 'Développez votre cabinet de thérapeute | ElyoStudio';
+const description = `Positionnement, site, visibilité locale, acquisition et Elyo Direct pendant ${prix.duree}, pour thérapeutes, praticiens bien-être et coachs. ${prix.total}, tarif fondateur.`;
+
+const resultats = [
+  'Un agenda plus régulier, moins dépendant du seul bouche-à-oreille',
+  'Être trouvé par les personnes qui cherchent un praticien dans votre ville',
+  'Une offre et des tarifs que vous présentez sans hésiter',
+  'Des décisions prises en quelques heures, pas en quelques semaines',
+];
 
 const donnees = {
   '@context': 'https://schema.org',
@@ -34,22 +39,23 @@ const donnees = {
     },
     {
       '@type': 'Service',
-      '@id': `${site.url}/#terre-ferme`,
-      name: 'Terre Ferme — lancement et accompagnement pour thérapeutes',
-      serviceType: 'Positionnement, création de site internet, visibilité locale et accompagnement',
+      '@id': `${site.url}/#accompagnement`,
+      name: 'Accompagnement ElyoStudio — développement de cabinet',
+      serviceType:
+        'Positionnement, création de site internet, visibilité locale, acquisition et accompagnement pendant 6 mois',
       provider: { '@id': `${site.url}/#studio` },
       areaServed: { '@type': 'Country', name: 'France' },
       audience: {
         '@type': 'Audience',
-        audienceType: 'Thérapeutes et professionnels indépendants de l’accompagnement',
+        audienceType: 'Thérapeutes, praticiens bien-être, professeurs de yoga et coachs',
       },
       offers: {
         '@type': 'Offer',
-        price: '1998',
+        price: '990',
         priceCurrency: 'EUR',
-        description: `${prix.total} comptant, ou ${prix.paiement3x} sans frais. Socle livré en ${prix.delai}, accompagnement pendant ${prix.duree}.`,
+        description: `${prix.total} pour ${prix.duree}, ou ${prix.paiement3x} sans frais. Tarif fondateur réservé aux ${prix.placesFondateur} premiers cabinets.`,
         url: `${site.url}/offre`,
-        availability: 'https://schema.org/InStock',
+        availability: 'https://schema.org/LimitedAvailability',
       },
     },
   ],
@@ -61,39 +67,36 @@ const donnees = {
 
   <!-- ===== HÉROS ===== -->
   <section class="heros">
-    <span class="halo halo-anime heros-halo-1"></span>
-    <span class="halo halo-anime-2 heros-halo-2"></span>
+    <span class="heros-arc" aria-hidden="true"></span>
 
     <div class="rail heros-rail">
       <div class="heros-texte">
-        <span class="etiquette reveal">
-          <span class="point"></span>
-          Studio de lancement — thérapeutes &amp; accompagnants
+        <span class="heros-surtitre reveal">
+          Thérapeutes · praticiens bien-être · professeurs de yoga · coachs
         </span>
 
         <h1 class="reveal" style="--delai: 90ms">
-          Le socle de votre activité en 21 jours.
-          <span class="souligne">Puis un filet pendant un an.</span>
+          Développez votre cabinet sans devenir expert en marketing.
         </h1>
 
-        <p class="chapeau reveal" style="--delai: 180ms">
-          Positionnement, offre, tarifs, site professionnel, visibilité locale : en trois semaines,
-          on pose ensemble des fondations solides. Ensuite, chaque fois que vous bloquez, une séance
-          de 20 minutes sous 72 h ouvrées — pendant douze mois.
+        <p class="heros-chapeau reveal" style="--delai: 180ms">
+          Positionnement, site, visibilité locale, acquisition : on met en place le système qui
+          transforme votre visibilité en rendez-vous. Et pendant {prix.duree}, vous avez quelqu’un
+          à vos côtés chaque fois que vous en avez besoin.
         </p>
 
         <div class="groupe-btn reveal" style="--delai: 260ms">
-          <a href="/diagnostic" class="btn btn-principal btn-large">
-            Faire le diagnostic gratuit — 7 min
+          <a href={lienDemarrer} class="btn btn-principal btn-large">
+            Démarrer — {prix.total}
             <Icone nom="fleche" classe="fleche" />
           </a>
-          <a href="/offre" class="btn btn-secondaire btn-large">Découvrir l’accompagnement</a>
+          <a href="/diagnostic" class="btn btn-clair btn-large">Faire le diagnostic gratuit</a>
         </div>
 
         <ul class="heros-preuves reveal" style="--delai: 340ms">
-          <li><Icone nom="horloge" /> En ligne en {prix.delai}</li>
-          <li><Icone nom="bouclier" /> {prix.duree} d’accompagnement compris</li>
-          <li><Icone nom="etiquette" /> Tarif affiché, sans devis</li>
+          <li><Icone nom="horloge" /> {prix.duree} d’accompagnement</li>
+          <li><Icone nom="etiquette" /> Tarif fondateur, {prix.placesFondateur} places</li>
+          <li><Icone nom="cadenas" /> Tout vous appartient</li>
         </ul>
       </div>
 
@@ -103,20 +106,20 @@ const donnees = {
     </div>
   </section>
 
-  <!-- ===== BANDEAU CHIFFRES ===== -->
+  <!-- ===== BANDEAU ===== -->
   <section class="chiffres">
     <div class="rail chiffres-grille">
       <div class="chiffre reveal">
-        <strong>{prix.delai}</strong>
-        <span>entre notre premier échange et la mise en ligne de votre socle complet.</span>
+        <strong>{prix.total}</strong>
+        <span>pour {prix.duree}, tout compris — ou {prix.paiement3x} sans frais.</span>
       </div>
       <div class="chiffre reveal" style="--delai: 80ms">
-        <strong>{prix.duree}</strong>
-        <span>de filet : une séance de déblocage sous 72 h ouvrées, chaque fois que vous en avez besoin.</span>
+        <strong>Elyo Direct</strong>
+        <span>une aide humaine, sans compteur, pendant toute la durée.</span>
       </div>
       <div class="chiffre reveal" style="--delai: 160ms">
-        <strong>1 seul</strong>
-        <span>interlocuteur, du premier bilan au dernier compte rendu. Moi.</span>
+        <strong>1 interlocuteur</strong>
+        <span>Julien, du premier échange au dernier suivi.</span>
       </div>
     </div>
   </section>
@@ -125,12 +128,12 @@ const donnees = {
   <section class="section">
     <div class="rail">
       <div class="entete-section reveal">
-        <span class="surtitre">Le constat</span>
-        <h2>Un bon praticien sur des bases fragiles reste un praticien qui rame</h2>
+        <span class="surtitre">Ce que vivent la plupart des praticiens</span>
+        <h2>Bon dans votre pratique, invisible en dehors du cabinet</h2>
         <p class="chapeau">
-          La plupart des thérapeutes que je rencontre ne manquent ni de compétence ni de sérieux.
-          Il leur manque des fondations : un positionnement net, une offre lisible, une présence
-          qu’on trouve — et quelqu’un à qui parler quand une décision coince.
+          Les praticiens que je rencontre ne manquent ni de compétence ni de sérieux. Il leur
+          manque un système : être trouvé, être compris, et transformer ça en rendez-vous —
+          sans y passer leurs soirées.
         </p>
       </div>
 
@@ -150,16 +153,32 @@ const donnees = {
     </div>
   </section>
 
-  <!-- ===== LE SOCLE ===== -->
+  <!-- ===== RÉSULTAT RECHERCHÉ ===== -->
   <section class="section section-teintee">
+    <div class="rail resultat-rail">
+      <div class="entete-section reveal">
+        <span class="surtitre">Ce que l’on construit ensemble</span>
+        <h2>Un cabinet qu’on trouve, qu’on comprend, et qu’on choisit</h2>
+        <p class="chapeau">
+          Pas un site de plus : un système complet, mis en place dans le bon ordre, que vous
+          gardez et que vous savez faire vivre.
+        </p>
+      </div>
+      <ul class="liste-cochee resultat-liste reveal" style="--delai: 120ms">
+        {resultats.map((r) => <li>{r}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== CE QUI EST MIS EN PLACE ===== -->
+  <section class="section">
     <div class="rail">
       <div class="entete-section reveal">
-        <span class="surtitre">Premier temps — {prix.delai}</span>
-        <h2>Le Socle : une présence professionnelle, claire et crédible</h2>
+        <span class="surtitre">L’accompagnement</span>
+        <h2>Ce que l’on met en place pendant les {prix.duree}</h2>
         <p class="chapeau">
-          Pas un site posé sur du flou : on clarifie d’abord ce que vous faites et pour qui, puis
-          on construit tout le reste dans le bon ordre. Résultat au jour 21 : une activité
-          présentable, trouvable et prête à recevoir des rendez-vous.
+          Du diagnostic de votre activité au suivi des résultats, chaque brique sert la suivante.
+          Le site n’en est qu’une — celle qui transforme la visibilité en rendez-vous.
         </p>
       </div>
 
@@ -176,68 +195,55 @@ const donnees = {
           ))
         }
       </div>
+
+      <div class="reveal centre-mobile espace-haut-petit">
+        <a href="/offre" class="lien-fleche">
+          Voir le détail des 6 mois
+          <Icone nom="fleche" classe="fleche" />
+        </a>
+      </div>
     </div>
   </section>
 
-  <!-- ===== LE FILET ===== -->
+  <!-- ===== ELYO DIRECT ===== -->
+  <section class="section section-sombre" id="elyo-direct">
+    <span class="halo halo-anime direct-halo"></span>
+    <div class="rail direct-rail">
+      <div class="direct-texte reveal">
+        <span class="surtitre surtitre-clair">Elyo Direct</span>
+        <h2>{elyoDirect.accroche}</h2>
+        <p class="direct-chapeau">
+          Pendant les {prix.duree}, vous n’attendez pas le prochain rendez-vous pour demander de
+          l’aide. Vous me sollicitez quand vous en avez besoin, je réponds de la manière la plus
+          efficace selon la situation. Sans compteur.
+        </p>
+        <ul class="direct-situations">
+          {elyoDirect.situations.map((s) => <li>{s}</li>)}
+        </ul>
+      </div>
+
+      <div class="direct-canaux">
+        {
+          elyoDirect.canaux.map((c, i) => (
+            <article class="direct-canal reveal" style={`--delai: ${i * 80}ms`}>
+              <span class="direct-icone"><Icone nom={c.icone} /></span>
+              <div>
+                <h3>{c.titre}</h3>
+                <p>{c.texte}</p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DÉROULÉ ===== -->
   <section class="section">
     <div class="rail">
       <div class="entete-section reveal">
-        <span class="surtitre">Deuxième temps — {prix.duree}</span>
-        <h2>Le Filet : vous n’êtes plus jamais seul face à une décision</h2>
-        <p class="chapeau">
-          Après la mise en ligne commence le vrai quotidien : un tarif à trancher, un canal à
-          choisir, une page qui ne convertit pas. Le Filet est là pour ça — pas un programme
-          hebdomadaire imposé, une aide au moment précis où vous bloquez.
-        </p>
-      </div>
-
-      <div class="grille grille-2 espace-haut">
-        <article class="carte carte-relief reveal">
-          <span class="pastille"><Icone nom="video" /></span>
-          <h3>Un entretien initial de 90 minutes</h3>
-          <p>
-            On pose votre plan d’action pour l’année, par écrit. C’est votre feuille de route :
-            vous la gardez, on s’y réfère à chaque séance.
-          </p>
-        </article>
-
-        <article class="carte carte-relief reveal" style="--delai: 80ms">
-          <span class="pastille"><Icone nom="horloge" /></span>
-          <h3>Des séances de déblocage de 20 minutes</h3>
-          <p>
-            Un rendez-vous proposé sous 72 heures ouvrées, un seul sujet par séance, une décision
-            claire à la fin. Pas de tour d’horizon flou qui repart dans tous les sens.
-          </p>
-        </article>
-
-        <article class="carte carte-relief reveal" style="--delai: 160ms">
-          <span class="pastille"><Icone nom="document" /></span>
-          <h3>Un compte rendu après chaque séance</h3>
-          <p>
-            Ce qui a été décidé, ce que vous faites, ce que je fais. Synthétique, écrit, daté —
-            pour que les décisions tiennent au-delà de la conversation.
-          </p>
-        </article>
-
-        <article class="carte carte-relief reveal" style="--delai: 240ms">
-          <span class="pastille"><Icone nom="coche" /></span>
-          <h3>Un bilan à 6 mois, un autre à 12</h3>
-          <p>
-            On regarde ce qui a avancé, ce qui freine encore, et on ajuste le plan. Même si vous
-            n’avez pas eu besoin du filet entre-temps — c’est bon signe.
-          </p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== MÉTHODE ===== -->
-  <section class="section section-teintee">
-    <div class="rail">
-      <div class="entete-section reveal">
-        <span class="surtitre">Le déroulement</span>
-        <h2>Quatre étapes, du premier échange au bilan final</h2>
+        <span class="surtitre">Comment ça se passe</span>
+        <h2>Du premier jour au sixième mois</h2>
       </div>
 
       <ol class="etapes espace-haut">
@@ -263,95 +269,94 @@ const donnees = {
     </div>
   </section>
 
+  <!-- ===== POUR QUI ===== -->
+  <section class="section section-teintee">
+    <div class="rail resultat-rail">
+      <div class="entete-section reveal">
+        <span class="surtitre">À qui s’adresse l’accompagnement</span>
+        <h2>Aux professionnels de l’accompagnement qui veulent un cabinet qui tourne</h2>
+      </div>
+      <ul class="liste-cochee resultat-liste reveal" style="--delai: 120ms">
+        {pourQui.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </section>
+
   <!-- ===== TARIF ===== -->
   <section class="section" id="tarif">
     <div class="rail">
       <div class="entete-section reveal">
-        <span class="surtitre">Terre Ferme — l’accompagnement</span>
-        <h2>Un seul accompagnement, un seul tarif, affiché</h2>
+        <span class="surtitre">Tarif fondateur</span>
+        <h2>{prix.total} pour {prix.duree} — réservé aux {prix.placesFondateur} premiers cabinets</h2>
         <p class="chapeau">
-          Pas de grille à trois colonnes ni de « tarif sur demande ». Ce que vous lisez ici est ce
-          que vous payez : {prix.total} comptant, ou {prix.paiement3x} sans frais.
+          ElyoStudio lance cet accompagnement et travaille avec ses premiers cabinets pour affiner
+          la méthode et mesurer précisément les résultats. En contrepartie, les {prix.placesFondateur} premiers
+          bénéficient de ce tarif. Il passera ensuite à {prix.tarifSuivant}. Ce n’est pas une
+          promotion : c’est le prix de la phase de lancement.
         </p>
       </div>
 
       <div class="tarif espace-haut">
-        <article class="tarif-carte reveal">
+        <article class="tarif-carte tarif-carte-vedette reveal">
+          <span class="tarif-ruban">Tarif fondateur — {prix.placesFondateur} places</span>
           <div class="tarif-entete">
-            <span class="tarif-libelle">Le Socle — {prix.delai}</span>
+            <span class="tarif-libelle">L’accompagnement complet, {prix.duree}</span>
             <p class="tarif-prix">{prix.total}</p>
-            <p class="tarif-note">
-              Tout compris, Filet inclus. Ou {prix.paiement3x}, sans frais.
-            </p>
+            <p class="tarif-note">Comptant, ou {prix.paiement3x} sans frais. Le même montant.</p>
           </div>
           <ul class="liste-cochee">
-            {socle.map((item) => <li>{item}</li>)}
+            <li>Diagnostic, positionnement, offres et tarifs</li>
+            <li>Site créé ou optimisé, prise de rendez-vous en ligne</li>
+            <li>Fiche Google, référencement local, contenu</li>
+            <li>Acquisition, suivi des résultats, optimisation continue</li>
+            <li>Elyo Direct pendant toute la durée</li>
           </ul>
-        </article>
-
-        <article class="tarif-carte tarif-carte-vedette reveal" style="--delai: 100ms">
-          <span class="tarif-ruban">Compris pendant {prix.duree}</span>
-          <div class="tarif-entete">
-            <span class="tarif-libelle">Le Filet — {prix.duree}</span>
-            <p class="tarif-prix">Compris</p>
-            <p class="tarif-note">L’accompagnement à la demande, sans supplément ni abonnement.</p>
+          <div class="groupe-btn tarif-actions">
+            <a href={lienDemarrer} class="btn btn-principal btn-large">
+              Démarrer — {prix.total}
+              <Icone nom="fleche" classe="fleche" />
+            </a>
+            <a href="/rendez-vous" class="btn btn-secondaire btn-large">J’ai besoin d’en parler d’abord</a>
           </div>
-          <ul class="liste-cochee">
-            {filet.map((item) => <li>{item}</li>)}
-          </ul>
-          <a href="/rendez-vous" class="btn btn-principal btn-large tarif-btn">
-            Réserver mon bilan de lancement
-            <Icone nom="fleche" classe="fleche" />
-          </a>
+          <p class="tarif-mention">
+            Les budgets publicitaires éventuels et les outils tiers restent à votre charge.
+          </p>
         </article>
-      </div>
-
-      <div class="carte carte-douce reveal espace-haut-petit">
-        <h3>Ce que je ne promets pas</h3>
-        <p class="texte-doux marge-basse">
-          Autant le dire tout de suite, cela évite les malentendus au bout de trois mois.
-        </p>
-        <ul class="liste-cochee liste-croix grille-2-liste">
-          {nonPromis.map((item) => <li>{item}</li>)}
-        </ul>
-        <p class="texte-doux marge-haute">
-          Restent <strong>hors accompagnement</strong> : la publicité payante, une boutique en
-          ligne, la gestion de vos réseaux sociaux.
-          <a href="/offre" class="lien-fleche marge-gauche">Voir le détail de l’accompagnement</a>
-        </p>
       </div>
     </div>
   </section>
 
-  <!-- ===== COMPARATIF ===== -->
+  <!-- ===== JULIEN ===== -->
   <section class="section section-teintee">
-    <div class="rail">
-      <div class="entete-section reveal">
-        <span class="surtitre">La différence</span>
-        <h2>Un site seul, un coaching seul, ou les fondations et le filet</h2>
-        <p class="chapeau">
-          Un site à 800 € ou un coach sont des choix légitimes — si votre positionnement est déjà
-          clair, ou si vous aimez construire seul. Terre Ferme sert à autre chose : tout poser dans
-          le bon ordre, puis tenir la première année.
+    <div class="rail julien-rail">
+      <img
+        class="julien-photo reveal"
+        src="/images/julien-duplouy-220.webp"
+        srcset="/images/julien-duplouy-220.webp 220w, /images/julien-duplouy-440.webp 440w"
+        sizes="(min-width: 900px) 180px, 40vw"
+        width="220"
+        height="220"
+        alt="Julien Duplouy, fondateur d’ElyoStudio"
+        loading="lazy"
+      />
+      <div class="julien-texte reveal" style="--delai: 100ms">
+        <span class="surtitre">Qui vous accompagne</span>
+        <h2>Julien Duplouy, fondateur d’ElyoStudio</h2>
+        <p>
+          Plusieurs années en communication et marketing digital, puis le même constat répété chez
+          les indépendants de l’accompagnement : compétents, appréciés, invisibles. J’ai créé
+          ElyoStudio pour leur apporter ce qui manque — un système complet, un prix affiché, et
+          quelqu’un à qui parler quand une décision bloque.
         </p>
-      </div>
-
-      <div class="espace-haut reveal">
-        <Comparatif />
-      </div>
-
-      <div class="grille grille-4 espace-haut">
-        {
-          engagements.map((e, i) => (
-            <article class="carte carte-relief reveal" style={`--delai: ${i * 70}ms`}>
-              <span class="pastille">
-                <Icone nom={e.icone} />
-              </span>
-              <h3>{e.titre}</h3>
-              <p>{e.texte}</p>
-            </article>
-          ))
-        }
+        <p>
+          Je démarre cet accompagnement avec mes premiers cabinets. Je ne vous promets pas un
+          agenda plein en 90 jours : je vous promets des fondations solides, un travail sérieux,
+          et une présence réelle pendant {prix.duree}.
+        </p>
+        <a href="/a-propos" class="lien-fleche">
+          En savoir plus sur ma façon de travailler
+          <Icone nom="fleche" classe="fleche" />
+        </a>
       </div>
     </div>
   </section>
@@ -361,7 +366,7 @@ const donnees = {
     <div class="rail-etroit">
       <div class="entete-section reveal">
         <span class="surtitre">Questions fréquentes</span>
-        <h2>Ce que l’on me demande avant de se lancer</h2>
+        <h2>Ce que l’on me demande avant de démarrer</h2>
       </div>
 
       <div class="faq espace-haut">
@@ -381,37 +386,54 @@ const donnees = {
 </Base>
 
 <style>
-  /* --- Héros --- */
+  /* --- Héros, bleu nuit --- */
   .heros {
     position: relative;
     overflow: hidden;
+    color: #FFFFFF;
     background:
-      radial-gradient(110% 70% at 78% 6%, rgba(223, 234, 226, 0.9), transparent 62%),
-      radial-gradient(90% 60% at 5% 0%, rgba(248, 229, 218, 0.85), transparent 60%),
-      var(--creme);
+      radial-gradient(90% 70% at 100% 0%, rgba(43, 65, 120, 0.9), transparent 60%),
+      linear-gradient(160deg, #0F1A33 0%, #1C2E57 62%, #22396B 100%);
   }
-  .heros-halo-1 {
-    width: 24rem; height: 24rem;
-    top: -8rem; right: -8rem;
-    background: rgba(232, 168, 92, 0.28);
+  .heros-arc {
+    position: absolute;
+    right: -12rem;
+    top: -14rem;
+    width: 40rem;
+    height: 40rem;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    pointer-events: none;
   }
-  .heros-halo-2 {
-    width: 20rem; height: 20rem;
-    bottom: -10rem; left: -8rem;
-    background: rgba(46, 90, 75, 0.16);
-  }
-
   .heros-rail {
     position: relative;
     z-index: 1;
     display: grid;
     gap: clamp(2rem, 6vw, 3.5rem);
-    padding-block: clamp(2.5rem, 8vw, 4.5rem) clamp(3rem, 9vw, 5.5rem);
+    padding-block: clamp(2.8rem, 8vw, 5rem) clamp(3rem, 9vw, 5.5rem);
   }
-  .heros-texte h1 { margin-top: 1.4rem; }
-  .heros-texte .chapeau { margin-top: 1.4rem; max-width: 34rem; }
+  .heros-surtitre {
+    display: inline-block;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.72);
+  }
+  .heros-texte h1 {
+    margin-top: 1.2rem;
+    color: #FFFFFF;
+    font-size: clamp(2.2rem, 6.2vw, 3.7rem);
+    line-height: 1.04;
+  }
+  .heros-chapeau {
+    margin-top: 1.4rem;
+    max-width: 34rem;
+    font-size: clamp(1.02rem, 2.2vw, 1.15rem);
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.82);
+  }
   .heros-texte .groupe-btn { margin-top: 2rem; }
-
   .heros-preuves {
     list-style: none;
     padding: 0;
@@ -420,29 +442,18 @@ const donnees = {
     flex-wrap: wrap;
     gap: 0.6rem 1.4rem;
     font-size: 0.88rem;
-    color: var(--encre-2);
+    color: rgba(255, 255, 255, 0.78);
   }
   .heros-preuves li { display: inline-flex; align-items: center; gap: 0.45rem; }
-  .heros-preuves :global(svg) { width: 1.05rem; height: 1.05rem; color: var(--vert); }
+  .heros-preuves :global(svg) { width: 1.05rem; height: 1.05rem; color: var(--ambre); }
 
   @media (min-width: 1024px) {
-    .heros-rail {
-      grid-template-columns: 1.05fr 0.95fr;
-      align-items: center;
-      gap: 3rem;
-    }
+    .heros-rail { grid-template-columns: 1.05fr 0.95fr; align-items: center; gap: 3rem; }
   }
 
-  /* --- Chiffres --- */
-  .chiffres {
-    border-block: 1px solid var(--ligne);
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(246, 238, 227, 0.7));
-  }
-  .chiffres-grille {
-    display: grid;
-    gap: 1.4rem;
-    padding-block: clamp(1.8rem, 5vw, 2.6rem);
-  }
+  /* --- Bandeau --- */
+  .chiffres { border-block: 1px solid var(--ligne); background: var(--blanc); }
+  .chiffres-grille { display: grid; gap: 1.4rem; padding-block: clamp(1.8rem, 5vw, 2.6rem); }
   .chiffre { display: grid; gap: 0.35rem; }
   .chiffre strong {
     font-family: var(--police-titre);
@@ -451,28 +462,87 @@ const donnees = {
     color: var(--vert);
   }
   .chiffre span { font-size: 0.93rem; color: var(--encre-2); }
-  @media (min-width: 760px) {
-    .chiffres-grille { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-  }
+  @media (min-width: 760px) { .chiffres-grille { grid-template-columns: repeat(3, 1fr); gap: 2rem; } }
 
-  /* --- Espacements utilitaires --- */
+  /* --- Utilitaires --- */
   .espace-haut { margin-top: clamp(2rem, 5vw, 3rem); }
   .espace-haut-petit { margin-top: 1.6rem; }
-  .marge-basse { margin-bottom: 1.1rem; }
-  .marge-haute { margin-top: 1.4rem; font-size: 0.93rem; }
-  .marge-gauche { margin-left: 0.4rem; }
   .centre-mobile { display: flex; justify-content: flex-start; }
 
-  /* --- Étapes --- */
-  .etapes {
+  /* --- Résultat / pour qui --- */
+  .resultat-rail { display: grid; gap: clamp(1.5rem, 4vw, 3rem); align-items: start; }
+  .resultat-liste { gap: 0.9rem; font-size: 1.02rem; }
+  @media (min-width: 900px) {
+    .resultat-rail { grid-template-columns: 1.1fr 0.9fr; }
+    .resultat-rail .entete-section { margin-bottom: 0; }
+  }
+
+  /* --- Elyo Direct --- */
+  .section-sombre {
+    position: relative;
+    overflow: hidden;
+    color: #FFFFFF;
+    background: linear-gradient(150deg, #0F1A33 0%, #1C2E57 60%, #22396B 100%);
+  }
+  .direct-halo {
+    width: 26rem; height: 26rem;
+    top: -10rem; right: -8rem;
+    background: rgba(217, 160, 106, 0.22);
+  }
+  .direct-rail { position: relative; z-index: 1; display: grid; gap: clamp(2rem, 5vw, 3.5rem); }
+  .surtitre-clair { color: var(--ambre); }
+  .direct-texte h2 { color: #FFFFFF; }
+  .direct-chapeau {
+    margin-top: 1.1rem;
+    max-width: 34rem;
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.7;
+  }
+  .direct-situations {
     list-style: none;
     padding: 0;
-    display: grid;
-    gap: 1rem;
-    counter-reset: etape;
+    margin-top: 1.4rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
   }
+  .direct-situations li {
+    padding: 0.45rem 0.9rem;
+    border-radius: var(--r-pilule);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.08);
+    font-size: 0.88rem;
+  }
+  .direct-canaux { display: grid; gap: 0.9rem; }
+  .direct-canal {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    align-items: start;
+    padding: 1.1rem 1.2rem;
+    border-radius: var(--r-l);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.06);
+  }
+  .direct-icone {
+    display: grid;
+    place-items: center;
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: var(--r-m);
+    background: rgba(217, 160, 106, 0.18);
+    color: var(--ambre);
+  }
+  .direct-icone :global(svg) { width: 1.3rem; height: 1.3rem; }
+  .direct-canal h3 { color: #FFFFFF; font-size: 1.05rem; margin-bottom: 0.3rem; }
+  .direct-canal p { color: rgba(255, 255, 255, 0.76); font-size: 0.93rem; }
+  @media (min-width: 960px) {
+    .direct-rail { grid-template-columns: 1.1fr 0.9fr; align-items: center; }
+  }
+
+  /* --- Étapes --- */
+  .etapes { list-style: none; padding: 0; display: grid; gap: 1rem; }
   .etape {
-    position: relative;
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 1.1rem;
@@ -481,7 +551,7 @@ const donnees = {
     background: var(--blanc);
     border: 1px solid var(--ligne);
     border-radius: var(--r-l);
-    box-shadow: var(--ombre-s), var(--ombre-interne);
+    box-shadow: var(--ombre-s);
     transition: transform var(--transition), box-shadow var(--transition);
   }
   .etape:hover { transform: translateY(-3px); box-shadow: var(--ombre-m); }
@@ -491,38 +561,31 @@ const donnees = {
     width: 2.9rem;
     height: 2.9rem;
     border-radius: var(--r-m);
-    background: linear-gradient(150deg, var(--vert), #1F3E34);
+    background: linear-gradient(150deg, var(--vert), #0F1A33);
     color: #FFFFFF;
     font-family: var(--police-titre);
     font-size: 0.95rem;
     font-weight: 600;
-    box-shadow: 0 10px 20px -14px rgba(46, 90, 75, 0.9);
   }
   .etape-corps h3 { margin-bottom: 0.4rem; }
   .etape-corps p { color: var(--encre-2); font-size: 0.97rem; }
-  @media (min-width: 900px) {
-    .etapes { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.15rem; }
-  }
+  @media (min-width: 900px) { .etapes { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.15rem; } }
 
   /* --- Tarif --- */
-  .tarif { display: grid; gap: 1.15rem; }
+  .tarif { display: grid; max-width: 44rem; margin-inline: auto; }
   .tarif-carte {
     position: relative;
-    padding: clamp(1.5rem, 4vw, 2.2rem);
+    padding: clamp(1.6rem, 4vw, 2.4rem);
     background: var(--blanc);
     border: 1px solid var(--ligne);
     border-radius: var(--r-xl);
-    box-shadow: var(--ombre-m), var(--ombre-interne);
+    box-shadow: var(--ombre-l);
   }
-  .tarif-carte-vedette {
-    background: linear-gradient(165deg, #FFFFFF, #FBF3E9);
-    border-color: rgba(184, 85, 47, 0.28);
-    box-shadow: var(--ombre-l), var(--ombre-interne);
-  }
+  .tarif-carte-vedette { border-color: rgba(192, 102, 60, 0.35); }
   .tarif-ruban {
     position: absolute;
     top: -0.85rem;
-    left: clamp(1.5rem, 4vw, 2.2rem);
+    left: clamp(1.6rem, 4vw, 2.4rem);
     padding: 0.35rem 0.9rem;
     border-radius: var(--r-pilule);
     background: linear-gradient(150deg, var(--terre), var(--terre-2));
@@ -531,7 +594,6 @@ const donnees = {
     font-weight: 700;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    box-shadow: 0 10px 20px -12px rgba(156, 69, 37, 0.9);
   }
   .tarif-entete { padding-bottom: 1.3rem; margin-bottom: 1.4rem; border-bottom: 1px solid var(--ligne); }
   .tarif-libelle {
@@ -544,19 +606,27 @@ const donnees = {
   .tarif-prix {
     margin-top: 0.5rem;
     font-family: var(--police-titre);
-    font-size: clamp(2.4rem, 7vw, 3.2rem);
+    font-size: clamp(2.6rem, 8vw, 3.6rem);
     font-weight: 600;
     line-height: 1;
     color: var(--encre);
   }
   .tarif-note { margin-top: 0.7rem; color: var(--encre-2); font-size: 0.95rem; }
-  .tarif-btn { margin-top: 1.6rem; }
-  @media (min-width: 860px) {
-    .tarif { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
-  }
+  .tarif-actions { margin-top: 1.6rem; }
+  .tarif-mention { margin-top: 1rem; font-size: 0.84rem; color: var(--encre-3); }
 
-  .grille-2-liste { }
-  @media (min-width: 640px) {
-    .grille-2-liste { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem 1.5rem; }
+  /* --- Julien --- */
+  .julien-rail { display: grid; gap: 1.6rem; align-items: center; }
+  .julien-photo {
+    width: min(11rem, 45vw);
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px var(--blanc), 0 0 0 5px rgba(212, 178, 122, 0.6), var(--ombre-m);
+  }
+  .julien-texte h2 { margin-bottom: 0.9rem; }
+  .julien-texte p { color: var(--encre-2); margin-bottom: 0.9rem; max-width: 40rem; }
+  .julien-texte .lien-fleche { margin-top: 0.4rem; }
+  @media (min-width: 800px) {
+    .julien-rail { grid-template-columns: auto 1fr; gap: 2.5rem; }
   }
 </style>

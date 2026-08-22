@@ -1,7 +1,7 @@
 ---
 import Logo from './Logo.astro';
 import Icone from './Icone.astro';
-import { navigation } from '../data/site.js';
+import { navigation, lienDemarrer, prix } from '../data/site.js';
 
 const chemin = Astro.url.pathname.replace(/\/$/, '') || '/';
 const actif = (lien: string) => chemin === lien || (lien !== '/' && chemin.startsWith(lien));
@@ -24,8 +24,8 @@ const actif = (lien: string) => chemin === lien || (lien !== '/' && chemin.start
     </nav>
 
     <div class="entete-actions">
-      <a href="/diagnostic" class="btn btn-principal entete-cta">
-        Diagnostic gratuit
+      <a href={lienDemarrer} class="btn btn-principal entete-cta">
+        Démarrer
         <Icone nom="fleche" classe="fleche" />
       </a>
       <button type="button" class="entete-burger" data-burger aria-expanded="false" aria-controls="menu-mobile">
@@ -48,8 +48,8 @@ const actif = (lien: string) => chemin === lien || (lien !== '/' && chemin.start
       }
       <a href="/contact" class:list={['menu-mobile-lien', { actif: actif('/contact') }]}>Contact</a>
     </nav>
-    <a href="/diagnostic" class="btn btn-principal btn-large">
-      Faire le diagnostic gratuit — 7 min
+    <a href={lienDemarrer} class="btn btn-principal btn-large">
+      Démarrer — {prix.total}
       <Icone nom="fleche" classe="fleche" />
     </a>
   </div>
@@ -60,16 +60,16 @@ const actif = (lien: string) => chemin === lien || (lien !== '/' && chemin.start
     position: sticky;
     top: 0;
     z-index: 60;
-    background: rgba(252, 248, 242, 0.72);
+    background: rgba(255, 255, 255, 0.72);
     backdrop-filter: blur(14px) saturate(1.4);
     -webkit-backdrop-filter: blur(14px) saturate(1.4);
     border-bottom: 1px solid transparent;
     transition: background-color 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
   }
   .entete.collee {
-    background: rgba(252, 248, 242, 0.92);
+    background: rgba(255, 255, 255, 0.92);
     border-bottom-color: var(--ligne);
-    box-shadow: 0 10px 30px -22px rgba(74, 52, 32, 0.55);
+    box-shadow: 0 10px 30px -22px rgba(17, 26, 46, 0.55);
   }
 
   .entete-rail {
@@ -137,7 +137,7 @@ const actif = (lien: string) => chemin === lien || (lien !== '/' && chemin.start
     display: grid;
     gap: 1.1rem;
     padding: 0.5rem var(--gouttiere) 1.6rem;
-    background: rgba(252, 248, 242, 0.98);
+    background: rgba(255, 255, 255, 0.98);
     border-bottom: 1px solid var(--ligne);
     box-shadow: var(--ombre-m);
     animation: descente 260ms cubic-bezier(0.22, 1, 0.36, 1);

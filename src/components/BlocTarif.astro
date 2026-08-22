@@ -1,7 +1,7 @@
 ---
 // Bloc tarif partagé par la page pivot et les pages villes.
 import Icone from './Icone.astro';
-import { prix, socle } from '../data/site.js';
+import { prix, phases } from '../data/site.js';
 
 interface Props {
   /** Ville citée dans la phrase d'introduction, si la page en concerne une. */
@@ -13,9 +13,9 @@ const { ville } = Astro.props;
 <div class="bloc-tarif">
   <div class="bloc-tarif-prix">
     <div>
-      <span class="bloc-tarif-libelle">L’accompagnement complet</span>
+      <span class="bloc-tarif-libelle">L’accompagnement complet, {prix.duree}</span>
       <p class="bloc-tarif-montant">{prix.total}</p>
-      <p class="bloc-tarif-note">Socle en ligne en {prix.delai}, puis {prix.duree} de suivi compris.</p>
+      <p class="bloc-tarif-note">Tarif fondateur, réservé aux {prix.placesFondateur} premiers cabinets.</p>
     </div>
     <span class="bloc-tarif-plus" aria-hidden="true">ou</span>
     <div>
@@ -28,14 +28,14 @@ const { ville } = Astro.props;
   <div class="bloc-tarif-detail">
     <p class="bloc-tarif-intro">
       Le même tarif {ville ? `à ${ville} qu’ailleurs en France` : 'pour tout le monde'}, affiché sans
-      devis préalable. Ce que le Socle construit en trois semaines :
+      devis préalable. Le site n’est qu’une des briques. Ce que l’on met en place en six mois :
     </p>
     <ul class="liste-cochee">
-      {socle.slice(0, 5).map((item) => <li>{item}</li>)}
+      {phases.map((p) => <li>{p.titre} — {p.periode.toLowerCase()}</li>)}
     </ul>
     <p class="bloc-tarif-mensuel">
-      Et pendant douze mois : des séances de déblocage de 20 minutes à la demande, un rendez-vous
-      proposé sous 72 h ouvrées, un compte rendu après chaque séance, un bilan à 6 et 12 mois.
+      Et pendant toute la durée, Elyo Direct : une question, un blocage, une publication à valider —
+      vous me sollicitez, je réponds par message, vocal, vidéo ou visio. Sans compteur.
     </p>
     <a href="/offre" class="lien-fleche">
       Voir l’offre en détail
@@ -57,8 +57,8 @@ const { ville } = Astro.props;
     align-items: center;
     padding: clamp(1.3rem, 4vw, 1.8rem);
     border-radius: var(--r-xl);
-    border: 1px solid rgba(184, 85, 47, 0.28);
-    background: linear-gradient(165deg, #ffffff, #fbf3e9);
+    border: 1px solid rgba(192, 102, 60, 0.28);
+    background: linear-gradient(165deg, #ffffff, #FBF4EE);
     box-shadow: var(--ombre-m), var(--ombre-interne);
   }
   .bloc-tarif-libelle {

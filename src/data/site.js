@@ -5,8 +5,8 @@
 // que les composants n'aient jamais à savoir d'où vient le texte.
 //
 //   reglages.json     coordonnées, tarifs, navigation
-//   accueil.json      constat, dispositif, étapes de la méthode
-//   offre.json        listes du Socle et du Filet, engagements, comparatif
+//   accueil.json      constat, ce qui est mis en place, étapes
+//   offre.json        les quatre phases, Elyo Direct, pour qui, engagements
 //   faq.json          questions fréquentes (accueil et page offre)
 //   realisations.json cartes de la page Réalisations
 
@@ -25,14 +25,16 @@ export const problemes = accueil.problemes;
 export const solutions = accueil.solutions;
 export const etapes = accueil.etapes;
 
-export const socle = offre.socle;
-export const filet = offre.filet;
-export const optionsHorsForfait = offre.optionsHorsForfait;
-export const nonPromis = offre.nonPromis;
+export const phases = offre.phases;
+export const elyoDirect = offre.elyoDirect;
+export const pourQui = offre.pourQui;
 export const engagements = offre.engagements;
-export const comparatif = offre.comparatif;
 
 export const faqs = faq.faqs;
 export const faqsOffre = faq.faqsOffre;
 
 export const realisations = vitrines.realisations;
+
+/** Adresse du bouton « Démarrer » : la page de paiement dès qu'elle existe,
+ *  sinon la page Démarrer du site, qui oriente vers l'échange découverte. */
+export const lienDemarrer = site.lienPaiement || '/demarrer';

@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="ElyoStudio">
   <title>ElyoStudio</title>
-  <rect width="64" height="64" rx="15" fill="#2E5A4B"/>
-  <path d="M18 42 A14 14 0 0 1 46 42 Z" fill="#E8A85C"/>
-  <g fill="none" stroke="#FCF8F2" stroke-width="4.4" stroke-linecap="round">
+  <rect width="64" height="64" rx="15" fill="#1C2E57"/>
+  <path d="M18 42 A14 14 0 0 1 46 42 Z" fill="#D9A06A"/>
+  <g fill="none" stroke="#FFFFFF" stroke-width="4.4" stroke-linecap="round">
     <path d="M32 13 V19.5"/>
     <path d="M15 22 L19.6 26.6"/>
     <path d="M49 22 L44.4 26.6"/>

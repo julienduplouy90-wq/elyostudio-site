@@ -1,126 +1,98 @@
 {
-  "socle": [
-    "La clarification de votre positionnement : qui vous aidez, sur quoi, comment",
-    "La structuration de votre offre et de vos tarifs",
-    "Un site professionnel construit autour de ce positionnement",
-    "La prise de rendez-vous en ligne, installée et testée",
-    "Votre fiche Google Business créée ou remise à plat",
-    "Les bases du référencement local posées proprement",
-    "Un plan d’acquisition réaliste, adapté à votre énergie et à votre agenda",
-    "Le tout en ligne sous 21 jours"
-  ],
-  "filet": [
-    "Un entretien initial de 90 minutes pour poser votre plan",
-    "Un plan d’action écrit, que vous gardez",
-    "Des séances de déblocage de 20 minutes, à la demande",
-    "Un rendez-vous proposé sous 72 heures ouvrées",
-    "Un sujet précis par séance, pas de tour d’horizon flou",
-    "Une décision claire et des actions concrètes à chaque fois",
-    "Un compte rendu synthétique après chaque séance",
-    "Un bilan complet à 6 mois, un autre à 12 mois",
-    "Aucun programme hebdomadaire imposé",
-    "Aucune promesse irréaliste sur le nombre de clients"
-  ],
-  "optionsHorsForfait": [
+  "phases": [
     {
-      "titre": "La rédaction d’articles en continu",
-      "texte": "Des articles réguliers qui répondent aux questions que se posent vos futurs clients avant de réserver."
+      "icone": "recherche",
+      "periode": "Semaines 1 à 2",
+      "titre": "Diagnostic et positionnement",
+      "texte": "On part de votre cabinet tel qu’il est, pas d’un modèle.",
+      "points": [
+        "Diagnostic de votre activité : d’où viennent vos rendez-vous, ce qui freine",
+        "Positionnement : qui vous accompagnez, sur quoi, en quoi vous êtes différent",
+        "Clarification de vos offres et de vos tarifs",
+        "Stratégie marketing adaptée à votre énergie et à votre agenda"
+      ]
     },
     {
-      "titre": "La publicité payante",
-      "texte": "Google Ads ou Meta : je peux vous orienter, mais la gestion de campagnes sort du cadre de l’accompagnement."
+      "icone": "gabarit",
+      "periode": "Semaines 2 à 5",
+      "titre": "Site et prise de rendez-vous",
+      "texte": "Un site qui explique votre pratique et mène au rendez-vous.",
+      "points": [
+        "Création de votre site, ou optimisation de celui que vous avez",
+        "Textes rédigés avec vous, dans vos mots et ceux de vos patients",
+        "Prise de rendez-vous en ligne installée et testée",
+        "Optimisation de la conversion : chaque page mène quelque part"
+      ]
     },
     {
-      "titre": "Une boutique en ligne",
-      "texte": "La vente de produits demande un dispositif à part entière, qui se chiffre séparément."
+      "icone": "position",
+      "periode": "Dès la semaine 3",
+      "titre": "Visibilité locale",
+      "texte": "Être trouvé par les personnes qui cherchent un praticien près de chez elles.",
+      "points": [
+        "Fiche Google Business Profile créée ou remise à plat",
+        "Référencement local : les bases posées proprement",
+        "Stratégie de contenu : quoi publier, où, à quel rythme",
+        "Avis patients : une démarche simple pour en obtenir régulièrement"
+      ]
     },
     {
-      "titre": "La gestion de vos réseaux sociaux",
-      "texte": "Je vous aide à décider quoi y faire — je ne publie pas à votre place."
+      "icone": "agenda",
+      "periode": "Mois 2 à 6",
+      "titre": "Acquisition et suivi",
+      "texte": "On mesure, on ajuste, on garde ce qui fonctionne.",
+      "points": [
+        "Plan d’acquisition mis en route, canal par canal",
+        "Publicité locale lorsque c’est pertinent pour votre activité",
+        "Suivi des résultats : ce qui amène des rendez-vous, ce qui n’en amène pas",
+        "Optimisation continue jusqu’à la fin des 6 mois"
+      ]
     }
   ],
-  "nonPromis": [
-    "Aucun nombre de clients garanti",
-    "Aucune première place sur Google garantie",
-    "Pas de programme hebdomadaire imposé",
-    "Pas de réseaux sociaux gérés à votre place",
-    "Aucune promesse de revenus ou de « cabinet plein en 90 jours »"
+  "elyoDirect": {
+    "accroche": "Pas 6 mois de formation. 6 mois avec quelqu’un à vos côtés.",
+    "situations": [
+      "Une question avant de publier",
+      "Une offre à retravailler",
+      "Un tarif à trancher",
+      "Une publication à valider",
+      "Une campagne qui ne donne rien",
+      "Une décision que vous n’arrivez pas à prendre seul"
+    ],
+    "canaux": [
+      { "icone": "courrier", "titre": "Message", "texte": "Pour la plupart des questions : vous écrivez, vous avez une réponse." },
+      { "icone": "video", "titre": "Vocal ou petite vidéo", "texte": "Quand il faut montrer : un écran, une page, une correction commentée." },
+      { "icone": "document", "titre": "Retour écrit ou document", "texte": "Une relecture, une trame, un plan — quelque chose que vous gardez." },
+      { "icone": "personnes", "titre": "Visio quand c’est utile", "texte": "Pour les décisions qui se prennent mieux à deux. Pas pour remplir un agenda." }
+    ]
+  },
+  "pourQui": [
+    "Thérapeutes et praticiens bien-être : naturopathes, sophrologues, ostéopathes, hypnothérapeutes, énergéticiens, réflexologues…",
+    "Professeurs de yoga, de pilates, de méditation",
+    "Coachs et professionnels de l’accompagnement",
+    "En lancement, ou installés avec un agenda qui ne se remplit pas assez régulièrement",
+    "Prêts à consacrer quelques heures par semaine à leur développement, avec quelqu’un pour les guider"
   ],
   "engagements": [
     {
-      "icone": "cadenas",
-      "titre": "Tout vous appartient",
-      "texte": "Nom de domaine, site, textes, plan d’action : tout est à votre nom et reste à vous, accompagnement terminé ou non."
-    },
-    {
       "icone": "etiquette",
       "titre": "Un tarif affiché",
-      "texte": "Le même prix pour tout le monde, écrit noir sur blanc avant le premier échange. Pas de devis à rallonge."
+      "texte": "990 € pour les 6 mois, écrit ici, le même pour tout le monde. Pas de devis à rallonge, pas de surprise."
+    },
+    {
+      "icone": "cadenas",
+      "titre": "Tout vous appartient",
+      "texte": "Nom de domaine, site, textes, fiche Google, comptes : tout est à votre nom, pendant et après l’accompagnement."
     },
     {
       "icone": "personnes",
-      "titre": "Un interlocuteur unique",
-      "texte": "Vous m’écrivez, c’est moi qui réponds, qui construis et qui vous accompagne. Pas d’équipe interchangeable."
+      "titre": "Un interlocuteur, Julien",
+      "texte": "Celui qui vous répond est celui qui construit. Pas de service commercial, pas de chef de projet intermédiaire."
     },
     {
       "icone": "bouclier",
-      "titre": "Douze mois, pas un de plus",
-      "texte": "Le filet s’arrête de lui-même au bout d’un an. Aucune reconduction automatique, aucun abonnement caché."
+      "titre": "Ce qui reste à votre charge, dit avant",
+      "texte": "Les budgets publicitaires éventuels et les outils tiers (agenda en ligne, hébergement après la première année) sont à votre charge. Rien d’autre."
     }
-  ],
-  "comparatif": {
-    "colonnes": [
-      "Ne rien faire",
-      "Un site seul",
-      "Un coaching seul",
-      "ElyoStudio"
-    ],
-    "lignes": [
-      {
-        "critere": "Coût la première année",
-        "valeurs": [
-          "0 €",
-          "800 à 3 000 €",
-          "1 500 à 4 000 €",
-          "1 998 €"
-        ]
-      },
-      {
-        "critere": "Ce que vous avez au départ",
-        "valeurs": [
-          "rien",
-          "un site, sur un positionnement resté flou",
-          "des idées plus claires, rien de construit",
-          "positionnement, offre, site, fiche Google, plan"
-        ]
-      },
-      {
-        "critere": "Quand vous bloquez trois mois plus tard",
-        "valeurs": [
-          "vous restez bloqué",
-          "le prestataire a terminé sa mission",
-          "une séance de plus à payer",
-          "une séance de 20 min sous 72 h, comprise"
-        ]
-      },
-      {
-        "critere": "Qui fait le travail",
-        "valeurs": [
-          "—",
-          "lui, une fois",
-          "vous, seul entre les séances",
-          "moi pour le socle, vous et moi pour la suite"
-        ]
-      },
-      {
-        "critere": "Au bout d’un an",
-        "valeurs": [
-          "rien n’a changé",
-          "un site qui vieillit",
-          "des notes de séances",
-          "une activité posée, un an de décisions tenues"
-        ]
-      }
-    ]
-  }
+  ]
 }

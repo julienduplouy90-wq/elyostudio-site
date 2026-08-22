@@ -1,0 +1,175 @@
+---
+import Base from '../layouts/Base.astro';
+import EnPage from '../components/EnPage.astro';
+import Icone from '../components/Icone.astro';
+import { site, prix } from '../data/site.js';
+
+const titre = `Démarrer l’accompagnement — ${prix.total} | ElyoStudio`;
+const description = `Démarrez l’accompagnement ElyoStudio : ${prix.total} pour ${prix.duree}, ou ${prix.paiement3x} sans frais. Tarif fondateur réservé aux ${prix.placesFondateur} premiers cabinets.`;
+
+// Tant que la page de paiement n'est pas renseignée dans les réglages, le
+// bouton oriente vers l'échange découverte — personne ne tombe sur un lien mort.
+const paiementActif = Boolean(site.lienPaiement);
+const lienBouton = paiementActif ? site.lienPaiement : '/rendez-vous';
+
+const apres = [
+  {
+    n: '01',
+    titre: 'Confirmation et questionnaire d’accueil',
+    texte: 'Dès votre inscription, vous recevez un email de confirmation et un questionnaire guidé : votre pratique, vos patients, vos offres, vos outils. Une heure de votre temps, en plusieurs fois si vous préférez.',
+  },
+  {
+    n: '02',
+    titre: 'Le rendez-vous de lancement',
+    texte: 'Une visio pour poser le diagnostic de votre cabinet, votre positionnement et le plan des six mois. Vous repartez avec une feuille de route écrite.',
+  },
+  {
+    n: '03',
+    titre: 'La mise en place, puis six mois ensemble',
+    texte: 'Offres, site, prise de rendez-vous, fiche Google, référencement local : je construis, vous validez. Et dès le premier jour, Elyo Direct est ouvert.',
+  },
+];
+---
+
+<Base titre={titre} description={description} barreMobile={false} filAriane={[{ nom: 'Démarrer', lien: '/demarrer' }]}>
+  <EnPage
+    surtitre="Démarrer"
+    titre="Prêt à démarrer ? Voici exactement ce qui se passe ensuite."
+    chapeau="Un seul accompagnement, un seul tarif, et pas d’appel commercial obligatoire. Vous démarrez, vous recevez votre questionnaire d’accueil, et on cale votre rendez-vous de lancement."
+  />
+
+  <section class="section-serree">
+    <div class="rail demarrer-rail">
+      <article class="carte demarrer-carte reveal">
+        <span class="demarrer-ruban">Tarif fondateur — {prix.placesFondateur} places</span>
+        <span class="demarrer-libelle">L’accompagnement complet, {prix.duree}</span>
+        <p class="demarrer-prix">{prix.total}</p>
+        <p class="demarrer-note">Comptant, ou {prix.paiement3x} sans frais. Le même montant.</p>
+
+        <ul class="liste-cochee demarrer-liste">
+          <li>Diagnostic, positionnement, offres et tarifs</li>
+          <li>Site créé ou optimisé, prise de rendez-vous en ligne</li>
+          <li>Fiche Google, référencement local, stratégie de contenu</li>
+          <li>Acquisition, suivi des résultats, optimisation continue</li>
+          <li>Elyo Direct pendant toute la durée, sans compteur</li>
+        </ul>
+
+        <a href={lienBouton} class="btn btn-principal btn-large demarrer-btn" target={paiementActif ? '_blank' : undefined} rel={paiementActif ? 'noopener' : undefined}>
+          {paiementActif ? `Payer et démarrer — ${prix.total}` : 'Démarrer par un échange découverte'}
+          <Icone nom="fleche" classe="fleche" />
+        </a>
+
+        {
+          paiementActif ? (
+            <p class="demarrer-mention">Paiement sécurisé. Vous recevez votre confirmation et le questionnaire d’accueil dans la foulée.</p>
+          ) : (
+            <p class="demarrer-mention">
+              Le paiement en ligne arrive. En attendant, on démarre par un appel court — offert —
+              pour caler ensemble votre inscription et votre rendez-vous de lancement.
+            </p>
+          )
+        }
+        <p class="demarrer-mention">
+          Les budgets publicitaires éventuels et les outils tiers restent à votre charge.
+        </p>
+      </article>
+
+      <div class="demarrer-suite">
+        <span class="surtitre">Et ensuite</span>
+        <h2>Les trois premières étapes</h2>
+        <ol class="etapes">
+          {
+            apres.map((e, i) => (
+              <li class="etape reveal" style={`--delai: ${i * 90}ms`}>
+                <span class="etape-numero">{e.n}</span>
+                <div>
+                  <h3>{e.titre}</h3>
+                  <p>{e.texte}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+        <p class="demarrer-doute">
+          Un doute ? <a href="/rendez-vous">L’échange découverte</a> est offert, et le
+          <a href="/diagnostic">diagnostic des 5 fondations</a> prend sept minutes.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .demarrer-rail { display: grid; gap: 1.6rem; align-items: start; }
+  .demarrer-carte {
+    position: relative;
+    padding: clamp(1.6rem, 4vw, 2.4rem);
+    border-color: rgba(192, 102, 60, 0.35);
+    box-shadow: var(--ombre-l);
+  }
+  .demarrer-ruban {
+    position: absolute;
+    top: -0.85rem;
+    left: clamp(1.6rem, 4vw, 2.4rem);
+    padding: 0.35rem 0.9rem;
+    border-radius: var(--r-pilule);
+    background: linear-gradient(150deg, var(--terre), var(--terre-2));
+    color: #FFF6F1;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .demarrer-libelle {
+    display: block;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--vert);
+  }
+  .demarrer-prix {
+    margin-top: 0.5rem;
+    font-family: var(--police-titre);
+    font-size: clamp(2.6rem, 8vw, 3.6rem);
+    font-weight: 600;
+    line-height: 1;
+  }
+  .demarrer-note { margin-top: 0.7rem; color: var(--encre-2); font-size: 0.95rem; }
+  .demarrer-liste { margin-top: 1.4rem; padding-top: 1.4rem; border-top: 1px solid var(--ligne); }
+  .demarrer-btn { margin-top: 1.6rem; }
+  .demarrer-mention { margin-top: 0.9rem; font-size: 0.86rem; color: var(--encre-3); }
+
+  .demarrer-suite h2 { margin: 0.5rem 0 1.2rem; }
+  .etapes { list-style: none; padding: 0; display: grid; gap: 1rem; }
+  .etape {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.1rem;
+    align-items: start;
+    padding: clamp(1.2rem, 3.4vw, 1.6rem);
+    background: var(--blanc);
+    border: 1px solid var(--ligne);
+    border-radius: var(--r-l);
+    box-shadow: var(--ombre-s);
+  }
+  .etape-numero {
+    display: grid;
+    place-items: center;
+    width: 2.9rem;
+    height: 2.9rem;
+    border-radius: var(--r-m);
+    background: linear-gradient(150deg, var(--vert), #0F1A33);
+    color: #FFFFFF;
+    font-family: var(--police-titre);
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+  .etape h3 { margin-bottom: 0.4rem; }
+  .etape p { color: var(--encre-2); font-size: 0.97rem; }
+  .demarrer-doute { margin-top: 1.4rem; font-size: 0.95rem; color: var(--encre-2); }
+
+  @media (min-width: 960px) {
+    .demarrer-rail { grid-template-columns: 0.95fr 1.05fr; gap: 2.5rem; }
+  }
+</style>
