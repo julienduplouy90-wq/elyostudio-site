@@ -2,7 +2,7 @@
   "problemes": [
     {
       "icone": "recherche",
-      "titre": "On ne vous trouve pas",
+      "titre": "Personne ne vous trouve",
       "texte": "Une personne cherche un praticien comme vous, près de chez elle. Elle tombe sur quelqu’un d’autre — pas meilleur, juste visible, avec une fiche Google tenue et un site qui donne envie d’appeler."
     },
     {
@@ -45,7 +45,7 @@
     {
       "icone": "horloge",
       "titre": "Un suivi des résultats",
-      "texte": "Ce qui amène des rendez-vous, ce qui n’en amène pas. On mesure, on ajuste, on garde ce qui fonctionne — pendant 6 mois."
+      "texte": "Ce qui amène des rendez-vous, ce qui n’en amène pas. Je mesure, j’ajuste, je garde ce qui fonctionne — pendant 6 mois."
     }
   ],
   "etapes": [
@@ -57,7 +57,7 @@
     {
       "n": "02",
       "titre": "Le rendez-vous de lancement",
-      "texte": "Une visio pour poser le diagnostic de votre cabinet, votre positionnement et le plan des 6 mois. Vous repartez avec une feuille de route écrite."
+      "texte": "Une visio où je pose avec vous le diagnostic de votre cabinet, votre positionnement et le plan des 6 mois. Vous repartez avec une feuille de route écrite."
     },
     {
       "n": "03",
@@ -67,7 +67,7 @@
     {
       "n": "04",
       "titre": "Six mois avec Elyo Direct",
-      "texte": "Vous me sollicitez quand vous en avez besoin : message, vocal, vidéo, visio si nécessaire. On suit les résultats et on ajuste, mois après mois."
+      "texte": "Vous me sollicitez quand vous en avez besoin : message, vocal, vidéo, visio si nécessaire. Je suis les résultats et j’ajuste, mois après mois."
     }
   ]
 }

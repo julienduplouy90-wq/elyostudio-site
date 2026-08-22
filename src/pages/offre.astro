@@ -50,7 +50,7 @@ const donnees = {
   >
     <div class="groupe-btn marge-haut">
       <a href={lienDemarrer} class="btn btn-principal btn-large">
-        Démarrer — {prix.total}
+        Démarrer l’accompagnement
         <Icone nom="fleche" classe="fleche" />
       </a>
       <a href="/rendez-vous" class="btn btn-secondaire btn-large">J’ai besoin d’en parler d’abord</a>
@@ -64,8 +64,8 @@ const donnees = {
         <span class="surtitre">Ce qui est mis en place</span>
         <h2>Quatre phases, dans le bon ordre</h2>
         <p class="chapeau">
-          On ne commence pas par le site. On commence par comprendre votre cabinet, puis on
-          construit chaque brique sur la précédente — jusqu’à ce que l’ensemble amène des
+          Je ne commence pas par le site. Je commence par comprendre votre cabinet, puis je
+          construis chaque brique sur la précédente — jusqu’à ce que l’ensemble amène des
           rendez-vous de façon régulière.
         </p>
       </div>
@@ -100,9 +100,9 @@ const donnees = {
         <span class="surtitre surtitre-clair">Elyo Direct — compris pendant {prix.duree}</span>
         <h2>{elyoDirect.accroche}</h2>
         <p class="direct-chapeau">
-          Le principe n’est pas la visio illimitée. C’est de ne jamais rester bloqué seul : vous me
-          sollicitez quand vous en avez besoin, et je vous réponds par le canal le plus efficace
-          pour la situation.
+          Le principe n’est pas la visio illimitée. C’est que vous ne restiez jamais bloqué seul :
+          vous me sollicitez quand vous en avez besoin, et je vous réponds par le canal le plus
+          efficace pour la situation.
         </p>
         <ul class="direct-situations">
           {elyoDirect.situations.map((s) => <li>{s}</li>)}
