@@ -2,50 +2,62 @@
   "phases": [
     {
       "icone": "recherche",
-      "periode": "Semaines 1 à 2",
-      "titre": "Diagnostic et positionnement",
-      "texte": "Je pars de votre cabinet tel qu’il est, pas d’un modèle.",
+      "periode": "Étape 1 — Semaines 1 à 2",
+      "titre": "Clarifier",
+      "texte": "Avant de construire quoi que ce soit, on pose des bases nettes. Je pars de votre cabinet tel qu’il est, pas d’un modèle.",
       "points": [
-        "Diagnostic de votre activité : d’où viennent vos rendez-vous, ce qui freine",
-        "Positionnement : qui vous accompagnez, sur quoi, en quoi vous êtes différent",
-        "Clarification de vos offres et de vos tarifs",
-        "Stratégie marketing adaptée à votre énergie et à votre agenda"
+        "Positionnement : qui vous accompagnez, sur quoi, pourquoi vous",
+        "Clientèle idéale et message : les mots qui parlent à vos patients",
+        "Offres et tarifs clarifiés, faciles à présenter",
+        "Ce qui vous différencie des autres praticiens de votre ville"
       ]
     },
     {
       "icone": "gabarit",
-      "periode": "Semaines 2 à 5",
-      "titre": "Site et prise de rendez-vous",
-      "texte": "Un site qui explique votre pratique et mène au rendez-vous.",
+      "periode": "Étape 2 — Semaines 2 à 5",
+      "titre": "Construire",
+      "texte": "Votre présence en ligne, pensée pour mener au rendez-vous — pas pour faire joli.",
       "points": [
-        "Création de votre site, ou optimisation de celui que vous avez",
-        "Textes rédigés avec vous, dans vos mots et ceux de vos patients",
-        "Prise de rendez-vous en ligne installée et testée",
-        "Optimisation de la conversion : chaque page mène quelque part"
+        "Site créé ou optimisé, textes rédigés avec vous, dans vos mots",
+        "Prise de rendez-vous en ligne installée et testée de bout en bout",
+        "Formulaires et parcours simples : de la visite à la réservation",
+        "Automatisations utiles : confirmations, rappels, suivi des demandes"
       ]
     },
     {
       "icone": "position",
-      "periode": "Dès la semaine 3",
-      "titre": "Visibilité locale",
-      "texte": "Être trouvé par les personnes qui cherchent un praticien près de chez elles.",
+      "periode": "Étape 3 — Dès la semaine 3",
+      "titre": "Être trouvé",
+      "texte": "Visible pour les personnes qui cherchent un praticien près de chez elles.",
       "points": [
         "Fiche Google Business Profile créée ou remise à plat",
         "Référencement local : les bases posées proprement",
-        "Stratégie de contenu : quoi publier, où, à quel rythme",
-        "Avis patients : une démarche simple pour en obtenir régulièrement"
+        "Structure du site pensée pour être bien compris par Google",
+        "Stratégie de contenu : quoi publier, où, à quel rythme"
       ]
     },
     {
       "icone": "agenda",
-      "periode": "Mois 2 à 6",
-      "titre": "Acquisition et suivi",
-      "texte": "Je mesure, j’ajuste, je garde ce qui fonctionne.",
+      "periode": "Étape 4 — Mois 2 à 6",
+      "titre": "Développer",
+      "texte": "Transformer cette présence en rendez-vous réguliers.",
       "points": [
         "Plan d’acquisition mis en route, canal par canal",
-        "Publicité locale lorsque c’est pertinent pour votre activité",
+        "Prospection douce et partenariats locaux quand c’est pertinent",
+        "Contenu qui travaille pour vous dans la durée",
+        "Optimisation des conversions : chaque page mène quelque part"
+      ]
+    },
+    {
+      "icone": "horloge",
+      "periode": "Étape 5 — Tout au long des 6 mois",
+      "titre": "Ajuster",
+      "texte": "Rien n’est figé : je mesure, j’écoute vos retours, j’améliore.",
+      "points": [
         "Suivi des résultats : ce qui amène des rendez-vous, ce qui n’en amène pas",
-        "Optimisation continue jusqu’à la fin des 6 mois"
+        "Points réguliers et adaptations selon ce que dit le terrain",
+        "Ce qui fonctionne est renforcé, le reste est coupé",
+        "Accompagnement continu jusqu’au dernier jour"
       ]
     }
   ],
@@ -67,11 +79,19 @@
     ]
   },
   "pourQui": [
-    "Thérapeutes et praticiens bien-être : naturopathes, sophrologues, ostéopathes, hypnothérapeutes, énergéticiens, réflexologues…",
-    "Professeurs de yoga, de pilates, de méditation",
-    "Coachs et professionnels de l’accompagnement",
-    "En lancement, ou installés avec un agenda qui ne se remplit pas assez régulièrement",
-    "Prêts à consacrer quelques heures par semaine à leur développement, avec quelqu’un pour les guider"
+    "Vous êtes thérapeute, psychopraticien, coach, professeur de yoga, énergéticien, naturopathe ou praticien bien-être",
+    "Votre activité existe déjà, ou vous êtes réellement en phase de lancement",
+    "Vous avez une vraie expertise, mais votre communication manque de structure",
+    "Vous voulez développer votre clientèle sans marketing agressif",
+    "Vous voulez quelqu’un qui réfléchit avec vous et qui met les choses en place",
+    "Vous êtes prêt à travailler votre positionnement et votre offre"
+  ],
+  "pasPour": [
+    "Vous cherchez uniquement un site au prix le plus bas possible",
+    "Vous attendez une promesse de clients garantis — je n’en fais pas",
+    "Vous ne souhaitez toucher ni à votre offre, ni à votre communication",
+    "Vous cherchez uniquement une prestation publicitaire",
+    "Vous préférez déléguer toutes les décisions concernant votre activité"
   ],
   "engagements": [
     {

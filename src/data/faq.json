@@ -2,11 +2,15 @@
   "faqs": [
     {
       "q": "Pourquoi seulement 990 € pour 6 mois d’accompagnement ?",
-      "a": "Parce qu’ElyoStudio démarre. Les dix premiers cabinets accompagnés bénéficient d’un tarif fondateur : en échange, je mesure précisément les résultats et, avec votre accord, je documente votre parcours. Ce prix est aussi rendu possible par une structure légère, une méthode standardisée, des sites et des outils réutilisables, et un accompagnement surtout asynchrone. Une fois la méthode éprouvée, le tarif passera à 1 490 €."
+      "a": "Parce qu’Elyo Direct est en phase de lancement. Les dix premiers cabinets accompagnés bénéficient d’un tarif fondateur : en échange, je mesure précisément les résultats et, avec votre accord, je documente votre parcours — vos retours servent aussi à améliorer l’accompagnement. Ce prix est rendu possible par une structure légère, une méthode rodée et un accompagnement surtout asynchrone. Une fois cette phase terminée, le tarif passera à 1 490 €."
     },
     {
-      "q": "Qu’est-ce qu’Elyo Direct, concrètement ?",
-      "a": "Pendant les 6 mois, vous n’attendez pas le prochain rendez-vous pour demander de l’aide. Une question avant de publier, une offre à retravailler, une campagne qui ne donne rien : vous m’écrivez quand vous en avez besoin. Je réponds de la manière la plus efficace — un message, un vocal, une petite vidéo, un retour écrit, et une visio quand c’est vraiment utile. Ce n’est pas de la visio illimitée : c’est quelqu’un à vos côtés."
+      "q": "En quoi est-ce différent d’une agence web ?",
+      "a": "Une agence vous livre un site, puis disparaît. Une formation vous laisse seul devant des heures de vidéos. Un consultant vous remet des recommandations que personne ne met en place. Elyo Direct combine les trois choses qui manquent quand elles sont séparées : on réfléchit ensemble, je construis réellement — site, pages, réservation, automatisations — et j’ajuste avec vous pendant 6 mois."
+    },
+    {
+      "q": "L’accès direct, concrètement, comment ça marche ?",
+      "a": "Pendant les 6 mois, vous n’attendez pas le prochain rendez-vous pour demander de l’aide. Une question avant de publier, une offre à retravailler, une campagne qui ne donne rien : vous m’écrivez quand vous en avez besoin. Je réponds de la manière la plus efficace — un message, un vocal, une petite vidéo, un retour écrit, et une visio quand c’est vraiment utile. Ce n’est pas une disponibilité 24 h/24 : c’est quelqu’un à vos côtés, sans compteur de rendez-vous."
     },
     {
       "q": "Je n’ai pas encore de site. Est-ce un problème ?",
@@ -14,7 +18,7 @@
     },
     {
       "q": "Je suis coach, ou professeur de yoga — est-ce fait pour moi ?",
-      "a": "Oui. L’accompagnement s’adresse aux professionnels de l’accompagnement au sens large : thérapeutes, praticiens bien-être, professeurs de yoga, coachs. Le vocabulaire change — patients, élèves, clients — mais la mécanique est la même : être trouvé, être compris, et transformer cette visibilité en rendez-vous."
+      "a": "Oui. Elyo Direct s’adresse aux professionnels de l’accompagnement au sens large : thérapeutes, psychopraticiens, praticiens bien-être, énergéticiens, naturopathes, professeurs de yoga, coachs. Le vocabulaire change — patients, élèves, clients — mais la mécanique est la même : être trouvé, être compris, et transformer cette visibilité en rendez-vous."
     },
     {
       "q": "Qu’est-ce qui reste à ma charge ?",
@@ -25,8 +29,8 @@
       "a": "Quelques heures par semaine les premières semaines (questionnaire, validations, photos, relectures), puis beaucoup moins. Vous restez acteur de votre développement : je construis et je guide, vous validez et vous publiez. L’asynchrone sert justement à caler ce travail dans votre agenda, entre deux séances."
     },
     {
-      "q": "Que se passe-t-il au bout des 6 mois ?",
-      "a": "Tout vous appartient et continue de fonctionner : site, fiche Google, plan, contenus. L’accompagnement s’arrête sans reconduction automatique. Si vous souhaitez prolonger le suivi, nous en parlons à ce moment-là."
+      "q": "Que se passe-t-il après les 6 mois ?",
+      "a": "Tout vous appartient et continue de fonctionner : site, fiche Google, plan, contenus. Vous n’êtes engagé à rien : vous pouvez continuer seul, ne conserver que les services techniques nécessaires, ou choisir un suivi si vous souhaitez prolonger. Rien ne se reconduit automatiquement — nous en parlons ensemble avant la fin, et vous décidez."
     },
     {
       "q": "Peut-on payer en plusieurs fois ?",
@@ -34,17 +38,17 @@
     },
     {
       "q": "Faut-il un appel avant de démarrer ?",
-      "a": "Non. Si vous êtes prêt, vous démarrez directement en ligne et vous recevez votre questionnaire d’accueil dans la foulée. Si vous avez besoin d’en parler d’abord, l’échange découverte — vingt minutes, offertes — sert à vérifier avec moi que l’accompagnement vous correspond."
+      "a": "Non. Si vous êtes prêt, vous démarrez directement en ligne et vous recevez votre questionnaire d’accueil dans la foulée. Si vous avez besoin d’en parler d’abord, l’échange découverte — vingt minutes, offertes — sert à vérifier avec moi qu’Elyo Direct vous correspond."
     }
   ],
   "faqsOffre": [
     {
       "q": "Que comprend exactement le prix de 990 € ?",
-      "a": "Les 6 mois complets : diagnostic de votre activité, positionnement, clarification des offres et tarifs, stratégie marketing, création ou optimisation du site, prise de rendez-vous en ligne, fiche Google Business Profile, référencement local, stratégie de contenu, acquisition, suivi des résultats et optimisation continue — plus Elyo Direct pendant toute la durée. Le nom de domaine et l’hébergement de la première année sont compris."
+      "a": "Les 6 mois complets : diagnostic de votre activité, positionnement, clarification des offres et tarifs, stratégie marketing, création ou optimisation du site, prise de rendez-vous en ligne, fiche Google Business Profile, référencement local, stratégie de contenu, acquisition, suivi des résultats et optimisation continue — plus l’accès direct pendant toute la durée. Le nom de domaine et l’hébergement de la première année sont compris."
     },
     {
       "q": "Pourquoi un tarif fondateur, et jusqu’à quand ?",
-      "a": "ElyoStudio lance cet accompagnement et travaille avec ses dix premiers cabinets pour affiner la méthode, mesurer les résultats et construire ses premiers retours d’expérience. En contrepartie, ces dix premiers bénéficient de 990 € au lieu du tarif prévu ensuite, 1 490 €. Ce n’est pas une promotion : c’est le prix de la phase de lancement, et il s’arrête à la dixième place."
+      "a": "Elyo Direct est en phase de lancement : je travaille avec mes dix premiers cabinets pour affiner la méthode, mesurer les résultats et construire mes premiers retours d’expérience. En contrepartie, ces dix premiers bénéficient de 990 € au lieu du tarif prévu ensuite, 1 490 €. Ce n’est pas une promotion : c’est le prix de la phase de lancement, et il s’arrête à la dixième place."
     },
     {
       "q": "Le site est-il vraiment compris, ou facturé à part ?",
@@ -59,7 +63,7 @@
       "a": "Non. Que vous partiez de zéro ou que vous ayez déjà un site et une fiche Google, c’est le même prix : ce qui change, c’est où je porte l’effort, pas le montant."
     },
     {
-      "q": "Et si je sollicite Elyo Direct très souvent ?",
+      "q": "Et si je vous sollicite très souvent ?",
       "a": "C’est prévu pour. Il n’y a pas de compteur. L’idée est de répondre vite et bien, par le bon canal, pour que vous avanciez — pas de vous faire attendre une séance. Si un sujet mérite une vraie visio, je la cale."
     },
     {

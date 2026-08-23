@@ -3,8 +3,8 @@
     "nom": "ElyoStudio",
     "domaine": "elyostudio.fr",
     "url": "https://elyostudio.fr",
-    "baseline": "Développement de cabinet & sites web",
-    "promesse": "ElyoStudio aide les thérapeutes, praticiens bien-être, professeurs de yoga et coachs à développer leur cabinet sans devenir experts en marketing : positionnement, site, visibilité locale, acquisition, et un accompagnement humain pendant 6 mois.",
+    "baseline": "Développement de cabinet & accompagnement",
+    "promesse": "ElyoStudio accompagne les thérapeutes, psychopraticiens, coachs, professeurs de yoga, énergéticiens, naturopathes et praticiens bien-être avec Elyo Direct : 6 mois pour construire le système qui permet à leur cabinet d’être trouvé, compris et choisi — positionnement, site, visibilité locale, acquisition, et un accès direct pour chaque décision.",
     "ville": "Aureilhan",
     "region": "Hautes-Pyrénées",
     "adresse": "49 avenue du Bois, 65800 Aureilhan",
@@ -47,7 +47,7 @@
   },
   "navigation": [
     {
-      "texte": "L’accompagnement",
+      "texte": "Elyo Direct",
       "lien": "/offre"
     },
     {

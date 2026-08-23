@@ -168,7 +168,7 @@ collections:
         file: src/data/offre.json
         fields:
           - name: phases
-            label: Les quatre phases
+            label: Les cinq étapes
             widget: list
             fields:
               - { name: icone, label: Icône, widget: string }
@@ -190,6 +190,7 @@ collections:
                   - { name: titre, label: Titre, widget: string }
                   - { name: texte, label: Texte, widget: string }
           - { name: pourQui, label: Pour qui, widget: list, field: { name: ligne, label: Ligne, widget: string } }
+          - { name: pasPour, label: Pas adapté si, widget: list, field: { name: ligne, label: Ligne, widget: string } }
           - name: engagements
             label: Les engagements
             widget: list

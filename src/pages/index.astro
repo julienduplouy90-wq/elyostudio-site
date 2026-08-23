@@ -15,8 +15,8 @@ import {
   lienDemarrer,
 } from '../data/site.js';
 
-const titre = 'Développez votre cabinet de thérapeute | ElyoStudio';
-const description = `Positionnement, site, visibilité locale, acquisition et Elyo Direct pendant ${prix.duree}, pour thérapeutes, praticiens bien-être et coachs. ${prix.total}, tarif fondateur.`;
+const titre = 'Elyo Direct : développez votre cabinet | ElyoStudio';
+const description = `Elyo Direct : ${prix.duree} d’accompagnement pour thérapeutes, coachs et praticiens bien-être — positionnement, site, visibilité locale, acquisition. Tarif fondateur.`;
 
 const resultats = [
   'Un agenda plus régulier, moins dépendant du seul bouche-à-oreille',
@@ -40,9 +40,9 @@ const donnees = {
     {
       '@type': 'Service',
       '@id': `${site.url}/#accompagnement`,
-      name: 'Accompagnement ElyoStudio — développement de cabinet',
+      name: 'Elyo Direct — accompagnement de développement de cabinet',
       serviceType:
-        'Positionnement, création de site internet, visibilité locale, acquisition et accompagnement pendant 6 mois',
+        'Accompagnement de 6 mois : positionnement, site internet, visibilité locale, acquisition et accès direct',
       provider: { '@id': `${site.url}/#studio` },
       areaServed: { '@type': 'Country', name: 'France' },
       audience: {
@@ -76,21 +76,21 @@ const donnees = {
         </span>
 
         <h1 class="reveal" style="--delai: 90ms">
-          Développez votre cabinet sans devenir expert en marketing.
+          Votre cabinet mérite plus qu’un beau site.
         </h1>
 
         <p class="heros-chapeau reveal" style="--delai: 180ms">
-          Positionnement, site, visibilité locale, acquisition : je mets en place, avec vous, le
-          système qui transforme votre visibilité en rendez-vous. Et pendant {prix.duree}, je
-          reste à vos côtés chaque fois que vous en avez besoin.
+          Elyo Direct, c’est {prix.duree} d’accompagnement pour construire le système qui permet à
+          votre cabinet d’être trouvé, compris et choisi : positionnement, site, visibilité
+          locale, acquisition — et moi à vos côtés à chaque décision.
         </p>
 
         <div class="groupe-btn reveal" style="--delai: 260ms">
-          <a href={lienDemarrer} class="btn btn-principal btn-large">
-            Démarrer l’accompagnement
+          <a href="/offre" class="btn btn-principal btn-large">
+            Découvrir Elyo Direct
             <Icone nom="fleche" classe="fleche" />
           </a>
-          <a href="/diagnostic" class="btn btn-clair btn-large">Faire le diagnostic gratuit</a>
+          <a href="/methode" class="btn btn-clair btn-large">Voir comment ça fonctionne</a>
         </div>
 
         <ul class="heros-preuves reveal" style="--delai: 340ms">
@@ -114,8 +114,8 @@ const donnees = {
         <span>d’accompagnement complet, du diagnostic au suivi des résultats.</span>
       </div>
       <div class="chiffre reveal" style="--delai: 80ms">
-        <strong>Elyo Direct</strong>
-        <span>une aide humaine, sans compteur, pendant toute la durée.</span>
+        <strong>Accès direct</strong>
+        <span>une aide humaine continue, sans compteur de rendez-vous.</span>
       </div>
       <div class="chiffre reveal" style="--delai: 160ms">
         <strong>1 interlocuteur</strong>
@@ -174,7 +174,7 @@ const donnees = {
   <section class="section">
     <div class="rail">
       <div class="entete-section reveal">
-        <span class="surtitre">L’accompagnement</span>
+        <span class="surtitre">Elyo Direct</span>
         <h2>Ce que je mets en place pendant les {prix.duree}</h2>
         <p class="chapeau">
           Du diagnostic de votre activité au suivi des résultats, chaque brique sert la suivante.
@@ -198,7 +198,7 @@ const donnees = {
 
       <div class="reveal centre-mobile espace-haut-petit">
         <a href="/offre" class="lien-fleche">
-          Voir le détail des 6 mois
+          Voir Elyo Direct en détail
           <Icone nom="fleche" classe="fleche" />
         </a>
       </div>
@@ -210,7 +210,7 @@ const donnees = {
     <span class="halo halo-anime direct-halo"></span>
     <div class="rail direct-rail">
       <div class="direct-texte reveal">
-        <span class="surtitre surtitre-clair">Elyo Direct</span>
+        <span class="surtitre surtitre-clair">L’accès direct — compris pendant les {prix.duree}</span>
         <h2>{elyoDirect.accroche}</h2>
         <p class="direct-chapeau">
           Pendant les {prix.duree}, vous n’attendez pas le prochain rendez-vous pour demander de
@@ -234,6 +234,45 @@ const donnees = {
             </article>
           ))
         }
+      </div>
+    </div>
+  </section>  <!-- ===== DIFFÉRENCIATION ===== -->
+  <section class="section">
+    <div class="rail">
+      <div class="entete-section reveal">
+        <span class="surtitre">Ce qui change avec Elyo</span>
+        <h2>Ni une agence classique, ni une formation, ni un consultant</h2>
+        <p class="chapeau">
+          Ces trois approches échouent souvent au même endroit : vous laisser seul au moment de
+          faire. Elyo Direct combine les trois choses qui ne fonctionnent pas séparées — la
+          stratégie, la mise en œuvre réelle et l’accompagnement dans la durée.
+        </p>
+      </div>
+      <div class="grille grille-3 espace-haut">
+        <article class="carte carte-relief reveal">
+          <span class="pastille"><Icone nom="gabarit" /></span>
+          <h3>Pas une agence qui livre puis disparaît</h3>
+          <p>
+            Le site n’est pas la fin de la mission, c’est le début. Une fois en ligne, on le fait
+            travailler : visibilité, contenu, ajustements, mois après mois.
+          </p>
+        </article>
+        <article class="carte carte-relief reveal" style="--delai: 90ms">
+          <span class="pastille"><Icone nom="video" /></span>
+          <h3>Pas une formation en vidéos</h3>
+          <p>
+            Je ne vous laisse pas apprendre un deuxième métier. On réfléchit ensemble, puis je
+            construis réellement : pages, réservation, fiche Google, automatisations.
+          </p>
+        </article>
+        <article class="carte carte-relief reveal" style="--delai: 180ms">
+          <span class="pastille"><Icone nom="document" /></span>
+          <h3>Pas un consultant qui recommande sans faire</h3>
+          <p>
+            Les recommandations sont mises en place, pour de vrai. Et pendant {prix.duree}, on
+            ajuste selon ce que disent les résultats — pas selon le plan initial.
+          </p>
+        </article>
       </div>
     </div>
   </section>
@@ -273,7 +312,7 @@ const donnees = {
   <section class="section section-teintee">
     <div class="rail resultat-rail">
       <div class="entete-section reveal">
-        <span class="surtitre">À qui s’adresse l’accompagnement</span>
+        <span class="surtitre">À qui s’adresse Elyo Direct</span>
         <h2>Aux professionnels de l’accompagnement qui veulent un cabinet qui tourne</h2>
       </div>
       <ul class="liste-cochee resultat-liste reveal" style="--delai: 120ms">
@@ -289,8 +328,8 @@ const donnees = {
         <span class="surtitre">Tarif fondateur</span>
         <h2>{prix.total} pour {prix.duree} — réservé aux {prix.placesFondateur} premiers cabinets</h2>
         <p class="chapeau">
-          ElyoStudio lance cet accompagnement et travaille avec ses premiers cabinets pour affiner
-          la méthode et mesurer précisément les résultats. En contrepartie, les {prix.placesFondateur} premiers
+          Elyo Direct est en phase de lancement : je travaille avec mes premiers cabinets pour
+          affiner la méthode et mesurer précisément les résultats. En contrepartie, les {prix.placesFondateur} premiers
           bénéficient de ce tarif. Il passera ensuite à {prix.tarifSuivant}. Ce n’est pas une
           promotion : c’est le prix de la phase de lancement.
         </p>
@@ -300,7 +339,7 @@ const donnees = {
         <article class="tarif-carte tarif-carte-vedette reveal">
           <span class="tarif-ruban">Tarif fondateur — {prix.placesFondateur} places</span>
           <div class="tarif-entete">
-            <span class="tarif-libelle">L’accompagnement complet, {prix.duree}</span>
+            <span class="tarif-libelle">Elyo Direct — accompagnement complet, {prix.duree}</span>
             <p class="tarif-prix">{prix.total}</p>
             <p class="tarif-note">Comptant, ou {prix.paiement3x} sans frais. Le même montant.</p>
           </div>
@@ -309,11 +348,11 @@ const donnees = {
             <li>Site créé ou optimisé, prise de rendez-vous en ligne</li>
             <li>Fiche Google, référencement local, contenu</li>
             <li>Acquisition, suivi des résultats, optimisation continue</li>
-            <li>Elyo Direct pendant toute la durée</li>
+            <li>Accès direct pendant toute la durée, sans compteur</li>
           </ul>
           <div class="groupe-btn tarif-actions">
             <a href={lienDemarrer} class="btn btn-principal btn-large">
-              Démarrer — {prix.total}
+              Démarrer Elyo Direct — {prix.total}
               <Icone nom="fleche" classe="fleche" />
             </a>
             <a href="/rendez-vous" class="btn btn-secondaire btn-large">J’ai besoin d’en parler d’abord</a>

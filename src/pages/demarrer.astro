@@ -4,8 +4,8 @@ import EnPage from '../components/EnPage.astro';
 import Icone from '../components/Icone.astro';
 import { site, prix } from '../data/site.js';
 
-const titre = `Démarrer l’accompagnement — ${prix.total} | ElyoStudio`;
-const description = `Démarrez l’accompagnement ElyoStudio : ${prix.total} pour ${prix.duree}, ou ${prix.paiement3x} sans frais. Tarif fondateur réservé aux ${prix.placesFondateur} premiers cabinets.`;
+const titre = `Démarrer Elyo Direct — ${prix.total} | ElyoStudio`;
+const description = `Démarrez Elyo Direct : ${prix.total} pour ${prix.duree}, ou ${prix.paiement3x} sans frais. Tarif fondateur réservé aux ${prix.placesFondateur} premiers cabinets.`;
 
 // Tant que la page de paiement n'est pas renseignée dans les réglages, le
 // bouton oriente vers l'échange découverte — personne ne tombe sur un lien mort.
@@ -26,7 +26,7 @@ const apres = [
   {
     n: '03',
     titre: 'La mise en place, puis six mois ensemble',
-    texte: 'Offres, site, prise de rendez-vous, fiche Google, référencement local : je construis, vous validez. Et dès le premier jour, Elyo Direct est ouvert.',
+    texte: 'Offres, site, prise de rendez-vous, fiche Google, référencement local : je construis, vous validez. Et dès le premier jour, l’accès direct est ouvert.',
   },
 ];
 ---
@@ -42,7 +42,7 @@ const apres = [
     <div class="rail demarrer-rail">
       <article class="carte demarrer-carte reveal">
         <span class="demarrer-ruban">Tarif fondateur — {prix.placesFondateur} places</span>
-        <span class="demarrer-libelle">L’accompagnement complet, {prix.duree}</span>
+        <span class="demarrer-libelle">Elyo Direct — accompagnement complet, {prix.duree}</span>
         <p class="demarrer-prix">{prix.total}</p>
         <p class="demarrer-note">Comptant, ou {prix.paiement3x} sans frais. Le même montant.</p>
 
@@ -51,7 +51,7 @@ const apres = [
           <li>Site créé ou optimisé, prise de rendez-vous en ligne</li>
           <li>Fiche Google, référencement local, stratégie de contenu</li>
           <li>Acquisition, suivi des résultats, optimisation continue</li>
-          <li>Elyo Direct pendant toute la durée, sans compteur</li>
+          <li>Accès direct pendant toute la durée, sans compteur</li>
         </ul>
 
         <a href={lienBouton} class="btn btn-principal btn-large demarrer-btn" target={paiementActif ? '_blank' : undefined} rel={paiementActif ? 'noopener' : undefined}>

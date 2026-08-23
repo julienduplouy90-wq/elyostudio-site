@@ -53,7 +53,7 @@ S’il tient en trois lignes et un prix, demandez le détail. S’il mentionne u
 
 Chez ElyoStudio, le site n’est pas vendu seul : il fait partie d’un accompagnement de six mois à **990 €, ou trois paiements de 330 € sans frais** — un tarif fondateur, réservé aux dix premiers cabinets, le temps de mesurer précisément les résultats et d’affiner la méthode.
 
-Ces six mois comprennent le diagnostic de votre activité, votre positionnement, la clarification de vos offres et de vos tarifs, la création ou l’optimisation de votre site, la prise de rendez-vous en ligne, votre fiche Google, les bases du référencement local, un plan d’acquisition, le suivi des résultats — et Elyo Direct : quelqu’un à vos côtés, sans compteur, chaque fois que vous bloquez.
+Ces six mois comprennent le diagnostic de votre activité, votre positionnement, la clarification de vos offres et de vos tarifs, la création ou l’optimisation de votre site, la prise de rendez-vous en ligne, votre fiche Google, les bases du référencement local, un plan d’acquisition, le suivi des résultats — et un accès direct : quelqu’un à vos côtés, sans compteur, chaque fois que vous bloquez. L’accompagnement s’appelle Elyo Direct.
 
 Restent à votre charge les budgets publicitaires éventuels et les outils tiers. Je préfère le dire clairement plutôt que de gonfler un forfait dont vous n’auriez pas l’usage.
 

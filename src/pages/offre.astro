@@ -3,10 +3,10 @@ import Base from '../layouts/Base.astro';
 import EnPage from '../components/EnPage.astro';
 import Icone from '../components/Icone.astro';
 import BandeCta from '../components/BandeCta.astro';
-import { site, prix, phases, elyoDirect, pourQui, engagements, faqsOffre, lienDemarrer } from '../data/site.js';
+import { site, prix, phases, elyoDirect, pourQui, pasPour, engagements, faqsOffre, lienDemarrer } from '../data/site.js';
 
-const titre = `L’accompagnement ElyoStudio : ${prix.total} pour ${prix.duree} | ElyoStudio`;
-const description = `Diagnostic, positionnement, site, fiche Google, référencement local, acquisition, suivi — et Elyo Direct pendant ${prix.duree}. ${prix.total} ou ${prix.paiement3x}, tarif fondateur.`;
+const titre = `Elyo Direct : ${prix.duree} d’accompagnement — ${prix.total} | ElyoStudio`;
+const description = `Elyo Direct : positionnement, site, fiche Google, référencement local, acquisition et accès direct pendant ${prix.duree}. ${prix.total} ou ${prix.paiement3x}, tarif fondateur.`;
 
 const donnees = {
   '@context': 'https://schema.org',
@@ -23,9 +23,9 @@ const donnees = {
     {
       '@type': 'Product',
       '@id': `${site.url}/offre#accompagnement`,
-      name: 'Accompagnement ElyoStudio — 6 mois',
+      name: 'Elyo Direct — accompagnement de 6 mois',
       description:
-        'Développement de cabinet pour thérapeutes, praticiens bien-être, professeurs de yoga et coachs : diagnostic, positionnement, site, visibilité locale, acquisition, suivi, et Elyo Direct pendant 6 mois.',
+        'Accompagnement de développement de cabinet pour thérapeutes, psychopraticiens, coachs, professeurs de yoga, énergéticiens, naturopathes et praticiens bien-être : positionnement, site, visibilité locale, acquisition, suivi et accès direct pendant 6 mois.',
       brand: { '@id': `${site.url}/#studio` },
       offers: {
         '@type': 'Offer',
@@ -44,13 +44,13 @@ const donnees = {
   <script type="application/ld+json" is:inline set:html={JSON.stringify(donnees)} />
 
   <EnPage
-    surtitre="L’accompagnement ElyoStudio"
-    titre="Six mois pour mettre en place le système qui remplit votre agenda"
-    chapeau="Diagnostic, positionnement, offres et tarifs, site, fiche Google, référencement local, contenu, acquisition, suivi des résultats. Et pendant toute la durée, Elyo Direct : quelqu’un à vos côtés, sans compteur."
+    surtitre="Elyo Direct — l’accompagnement"
+    titre="Six mois pour construire le système qui développe votre cabinet"
+    chapeau="Clarifier, construire, être trouvé, développer, ajuster : cinq étapes sur six mois, dans le bon ordre. Et pendant toute la durée, un accès direct : quelqu’un à vos côtés, sans compteur."
   >
     <div class="groupe-btn marge-haut">
       <a href={lienDemarrer} class="btn btn-principal btn-large">
-        Démarrer l’accompagnement
+        Démarrer Elyo Direct
         <Icone nom="fleche" classe="fleche" />
       </a>
       <a href="/rendez-vous" class="btn btn-secondaire btn-large">J’ai besoin d’en parler d’abord</a>
@@ -62,11 +62,11 @@ const donnees = {
     <div class="rail">
       <div class="entete-section reveal">
         <span class="surtitre">Ce qui est mis en place</span>
-        <h2>Quatre phases, dans le bon ordre</h2>
+        <h2>Cinq étapes, dans le bon ordre</h2>
         <p class="chapeau">
           Je ne commence pas par le site. Je commence par comprendre votre cabinet, puis je
-          construis chaque brique sur la précédente — jusqu’à ce que l’ensemble amène des
-          rendez-vous de façon régulière.
+          construis chaque brique sur la précédente — une logique de progression, pas une liste
+          de prestations.
         </p>
       </div>
 
@@ -97,7 +97,7 @@ const donnees = {
     <span class="halo halo-anime direct-halo"></span>
     <div class="rail direct-rail">
       <div class="direct-texte reveal">
-        <span class="surtitre surtitre-clair">Elyo Direct — compris pendant {prix.duree}</span>
+        <span class="surtitre surtitre-clair">L’accès direct — compris pendant {prix.duree}</span>
         <h2>{elyoDirect.accroche}</h2>
         <p class="direct-chapeau">
           Le principe n’est pas la visio illimitée. C’est que vous ne restiez jamais bloqué seul :
@@ -125,8 +125,8 @@ const donnees = {
   </section>
 
   <!-- Pour qui -->
-  <section class="section">
-    <div class="rail pourqui-rail">
+  <section class="section" id="pour-qui">
+    <div class="rail">
       <div class="entete-section reveal">
         <span class="surtitre">Pour qui</span>
         <h2>Les professionnels de l’accompagnement, en lancement ou déjà installés</h2>
@@ -136,9 +136,24 @@ const donnees = {
           rendez-vous.
         </p>
       </div>
-      <ul class="liste-cochee pourqui-liste reveal" style="--delai: 120ms">
-        {pourQui.map((item) => <li>{item}</li>)}
-      </ul>
+      <div class="pourqui-cartes marge-haut-grand">
+        <article class="carte reveal">
+          <h3>Elyo Direct est fait pour vous si…</h3>
+          <ul class="liste-cochee pourqui-liste">
+            {pourQui.map((item) => <li>{item}</li>)}
+          </ul>
+        </article>
+        <article class="carte reveal" style="--delai: 90ms">
+          <h3>Il ne sera probablement pas adapté si…</h3>
+          <ul class="pasadapte-liste pourqui-liste">
+            {pasPour.map((item) => <li>{item}</li>)}
+          </ul>
+          <p class="pourqui-note">
+            Ce n’est pas un jugement — c’est pour que les six mois servent vraiment à ceux qui en
+            attendent ce qu’ils apportent.
+          </p>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -149,9 +164,9 @@ const donnees = {
         <span class="surtitre">Tarif fondateur</span>
         <h2>{prix.total} pour {prix.duree}, réservé aux {prix.placesFondateur} premiers cabinets</h2>
         <p class="chapeau">
-          Je lance cet accompagnement et je travaille avec mes premiers cabinets pour affiner la
-          méthode, mesurer précisément les résultats et construire mes premiers retours
-          d’expérience. En contrepartie, les {prix.placesFondateur} premiers bénéficient de ce tarif — il
+          Elyo Direct est en phase de lancement : je travaille avec mes premiers cabinets pour
+          affiner la méthode, mesurer précisément les résultats et construire mes premiers
+          retours d’expérience. En contrepartie, les {prix.placesFondateur} premiers bénéficient de ce tarif — il
           passera ensuite à {prix.tarifSuivant}. Ce n’est pas une promotion artificielle : c’est le
           prix de la phase de lancement d’ElyoStudio.
         </p>
@@ -161,7 +176,7 @@ const donnees = {
         <article class="temps temps-vedette reveal">
           <span class="temps-libelle">Comptant</span>
           <p class="temps-prix">{prix.total}</p>
-          <p class="temps-note">Les {prix.duree} complets, Elyo Direct compris. Rien d’autre à payer à ElyoStudio.</p>
+          <p class="temps-note">Les {prix.duree} complets, accès direct compris. Rien d’autre à payer à ElyoStudio.</p>
         </article>
         <span class="temps-plus" aria-hidden="true">ou</span>
         <article class="temps reveal" style="--delai: 90ms">
@@ -210,7 +225,7 @@ const donnees = {
   <section class="section section-teintee">
     <div class="rail-etroit">
       <div class="entete-section reveal">
-        <span class="surtitre">Questions sur l’accompagnement</span>
+        <span class="surtitre">Questions sur Elyo Direct</span>
         <h2>Ce que l’on me demande avant de démarrer</h2>
       </div>
 
@@ -302,13 +317,24 @@ const donnees = {
   .direct-canal p { color: rgba(255, 255, 255, 0.76); font-size: 0.93rem; }
   @media (min-width: 960px) { .direct-rail { grid-template-columns: 1.1fr 0.9fr; align-items: center; } }
 
-  /* Pour qui */
-  .pourqui-rail { display: grid; gap: clamp(1.5rem, 4vw, 3rem); align-items: start; }
-  .pourqui-liste { gap: 0.9rem; font-size: 1.02rem; }
-  @media (min-width: 900px) {
-    .pourqui-rail { grid-template-columns: 1.1fr 0.9fr; }
-    .pourqui-rail .entete-section { margin-bottom: 0; }
+  /* Pour qui / pas adapté */
+  .pourqui-cartes { display: grid; gap: 1.15rem; align-items: start; }
+  .pourqui-cartes h3 { margin-bottom: 1rem; font-size: 1.15rem; }
+  .pourqui-liste { gap: 0.8rem; font-size: 0.99rem; }
+  .pasadapte-liste { list-style: none; padding: 0; display: grid; color: var(--encre-2); }
+  .pasadapte-liste li { position: relative; padding-left: 1.6rem; }
+  .pasadapte-liste li::before {
+    content: '';
+    position: absolute;
+    left: 0.15rem;
+    top: 0.62em;
+    width: 0.75rem;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--encre-3);
   }
+  .pourqui-note { margin-top: 1.2rem; font-size: 0.9rem; color: var(--encre-3); }
+  @media (min-width: 900px) { .pourqui-cartes { grid-template-columns: 1fr 1fr; gap: 1.4rem; } }
 
   /* Tarif */
   .deux-temps { display: grid; gap: 0.9rem; align-items: stretch; }

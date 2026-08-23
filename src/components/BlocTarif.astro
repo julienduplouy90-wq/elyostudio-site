@@ -13,7 +13,7 @@ const { ville } = Astro.props;
 <div class="bloc-tarif">
   <div class="bloc-tarif-prix">
     <div>
-      <span class="bloc-tarif-libelle">L’accompagnement complet, {prix.duree}</span>
+      <span class="bloc-tarif-libelle">Elyo Direct — accompagnement complet, {prix.duree}</span>
       <p class="bloc-tarif-montant">{prix.total}</p>
       <p class="bloc-tarif-note">Tarif fondateur, réservé aux {prix.placesFondateur} premiers cabinets.</p>
     </div>
@@ -31,14 +31,14 @@ const { ville } = Astro.props;
       devis préalable. Le site n’est qu’une des briques. Ce que l’on met en place en six mois :
     </p>
     <ul class="liste-cochee">
-      {phases.map((p) => <li>{p.titre} — {p.periode.toLowerCase()}</li>)}
+      {phases.map((p) => <li>{p.titre} — {p.periode.replace(/^Étape \d+ — /u, '').toLowerCase()}</li>)}
     </ul>
     <p class="bloc-tarif-mensuel">
-      Et pendant toute la durée, Elyo Direct : une question, un blocage, une publication à valider —
-      vous me sollicitez, je réponds par message, vocal, vidéo ou visio. Sans compteur.
+      Et pendant toute la durée, un accès direct : une question, un blocage, une publication à
+      valider — vous me sollicitez, je réponds par message, vocal, vidéo ou visio. Sans compteur.
     </p>
     <a href="/offre" class="lien-fleche">
-      Voir l’offre en détail
+      Découvrir Elyo Direct en détail
       <Icone nom="fleche" classe="fleche" />
     </a>
   </div>

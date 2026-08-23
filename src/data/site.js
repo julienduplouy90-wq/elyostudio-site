@@ -26,6 +26,7 @@ export const etapes = accueil.etapes;
 export const phases = offre.phases;
 export const elyoDirect = offre.elyoDirect;
 export const pourQui = offre.pourQui;
+export const pasPour = offre.pasPour;
 export const engagements = offre.engagements;
 
 export const faqs = faq.faqs;
