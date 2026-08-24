@@ -25,14 +25,19 @@ const obtenez = [
 
   <section class="section-serree">
     <div class="rail rdv-rail">
-      <div class="agenda carte reveal">
-        <iframe
-          src={site.agenda}
-          title="Agenda de réservation ElyoStudio"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
-        <p class="agenda-secours">
+      <div class="agenda carte reveal" data-agenda data-src={site.agenda}>
+        <div class="agenda-attente">
+          <p class="agenda-attente-texte">
+            L’agenda de réservation est fourni par TidyCal, qui dépose ses propres cookies
+            techniques au chargement. Il ne s’affiche qu’avec votre accord.
+          </p>
+          <button type="button" class="btn btn-principal" data-agenda-charger>Afficher l’agenda</button>
+          <a href={site.agenda} target="_blank" rel="noopener" class="lien-fleche">
+            Ou réserver dans un nouvel onglet
+            <Icone nom="fleche" classe="fleche" />
+          </a>
+        </div>
+        <p class="agenda-secours" hidden>
           L’agenda ne s’affiche pas ?
           <a href={site.agenda} target="_blank" rel="noopener" class="lien-fleche">
             Ouvrir la page de réservation
@@ -78,6 +83,35 @@ const obtenez = [
   </section>
 </Base>
 
+
+<script>
+  // L'agenda TidyCal n'est chargé qu'après consentement (bandeau cookies, ou
+  // clic explicite ici). L'iframe est créée en JS : ses styles sont globaux.
+  const bloc = document.querySelector<HTMLElement>('[data-agenda]');
+  const charger = () => {
+    if (!bloc || bloc.querySelector('iframe')) return;
+    const cadre = document.createElement('iframe');
+    cadre.src = bloc.dataset.src ?? '';
+    cadre.title = 'Agenda de réservation ElyoStudio';
+    cadre.loading = 'lazy';
+    cadre.referrerPolicy = 'no-referrer-when-downgrade';
+    bloc.querySelector('.agenda-attente')?.remove();
+    bloc.prepend(cadre);
+    bloc.querySelector('.agenda-secours')?.removeAttribute('hidden');
+  };
+
+  if (localStorage.getItem('elyo-cookies') === 'oui') charger();
+  document.addEventListener('elyo-cookies', (e) => {
+    if ((e as CustomEvent).detail === 'oui') charger();
+  });
+  bloc?.querySelector('[data-agenda-charger]')?.addEventListener('click', () => {
+    localStorage.setItem('elyo-cookies', 'oui');
+    const bandeau = document.querySelector<HTMLElement>('[data-cookies]');
+    if (bandeau) bandeau.hidden = true;
+    charger();
+  });
+</script>
+
 <style>
   .marge-haut-petit { margin-top: 1rem; }
 
@@ -87,14 +121,17 @@ const obtenez = [
   .aside-texte { margin-block: 0.7rem 1.2rem; font-size: 0.95rem; }
 
   .agenda { padding: 0.75rem; border-radius: var(--r-xl); overflow: hidden; }
-  .agenda iframe {
-    width: 100%;
-    height: min(78vh, 46rem);
-    min-height: 34rem;
-    border: 0;
+  .agenda-attente {
+    display: grid;
+    justify-items: start;
+    gap: 1.1rem;
+    min-height: 24rem;
+    align-content: center;
+    padding: clamp(1.2rem, 4vw, 2.2rem);
     border-radius: var(--r-l);
     background: var(--creme-2);
   }
+  .agenda-attente-texte { max-width: 30rem; color: var(--encre-2); }
   .agenda-secours {
     padding: 0.9rem 0.6rem 0.3rem;
     font-size: 0.88rem;
@@ -107,5 +144,16 @@ const obtenez = [
 
   @media (min-width: 1000px) {
     .rdv-rail { grid-template-columns: 1.5fr 0.85fr; gap: 1.8rem; }
+  }
+</style>
+
+<style is:global>
+  .agenda iframe {
+    width: 100%;
+    height: min(78vh, 46rem);
+    min-height: 34rem;
+    border: 0;
+    border-radius: var(--r-l);
+    background: var(--creme-2);
   }
 </style>

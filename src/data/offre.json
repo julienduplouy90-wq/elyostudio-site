@@ -100,6 +100,11 @@
       "texte": "990 € pour les 6 mois, écrit ici, le même pour tout le monde. Pas de devis à rallonge, pas de surprise."
     },
     {
+      "icone": "coche",
+      "titre": "Remboursé si vous n’êtes pas convaincu",
+      "texte": "Si vous n’êtes pas convaincu après le rendez-vous de lancement, je vous rembourse intégralement. Sans condition, sans justification."
+    },
+    {
       "icone": "cadenas",
       "titre": "Tout vous appartient",
       "texte": "Nom de domaine, site, textes, fiche Google, comptes : tout est à votre nom, pendant et après l’accompagnement."

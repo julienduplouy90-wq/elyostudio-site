@@ -197,6 +197,10 @@ const donnees = {
         Les budgets publicitaires éventuels et les outils tiers (agenda en ligne, emailing,
         hébergement après la première année) restent à votre charge.
       </p>
+      <p class="tarif-mention reveal">
+        <strong>Garantie :</strong> pas convaincu après le rendez-vous de lancement ? Je vous
+        rembourse intégralement, sans condition.
+      </p>
     </div>
   </section>
 
@@ -205,9 +209,9 @@ const donnees = {
     <div class="rail">
       <div class="entete-section reveal">
         <span class="surtitre">Les garde-fous</span>
-        <h2>Quatre choses qui ne bougent pas</h2>
+        <h2>Cinq choses qui ne bougent pas</h2>
       </div>
-      <div class="grille grille-4 marge-haut-grand">
+      <div class="grille grille-3 marge-haut-grand">
         {
           engagements.map((e, i) => (
             <article class="carte carte-relief reveal" style={`--delai: ${i * 70}ms`}>
@@ -270,6 +274,12 @@ const donnees = {
   .phase-points { gap: 0.6rem; font-size: 0.95rem; }
   @media (min-width: 860px) {
     .phases { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    /* Nombre impair d'étapes : la dernière est centrée sous les deux colonnes. */
+    .phase:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+      width: calc(50% - 0.575rem);
+      margin-inline: auto;
+    }
   }
 
   /* Elyo Direct */
@@ -318,7 +328,8 @@ const donnees = {
   @media (min-width: 960px) { .direct-rail { grid-template-columns: 1.1fr 0.9fr; align-items: center; } }
 
   /* Pour qui / pas adapté */
-  .pourqui-cartes { display: grid; gap: 1.15rem; align-items: start; }
+  .pourqui-cartes { display: grid; gap: 1.15rem; align-items: stretch; }
+  .pourqui-cartes .carte { display: flex; flex-direction: column; }
   .pourqui-cartes h3 { margin-bottom: 1rem; font-size: 1.15rem; }
   .pourqui-liste { gap: 0.8rem; font-size: 0.99rem; }
   .pasadapte-liste { list-style: none; padding: 0; display: grid; color: var(--encre-2); }
@@ -333,7 +344,7 @@ const donnees = {
     border-radius: 2px;
     background: var(--encre-3);
   }
-  .pourqui-note { margin-top: 1.2rem; font-size: 0.9rem; color: var(--encre-3); }
+  .pourqui-note { margin-top: auto; padding-top: 1.2rem; font-size: 0.9rem; color: var(--encre-3); }
   @media (min-width: 900px) { .pourqui-cartes { grid-template-columns: 1fr 1fr; gap: 1.4rem; } }
 
   /* Tarif */

@@ -1,0 +1,54 @@
+---
+// Bandeau cookies. Le site ne dépose aucun traceur : le seul tiers concerné
+// est l'agenda de réservation (TidyCal), intégré sur la page Échange
+// découverte. Le choix est mémorisé en localStorage (« elyo-cookies »), et la
+// page rendez-vous écoute l'évènement « elyo-cookies » pour charger l'agenda.
+---
+
+<div class="cookies" data-cookies hidden role="dialog" aria-label="Gestion des cookies">
+  <p class="cookies-texte">
+    Ce site ne dépose <strong>aucun cookie publicitaire ni de mesure d’audience</strong>. Seul
+    l’agenda de réservation (TidyCal) utilise des cookies techniques pour s’afficher.
+    <a href="/confidentialite">En savoir plus</a>
+  </p>
+  <div class="cookies-actions">
+    <button type="button" class="btn btn-principal cookies-btn" data-cookies-accepter>Accepter</button>
+    <button type="button" class="btn btn-secondaire cookies-btn" data-cookies-refuser>Refuser</button>
+  </div>
+</div>
+
+<script>
+  const boite = document.querySelector<HTMLElement>('[data-cookies]');
+  const choisir = (valeur: string) => {
+    localStorage.setItem('elyo-cookies', valeur);
+    if (boite) boite.hidden = true;
+    document.dispatchEvent(new CustomEvent('elyo-cookies', { detail: valeur }));
+  };
+
+  if (boite && !localStorage.getItem('elyo-cookies')) boite.hidden = false;
+  boite?.querySelector('[data-cookies-accepter]')?.addEventListener('click', () => choisir('oui'));
+  boite?.querySelector('[data-cookies-refuser]')?.addEventListener('click', () => choisir('non'));
+</script>
+
+<style>
+  .cookies {
+    position: fixed;
+    left: 0.75rem;
+    bottom: 0.75rem;
+    z-index: 60;
+    max-width: 24rem;
+    padding: 1.1rem 1.2rem;
+    border: 1px solid var(--ligne);
+    border-radius: var(--r-l);
+    background: var(--blanc);
+    box-shadow: var(--ombre-l);
+  }
+  .cookies-texte { font-size: 0.88rem; line-height: 1.55; color: var(--encre-2); }
+  .cookies-texte a { color: var(--vert); }
+  .cookies-actions { display: flex; gap: 0.6rem; margin-top: 0.9rem; }
+  .cookies-btn { min-height: 2.5rem; padding-inline: 1.1rem; font-size: 0.88rem; }
+
+  @media (max-width: 480px) {
+    .cookies { right: 0.75rem; max-width: none; }
+  }
+</style>
