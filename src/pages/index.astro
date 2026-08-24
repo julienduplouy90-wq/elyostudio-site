@@ -101,24 +101,6 @@ const donnees = {
     </div>
   </section>
 
-  <!-- ===== BANDEAU ===== -->
-  <section class="chiffres">
-    <div class="rail chiffres-grille">
-      <div class="chiffre reveal">
-        <strong>Sans engagement</strong>
-        <span>l’abonnement mensuel s’arrête quand vous le décidez.</span>
-      </div>
-      <div class="chiffre reveal" style="--delai: 80ms">
-        <strong>Un site inclus</strong>
-        <span>compris dans l’activation, pas facturé à part.</span>
-      </div>
-      <div class="chiffre reveal" style="--delai: 160ms">
-        <strong>1 interlocuteur</strong>
-        <span>Julien, du premier échange au dernier suivi.</span>
-      </div>
-    </div>
-  </section>
-
   <!-- ===== PROBLÈME ===== -->
   <section class="section">
     <div class="rail">
@@ -505,18 +487,6 @@ const donnees = {
     .heros-rail { grid-template-columns: 1.05fr 0.95fr; align-items: center; gap: 3rem; }
   }
 
-  /* --- Bandeau --- */
-  .chiffres { border-block: 1px solid var(--ligne); background: var(--blanc); }
-  .chiffres-grille { display: grid; gap: 1.4rem; padding-block: clamp(1.8rem, 5vw, 2.6rem); }
-  .chiffre { display: grid; gap: 0.35rem; }
-  .chiffre strong {
-    font-family: var(--police-titre);
-    font-size: clamp(1.5rem, 4vw, 1.95rem);
-    font-weight: 600;
-    color: var(--vert);
-  }
-  .chiffre span { font-size: 0.93rem; color: var(--encre-2); }
-  @media (min-width: 760px) { .chiffres-grille { grid-template-columns: repeat(3, 1fr); gap: 2rem; } }
 
   /* --- Utilitaires --- */
   .espace-haut { margin-top: clamp(2rem, 5vw, 3rem); }
