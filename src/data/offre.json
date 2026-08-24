@@ -1,6 +1,6 @@
 {
   "activation": {
-    "surtitre": "L’activation — 690 €",
+    "surtitre": "L’activation — 690 €, une fois",
     "titre": "Nous installons les fondations",
     "texte": "Les premières semaines servent à poser tout ce qui manque pour qu’une personne qui vous cherche vous trouve, vous comprenne, et puisse prendre rendez-vous sans effort.",
     "points": [
@@ -49,7 +49,7 @@
   "mensuel": {
     "surtitre": "Puis 149 € par mois",
     "titre": "Nous faisons évoluer ce qui compte",
-    "texte": "Une fois les fondations posées, le travail continue mois après mois — une chose à la fois, celle qui fera le plus de différence à ce moment-là.",
+    "texte": "Une fois les fondations posées, le travail continue chaque mois — une chose à la fois, celle qui fera le plus de différence. Vous arrêtez quand vous voulez.",
     "points": [
       {
         "icone": "graphique",
@@ -148,6 +148,11 @@
       "icone": "etiquette",
       "titre": "Un tarif affiché",
       "texte": "690 € d’activation puis 149 € par mois, écrits ici, les mêmes pour tout le monde. Pas de devis à rallonge."
+    },
+    {
+      "icone": "horloge",
+      "titre": "Sans engagement de durée",
+      "texte": "L’abonnement mensuel s’arrête quand vous le décidez. Ce qui a été construit reste à vous."
     },
     {
       "icone": "cadenas",

@@ -18,7 +18,7 @@ import {
 } from '../data/site.js';
 
 const titre = 'Elyo Croissance : site et visibilité locale | ElyoStudio';
-const description = `Site professionnel, prise de rendez-vous, relances et référencement local pour thérapeutes et coachs. ${prix.activation} puis ${prix.mensuel}/mois.`;
+const description = `Site professionnel, prise de rendez-vous, relances et référencement local pour thérapeutes et coachs. ${prix.activation} puis ${prix.mensuel}/mois, sans engagement.`;
 
 const donnees = {
   '@context': 'https://schema.org',
@@ -54,7 +54,7 @@ const donnees = {
           price: '690',
           priceCurrency: 'EUR',
           url: `${site.url}/offre`,
-          description: `Activation ${prix.activation}, puis ${prix.mensuel} par mois pendant ${prix.duree}.`,
+          description: `Activation ${prix.activation}, puis ${prix.mensuel} par mois, sans engagement de durée.`,
         },
         {
           '@type': 'Offer',
@@ -140,7 +140,7 @@ const donnees = {
         <span class="surtitre">Le tarif</span>
         <h2>Ce que coûte la mise en place complète</h2>
         <p class="chapeau">
-          Une activation qui installe tout, puis un accompagnement mensuel pendant {prix.duree}.
+          Une activation qui installe tout, puis un accompagnement mensuel sans engagement de durée.
           Le site est compris dans l’activation : il n’y a pas de facture séparée.
         </p>
       </div>
@@ -158,13 +158,9 @@ const donnees = {
         <article class="temps reveal" style="--delai: 90ms">
           <span class="temps-libelle">Accompagnement</span>
           <p class="temps-prix">{prix.mensuel}<small> / mois</small></p>
-          <p class="temps-note">Pendant {prix.duree}. Suivi, améliorations, visibilité locale et actions de développement.</p>
+          <p class="temps-note">Suivi, améliorations, visibilité locale et actions de développement. Sans engagement de durée.</p>
         </article>
       </div>
-
-      <p class="tarif-somme reveal">
-        Soit <strong>{prix.total}</strong> pour la phase initiale complète.
-      </p>
 
       <div class="groupe-btn tarif-actions reveal">
         <a href={lienDemarrer} class="btn btn-principal btn-large">
@@ -178,17 +174,15 @@ const donnees = {
         Les outils tiers et les éventuels budgets publicitaires restent à votre charge.
       </p>
     </div>
-  </section>
-
-  <!-- Après les six mois -->
+  </section>  <!-- Les formules mensuelles -->
   <section class="section" id="suite">
     <div class="rail">
       <div class="entete-section reveal">
-        <span class="surtitre">Après les {prix.duree}</span>
-        <h2>Vous restez libre de choisir la suite</h2>
+        <span class="surtitre">L’abonnement mensuel</span>
+        <h2>Vous choisissez votre niveau d’accompagnement</h2>
         <p class="chapeau">
-          Rien ne se reconduit automatiquement. Vous pouvez tout garder et continuer seul, ou
-          choisir la formule qui correspond à ce dont vous avez besoin à ce moment-là.
+          Après l’activation, vous décidez du rythme. Vous changez de formule ou vous arrêtez
+          quand vous voulez, sans préavis — et vous gardez tout ce qui a été construit.
         </p>
       </div>
 
@@ -280,9 +274,9 @@ const donnees = {
     <div class="rail">
       <div class="entete-section reveal">
         <span class="surtitre">Les garde-fous</span>
-        <h2>Quatre choses qui ne bougent pas</h2>
+        <h2>Cinq choses qui ne bougent pas</h2>
       </div>
-      <div class="grille grille-4 marge-haut-grand">
+      <div class="grille grille-3 marge-haut-grand">
         {
           engagements.map((e, i) => (
             <article class="carte carte-relief reveal" style={`--delai: ${i * 70}ms`}>

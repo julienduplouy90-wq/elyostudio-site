@@ -4,20 +4,20 @@ import EnPage from '../components/EnPage.astro';
 import { site, prix } from '../data/site.js';
 
 const titre = 'Conditions générales de vente | ElyoStudio';
-const description = `CGV du Pack Visibilité : paiement, engagement de ${prix.duree}, délais, modifications, propriété du site et absence de garantie de résultat.`;
+const description = `CGV d’Elyo Croissance : activation, abonnement mensuel sans engagement, délais, propriété du site et absence de garantie de résultat.`;
 
 const articles = [
   {
     t: 'Objet',
-    d: `Les présentes conditions régissent la vente de l’accompagnement « Elyo Croissance » proposé par ${site.entreprise.raison} sous la marque ${site.nom}. Il comprend une phase d’activation (mise au clair de l’activité et du message, création ou refonte du site internet, prise de rendez-vous en ligne, formulaire de contact, confirmations et relances automatiques, fiche Google Business Profile et référencement local initial, installation des outils de mesure, vérifications techniques avant mise en ligne), puis un accompagnement mensuel pendant ${prix.duree} (suivi des demandes, améliorations progressives du site et des messages, développement des avis et de la visibilité locale, actions de développement, accès aux permanences et ateliers collectifs, ressources et modèles).`,
+    d: `Les présentes conditions régissent la vente de l’accompagnement « Elyo Croissance » proposé par ${site.entreprise.raison} sous la marque ${site.nom}. Il comprend une phase d’activation (mise au clair de l’activité et du message, création ou refonte du site internet, prise de rendez-vous en ligne, formulaire de contact, confirmations et relances automatiques, fiche Google Business Profile et référencement local initial, installation des outils de mesure, vérifications techniques avant mise en ligne), puis un accompagnement mensuel sans engagement de durée (suivi des demandes, améliorations progressives du site et des messages, développement des avis et de la visibilité locale, actions de développement, accès aux permanences et ateliers collectifs, ressources et modèles).`,
   },
   {
     t: 'Prix et paiement',
-    d: `Le prix comprend une activation de ${prix.activation}, payable à la commande, puis un abonnement mensuel de ${prix.mensuel} pendant ${prix.duree}, soit ${prix.total} pour la phase initiale complète. Ces montants sont indiqués sur le site au moment de la commande. À l’issue des ${prix.duree}, la poursuite éventuelle fait l’objet d’un abonnement distinct (Elyo Socle ${prix.socle} par mois, Elyo Croissance ${prix.croissance} par mois ou Elyo Direct ${prix.direct} par mois), souscrit expressément par le client. Les moyens de paiement acceptés sont indiqués sur la page de paiement ou la facture. TVA non applicable, article 293 B du Code général des impôts.`,
+    d: `Le prix comprend une activation de ${prix.activation}, payable à la commande, puis un abonnement mensuel souscrit sans durée minimale. Le client choisit sa formule : Elyo Socle ${prix.socle} par mois, Elyo Croissance ${prix.croissance} par mois ou Elyo Direct ${prix.direct} par mois. Il peut en changer ou y mettre fin à tout moment, la résiliation prenant effet à la fin de la période mensuelle en cours. Ces montants sont indiqués sur le site au moment de la commande. Les moyens de paiement acceptés sont indiqués sur la page de paiement ou la facture. TVA non applicable, article 293 B du Code général des impôts.`,
   },
   {
-    t: 'Durée de l’accompagnement',
-    d: `L’accompagnement est conclu pour une durée de ${prix.duree} à compter de la date de démarrage. Il prend fin de plein droit à l’issue de cette période, sans reconduction.`,
+    t: 'Durée et résiliation de l’abonnement',
+    d: `L’abonnement mensuel est conclu sans durée minimale. Il se renouvelle par périodes d’un mois et peut être résilié à tout moment par simple email, la résiliation prenant effet à la fin de la période mensuelle en cours. Aucune somme n’est due au-delà. L’activation, déjà réalisée, reste acquise.`,
   },
   {
     t: 'Éléments à fournir par le client',
@@ -52,8 +52,8 @@ const articles = [
     d: 'En cas de manquement de l’une des parties à ses obligations, l’autre partie peut résilier la prestation après mise en demeure restée sans effet pendant quinze jours. Les sommes correspondant au travail déjà réalisé et aux échéances échues restent acquises.',
   },
   {
-    t: 'Absence de reconduction automatique',
-    d: 'À l’issue des six mois, l’accompagnement ne se reconduit pas automatiquement. La poursuite éventuelle, sous la forme d’un abonnement Elyo Socle, Elyo Croissance ou Elyo Direct, fait l’objet d’un accord explicite et distinct entre les parties. Le nom de domaine, le site, les textes, les comptes Google, Stripe et calendrier ainsi que les données du client lui appartiennent et lui sont transférables à tout moment.',
+    t: 'Propriété et transfert à l’arrêt',
+    d: 'Le client conserve tout ce qui a été construit, quelle que soit la date d’arrêt de l’abonnement. Le nom de domaine, le site, les textes, les comptes Google, Stripe et calendrier ainsi que les données du client lui appartiennent et lui sont transférables à tout moment.',
   },
   {
     t: 'Données personnelles',

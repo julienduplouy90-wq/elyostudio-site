@@ -54,7 +54,7 @@ const donnees = {
         '@type': 'Offer',
         price: '690',
         priceCurrency: 'EUR',
-        description: `${prix.activation} d’activation, puis ${prix.mensuel} par mois pendant ${prix.duree}.`,
+        description: `${prix.activation} d’activation, puis ${prix.mensuel} par mois, sans engagement de durée.`,
         url: `${site.url}/offre`,
       },
     },
@@ -93,12 +93,6 @@ const donnees = {
           <a href="/methode" class="btn btn-clair btn-large">Voir comment ça fonctionne</a>
         </div>
 
-        <ul class="heros-preuves reveal" style="--delai: 340ms">
-          <li><Icone nom="horloge" /> Accompagné pendant {prix.duree}</li>
-          <li><Icone nom="etiquette" /> Tarif affiché, sans devis</li>
-          <li><Icone nom="cadenas" /> Le site est compris</li>
-          <li><Icone nom="bouclier" /> Site et comptes à votre nom</li>
-        </ul>
       </div>
 
       <div class="heros-visuel reveal" style="--delai: 200ms">
@@ -111,8 +105,8 @@ const donnees = {
   <section class="chiffres">
     <div class="rail chiffres-grille">
       <div class="chiffre reveal">
-        <strong>{prix.duree}</strong>
-        <span>d’accompagnement complet, du diagnostic au suivi des résultats.</span>
+        <strong>Sans engagement</strong>
+        <span>l’abonnement mensuel s’arrête quand vous le décidez.</span>
       </div>
       <div class="chiffre reveal" style="--delai: 80ms">
         <strong>Un site inclus</strong>
@@ -260,8 +254,8 @@ const donnees = {
           <span class="pastille"><Icone nom="document" /></span>
           <h3>Pas un consultant qui recommande sans faire</h3>
           <p>
-            Les recommandations sont mises en place, pour de vrai. Et pendant {prix.duree}, on
-            ajuste selon ce que disent les résultats — pas selon le plan initial.
+            Les recommandations sont mises en place, pour de vrai. Et chaque mois, on ajuste selon ce
+            que disent les résultats — pas selon le plan initial.
           </p>
         </article>
       </div>
@@ -273,7 +267,7 @@ const donnees = {
     <div class="rail">
       <div class="entete-section reveal">
         <span class="surtitre">Comment ça se passe</span>
-        <h2>Du premier jour au sixième mois, ce que je fais avec vous</h2>
+        <h2>Du premier jour au rythme de croisière, ce que je fais avec vous</h2>
       </div>
 
       <ol class="etapes espace-haut">
@@ -336,10 +330,9 @@ const donnees = {
             <div>
               <span class="tarif-libelle">Chaque mois</span>
               <p class="tarif-prix">{prix.mensuel}<small> / mois</small></p>
-              <p class="tarif-note">Pendant {prix.duree}.</p>
+              <p class="tarif-note">Tant que vous le souhaitez.</p>
             </div>
           </div>
-          <p class="tarif-somme">Soit <strong>{prix.total}</strong> pour la phase initiale complète.</p>
           <ul class="liste-cochee">
             <li>Votre activité et votre message mis au clair</li>
             <li>Site professionnel créé ou refondu, rapide et adapté au mobile</li>
@@ -360,17 +353,15 @@ const donnees = {
         </article>
       </div>
     </div>
-  </section>
-
-  <!-- ===== APRÈS LES SIX MOIS ===== -->
+  </section>  <!-- ===== LES FORMULES MENSUELLES ===== -->
   <section class="section section-teintee" id="suite">
     <div class="rail">
       <div class="entete-section reveal">
-        <span class="surtitre">Après les {prix.duree}</span>
-        <h2>Vous restez libre de choisir la suite</h2>
+        <span class="surtitre">L’abonnement mensuel</span>
+        <h2>Vous choisissez votre niveau d’accompagnement</h2>
         <p class="chapeau">
-          Rien ne se reconduit automatiquement. Vous gardez tout ce qui a été construit, et vous
-          décidez si vous continuez — et comment.
+          Après l’activation, vous décidez du rythme. On change de formule ou on s’arrête quand
+          vous voulez — et vous gardez tout ce qui a été construit.
         </p>
       </div>
 
@@ -426,7 +417,7 @@ const donnees = {
         <p>
           Je démarre cet accompagnement avec mes premiers cabinets. Je ne vous promets pas un
           agenda plein en 90 jours : je vous promets des fondations solides, un travail sérieux,
-          et une présence réelle pendant {prix.duree}.
+          et une présence réelle, mois après mois.
         </p>
         <a href="/a-propos" class="lien-fleche">
           En savoir plus sur ma façon de travailler
@@ -509,18 +500,6 @@ const donnees = {
     color: rgba(255, 255, 255, 0.82);
   }
   .heros-texte .groupe-btn { margin-top: 2rem; }
-  .heros-preuves {
-    list-style: none;
-    padding: 0;
-    margin-top: 2rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem 1.4rem;
-    font-size: 0.88rem;
-    color: rgba(255, 255, 255, 0.78);
-  }
-  .heros-preuves li { display: inline-flex; align-items: center; gap: 0.45rem; }
-  .heros-preuves :global(svg) { width: 1.05rem; height: 1.05rem; color: var(--ambre); }
 
   @media (min-width: 1024px) {
     .heros-rail { grid-template-columns: 1.05fr 0.95fr; align-items: center; gap: 3rem; }
@@ -740,9 +719,7 @@ const donnees = {
   .tarif-prix small { font-size: 1rem; font-weight: 500; color: var(--encre-3); }
   .tarif-somme { margin-bottom: 1.4rem; font-size: 1rem; color: var(--encre-2); }
   .tarif-somme strong { color: var(--encre); font-family: var(--police-titre); font-size: 1.15rem; }
-  @media (min-width: 640px) { .tarif-duo { grid-template-columns: 1fr auto 1fr; gap: 1.2rem; } }
-
-  /* --- Formules après six mois --- */
+  @media (min-width: 640px) { .tarif-duo { grid-template-columns: 1fr auto 1fr; gap: 1.2rem; } }  /* --- Formules mensuelles --- */
   .formules { display: grid; gap: 1.1rem; align-items: stretch; }
   .formule { position: relative; display: flex; flex-direction: column; }
   .formule-vedette { border-color: rgba(192, 102, 60, 0.35); box-shadow: var(--ombre-l); }

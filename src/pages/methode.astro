@@ -5,9 +5,9 @@ import Icone from '../components/Icone.astro';
 import BandeCta from '../components/BandeCta.astro';
 import { lienDemarrer } from '../data/site.js';
 
-const titre = 'La méthode : comment se déroulent les 6 mois | ElyoStudio';
+const titre = 'La méthode : comment ça se passe | ElyoStudio';
 const description =
-  'Démarrage, rendez-vous de lancement, mise en place du système, puis six mois d’accompagnement à la demande. Sans jargon, sans réunion inutile.';
+  'Démarrage, rendez-vous de lancement, mise en place du système, puis un accompagnement mensuel. Sans jargon, sans réunion inutile.';
 
 const detail = [
   {
@@ -25,7 +25,7 @@ const detail = [
     duree: 'Semaine 1',
     icone: 'video',
     texte:
-      'Une visio pour poser le diagnostic de votre cabinet : d’où viennent vos rendez-vous, ce qui freine, votre positionnement, vos offres et vos tarifs. Vous en sortez avec le plan des six mois, que je vous remets par écrit.',
+      'Une visio pour poser le diagnostic de votre cabinet : d’où viennent vos rendez-vous, ce qui freine, votre positionnement, vos offres et vos tarifs. Vous en sortez avec le plan de mise en place, que je vous remets par écrit.',
     points: ['Diagnostic de l’activité', 'Positionnement et offres clarifiés', 'Une feuille de route écrite, que vous gardez'],
   },
   {
@@ -39,8 +39,8 @@ const detail = [
   },
   {
     n: '04',
-    titre: 'Six mois d’accompagnement',
-    duree: 'Mois 1 à 6',
+    titre: 'Puis on fait évoluer',
+    duree: 'Chaque mois',
     icone: 'bouclier',
     texte:
       'Acquisition mise en route, publicité locale si pertinente, suivi des résultats, optimisation continue. Et dès le premier jour : une question, un blocage, une publication à valider — vous me sollicitez, je réponds par le canal le plus efficace.',
@@ -59,14 +59,14 @@ const cotéMoi = [
   'Le diagnostic, le positionnement, les offres et les tarifs',
   'Le site, la prise de rendez-vous, la fiche Google, le référencement local',
   'Le plan d’acquisition, le suivi des résultats, les ajustements',
-  'Les réponses, les retours et les décisions, tout au long des six mois',
+  'Les réponses, les retours et les décisions, mois après mois',
 ];
 ---
 
 <Base titre={titre} description={description} filAriane={[{ nom: "La méthode", lien: "/methode" }]}>
   <EnPage
     surtitre="La méthode"
-    titre="Six mois, quatre étapes, et quelqu’un à vos côtés"
+    titre="Quatre étapes, et quelqu’un à vos côtés"
     chapeau="Vous n’avez pas à comprendre l’hébergement, le référencement ou les campagnes. Je pose le diagnostic, je construis, vous validez — et vous restez acteur de votre développement, guidé à chaque étape."
   >
     <div class="groupe-btn marge-haut">
@@ -109,7 +109,7 @@ const cotéMoi = [
     <div class="rail">
       <div class="entete-section reveal">
         <span class="surtitre">Qui fait quoi</span>
-        <h2>Qui fait quoi pendant les six mois</h2>
+        <h2>Qui fait quoi</h2>
       </div>
 
       <div class="deux-colonnes marge-haut-grand">

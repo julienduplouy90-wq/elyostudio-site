@@ -2,11 +2,11 @@
   "faqs": [
     {
       "q": "Le site est-il bien inclus ?",
-      "a": "Oui. La création ou la refonte de votre site fait partie de l’activation, au même titre que la prise de rendez-vous, les formulaires et la fiche Google. Il n’y a pas de facture séparée pour le site : il est une pièce du système, pas un produit à part."
+      "a": "Oui. La création ou la refonte de votre site fait partie de l’activation, au même titre que la prise de rendez-vous, les formulaires et la fiche Google. Il n’y a pas de facture séparée pour le site : c’est une pièce du système, pas un produit à part."
     },
     {
-      "q": "Que se passe-t-il après les six mois ?",
-      "a": "Vous choisissez. Vous pouvez vous arrêter là et garder tout ce qui a été construit, conserver uniquement le nécessaire technique avec Elyo Socle (49 €/mois), continuer à développer avec Elyo Croissance (149 €/mois), ou passer à Elyo Direct (249 €/mois) si vous voulez un accompagnement plus personnel. Rien ne se reconduit sans votre accord : nous en parlons avant la fin des six mois."
+      "q": "Suis-je engagé sur une durée ?",
+      "a": "Non. L’activation se paie une fois, puis l’abonnement mensuel s’arrête quand vous le décidez. Vous n’avez rien à justifier et vous gardez tout ce qui a été construit."
     },
     {
       "q": "Le site et les comptes m’appartiennent-ils ?",
@@ -30,7 +30,7 @@
     },
     {
       "q": "Combien de temps dois-je y consacrer ?",
-      "a": "Quelques heures les premières semaines — un questionnaire d’accueil, vos validations, vos photos, des relectures — puis beaucoup moins. Je construis et je guide, vous validez. L’essentiel se fait en asynchrone, pour se caler dans votre agenda entre deux séances."
+      "a": "Quelques heures au moment de l’activation — un questionnaire d’accueil, vos validations, vos photos, des relectures — puis beaucoup moins. Je construis et je guide, vous validez. L’essentiel se fait en asynchrone, pour se caler dans votre agenda entre deux séances."
     }
   ],
   "faqsOffre": [
@@ -39,7 +39,7 @@
       "a": "La mise au clair de votre activité et de votre message, la création ou la refonte de votre site, la prise de rendez-vous en ligne, un formulaire de contact qualifiant, les confirmations et relances automatiques, votre fiche Google Business Profile et le référencement local initial, les outils de mesure des demandes, et l’ensemble des vérifications techniques avant la mise en ligne."
     },
     {
-      "q": "Et les 149 € par mois, ils servent à quoi ?",
+      "q": "Et l’abonnement mensuel, il sert à quoi ?",
       "a": "À faire vivre le système : suivi des demandes et des rendez-vous, amélioration progressive du site et des messages, développement des avis et de la visibilité locale, une action de développement ciblée à la fois, l’accès aux permanences et ateliers collectifs, et des ressources concrètes pour avancer sans vous disperser."
     },
     {
@@ -47,8 +47,8 @@
       "a": "Inclus dans l’activation. Création ou refonte, textes, prise de rendez-vous, mise en ligne : tout est compris. Le site est une composante du système — ce qui compte, c’est qu’il amène des demandes."
     },
     {
-      "q": "Que se passe-t-il après les six mois ?",
-      "a": "Vous restez libre : arrêter et tout garder, conserver le nécessaire technique avec Elyo Socle (49 €/mois), continuer à développer avec Elyo Croissance (149 €/mois), ou choisir Elyo Direct (249 €/mois) pour un accompagnement plus personnel. Rien ne se reconduit automatiquement."
+      "q": "Suis-je engagé sur une durée ?",
+      "a": "Non. L’activation se paie une fois, puis vous choisissez votre formule mensuelle — Elyo Socle, Elyo Croissance ou Elyo Direct. Vous changez de formule ou vous arrêtez quand vous voulez, sans préavis ni justification."
     },
     {
       "q": "Qu’est-ce qui n’est pas inclus ?",
@@ -59,8 +59,8 @@
       "a": "Oui. Domaine, site, comptes Google, Stripe, calendrier, données : tout est à votre nom et transférable. Vous ne dépendez de moi que tant que vous le souhaitez."
     },
     {
-      "q": "Puis-je arrêter en cours de route ?",
-      "a": "L’accompagnement est pensé sur six mois, parce que la visibilité locale se construit sur cette durée. Si vous devez arrêter, nous en parlons ; ce qui a été construit — site, fiche Google, contenus, comptes — reste à vous."
+      "q": "Puis-je changer de formule en cours de route ?",
+      "a": "Oui, dans les deux sens et à tout moment. On commence souvent par Elyo Croissance, puis certains passent à Elyo Socle une fois le rythme installé, d’autres à Elyo Direct quand ils ont besoin de plus d’échanges."
     },
     {
       "q": "En quoi est-ce différent d’une agence web ?",

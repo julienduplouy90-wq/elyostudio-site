@@ -45,7 +45,7 @@
     {
       "icone": "horloge",
       "titre": "Un suivi des résultats",
-      "texte": "Ce qui amène des rendez-vous, ce qui n’en amène pas. Je mesure, j’ajuste, je garde ce qui fonctionne — pendant 6 mois."
+      "texte": "Ce qui amène des rendez-vous, ce qui n’en amène pas. Je mesure, j’ajuste, je garde ce qui fonctionne — mois après mois."
     }
   ],
   "etapes": [
@@ -57,7 +57,7 @@
     {
       "n": "02",
       "titre": "Le rendez-vous de lancement",
-      "texte": "Une visio où je pose avec vous le diagnostic de votre cabinet, votre positionnement et le plan des 6 mois. Vous repartez avec une feuille de route écrite."
+      "texte": "Une visio où je pose avec vous le diagnostic de votre activité, votre positionnement et le plan de mise en place. Vous repartez avec une feuille de route écrite."
     },
     {
       "n": "03",
@@ -66,8 +66,8 @@
     },
     {
       "n": "04",
-      "titre": "Six mois d’accès direct",
-      "texte": "Vous me sollicitez quand vous en avez besoin : message, vocal, vidéo, visio si nécessaire. Je suis les résultats et j’ajuste avec vous, mois après mois."
+      "titre": "Puis on fait évoluer",
+      "texte": "Chaque mois, je suis les résultats et j’ajuste avec vous : le site, les messages, la visibilité locale. Vous me sollicitez quand vous en avez besoin."
     }
   ]
 }

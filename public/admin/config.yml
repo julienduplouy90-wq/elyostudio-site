@@ -66,8 +66,6 @@ collections:
             fields:
               - { name: activation, label: Activation (une fois), widget: string, hint: 'Par exemple : 690 €' }
               - { name: mensuel, label: Mensuel pendant l’accompagnement, widget: string, hint: 'Par exemple : 149 €' }
-              - { name: duree, label: Durée, widget: string, hint: 'Par exemple : 6 mois' }
-              - { name: total, label: Total de la phase initiale, widget: string, hint: 'Activation + mensuel × durée. Par exemple : 1 584 €' }
               - { name: socle, label: 'Elyo Socle (par mois)', widget: string }
               - { name: croissance, label: 'Elyo Croissance après 6 mois (par mois)', widget: string }
               - { name: direct, label: 'Elyo Direct (par mois)', widget: string }

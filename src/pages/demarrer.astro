@@ -5,7 +5,7 @@ import Icone from '../components/Icone.astro';
 import { site, prix } from '../data/site.js';
 
 const titre = `Démarrer Elyo Croissance | ElyoStudio`;
-const description = `Démarrez Elyo Croissance : ${prix.activation} d’activation puis ${prix.mensuel} par mois pendant ${prix.duree}.`;
+const description = `Démarrez Elyo Croissance : ${prix.activation} d’activation puis ${prix.mensuel} par mois, sans engagement de durée.`;
 
 // Tant que la page de paiement n'est pas renseignée dans les réglages, le
 // bouton oriente vers l'échange découverte — personne ne tombe sur un lien mort.
@@ -21,11 +21,11 @@ const apres = [
   {
     n: '02',
     titre: 'Le rendez-vous de lancement',
-    texte: 'Une visio où je pose avec vous le diagnostic de votre cabinet, votre positionnement et le plan des six mois. Vous repartez avec une feuille de route écrite.',
+    texte: 'Une visio où je pose avec vous le diagnostic de votre activité, votre positionnement et le plan de mise en place. Vous repartez avec une feuille de route écrite.',
   },
   {
     n: '03',
-    titre: 'La mise en place, puis six mois ensemble',
+    titre: 'La mise en place, puis le suivi',
     texte: 'Offres, site, prise de rendez-vous, fiche Google, référencement local : je construis, vous validez. Et dès le premier jour, l’accès direct est ouvert.',
   },
 ];
@@ -41,9 +41,9 @@ const apres = [
   <section class="section-serree">
     <div class="rail demarrer-rail">
       <article class="carte demarrer-carte reveal">
-        <span class="demarrer-libelle">Elyo Croissance — activation puis {prix.duree}</span>
+        <span class="demarrer-libelle">Elyo Croissance — activation puis abonnement mensuel</span>
         <p class="demarrer-prix">{prix.activation}<span class="demarrer-suffixe"> puis {prix.mensuel} / mois</span></p>
-        <p class="demarrer-note">Pendant {prix.duree}, soit {prix.total} pour la phase initiale complète.</p>
+        <p class="demarrer-note">Sans engagement de durée : vous arrêtez quand vous le décidez.</p>
 
         <ul class="liste-cochee demarrer-liste">
           <li>Votre activité et votre message mis au clair</li>

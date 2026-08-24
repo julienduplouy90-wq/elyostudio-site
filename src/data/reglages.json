@@ -41,8 +41,6 @@
   "prix": {
     "activation": "690 €",
     "mensuel": "149 €",
-    "duree": "6 mois",
-    "total": "1 584 €",
     "socle": "49 €",
     "croissance": "149 €",
     "direct": "249 €"
