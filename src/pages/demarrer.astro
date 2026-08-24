@@ -4,8 +4,8 @@ import EnPage from '../components/EnPage.astro';
 import Icone from '../components/Icone.astro';
 import { site, prix } from '../data/site.js';
 
-const titre = `Démarrer Elyo Direct — ${prix.total} | ElyoStudio`;
-const description = `Démarrez Elyo Direct : ${prix.total} pour ${prix.duree}, ou ${prix.paiement3x} sans frais. Tarif fondateur réservé aux ${prix.placesFondateur} premiers cabinets.`;
+const titre = `Démarrer Elyo Croissance | ElyoStudio`;
+const description = `Démarrez Elyo Croissance : ${prix.activation} d’activation puis ${prix.mensuel} par mois pendant ${prix.duree}. Tarif fondateur.`;
 
 // Tant que la page de paiement n'est pas renseignée dans les réglages, le
 // bouton oriente vers l'échange découverte — personne ne tombe sur un lien mort.
@@ -41,21 +41,21 @@ const apres = [
   <section class="section-serree">
     <div class="rail demarrer-rail">
       <article class="carte demarrer-carte reveal">
-        <span class="demarrer-ruban">Tarif fondateur — {prix.placesFondateur} places</span>
-        <span class="demarrer-libelle">Elyo Direct — accompagnement complet, {prix.duree}</span>
-        <p class="demarrer-prix">{prix.total}</p>
-        <p class="demarrer-note">Comptant, ou {prix.paiement3x} sans frais. Le même montant.</p>
+        <span class="demarrer-ruban">Tarif fondateur</span>
+        <span class="demarrer-libelle">Elyo Croissance — activation puis {prix.duree}</span>
+        <p class="demarrer-prix">{prix.activation}<span class="demarrer-suffixe"> puis {prix.mensuel} / mois</span></p>
+        <p class="demarrer-note">Pendant {prix.duree}, soit {prix.total} pour la phase initiale complète.</p>
 
         <ul class="liste-cochee demarrer-liste">
-          <li>Diagnostic, positionnement, offres et tarifs</li>
-          <li>Site créé ou optimisé, prise de rendez-vous en ligne</li>
-          <li>Fiche Google, référencement local, stratégie de contenu</li>
-          <li>Acquisition, suivi des résultats, optimisation continue</li>
-          <li>Accès direct pendant toute la durée, sans compteur</li>
+          <li>Votre activité et votre message mis au clair</li>
+          <li>Site professionnel créé ou refondu, prise de rendez-vous en ligne</li>
+          <li>Formulaire qualifiant, confirmations et relances automatiques</li>
+          <li>Fiche Google, référencement local et mesure des demandes</li>
+          <li>Puis chaque mois : suivi, améliorations et actions de développement</li>
         </ul>
 
         <a href={lienBouton} class="btn btn-principal btn-large demarrer-btn" target={paiementActif ? '_blank' : undefined} rel={paiementActif ? 'noopener' : undefined}>
-          {paiementActif ? `Payer et démarrer — ${prix.total}` : 'Démarrer par un échange découverte'}
+          {paiementActif ? `Payer l’activation — ${prix.activation}` : 'Demander un échange découverte'}
           <Icone nom="fleche" classe="fleche" />
         </a>
 
@@ -70,7 +70,7 @@ const apres = [
           )
         }
         <p class="demarrer-mention">
-          Les budgets publicitaires éventuels et les outils tiers restent à votre charge.
+          Offre fondateur limitée aux premiers clients accompagnés. Les outils tiers et les éventuels budgets publicitaires restent à votre charge.
         </p>
         <p class="demarrer-mention">
           <strong>Garantie :</strong> pas convaincu après le rendez-vous de lancement ? Je vous
@@ -138,8 +138,8 @@ const apres = [
     font-size: clamp(2.6rem, 8vw, 3.6rem);
     font-weight: 600;
     line-height: 1;
-  }
-  .demarrer-note { margin-top: 0.7rem; color: var(--encre-2); font-size: 0.95rem; }
+  }  .demarrer-note { margin-top: 0.7rem; color: var(--encre-2); font-size: 0.95rem; }
+  .demarrer-suffixe { font-size: 1.05rem; font-weight: 500; color: var(--encre-3); }
   .demarrer-liste { margin-top: 1.4rem; padding-top: 1.4rem; border-top: 1px solid var(--ligne); }
   .demarrer-btn { margin-top: 1.6rem; }
   .demarrer-mention { margin-top: 0.9rem; font-size: 0.86rem; color: var(--encre-3); }

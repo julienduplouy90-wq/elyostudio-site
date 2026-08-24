@@ -64,11 +64,14 @@ collections:
             label: Tarifs
             widget: object
             fields:
-              - { name: total, label: Prix total, widget: string, hint: 'Par exemple : 990 €' }
-              - { name: paiement3x, label: En trois fois, widget: string, hint: 'Par exemple : 3 × 330 €' }
+              - { name: activation, label: Activation (une fois), widget: string, hint: 'Par exemple : 690 €' }
+              - { name: mensuel, label: Mensuel pendant l’accompagnement, widget: string, hint: 'Par exemple : 149 €' }
               - { name: duree, label: Durée, widget: string, hint: 'Par exemple : 6 mois' }
+              - { name: total, label: Total de la phase initiale, widget: string, hint: 'Activation + mensuel × durée. Par exemple : 1 584 €' }
               - { name: placesFondateur, label: Nombre de places au tarif fondateur, widget: string }
-              - { name: tarifSuivant, label: Tarif après la phase de lancement, widget: string, hint: 'Par exemple : 1 490 €' }
+              - { name: socle, label: 'Elyo Socle (par mois)', widget: string }
+              - { name: croissance, label: 'Elyo Croissance après 6 mois (par mois)', widget: string }
+              - { name: direct, label: 'Elyo Direct (par mois)', widget: string }
           # Menu et pages villes : via Claude uniquement.
           - { name: navigation, widget: hidden }
           - { name: villes, widget: hidden }
@@ -76,7 +79,7 @@ collections:
   # --------------------------------------------------------------------- FAQ
   - name: faq
     label: '2 · Questions fréquentes'
-    description: Les questions-réponses de la page d’accueil et de la page Elyo Direct.
+    description: Les questions-réponses de la page d’accueil et de la page Elyo Croissance.
     files:
       - name: faq
         label: Questions fréquentes
@@ -91,7 +94,7 @@ collections:
               - { name: q, label: Question, widget: string }
               - { name: a, label: Réponse, widget: text }
           - name: faqsOffre
-            label: FAQ de la page Elyo Direct
+            label: FAQ de la page Elyo Croissance
             label_singular: question
             widget: list
             summary: '{{fields.q}}'

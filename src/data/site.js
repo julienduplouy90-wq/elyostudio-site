@@ -6,7 +6,7 @@
 //
 //   reglages.json     coordonnées, tarifs, navigation
 //   accueil.json      constat, ce qui est mis en place, étapes
-//   offre.json        les quatre phases, Elyo Direct, pour qui, engagements
+//   offre.json        activation, suivi mensuel, formules, pour qui, engagements
 //   faq.json          questions fréquentes (accueil et page offre)
 
 import reglages from './reglages.json';
@@ -23,8 +23,10 @@ export const problemes = accueil.problemes;
 export const solutions = accueil.solutions;
 export const etapes = accueil.etapes;
 
-export const phases = offre.phases;
-export const elyoDirect = offre.elyoDirect;
+export const activation = offre.activation;
+export const mensuel = offre.mensuel;
+export const formules = offre.formules;
+export const nonInclus = offre.nonInclus;
 export const pourQui = offre.pourQui;
 export const pasPour = offre.pasPour;
 export const engagements = offre.engagements;

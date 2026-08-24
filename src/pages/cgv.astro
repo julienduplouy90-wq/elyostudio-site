@@ -9,11 +9,11 @@ const description = `CGV du Pack Visibilité : paiement, engagement de ${prix.du
 const articles = [
   {
     t: 'Objet',
-    d: `Les présentes conditions régissent la vente de l’accompagnement « Elyo Direct » proposé par ${site.entreprise.raison} sous la marque ${site.nom} : diagnostic de l’activité, positionnement, clarification de l’offre et des tarifs, stratégie marketing, création ou optimisation du site internet, optimisation de la conversion, fiche Google Business Profile, référencement local, stratégie de contenu, acquisition, suivi des résultats et optimisation continue pendant ${prix.duree}, ainsi que l’accès direct (accompagnement à la demande) pendant cette durée.`,
+    d: `Les présentes conditions régissent la vente de l’accompagnement « Elyo Croissance » proposé par ${site.entreprise.raison} sous la marque ${site.nom}. Il comprend une phase d’activation (mise au clair de l’activité et du message, création ou refonte du site internet, prise de rendez-vous en ligne, formulaire de contact, confirmations et relances automatiques, fiche Google Business Profile et référencement local initial, installation des outils de mesure, vérifications techniques avant mise en ligne), puis un accompagnement mensuel pendant ${prix.duree} (suivi des demandes, améliorations progressives du site et des messages, développement des avis et de la visibilité locale, actions de développement, accès aux permanences et ateliers collectifs, ressources et modèles).`,
   },
   {
     t: 'Prix et paiement',
-    d: `Le prix total de l’accompagnement est de ${prix.total}, payable comptant à la signature, ou en trois échéances mensuelles de 330 € sans frais, la première à la signature. Ce prix correspond au tarif de lancement, réservé aux ${prix.placesFondateur} premiers clients ; il est indiqué sur le site au moment de la commande. Les moyens de paiement acceptés sont indiqués sur la page de paiement ou la facture. TVA non applicable, article 293 B du Code général des impôts.`,
+    d: `Le prix comprend une activation de ${prix.activation}, payable à la commande, puis un abonnement mensuel de ${prix.mensuel} pendant ${prix.duree}, soit ${prix.total} pour la phase initiale complète. Ces montants correspondent au tarif fondateur, réservé aux premiers clients accompagnés ; ils sont indiqués sur le site au moment de la commande. À l’issue des ${prix.duree}, la poursuite éventuelle fait l’objet d’un abonnement distinct (Elyo Socle ${prix.socle} par mois, Elyo Croissance ${prix.croissance} par mois ou Elyo Direct ${prix.direct} par mois), souscrit expressément par le client. Les moyens de paiement acceptés sont indiqués sur la page de paiement ou la facture. TVA non applicable, article 293 B du Code général des impôts.`,
   },
   {
     t: 'Durée de l’accompagnement',
@@ -28,8 +28,8 @@ const articles = [
     d: `La mise en ligne du site intervient dans les premières semaines de l’accompagnement, à compter de la réception de l’ensemble des éléments nécessaires. Ce délai est indicatif et dépend de la disponibilité du client.`,
   },
   {
-    t: 'Accès direct et frais à la charge du client',
-    d: 'L’accès direct désigne l’accompagnement à la demande compris pendant les six mois : le client sollicite ElyoStudio par message lorsqu’il en a besoin, et ElyoStudio répond par le canal le plus adapté (message, vocal, vidéo, document, visioconférence lorsque nécessaire), dans un délai raisonnable aux jours ouvrés. Il ne constitue ni un engagement de disponibilité permanente, ni un volume d’heures de visioconférence illimité. Restent à la charge du client : les budgets publicitaires éventuels et les outils tiers (agenda en ligne, emailing, hébergement au-delà de la première année, etc.).',
+    t: 'Prestations exclues et frais à la charge du client',
+    d: 'Ne sont pas compris dans l’accompagnement : la gestion quotidienne des réseaux sociaux, la création permanente de contenus à la place du client, la publicité et son budget média, les développements techniques importants ou sur mesure, une refonte complète du site en cours d’accompagnement. Restent également à la charge du client les outils tiers (nom de domaine au renouvellement, agenda en ligne, outil d’emailing, hébergement au-delà de la première année). Ces prestations peuvent faire l’objet d’un devis distinct. L’offre Elyo Direct, souscrite à l’issue de la phase initiale, donne accès à des échanges directs par message écrit ou vocal et à des séances courtes de déblocage ; elle ne constitue ni un engagement de disponibilité permanente, ni un volume d’exécution illimité.',
   },
   {
     t: 'Propriété et transfert du site',
@@ -45,7 +45,7 @@ const articles = [
   },
   {
     t: 'Garantie de remboursement après le rendez-vous de lancement',
-    d: 'Si, à l’issue du premier rendez-vous (le rendez-vous de lancement), le client ne souhaite pas poursuivre, il l’indique par email au plus tard sept jours après ce rendez-vous. L’intégralité des sommes versées lui est alors remboursée, sans condition ni justification, dans un délai de quatorze jours. Au-delà de ce délai, les conditions de résiliation ci-dessous s’appliquent.',
+    d: 'Si, à l’issue du premier rendez-vous (le rendez-vous de lancement), le client ne souhaite pas poursuivre, il l’indique par email au plus tard sept jours après ce rendez-vous. Les sommes versées, activation comprise, lui sont alors intégralement remboursées, sans condition ni justification, dans un délai de quatorze jours, et les échéances mensuelles à venir sont annulées. Au-delà de ce délai, les conditions de résiliation ci-dessous s’appliquent.',
   },
   {
     t: 'Droit de rétractation',
@@ -57,7 +57,7 @@ const articles = [
   },
   {
     t: 'Absence de reconduction automatique',
-    d: 'À l’issue des six mois, l’accompagnement ne se reconduit pas automatiquement. Un suivi ultérieur fait, le cas échéant, l’objet d’un accord explicite et distinct entre les parties.',
+    d: 'À l’issue des six mois, l’accompagnement ne se reconduit pas automatiquement. La poursuite éventuelle, sous la forme d’un abonnement Elyo Socle, Elyo Croissance ou Elyo Direct, fait l’objet d’un accord explicite et distinct entre les parties. Le nom de domaine, le site, les textes, les comptes Google, Stripe et calendrier ainsi que les données du client lui appartiennent et lui sont transférables à tout moment.',
   },
   {
     t: 'Données personnelles',

@@ -6,12 +6,12 @@ import { site, prix, lienDemarrer } from '../data/site.js';
 
 const titre = 'Échange découverte : un appel court, offert | ElyoStudio';
 const description =
-  'Vingt minutes en visio pour faire le point sur votre cabinet et vérifier qu’Elyo Direct vous correspond. Offert, sans engagement.';
+  'Vingt minutes en visio pour faire le point sur votre cabinet et vérifier qu’Elyo Croissance vous correspond. Offert, sans engagement.';
 
 const obtenez = [
   'Une lecture extérieure et honnête de votre situation',
   'Deux ou trois priorités concrètes, à garder même si nous ne travaillons pas ensemble',
-  'Une réponse franche : Elyo Direct vous correspond, ou non',
+  'Une réponse franche : Elyo Croissance vous correspond, ou non',
   'Aucun engagement, aucune relance insistante ensuite',
 ];
 ---
@@ -20,7 +20,7 @@ const obtenez = [
   <EnPage
     surtitre="Échange découverte — offert"
     titre="Besoin d’en parler avant de démarrer ? Prenons un appel court."
-    chapeau="Vingt minutes en visio pour poser votre situation à plat : où en est votre cabinet, ce qui freine, et si Elyo Direct est le bon choix pour vous. Ce n’est pas une séance de coaching — c’est une vérification, dans les deux sens."
+    chapeau="Vingt minutes en visio pour poser votre situation à plat : où en est votre cabinet, ce qui freine, et si Elyo Croissance est le bon choix pour vous. Ce n’est pas une séance de coaching — c’est une vérification, dans les deux sens."
   />
 
   <section class="section-serree">
@@ -59,10 +59,10 @@ const obtenez = [
           <h2 class="aside-titre">Déjà décidé ?</h2>
           <p class="texte-doux aside-texte">
             L’appel n’est pas obligatoire. Si vous êtes prêt, vous démarrez directement :
-            {prix.total} pour {prix.duree}, ou {prix.paiement3x} sans frais.
+            {prix.activation} d’activation, puis {prix.mensuel} par mois pendant {prix.duree}.
           </p>
           <a href={lienDemarrer} class="btn btn-principal btn-large">
-            Démarrer Elyo Direct
+            Démarrer Elyo Croissance
             <Icone nom="fleche" classe="fleche" />
           </a>
         </div>

@@ -1,85 +1,135 @@
 {
-  "phases": [
+  "activation": {
+    "surtitre": "L’activation — 690 €",
+    "titre": "Nous installons les fondations",
+    "texte": "Les premières semaines servent à poser tout ce qui manque pour qu’une personne qui vous cherche vous trouve, vous comprenne, et puisse prendre rendez-vous sans effort.",
+    "points": [
+      {
+        "icone": "recherche",
+        "titre": "Votre activité, mise au clair",
+        "texte": "Ce que vous proposez, à qui, et le message principal qui le dit simplement."
+      },
+      {
+        "icone": "gabarit",
+        "titre": "Un site professionnel",
+        "texte": "Créé ou refondu : crédible, rapide, impeccable sur téléphone."
+      },
+      {
+        "icone": "agenda",
+        "titre": "La prise de rendez-vous en ligne",
+        "texte": "Installée, testée de bout en bout, visible depuis chaque page."
+      },
+      {
+        "icone": "document",
+        "titre": "Un formulaire de contact qui qualifie",
+        "texte": "Les bonnes questions, pour arriver au premier échange en sachant déjà l’essentiel."
+      },
+      {
+        "icone": "courrier",
+        "titre": "Confirmations et relances automatiques",
+        "texte": "Personne n’est oublié : la demande reçoit une réponse, le rendez-vous un rappel."
+      },
+      {
+        "icone": "position",
+        "titre": "Fiche Google et référencement local",
+        "texte": "Votre fiche Google Business Profile et les bases du référencement de votre ville."
+      },
+      {
+        "icone": "graphique",
+        "titre": "La mesure des demandes",
+        "texte": "Savoir combien de personnes vous contactent, et d’où elles viennent."
+      },
+      {
+        "icone": "bouclier",
+        "titre": "Les vérifications avant mise en ligne",
+        "texte": "Vitesse, mobile, formulaires, liens, affichage dans Google : tout est contrôlé."
+      }
+    ]
+  },
+  "mensuel": {
+    "surtitre": "Puis 149 € par mois",
+    "titre": "Nous faisons évoluer ce qui compte",
+    "texte": "Une fois les fondations posées, le travail continue mois après mois — une chose à la fois, celle qui fera le plus de différence à ce moment-là.",
+    "points": [
+      {
+        "icone": "graphique",
+        "titre": "Le suivi de vos demandes",
+        "texte": "Combien de demandes, combien de rendez-vous, d’où ils viennent. Simplement, sans tableau de bord illisible."
+      },
+      {
+        "icone": "gabarit",
+        "titre": "L’amélioration progressive",
+        "texte": "Le site, les messages et le parcours de prise de rendez-vous s’affinent avec ce que montrent les résultats."
+      },
+      {
+        "icone": "position",
+        "titre": "Avis clients et visibilité locale",
+        "texte": "Une démarche simple pour recueillir des avis, et une fiche Google qui gagne en présence."
+      },
+      {
+        "icone": "etincelle",
+        "titre": "Une action de développement à la fois",
+        "texte": "Un chantier par période, mené jusqu’au bout — plutôt que dix pistes ouvertes et rien de terminé."
+      },
+      {
+        "icone": "personnes",
+        "titre": "Les permanences et ateliers Elyo",
+        "texte": "Des rendez-vous collectifs pour poser vos questions et avancer avec d’autres praticiens."
+      },
+      {
+        "icone": "document",
+        "titre": "Ressources et modèles",
+        "texte": "Des trames concrètes et des conseils applicables, pour avancer sans vous disperser."
+      }
+    ]
+  },
+  "formules": [
     {
-      "icone": "recherche",
-      "periode": "Étape 1 — Semaines 1 à 2",
-      "titre": "Clarifier",
-      "texte": "Avant de construire quoi que ce soit, on pose des bases nettes. Je pars de votre cabinet tel qu’il est, pas d’un modèle.",
+      "nom": "Elyo Socle",
+      "prix": "49 €",
+      "resume": "Pour conserver le système en place et continuer à fonctionner sereinement.",
       "points": [
-        "Positionnement : qui vous accompagnez, sur quoi, pourquoi vous",
-        "Clientèle idéale et message : les mots qui parlent à vos patients",
-        "Offres et tarifs clarifiés, faciles à présenter",
-        "Ce qui vous différencie des autres praticiens de votre ville"
+        "Hébergement du site",
+        "Maintenance technique",
+        "Formulaires et automatisations maintenus en service",
+        "Petites mises à jour techniques"
       ]
     },
     {
-      "icone": "gabarit",
-      "periode": "Étape 2 — Semaines 2 à 5",
-      "titre": "Construire",
-      "texte": "Votre présence en ligne, pensée pour mener au rendez-vous — pas pour faire joli.",
+      "nom": "Elyo Croissance",
+      "prix": "149 €",
+      "vedette": true,
+      "resume": "Pour continuer à développer votre visibilité et vos demandes de rendez-vous.",
       "points": [
-        "Site créé ou optimisé, textes rédigés avec vous, dans vos mots",
-        "Prise de rendez-vous en ligne installée et testée de bout en bout",
-        "Formulaires et parcours simples : de la visite à la réservation",
-        "Automatisations utiles : confirmations, rappels, suivi des demandes"
+        "Tout ce que comprend Elyo Socle",
+        "Suivi des demandes et des rendez-vous",
+        "Optimisation locale et développement des avis",
+        "Une action de développement à la fois",
+        "Permanences et ateliers collectifs"
       ]
     },
     {
-      "icone": "position",
-      "periode": "Étape 3 — Dès la semaine 3",
-      "titre": "Être trouvé",
-      "texte": "Visible pour les personnes qui cherchent un praticien près de chez elles.",
+      "nom": "Elyo Direct",
+      "prix": "249 €",
+      "resume": "Pour les professionnels qui ont besoin d’un accompagnement plus personnel.",
       "points": [
-        "Fiche Google Business Profile créée ou remise à plat",
-        "Référencement local : les bases posées proprement",
-        "Structure du site pensée pour être bien compris par Google",
-        "Stratégie de contenu : quoi publier, où, à quel rythme"
-      ]
-    },
-    {
-      "icone": "agenda",
-      "periode": "Étape 4 — Mois 2 à 6",
-      "titre": "Développer",
-      "texte": "Transformer cette présence en rendez-vous réguliers.",
-      "points": [
-        "Plan d’acquisition mis en route, canal par canal",
-        "Prospection douce et partenariats locaux quand c’est pertinent",
-        "Contenu qui travaille pour vous dans la durée",
-        "Optimisation des conversions : chaque page mène quelque part"
-      ]
-    },
-    {
-      "icone": "horloge",
-      "periode": "Étape 5 — Tout au long des 6 mois",
-      "titre": "Ajuster",
-      "texte": "Rien n’est figé : je mesure, j’écoute vos retours, j’améliore.",
-      "points": [
-        "Suivi des résultats : ce qui amène des rendez-vous, ce qui n’en amène pas",
-        "Points réguliers et adaptations selon ce que dit le terrain",
-        "Ce qui fonctionne est renforcé, le reste est coupé",
-        "Accompagnement continu jusqu’au dernier jour"
+        "Tout ce que comprend Elyo Croissance",
+        "Accès direct à Julien par message écrit ou vocal",
+        "Retours personnalisés sur vos décisions",
+        "Séances courtes de déblocage lorsque c’est nécessaire"
       ]
     }
   ],
-  "elyoDirect": {
-    "accroche": "Pas 6 mois de formation. 6 mois avec quelqu’un à vos côtés.",
-    "situations": [
-      "Une question avant de publier",
-      "Une offre à retravailler",
-      "Un tarif à trancher",
-      "Une publication à valider",
-      "Une campagne qui ne donne rien",
-      "Une décision que vous n’arrivez pas à prendre seul"
-    ],
-    "canaux": [
-      { "icone": "courrier", "titre": "Message", "texte": "Pour la plupart des questions : vous écrivez, vous avez une réponse." },
-      { "icone": "video", "titre": "Vocal ou petite vidéo", "texte": "Quand il faut montrer : un écran, une page, une correction commentée." },
-      { "icone": "document", "titre": "Retour écrit ou document", "texte": "Une relecture, une trame, un plan — quelque chose que vous gardez." },
-      { "icone": "personnes", "titre": "Visio quand c’est utile", "texte": "Pour les décisions qui se prennent mieux à deux. Pas pour remplir un agenda." }
-    ]
-  },
+  "nonInclus": [
+    "La gestion quotidienne de vos réseaux sociaux",
+    "La création permanente de contenus à votre place",
+    "La publicité et le budget média",
+    "Les développements techniques importants ou sur mesure",
+    "Une refonte complète du site en cours d’accompagnement",
+    "Une garantie de rendez-vous ou de chiffre d’affaires"
+  ],
   "pourQui": [
-    "Vous êtes thérapeute, psychopraticien, coach, professeur de yoga, énergéticien, naturopathe ou praticien bien-être",
+    "Vous êtes thérapeute, psychopraticien, coach, énergéticien, professeur de yoga, formateur ou professionnel de l’accompagnement",
     "Votre activité existe déjà, ou vous êtes réellement en phase de lancement",
     "Vous avez une vraie expertise, mais votre communication manque de structure",
     "Vous voulez développer votre clientèle sans marketing agressif",
@@ -97,17 +147,12 @@
     {
       "icone": "etiquette",
       "titre": "Un tarif affiché",
-      "texte": "990 € pour les 6 mois, écrit ici, le même pour tout le monde. Pas de devis à rallonge, pas de surprise."
-    },
-    {
-      "icone": "coche",
-      "titre": "Remboursé si vous n’êtes pas convaincu",
-      "texte": "Si vous n’êtes pas convaincu après le rendez-vous de lancement, je vous rembourse intégralement. Sans condition, sans justification."
+      "texte": "690 € d’activation puis 149 € par mois, écrits ici, les mêmes pour tout le monde. Pas de devis à rallonge."
     },
     {
       "icone": "cadenas",
       "titre": "Tout vous appartient",
-      "texte": "Nom de domaine, site, textes, fiche Google, comptes : tout est à votre nom, pendant et après l’accompagnement."
+      "texte": "Nom de domaine, site, textes, comptes Google, Stripe, calendrier et données : tout est à votre nom et transférable. Vous n’êtes prisonnier de rien."
     },
     {
       "icone": "personnes",
@@ -117,7 +162,7 @@
     {
       "icone": "bouclier",
       "titre": "Ce qui reste à votre charge, dit avant",
-      "texte": "Les budgets publicitaires éventuels et les outils tiers (agenda en ligne, hébergement après la première année) sont à votre charge. Rien d’autre."
+      "texte": "Les outils tiers et les éventuels budgets publicitaires restent à votre charge. Rien d’autre ne s’ajoute."
     }
   ]
 }
