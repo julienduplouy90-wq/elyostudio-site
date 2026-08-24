@@ -12,6 +12,7 @@
     "telephone": "06 42 46 12 41",
     "telephoneLien": "+33642461241",
     "agenda": "https://tidycal.com/julienduplouy90/appel-decouverte-site",
+    "lienPaiement": "",
     "endpointFormulaire": "",
     "entreprise": {
       "raison": "Julien Duplouy EI",
@@ -21,10 +22,14 @@
     }
   },
   "prix": {
-    "creation": "590 €",
-    "mensuel": "49 €",
+    "total": "1490",
+    "paiement3x": "500",
     "duree": "12 mois",
-    "delai": "10 jours ouvrés"
+    "placesFondateur": "10",
+    "tarifSuivant": "2000",
+    "delai": "10 jours ouvrés",
+    "mensuel": "49 €",
+    "creation": "590 €"
   },
   "navigation": [
     {
