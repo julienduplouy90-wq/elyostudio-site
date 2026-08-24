@@ -1,46 +1,41 @@
-name: Construire et déployer sur Hostinger
+name: Construire et publier pour Hostinger
+
+# À chaque push sur main : construit le site et pousse le contenu de `dist/`
+# sur la branche `hostinger`. Hostinger (hPanel → Avancé → Git) suit cette
+# branche et la déploie dans public_html via son webhook. Aucun mot de passe
+# FTP, aucun secret à créer.
 
 on:
   push:
     branches: [main]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 concurrency:
   group: deploiement
   cancel-in-progress: true
 
 jobs:
-  deployer:
+  publier:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24
           cache: npm
 
       - run: npm ci
-
-      # Le build échoue si une page publique manque de title, de description
-      # ou d'un h1 unique (voir scripts/audit-meta.mjs).
       - run: npm run build
 
-      - name: Envoi FTP vers public_html
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Pousser dist/ sur la branche hostinger
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          server: ${{ secrets.FTP_SERVEUR }}
-          username: ${{ secrets.FTP_UTILISATEUR }}
-          password: ${{ secrets.FTP_MOTDEPASSE }}
-          protocol: ftps
-          port: 21
-          local-dir: ./dist/
-          server-dir: ${{ vars.FTP_DOSSIER || '/public_html/' }}
-          # Ne supprime pas ce qui n'appartient pas au site (dossiers de mail,
-          # fichiers de vérification déposés par Google, etc.).
-          dangerous-clean-slate: false
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
-            .htaccess.bak
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: hostinger
+          force_orphan: true
+          commit_message: 'Build ${{ github.sha }}'
