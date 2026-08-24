@@ -5,7 +5,7 @@ import Icone from '../components/Icone.astro';
 import { site, prix } from '../data/site.js';
 
 const titre = `Démarrer Elyo Croissance | ElyoStudio`;
-const description = `Démarrez Elyo Croissance : ${prix.activation} d’activation puis ${prix.mensuel} par mois pendant ${prix.duree}. Tarif fondateur.`;
+const description = `Démarrez Elyo Croissance : ${prix.activation} d’activation puis ${prix.mensuel} par mois pendant ${prix.duree}.`;
 
 // Tant que la page de paiement n'est pas renseignée dans les réglages, le
 // bouton oriente vers l'échange découverte — personne ne tombe sur un lien mort.
@@ -41,7 +41,6 @@ const apres = [
   <section class="section-serree">
     <div class="rail demarrer-rail">
       <article class="carte demarrer-carte reveal">
-        <span class="demarrer-ruban">Tarif fondateur</span>
         <span class="demarrer-libelle">Elyo Croissance — activation puis {prix.duree}</span>
         <p class="demarrer-prix">{prix.activation}<span class="demarrer-suffixe"> puis {prix.mensuel} / mois</span></p>
         <p class="demarrer-note">Pendant {prix.duree}, soit {prix.total} pour la phase initiale complète.</p>
@@ -70,11 +69,7 @@ const apres = [
           )
         }
         <p class="demarrer-mention">
-          Offre fondateur limitée aux premiers clients accompagnés. Les outils tiers et les éventuels budgets publicitaires restent à votre charge.
-        </p>
-        <p class="demarrer-mention">
-          <strong>Garantie :</strong> pas convaincu après le rendez-vous de lancement ? Je vous
-          rembourse intégralement, sans condition.
+          Les outils tiers et les éventuels budgets publicitaires restent à votre charge.
         </p>
       </article>
 

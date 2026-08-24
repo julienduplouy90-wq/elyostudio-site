@@ -13,7 +13,7 @@ const articles = [
   },
   {
     t: 'Prix et paiement',
-    d: `Le prix comprend une activation de ${prix.activation}, payable à la commande, puis un abonnement mensuel de ${prix.mensuel} pendant ${prix.duree}, soit ${prix.total} pour la phase initiale complète. Ces montants correspondent au tarif fondateur, réservé aux premiers clients accompagnés ; ils sont indiqués sur le site au moment de la commande. À l’issue des ${prix.duree}, la poursuite éventuelle fait l’objet d’un abonnement distinct (Elyo Socle ${prix.socle} par mois, Elyo Croissance ${prix.croissance} par mois ou Elyo Direct ${prix.direct} par mois), souscrit expressément par le client. Les moyens de paiement acceptés sont indiqués sur la page de paiement ou la facture. TVA non applicable, article 293 B du Code général des impôts.`,
+    d: `Le prix comprend une activation de ${prix.activation}, payable à la commande, puis un abonnement mensuel de ${prix.mensuel} pendant ${prix.duree}, soit ${prix.total} pour la phase initiale complète. Ces montants sont indiqués sur le site au moment de la commande. À l’issue des ${prix.duree}, la poursuite éventuelle fait l’objet d’un abonnement distinct (Elyo Socle ${prix.socle} par mois, Elyo Croissance ${prix.croissance} par mois ou Elyo Direct ${prix.direct} par mois), souscrit expressément par le client. Les moyens de paiement acceptés sont indiqués sur la page de paiement ou la facture. TVA non applicable, article 293 B du Code général des impôts.`,
   },
   {
     t: 'Durée de l’accompagnement',
@@ -44,16 +44,12 @@ const articles = [
     d: `Aucun nombre de patients ou de clients, aucun résultat commercial et aucun positionnement sur Google ne sont garantis. Les délais de référencement dépendent de la ville, du secteur et de facteurs externes. ${site.nom} ne gère pas les réseaux sociaux à la place du client et ne formule aucune promesse de soin ou de guérison.`,
   },
   {
-    t: 'Garantie de remboursement après le rendez-vous de lancement',
-    d: 'Si, à l’issue du premier rendez-vous (le rendez-vous de lancement), le client ne souhaite pas poursuivre, il l’indique par email au plus tard sept jours après ce rendez-vous. Les sommes versées, activation comprise, lui sont alors intégralement remboursées, sans condition ni justification, dans un délai de quatorze jours, et les échéances mensuelles à venir sont annulées. Au-delà de ce délai, les conditions de résiliation ci-dessous s’appliquent.',
-  },
-  {
     t: 'Droit de rétractation',
     d: 'Les prestations sont fournies à des professionnels dans le cadre de leur activité : le droit de rétractation applicable aux consommateurs ne s’applique pas, sauf accord particulier mentionné au devis.',
   },
   {
     t: 'Résiliation',
-    d: 'En cas de manquement de l’une des parties à ses obligations, l’autre partie peut résilier la prestation après mise en demeure restée sans effet pendant quinze jours. Sans préjudice de la garantie de remboursement prévue ci-dessus, les sommes correspondant au travail déjà réalisé restent acquises.',
+    d: 'En cas de manquement de l’une des parties à ses obligations, l’autre partie peut résilier la prestation après mise en demeure restée sans effet pendant quinze jours. Les sommes correspondant au travail déjà réalisé et aux échéances échues restent acquises.',
   },
   {
     t: 'Absence de reconduction automatique',

@@ -53,9 +53,8 @@ const donnees = {
           name: 'Elyo Croissance — activation',
           price: '690',
           priceCurrency: 'EUR',
-          availability: 'https://schema.org/LimitedAvailability',
           url: `${site.url}/offre`,
-          description: `Activation ${prix.activation}, puis ${prix.mensuel} par mois pendant ${prix.duree}. Tarif fondateur.`,
+          description: `Activation ${prix.activation}, puis ${prix.mensuel} par mois pendant ${prix.duree}.`,
         },
         {
           '@type': 'Offer',
@@ -134,13 +133,11 @@ const donnees = {
         }
       </div>
     </div>
-  </section>
-
-  <!-- Tarif fondateur -->
+  </section>  <!-- Tarif -->
   <section class="section section-teintee" id="tarif">
     <div class="rail">
       <div class="entete-section reveal">
-        <span class="surtitre">Tarif fondateur</span>
+        <span class="surtitre">Le tarif</span>
         <h2>Ce que coûte la mise en place complète</h2>
         <p class="chapeau">
           Une activation qui installe tout, puis un accompagnement mensuel pendant {prix.duree}.
@@ -178,8 +175,7 @@ const donnees = {
       </div>
 
       <p class="tarif-mention reveal">
-        Offre fondateur limitée aux premiers clients accompagnés. Les outils tiers et les éventuels
-        budgets publicitaires restent à votre charge.
+        Les outils tiers et les éventuels budgets publicitaires restent à votre charge.
       </p>
     </div>
   </section>

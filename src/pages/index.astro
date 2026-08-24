@@ -54,9 +54,8 @@ const donnees = {
         '@type': 'Offer',
         price: '690',
         priceCurrency: 'EUR',
-        description: `${prix.activation} d’activation, puis ${prix.mensuel} par mois pendant ${prix.duree}. Tarif fondateur.`,
+        description: `${prix.activation} d’activation, puis ${prix.mensuel} par mois pendant ${prix.duree}.`,
         url: `${site.url}/offre`,
-        availability: 'https://schema.org/LimitedAvailability',
       },
     },
   ],
@@ -96,8 +95,8 @@ const donnees = {
 
         <ul class="heros-preuves reveal" style="--delai: 340ms">
           <li><Icone nom="horloge" /> Accompagné pendant {prix.duree}</li>
-          <li><Icone nom="etiquette" /> Tarif fondateur, affiché plus bas</li>
-          <li><Icone nom="cadenas" /> Tout vous appartient</li>
+          <li><Icone nom="etiquette" /> Tarif affiché, sans devis</li>
+          <li><Icone nom="cadenas" /> Le site est compris</li>
           <li><Icone nom="bouclier" /> Site et comptes à votre nom</li>
         </ul>
       </div>
@@ -317,7 +316,7 @@ const donnees = {
   <section class="section" id="tarif">
     <div class="rail">
       <div class="entete-section reveal">
-        <span class="surtitre">Tarif fondateur</span>
+        <span class="surtitre">Le tarif</span>
         <h2>Une activation, puis un accompagnement mensuel</h2>
         <p class="chapeau">
           Le site est compris dans l’activation : il n’y a pas de facture séparée. Ensuite,
@@ -327,7 +326,6 @@ const donnees = {
 
       <div class="tarif espace-haut">
         <article class="tarif-carte tarif-carte-vedette reveal">
-          <span class="tarif-ruban">Tarif fondateur</span>
           <div class="tarif-duo">
             <div>
               <span class="tarif-libelle">Activation</span>
@@ -357,8 +355,7 @@ const donnees = {
             <a href="/rendez-vous" class="btn btn-secondaire btn-large">Demander un échange découverte</a>
           </div>
           <p class="tarif-mention">
-            Offre fondateur limitée aux premiers clients accompagnés. Les outils tiers et les
-            éventuels budgets publicitaires restent à votre charge.
+            Les outils tiers et les éventuels budgets publicitaires restent à votre charge.
           </p>
         </article>
       </div>
