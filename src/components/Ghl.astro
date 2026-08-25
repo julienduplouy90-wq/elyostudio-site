@@ -69,6 +69,8 @@ const texteAttente =
     cadre.src = bloc.dataset.src ?? '';
     cadre.title = bloc.dataset.type === 'calendrier' ? 'Calendrier de réservation' : 'Formulaire de contact';
     cadre.loading = 'lazy';
+    // Le calendrier peut encaisser un acompte : l'API Payment doit être autorisée.
+    if (bloc.dataset.type === 'calendrier') cadre.setAttribute('allow', 'payment');
     cadre.scrolling = 'no';
     bloc.querySelector('.ghl-attente')?.remove();
     bloc.appendChild(cadre);
