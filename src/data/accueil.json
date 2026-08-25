@@ -2,18 +2,18 @@
   "problemes": [
     {
       "icone": "recherche",
-      "titre": "Personne ne vous trouve",
-      "texte": "Une personne cherche un praticien comme vous, près de chez elle. Elle tombe sur quelqu’un d’autre — pas meilleur, juste visible, avec une fiche Google tenue et un site qui donne envie d’appeler."
+      "titre": "On cherche « sophrologue », on trouve quelqu’un d’autre",
+      "texte": "Une personne tape le mot avec le nom de votre ville. Elle tombe sur un confrère — pas meilleur que vous, juste visible, avec une fiche Google tenue et un site qui donne envie d’appeler."
     },
     {
       "icone": "agenda",
       "titre": "Un agenda en dents de scie",
-      "texte": "Des semaines pleines, puis des semaines vides. Le bouche-à-oreille ne se commande pas, et vous n’avez pas de levier fiable pour lisser les rendez-vous."
+      "texte": "Des semaines pleines, puis des semaines vides. Le bouche-à-oreille ne se commande pas, et rien ne vient lisser les séances entre deux périodes creuses."
     },
     {
       "icone": "partage",
-      "titre": "Seul face au marketing",
-      "texte": "Positionnement, offre, site, fiche Google, contenu, outils qui s’empilent… Vous savez accompagner vos patients ; personne ne vous a appris à développer un cabinet. Et chaque décision, prise seul, prend des semaines."
+      "titre": "Du temps perdu à gérer les rendez-vous",
+      "texte": "Appels manqués, messages à recaler, créneaux oubliés. Vous savez accompagner ; personne ne vous a appris à faire tourner une prise de rendez-vous, et ça déborde sur vos soirées."
     }
   ],
   "solutions": [
@@ -24,28 +24,28 @@
     },
     {
       "icone": "etiquette",
-      "titre": "Des offres et des tarifs lisibles",
-      "texte": "Un parcours d’entrée évident pour un nouveau patient, des séances et des forfaits présentés simplement, des prix assumés."
+      "titre": "Des séances et des tarifs lisibles",
+      "texte": "Un parcours d’entrée évident pour une première séance, des cycles et des forfaits présentés simplement, des prix assumés."
     },
     {
       "icone": "gabarit",
-      "titre": "Un site qui mène au rendez-vous",
-      "texte": "Créé ou optimisé : clair, rapide, rassurant sur téléphone, avec la prise de rendez-vous en ligne visible sur chaque écran."
+      "titre": "Un site qui mène à la réservation",
+      "texte": "Clair, rapide, rassurant sur téléphone, avec la prise de rendez-vous en ligne visible depuis chaque écran."
     },
     {
       "icone": "position",
       "titre": "Une visibilité locale qui travaille",
-      "texte": "Fiche Google Business Profile, référencement local, avis : être trouvé par les personnes qui cherchent un praticien dans votre ville."
+      "texte": "Fiche Google Business Profile, référencement local, avis : être trouvé par les personnes qui cherchent un sophrologue dans votre ville."
     },
     {
-      "icone": "document",
-      "titre": "Un plan d’acquisition tenable",
-      "texte": "Contenu, réseaux, publicité locale quand c’est pertinent : un plan adapté à votre énergie, pas trente-six canaux à alimenter."
+      "icone": "courrier",
+      "titre": "Des rappels qui évitent les oublis",
+      "texte": "Confirmation dès la réservation, rappel avant la séance : moins de rendez-vous manqués, moins de créneaux perdus."
     },
     {
       "icone": "horloge",
       "titre": "Un suivi des résultats",
-      "texte": "Ce qui amène des rendez-vous, ce qui n’en amène pas. Je mesure, j’ajuste, je garde ce qui fonctionne — mois après mois."
+      "texte": "Ce qui amène des réservations, ce qui n’en amène pas. Je mesure, j’ajuste, je garde ce qui fonctionne — mois après mois."
     }
   ],
   "etapes": [
@@ -62,7 +62,7 @@
     {
       "n": "03",
       "titre": "La mise en place",
-      "texte": "Offres, site, prise de rendez-vous, fiche Google, référencement local : je construis, vous validez. Les premières semaines sont les plus denses."
+      "texte": "Séances, site, prise de rendez-vous, rappels, fiche Google, référencement local : je construis, vous validez. Les premières semaines sont les plus denses."
     },
     {
       "n": "04",

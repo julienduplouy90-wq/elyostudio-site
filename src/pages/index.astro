@@ -16,14 +16,16 @@ import {
   lienDemarrer,
 } from '../data/site.js';
 
-const titre = 'Être trouvé, compris et choisi | ElyoStudio';
-const description = `Site, prise de rendez-vous et rappels pour sophrologues et praticiens bien-être. ${prix.miseEnPlace} de mise en place, puis ${prix.essentiel} ou ${prix.croissance} par mois.`;
+const titre = 'Site et prise de rendez-vous pour sophrologues | ElyoStudio';
+const description = `Soyez trouvé sur Google quand on cherche un sophrologue, et laissez vos clients réserver seuls. Site, agenda en ligne et rappels : ${prix.miseEnPlace} puis ${prix.essentiel}/mois.`;
 
 const resultats = [
-  'Un agenda plus régulier, moins dépendant du seul bouche-à-oreille',
-  'Être trouvé par les personnes qui cherchent un praticien dans votre ville',
-  'Une offre et des tarifs que vous présentez sans hésiter',
-  'Des décisions prises en quelques heures, pas en quelques semaines',
+  'On vous trouve quand quelqu’un cherche « sophrologue » dans votre ville',
+  'Vos clients réservent seuls, en ligne, sans coup de fil ni allers-retours',
+  'Les rappels automatiques limitent les créneaux perdus',
+  'Vos avis Google se récoltent sans que vous ayez à les demander',
+  'Vos séances et vos tarifs sont clairs, vous les présentez sans hésiter',
+  'Vous savez enfin d’où viennent vos clients',
 ];
 
 const donnees = {
@@ -41,14 +43,14 @@ const donnees = {
     {
       '@type': 'Service',
       '@id': `${site.url}/#accompagnement`,
-      name: 'Elyo Croissance — visibilité locale et développement d’activité',
+      name: 'ElyoStudio — site et prise de rendez-vous pour sophrologues',
       serviceType:
-        'Site internet, prise de rendez-vous en ligne, relances, référencement local et accompagnement mensuel',
+        'Création de site pour sophrologue, prise de rendez-vous en ligne, rappels, référencement local',
       provider: { '@id': `${site.url}/#studio` },
       areaServed: { '@type': 'Country', name: 'France' },
       audience: {
         '@type': 'Audience',
-        audienceType: 'Thérapeutes, psychopraticiens, coachs, énergéticiens, professeurs de yoga et professionnels de l’accompagnement',
+        audienceType: 'Sophrologues',
       },
       offers: {
         '@type': 'Offer',
@@ -72,22 +74,22 @@ const donnees = {
     <div class="rail heros-rail">
       <div class="heros-texte">
         <span class="heros-surtitre reveal">
-          Thérapeutes · psychopraticiens · coachs · énergéticiens · professeurs de yoga
+          Pour les sophrologues
         </span>
 
         <h1 class="reveal" style="--delai: 90ms">
-          Votre travail est sérieux.<br />Je fais en sorte que cela se voie.
+          Vos séances se réservent<br />pendant que vous accompagnez.
         </h1>
 
         <p class="heros-chapeau reveal" style="--delai: 180ms">
-          Vous êtes bon dans votre métier — encore faut-il qu’on vous trouve, qu’on comprenne ce que
-          vous proposez, et qu’on puisse prendre rendez-vous facilement. C’est exactement ce que
-          j’installe avec vous, puis que je fais évoluer mois après mois.
+          Être trouvé sur Google quand on cherche un sophrologue près de chez soi, être compris en
+          quelques secondes, et laisser la personne réserver seule — avec les rappels qui évitent
+          les oublis. C’est ce que j’installe pour vous, puis que je fais progresser chaque mois.
         </p>
 
         <div class="groupe-btn reveal" style="--delai: 260ms">
           <a href="/offre" class="btn btn-principal btn-large">
-            Voir si Elyo Croissance est adapté à mon activité
+            Voir ce que ça donne pour mon cabinet
             <Icone nom="fleche" classe="fleche" />
           </a>
           <a href="/methode" class="btn btn-clair btn-large">Voir comment ça fonctionne</a>
@@ -106,10 +108,10 @@ const donnees = {
     <div class="rail">
       <div class="entete-section reveal">
         <span class="surtitre">Ce que vivent la plupart des praticiens</span>
-        <h2>Bon dans votre pratique, invisible en dehors du cabinet</h2>
+        <h2>Excellente en séance, introuvable sur Google</h2>
         <p class="chapeau">
-          Les praticiens que je rencontre ne manquent ni de compétence ni de sérieux. Il leur
-          manque un système : être trouvé, être compris, et transformer ça en rendez-vous —
+          Les sophrologues que je rencontre ne manquent ni de compétence ni de sérieux. Il leur
+          manque un système : être trouvé, être compris, et transformer ça en séances réservées —
           sans y passer leurs soirées. C’est ce que je mets en place avec vous.
         </p>
       </div>
@@ -135,10 +137,10 @@ const donnees = {
     <div class="rail resultat-rail">
       <div class="entete-section reveal">
         <span class="surtitre">Ce que je construis avec vous</span>
-        <h2>Un cabinet qu’on trouve, qu’on comprend, et qu’on choisit</h2>
+        <h2>Ce que vous y gagnez concrètement</h2>
         <p class="chapeau">
-          Pas un site de plus : un système complet, que je mets en place dans le bon ordre, que
-          vous gardez et que vous savez faire vivre.
+          Pas un site de plus. Ce que vous constatez au quotidien, une fois que tout est en place —
+          et que vous gardez, quoi qu’il arrive ensuite.
         </p>
       </div>
       <ul class="liste-cochee resultat-liste reveal" style="--delai: 120ms">
@@ -280,7 +282,7 @@ const donnees = {
     <div class="rail resultat-rail">
       <div class="entete-section reveal">
         <span class="surtitre">À qui ça s’adresse</span>
-        <h2>Aux professionnels de l’accompagnement qui veulent un cabinet qui tourne</h2>
+        <h2>Aux sophrologues qui veulent un cabinet qui tourne</h2>
       </div>
       <ul class="liste-cochee resultat-liste reveal" style="--delai: 120ms">
         {pourQui.map((item) => <li>{item}</li>)}

@@ -2,7 +2,7 @@
   "activation": {
     "surtitre": "La mise en place — 297 €, une fois",
     "titre": "Nous installons les fondations",
-    "texte": "Les premières semaines servent à poser tout ce qui manque pour qu’une personne qui vous cherche vous trouve, vous comprenne, et puisse prendre rendez-vous sans effort.",
+    "texte": "Les premières semaines servent à poser tout ce qui manque pour qu’une personne qui cherche un sophrologue vous trouve, comprenne ce que vous proposez, et réserve sa séance sans avoir à vous appeler.",
     "points": [
       {
         "icone": "recherche",
@@ -22,7 +22,7 @@
       {
         "icone": "document",
         "titre": "Un formulaire de contact qui qualifie",
-        "texte": "Les bonnes questions, pour arriver au premier échange en sachant déjà l’essentiel."
+        "texte": "Les bonnes questions, pour arriver à la première séance en sachant déjà l’essentiel."
       },
       {
         "icone": "courrier",
@@ -32,7 +32,7 @@
       {
         "icone": "position",
         "titre": "Fiche Google et référencement local",
-        "texte": "Votre fiche Google Business Profile et les bases du référencement de votre ville."
+        "texte": "Votre fiche Google Business Profile et les bases du référencement « sophrologue » dans votre ville."
       },
       {
         "icone": "graphique",
@@ -49,12 +49,12 @@
   "mensuel": {
     "surtitre": "Puis 67 € ou 147 € par mois",
     "titre": "Nous faisons évoluer ce qui compte",
-    "texte": "Une fois les fondations posées, le travail continue chaque mois — une chose à la fois, celle qui fera le plus de différence. Vous arrêtez quand vous voulez.",
+    "texte": "Une fois les fondations posées, le travail continue chaque mois — une chose à la fois, celle qui fera le plus de différence pour remplir vos créneaux. Vous arrêtez quand vous voulez.",
     "points": [
       {
         "icone": "graphique",
         "titre": "Le suivi de vos demandes",
-        "texte": "Combien de demandes, combien de rendez-vous, d’où ils viennent. Simplement, sans tableau de bord illisible."
+        "texte": "Combien de personnes vous contactent, combien réservent, d’où elles viennent. Simplement, sans tableau de bord illisible."
       },
       {
         "icone": "gabarit",
@@ -74,7 +74,7 @@
       {
         "icone": "personnes",
         "titre": "Les permanences et ateliers Elyo",
-        "texte": "Des rendez-vous collectifs pour poser vos questions et avancer avec d’autres praticiens."
+        "texte": "Des rendez-vous collectifs pour poser vos questions et avancer avec d’autres sophrologues."
       },
       {
         "icone": "document",
@@ -118,17 +118,17 @@
     "Une garantie de rendez-vous ou de chiffre d’affaires"
   ],
   "pourQui": [
-    "Vous êtes thérapeute, psychopraticien, coach, énergéticien, professeur de yoga, formateur ou professionnel de l’accompagnement",
-    "Votre activité existe déjà, ou vous êtes réellement en phase de lancement",
-    "Vous avez une vraie expertise, mais votre communication manque de structure",
+    "Vous êtes sophrologue, en cabinet, à domicile, en visio ou en entreprise",
+    "Votre activité existe déjà, ou vous sortez tout juste de formation",
+    "Vous savez accompagner, mais votre communication manque de structure",
     "Vous voulez développer votre clientèle sans marketing agressif",
     "Vous voulez quelqu’un qui réfléchit avec vous et qui met les choses en place",
-    "Vous êtes prêt à travailler votre positionnement et votre offre"
+    "Vous êtes prêt à travailler votre positionnement et vos séances"
   ],
   "pasPour": [
     "Vous cherchez uniquement un site au prix le plus bas possible",
     "Vous attendez une promesse de clients garantis — je n’en fais pas",
-    "Vous ne souhaitez toucher ni à votre offre, ni à votre communication",
+    "Vous ne souhaitez toucher ni à vos séances, ni à votre communication",
     "Vous cherchez uniquement une prestation publicitaire",
     "Vous préférez déléguer toutes les décisions concernant votre activité"
   ],

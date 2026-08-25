@@ -3,8 +3,8 @@
     "nom": "ElyoStudio",
     "domaine": "elyostudio.fr",
     "url": "https://elyostudio.fr",
-    "baseline": "Visibilité locale & développement d’activité",
-    "promesse": "ElyoStudio accompagne les thérapeutes, psychopraticiens, coachs, énergéticiens, professeurs de yoga et professionnels de l’accompagnement : un site crédible, un système de rendez-vous et de relances, puis un accompagnement concret pour être trouvé localement et transformer cette visibilité en demandes de rendez-vous.",
+    "baseline": "Sites et visibilité pour sophrologues",
+    "promesse": "ElyoStudio aide les sophrologues à être trouvés sur Google quand on cherche un sophrologue près de chez soi, à être compris en quelques secondes, et à laisser leurs clients réserver leur séance en ligne — site, prise de rendez-vous, rappels et visibilité locale, mis en place puis suivis chaque mois.",
     "ville": "Aureilhan",
     "region": "Hautes-Pyrénées",
     "adresse": "49 avenue du Bois, 65800 Aureilhan",
@@ -45,7 +45,7 @@
   },
   "navigation": [
     {
-      "texte": "Elyo Croissance",
+      "texte": "L’offre",
       "lien": "/offre"
     },
     {

@@ -18,8 +18,8 @@ import {
   lienDemarrer,
 } from '../data/site.js';
 
-const titre = 'Elyo Croissance : site et visibilité locale | ElyoStudio';
-const description = `Site, prise de rendez-vous et rappels pour sophrologues et praticiens bien-être. ${prix.miseEnPlace} de mise en place, puis ${prix.essentiel} ou ${prix.croissance} par mois.`;
+const titre = 'Site et agenda en ligne pour sophrologue | ElyoStudio';
+const description = `Site de sophrologue, réservation en ligne, rappels et fiche Google. ${prix.miseEnPlace} de mise en place, puis ${prix.essentiel} ou ${prix.croissance} par mois, sans engagement.`;
 
 const donnees = {
   '@context': 'https://schema.org',
@@ -36,17 +36,16 @@ const donnees = {
     {
       '@type': 'Service',
       '@id': `${site.url}/offre#croissance`,
-      name: 'Elyo Croissance',
+      name: 'ElyoStudio pour sophrologues',
       serviceType:
-        'Site internet, prise de rendez-vous en ligne, référencement local et accompagnement à la visibilité',
+        'Création de site pour sophrologue, prise de rendez-vous en ligne, rappels, référencement local',
       description:
-        'Accompagnement pour thérapeutes, psychopraticiens, coachs, énergéticiens, professeurs de yoga et professionnels de l’accompagnement : un site crédible, un système de rendez-vous et de relances, une visibilité locale installée, puis un suivi mensuel pour développer l’activité.',
+        'Pour les sophrologues : un site crédible, une prise de rendez-vous en ligne, des rappels qui évitent les oublis, une visibilité locale installée, puis un suivi mensuel pour développer l’activité.',
       provider: { '@id': `${site.url}/#studio` },
       areaServed: { '@type': 'Country', name: 'France' },
       audience: {
         '@type': 'Audience',
-        audienceType:
-          'Thérapeutes, psychopraticiens, coachs, énergéticiens, professeurs de yoga et professionnels de l’accompagnement',
+        audienceType: 'Sophrologues',
       },
       offers: [
         {
@@ -80,17 +79,17 @@ const donnees = {
 };
 ---
 
-<Base titre={titre} description={description} filAriane={[{ nom: 'Elyo Croissance', lien: '/offre' }]}>
+<Base titre={titre} description={description} filAriane={[{ nom: 'Pour les sophrologues', lien: '/offre' }]}>
   <script type="application/ld+json" is:inline set:html={JSON.stringify(donnees)} />
 
   <EnPage
-    surtitre="Elyo Croissance"
-    titre="Un site crédible, un système de rendez-vous, puis un accompagnement pour développer votre activité"
-    chapeau="On installe d’abord les fondations : votre message au clair, un site professionnel, la prise de rendez-vous et la visibilité locale. Ensuite, chaque mois, on fait évoluer ce qui compte — une chose à la fois, sans vous éparpiller."
+    surtitre="Pour les sophrologues"
+    titre="Un site qui vous rend visible, un agenda qui se remplit tout seul"
+    chapeau="On installe d’abord tout ce qui manque : un site clair, la réservation en ligne, les rappels, la fiche Google. Ensuite, chaque mois, on fait progresser ce qui amène des séances — une chose à la fois, sans vous éparpiller."
   >
     <div class="groupe-btn marge-haut">
       <a href={lienDemarrer} class="btn btn-principal btn-large">
-        Voir si Elyo Croissance est adapté à mon activité
+        Voir ce que ça donne pour mon cabinet
         <Icone nom="fleche" classe="fleche" />
       </a>
       <a href="/rendez-vous" class="btn btn-secondaire btn-large">Demander un échange découverte</a>
@@ -219,16 +218,16 @@ const donnees = {
     <div class="rail">
       <div class="entete-section reveal">
         <span class="surtitre">Pour qui</span>
-        <h2>Les professionnels de l’accompagnement, en lancement ou déjà installés</h2>
+        <h2>Les sophrologues, en lancement ou déjà installés</h2>
         <p class="chapeau">
-          Le vocabulaire change d’un métier à l’autre — patients, élèves, clients — mais la
-          mécanique est la même : être trouvé, être compris, transformer cette visibilité en
-          demandes de rendez-vous.
+          Sortie de formation ou installée depuis dix ans, la mécanique est la même : être trouvé
+          par les personnes qui cherchent un sophrologue près de chez elles, être compris en
+          quelques secondes, et transformer cette visibilité en séances réservées.
         </p>
       </div>
       <div class="pourqui-cartes marge-haut-grand">
         <article class="carte reveal">
-          <h3>Elyo Croissance est fait pour vous si…</h3>
+          <h3>C’est fait pour vous si…</h3>
           <ul class="liste-cochee pourqui-liste">
             {pourQui.map((item) => <li>{item}</li>)}
           </ul>

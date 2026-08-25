@@ -13,12 +13,12 @@
       "a": "Oui, entièrement. Le nom de domaine, le site, les textes, la fiche Google, le compte Stripe, le calendrier et vos données sont à votre nom et transférables à tout moment. Si vous partez, vous partez avec tout — c’est une condition que je m’impose."
     },
     {
-      "q": "Est-ce que vous garantissez des clients ou des rendez-vous ?",
-      "a": "Non, et je me méfie de ceux qui le promettent. Ce que je garantis, c’est le travail : un site crédible, un parcours de prise de rendez-vous qui fonctionne, une visibilité locale installée proprement et un suivi honnête de ce que cela produit. L’objectif est de rendre votre activité plus claire, plus visible et plus simple à développer."
+      "q": "Est-ce que vous garantissez des clients ou des séances ?",
+      "a": "Non, et je me méfie de ceux qui le promettent. Ce que je garantis, c’est le travail : un site crédible, une réservation en ligne qui fonctionne, une visibilité locale installée proprement et un suivi honnête de ce que cela produit. L’objectif est de rendre votre cabinet plus visible et plus simple à remplir."
     },
     {
-      "q": "Est-ce adapté si je démarre, ou si mon activité est encore irrégulière ?",
-      "a": "Oui, dans les deux cas. En lancement, on construit dans le bon ordre plutôt que de bricoler. Avec une activité irrégulière, on cherche d’abord ce qui manque — souvent la clarté du message et la visibilité locale — avant d’ajouter quoi que ce soit. Le rythme s’adapte, la méthode reste la même."
+      "q": "Je sors de formation, est-ce trop tôt ?",
+      "a": "Non, c’est même le meilleur moment : on construit dans le bon ordre plutôt que de bricoler puis de tout refaire. Si votre activité tourne déjà mais de façon irrégulière, on cherche d’abord ce qui manque — souvent la clarté du message et la visibilité locale — avant d’ajouter quoi que ce soit."
     },
     {
       "q": "Dois-je déjà avoir un site ou une fiche Google ?",
@@ -31,6 +31,10 @@
     {
       "q": "Combien de temps dois-je y consacrer ?",
       "a": "Quelques heures au moment de la mise en place — un questionnaire d’accueil, vos validations, vos photos, des relectures — puis beaucoup moins. Je construis et je guide, vous validez. L’essentiel se fait en asynchrone, pour se caler dans votre agenda entre deux séances."
+    },
+    {
+      "q": "Vous travaillez uniquement avec des sophrologues ?",
+      "a": "Oui. C’est un choix : à force de travailler le même métier, je connais vos questions — comment présenter une première séance, comment parler de la sophrologie sans allégation de santé, comment expliquer un cycle. Ce que j’apprends chez l’une profite aux suivantes."
     }
   ],
   "faqsOffre": [
@@ -60,7 +64,7 @@
     },
     {
       "q": "Puis-je changer de formule en cours de route ?",
-      "a": "Oui, dans les deux sens et à tout moment. Certains commencent par Croissance le temps de lancer, puis passent à Essentiel une fois le rythme installé ; d’autres font l’inverse quand ils veulent accélérer."
+      "a": "Oui, dans les deux sens et à tout moment. Certaines commencent par Croissance le temps de lancer leur cabinet, puis passent à Essentiel une fois le rythme installé ; d’autres font l’inverse quand elles veulent accélérer."
     },
     {
       "q": "En quoi est-ce différent d’une agence web ?",
