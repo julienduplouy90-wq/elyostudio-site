@@ -1,0 +1,80 @@
+# Réglages Apache pour l'hébergement Hostinger.
+# Ce fichier est déposé à la racine de public_html à chaque déploiement.
+
+# ----------------------------------------------------------------- Redirections
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Tout en HTTPS
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+  # Une seule adresse canonique : sans www
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+  # Page Réalisations retirée : l'ancienne adresse renvoie vers l'accompagnement
+  RewriteRule ^realisations/?$ /offre/ [R=301,L]
+</IfModule>
+
+# ------------------------------------------------------------------ Page 404
+ErrorDocument 404 /404.html
+
+# ------------------------------------------------------------------ Compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE application/xml application/rss+xml
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+<IfModule mod_brotli.c>
+  AddOutputFilterByType BROTLI_COMPRESS text/html text/css application/javascript
+  AddOutputFilterByType BROTLI_COMPRESS application/json image/svg+xml
+</IfModule>
+
+# ------------------------------------------------------------------ Cache
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # Les fichiers construits par Astro portent une empreinte dans leur nom :
+  # ils ne changent jamais sans changer d'adresse, donc cache maximal.
+  <FilesMatch "\.(js|css|woff2)$">
+    ExpiresDefault "access plus 1 year"
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  <FilesMatch "\.(png|jpg|jpeg|webp|avif|svg|ico)$">
+    ExpiresDefault "access plus 6 months"
+  </FilesMatch>
+
+  # Le HTML doit toujours être revalidé, sinon une correction publiée
+  # n'apparaît pas chez les visiteurs déjà venus.
+  <FilesMatch "\.html$">
+    ExpiresDefault "access plus 0 seconds"
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+
+  <FilesMatch "\.(xml|txt)$">
+    ExpiresDefault "access plus 1 hour"
+  </FilesMatch>
+</IfModule>
+
+# ------------------------------------------------------------------ Sécurité
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set Permissions-Policy "geolocation=(), microphone=(), camera=(), interest-cohort=()"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
+
+# Pas de liste de fichiers quand un dossier n'a pas d'index
+Options -Indexes
+
+# Types corrects pour les polices et les images modernes
+<IfModule mod_mime.c>
+  AddType font/woff2 .woff2
+  AddType image/avif .avif
+  AddType image/webp .webp
+</IfModule>

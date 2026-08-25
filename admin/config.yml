@@ -1,0 +1,154 @@
+# Sveltia CMS — panneau volontairement réduit à l'essentiel.
+#
+# Trois rubriques : Coordonnées & tarifs, Questions fréquentes, Articles.
+# Tout le reste (textes des pages, offre, menu, villes) se modifie via Claude,
+# pour ne pas risquer de casser la cohérence du site depuis un formulaire.
+#
+# Chaque « Publier » fait un commit sur GitHub ; l'action « Construire et
+# publier pour Hostinger » reconstruit le site et le met en ligne toute seule.
+# Compter deux à trois minutes entre « Publier » et la mise à jour du site.
+
+backend:
+  name: github
+  repo: julienduplouy90-wq/elyostudio-site
+  branch: main
+  commit_messages:
+    create: 'Ajoute {{collection}} « {{slug}} » depuis le CMS'
+    update: 'Modifie {{collection}} « {{slug}} » depuis le CMS'
+    delete: 'Supprime {{collection}} « {{slug}} » depuis le CMS'
+    uploadMedia: 'Ajoute l’image {{path}} depuis le CMS'
+    deleteMedia: 'Supprime l’image {{path}} depuis le CMS'
+
+publish_mode: simple
+media_folder: public/images
+public_folder: /images
+locale: fr
+slug:
+  encoding: ascii
+  clean_accents: true
+
+collections:
+  # -------------------------------------------- COORDONNÉES, TARIFS ET AGENDA
+  - name: reglages
+    label: '1 · Coordonnées & tarifs'
+    description: Téléphone, email, adresse, agenda, montants. Modifié partout sur le site d’un coup. Pour un vrai changement de prix, passer par Claude — les montants sont aussi écrits dans les textes, la FAQ et les CGV.
+    files:
+      - name: base
+        label: Coordonnées & tarifs
+        file: src/data/reglages.json
+        fields:
+          - name: site
+            label: Coordonnées
+            widget: object
+            fields:
+              - { name: telephone, label: Téléphone affiché, widget: string, hint: 'Par exemple : 06 42 46 12 41' }
+              - { name: telephoneLien, label: Téléphone pour le clic d’appel, widget: string, hint: 'Format international : +33642461241' }
+              - { name: email, label: Email, widget: string }
+              - { name: adresse, label: Adresse complète, widget: string }
+              - { name: agenda, label: Lien de l’agenda (TidyCal), widget: string }
+              - { name: lienPaiement, label: Lien de paiement (Systeme.io), widget: string, required: false, hint: 'Tant que c’est vide, le bouton Démarrer mène à l’échange découverte.' }
+              # GoHighLevel : coller ici les identifiants trouvés dans GHL.
+              # Tant qu’un champ est vide, la brique correspondante reste inactive.
+              - name: ghl
+                label: GoHighLevel
+                widget: object
+                collapsed: true
+                fields:
+                  - { name: calendrierId, label: Identifiant du calendrier, widget: string, required: false, hint: 'GHL → Calendars → le calendrier → Embed. Remplace l’agenda TidyCal sur la page Échange découverte.' }
+                  - { name: widgetChatId, label: Identifiant du widget de chat, widget: string, required: false, hint: 'GHL → Sites → Chat Widget. Le nom, l’avatar et le message d’accueil se règlent dans GHL.' }
+                  - { name: formulaireId, label: Identifiant du formulaire, widget: string, required: false, hint: 'GHL → Sites → Forms → Embed. Remplace le formulaire de contact du site.' }
+              # Champs techniques, conservés tels quels — le site les lit.
+              - { name: nom, widget: hidden }
+              - { name: domaine, widget: hidden }
+              - { name: url, widget: hidden }
+              - { name: baseline, widget: hidden }
+              - { name: promesse, widget: hidden }
+              - { name: ville, widget: hidden }
+              - { name: region, widget: hidden }
+              - { name: endpointFormulaire, widget: hidden, required: false }
+              - { name: entreprise, widget: hidden }
+              - { name: zonesDesservies, widget: hidden }
+              - { name: geo, widget: hidden }
+              - { name: horaires, widget: hidden }
+          - name: prix
+            label: Tarifs
+            widget: object
+            fields:
+              - { name: miseEnPlace, label: Frais de mise en place (une fois), widget: string, hint: 'Par exemple : 297 €' }
+              - { name: essentiel, label: 'Abonnement Essentiel (par mois)', widget: string, hint: 'Par exemple : 67 €' }
+              - { name: croissance, label: 'Abonnement Croissance (par mois)', widget: string, hint: 'Par exemple : 147 €' }
+          # Menu et pages villes : via Claude uniquement.
+          - { name: navigation, widget: hidden }
+          - { name: villes, widget: hidden }
+
+  # --------------------------------------------------------------------- FAQ
+  - name: faq
+    label: '2 · Questions fréquentes'
+    description: Les questions-réponses de la page d’accueil et de la page Elyo Croissance.
+    files:
+      - name: faq
+        label: Questions fréquentes
+        file: src/data/faq.json
+        fields:
+          - name: faqs
+            label: FAQ de la page d’accueil
+            label_singular: question
+            widget: list
+            summary: '{{fields.q}}'
+            fields:
+              - { name: q, label: Question, widget: string }
+              - { name: a, label: Réponse, widget: text }
+          - name: faqsOffre
+            label: FAQ de la page Elyo Croissance
+            label_singular: question
+            widget: list
+            summary: '{{fields.q}}'
+            fields:
+              - { name: q, label: Question, widget: string }
+              - { name: a, label: Réponse, widget: text }
+
+  # ----------------------------------------------------------------- ARTICLES
+  - name: articles
+    label: '3 · Articles du journal'
+    label_singular: article
+    description: Les articles publiés sur /blog. Un article par fiche.
+    folder: src/content/articles
+    create: true
+    extension: md
+    format: frontmatter
+    slug: '{{slug}}'
+    preview_path: blog/{{slug}}
+    summary: '{{titre}}'
+    sortable_fields: [date, titre]
+    fields:
+      - { name: titre, label: Titre de l’article, widget: string }
+      - {
+          name: titreSeo,
+          label: Titre court pour Google,
+          widget: string,
+          required: false,
+          hint: '47 caractères maximum. Laissé vide, le titre complet est utilisé.',
+        }
+      - {
+          name: description,
+          label: Description pour Google,
+          widget: text,
+          hint: 'Entre 120 et 150 caractères. C’est le texte affiché sous le titre dans les résultats.',
+        }
+      - {
+          name: categorie,
+          label: Catégorie,
+          widget: select,
+          options: ['Se lancer', 'Visibilité', 'Budget', 'Contenu'],
+        }
+      - { name: date, label: Date de publication, widget: datetime, time_format: false, picker_utc: false }
+      - { name: duree, label: Temps de lecture, widget: string, hint: 'Par exemple : 6 min' }
+      - {
+          name: icone,
+          label: Icône,
+          widget: select,
+          default: etincelle,
+          options:
+            [recherche, position, etiquette, gabarit, agenda, document, horloge, mobile, etincelle, graphique, feuille],
+        }
+      - { name: body, label: Contenu de l’article, widget: markdown }

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="ElyoStudio">
+  <title>ElyoStudio</title>
+  <rect width="64" height="64" rx="16" fill="#1C2E57"/>
+  <path d="M18 41 A14 14 0 0 1 46 41 Z" fill="#C0663C"/>
+  <g fill="none" stroke="#FFFFFF" stroke-width="4.4" stroke-linecap="round">
+    <path d="M32 12 V18.5"/>
+    <path d="M15 21 L19.6 25.6"/>
+    <path d="M49 21 L44.4 25.6"/>
+    <path d="M11 46 H53"/>
+  </g>
+</svg>

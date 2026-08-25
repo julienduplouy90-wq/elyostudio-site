@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 80" role="img" aria-label="ElyoStudio — sites pour naturopathes">
+  <title>ElyoStudio</title>
+  <g transform="translate(6 8)">
+    <path d="M17 43 A15 15 0 0 1 47 43 Z" fill="#C0663C"/>
+    <g fill="none" stroke="#1C2E57" stroke-width="4.6" stroke-linecap="round">
+      <path d="M32 12 V19"/>
+      <path d="M13 21 L18 26"/>
+      <path d="M51 21 L46 26"/>
+      <path d="M8 47.5 H56"/>
+    </g>
+  </g>
+  <text x="80" y="47"
+        font-family="Newsreader, 'Newsreader Variable', Georgia, serif"
+        font-size="34" font-weight="600" letter-spacing="-0.4" fill="#111A2E">Elyo<tspan fill="#1C2E57">Studio</tspan></text>
+  <text x="82" y="64"
+        font-family="Inter, 'Inter Variable', system-ui, sans-serif"
+        font-size="10.5" font-weight="500" letter-spacing="3.2" fill="#6B7688">SITES POUR NATUROPATHES</text>
+</svg>
