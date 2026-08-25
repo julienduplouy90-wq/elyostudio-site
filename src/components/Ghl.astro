@@ -1,0 +1,127 @@
+---
+// Intégrations GoHighLevel (calendrier, formulaire, chat).
+//
+// Les identifiants vivent dans reglages.json → site.ghl et se renseignent
+// depuis le CMS. Tant qu'un identifiant est vide, la brique correspondante
+// ne s'affiche pas et le site garde son fonctionnement précédent.
+//
+// Tout est chargé APRÈS le consentement aux cookies (bandeau Cookies.astro,
+// clé localStorage « elyo-cookies »), parce que GoHighLevel dépose ses
+// propres cookies et reçoit l'adresse IP du visiteur.
+import Icone from './Icone.astro';
+import { site } from '../data/site.js';
+
+interface Props {
+  /** « calendrier » ou « formulaire ». Le chat est posé par le gabarit. */
+  type: 'calendrier' | 'formulaire';
+  /** Phrase affichée tant que le visiteur n'a pas donné son accord. */
+  attente?: string;
+}
+const { type, attente } = Astro.props;
+
+const identifiant = type === 'calendrier' ? site.ghl?.calendrierId : site.ghl?.formulaireId;
+const base = type === 'calendrier'
+  ? 'https://api.leadconnectorhq.com/widget/booking/'
+  : 'https://api.leadconnectorhq.com/widget/form/';
+const src = identifiant ? base + identifiant : '';
+
+const texteAttente =
+  attente ??
+  (type === 'calendrier'
+    ? 'Le calendrier de réservation dépose ses propres cookies techniques au chargement. Il ne s’affiche qu’avec votre accord.'
+    : 'Le formulaire dépose ses propres cookies techniques au chargement. Il ne s’affiche qu’avec votre accord.');
+---
+
+{
+  src && (
+    <div class="ghl" data-ghl data-src={src} data-type={type}>
+      <div class="ghl-attente">
+        <p class="ghl-attente-texte">{texteAttente}</p>
+        <button type="button" class="btn btn-principal" data-ghl-charger>
+          {type === 'calendrier' ? 'Afficher le calendrier' : 'Afficher le formulaire'}
+        </button>
+        <a href={src} target="_blank" rel="noopener" class="lien-fleche">
+          Ou l’ouvrir dans un nouvel onglet
+          <Icone nom="fleche" classe="fleche" />
+        </a>
+      </div>
+    </div>
+  )
+}
+
+<script>
+  // Charge l'iframe GoHighLevel après consentement, puis son script de
+  // redimensionnement automatique (une seule fois pour toute la page).
+  const blocs = document.querySelectorAll<HTMLElement>('[data-ghl]');
+
+  const chargerScript = () => {
+    if (document.querySelector('script[data-ghl-embed]')) return;
+    const s = document.createElement('script');
+    s.src = 'https://link.msgsndr.com/js/form_embed.js';
+    s.async = true;
+    s.dataset.ghlEmbed = 'oui';
+    document.body.appendChild(s);
+  };
+
+  const charger = (bloc: HTMLElement) => {
+    if (bloc.querySelector('iframe')) return;
+    const cadre = document.createElement('iframe');
+    cadre.src = bloc.dataset.src ?? '';
+    cadre.title = bloc.dataset.type === 'calendrier' ? 'Calendrier de réservation' : 'Formulaire de contact';
+    cadre.loading = 'lazy';
+    cadre.scrolling = 'no';
+    bloc.querySelector('.ghl-attente')?.remove();
+    bloc.appendChild(cadre);
+    chargerScript();
+  };
+
+  const tout = () => blocs.forEach(charger);
+
+  if (localStorage.getItem('elyo-cookies') === 'oui') tout();
+  document.addEventListener('elyo-cookies', (e) => {
+    if ((e as CustomEvent).detail === 'oui') tout();
+  });
+
+  blocs.forEach((bloc) => {
+    bloc.querySelector('[data-ghl-charger]')?.addEventListener('click', () => {
+      localStorage.setItem('elyo-cookies', 'oui');
+      const bandeau = document.querySelector<HTMLElement>('[data-cookies]');
+      if (bandeau) bandeau.hidden = true;
+      tout();
+    });
+  });
+</script>
+
+<style>
+  .ghl {
+    padding: 0.75rem;
+    border-radius: var(--r-xl);
+    background: var(--blanc);
+    border: 1px solid var(--ligne);
+    box-shadow: var(--ombre-s);
+    overflow: hidden;
+  }
+  .ghl-attente {
+    display: grid;
+    justify-items: start;
+    gap: 1.1rem;
+    min-height: 22rem;
+    align-content: center;
+    padding: clamp(1.2rem, 4vw, 2.2rem);
+    border-radius: var(--r-l);
+    background: var(--creme-2);
+  }
+  .ghl-attente-texte { max-width: 30rem; color: var(--encre-2); }
+</style>
+
+<style is:global>
+  /* L'iframe est créée en JS : ses styles doivent être globaux. */
+  .ghl iframe {
+    width: 100%;
+    min-height: 34rem;
+    height: min(78vh, 46rem);
+    border: 0;
+    border-radius: var(--r-l);
+    background: var(--creme-2);
+  }
+</style>

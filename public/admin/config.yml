@@ -47,6 +47,16 @@ collections:
               - { name: adresse, label: Adresse complète, widget: string }
               - { name: agenda, label: Lien de l’agenda (TidyCal), widget: string }
               - { name: lienPaiement, label: Lien de paiement (Systeme.io), widget: string, required: false, hint: 'Tant que c’est vide, le bouton Démarrer mène à l’échange découverte.' }
+              # GoHighLevel : coller ici les identifiants trouvés dans GHL.
+              # Tant qu’un champ est vide, la brique correspondante reste inactive.
+              - name: ghl
+                label: GoHighLevel
+                widget: object
+                collapsed: true
+                fields:
+                  - { name: calendrierId, label: Identifiant du calendrier, widget: string, required: false, hint: 'GHL → Calendars → le calendrier → Embed. Remplace l’agenda TidyCal sur la page Échange découverte.' }
+                  - { name: widgetChatId, label: Identifiant du widget de chat, widget: string, required: false, hint: 'GHL → Sites → Chat Widget. Le nom, l’avatar et le message d’accueil se règlent dans GHL.' }
+                  - { name: formulaireId, label: Identifiant du formulaire, widget: string, required: false, hint: 'GHL → Sites → Forms → Embed. Remplace le formulaire de contact du site.' }
               # Champs techniques, conservés tels quels — le site les lit.
               - { name: nom, widget: hidden }
               - { name: domaine, widget: hidden }

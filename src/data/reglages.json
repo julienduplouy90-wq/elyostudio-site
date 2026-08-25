@@ -36,6 +36,11 @@
       "jours": "Du lundi au vendredi",
       "ouverture": "",
       "fermeture": ""
+    },
+    "ghl": {
+      "calendrierId": "",
+      "widgetChatId": "",
+      "formulaireId": ""
     }
   },
   "prix": {

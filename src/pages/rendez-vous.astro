@@ -2,11 +2,16 @@
 import Base from '../layouts/Base.astro';
 import EnPage from '../components/EnPage.astro';
 import Icone from '../components/Icone.astro';
+import Ghl from '../components/Ghl.astro';
 import { site, prix, lienDemarrer } from '../data/site.js';
 
 const titre = 'Échange découverte : un appel court, offert | ElyoStudio';
 const description =
   'Vingt minutes en visio pour faire le point sur votre cabinet de sophrologue et voir ce qui vous manque pour remplir vos créneaux. Offert, sans engagement.';
+
+// Dès que l’identifiant du calendrier GoHighLevel est renseigné, il remplace
+// TidyCal. Tant qu’il est vide, l’agenda historique reste affiché.
+const calendrierGhl = Boolean(site.ghl?.calendrierId);
 
 const obtenez = [
   'Une lecture extérieure et honnête de votre situation',
@@ -25,26 +30,32 @@ const obtenez = [
 
   <section class="section-serree">
     <div class="rail rdv-rail">
-      <div class="agenda carte reveal" data-agenda data-src={site.agenda}>
-        <div class="agenda-attente">
-          <p class="agenda-attente-texte">
-            L’agenda de réservation est fourni par TidyCal, qui dépose ses propres cookies
-            techniques au chargement. Il ne s’affiche qu’avec votre accord.
+      {
+        calendrierGhl ? (
+          <Ghl type="calendrier" />
+        ) : (
+        <div class="agenda carte reveal" data-agenda data-src={site.agenda}>
+          <div class="agenda-attente">
+            <p class="agenda-attente-texte">
+              L’agenda de réservation est fourni par TidyCal, qui dépose ses propres cookies
+              techniques au chargement. Il ne s’affiche qu’avec votre accord.
+            </p>
+            <button type="button" class="btn btn-principal" data-agenda-charger>Afficher l’agenda</button>
+            <a href={site.agenda} target="_blank" rel="noopener" class="lien-fleche">
+              Ou réserver dans un nouvel onglet
+              <Icone nom="fleche" classe="fleche" />
+            </a>
+          </div>
+          <p class="agenda-secours" hidden>
+            L’agenda ne s’affiche pas ?
+            <a href={site.agenda} target="_blank" rel="noopener" class="lien-fleche">
+              Ouvrir la page de réservation
+              <Icone nom="fleche" classe="fleche" />
+            </a>
           </p>
-          <button type="button" class="btn btn-principal" data-agenda-charger>Afficher l’agenda</button>
-          <a href={site.agenda} target="_blank" rel="noopener" class="lien-fleche">
-            Ou réserver dans un nouvel onglet
-            <Icone nom="fleche" classe="fleche" />
-          </a>
         </div>
-        <p class="agenda-secours" hidden>
-          L’agenda ne s’affiche pas ?
-          <a href={site.agenda} target="_blank" rel="noopener" class="lien-fleche">
-            Ouvrir la page de réservation
-            <Icone nom="fleche" classe="fleche" />
-          </a>
-        </p>
-      </div>
+        )
+      }
 
       <aside class="rdv-aside">
         <div class="carte carte-douce reveal">

@@ -1,0 +1,39 @@
+---
+// Widget de chat GoHighLevel, chargé uniquement après consentement.
+//
+// L'apparence, le nom affiché, l'avatar, le message d'accueil et les horaires
+// se règlent dans GoHighLevel (Sites → Chat Widget) — pas ici. Le site se
+// contente de charger le widget avec son identifiant.
+//
+// Tant que site.ghl.widgetChatId est vide, ce composant ne produit
+// strictement rien : ni balise, ni script.
+import { site } from '../data/site.js';
+
+const widget = site.ghl?.widgetChatId ?? '';
+---
+
+{
+  widget && (
+    <script is:inline define:vars={{ widget }}>
+      {/* Le widget dépose ses propres cookies : il n'est chargé qu'avec
+          l'accord du visiteur, comme le calendrier et le formulaire. */}
+      (() => {
+        const charger = () => {
+          if (document.querySelector('script[data-ghl-chat-loader]')) return;
+          const s = document.createElement('script');
+          s.src = 'https://widgets.leadconnectorhq.com/loader.js';
+          s.dataset.resourcesUrl = 'https://widgets.leadconnectorhq.com/chat-widget/loader.js';
+          s.dataset.widgetId = widget;
+          s.dataset.ghlChatLoader = 'oui';
+          s.async = true;
+          document.body.appendChild(s);
+        };
+
+        if (localStorage.getItem('elyo-cookies') === 'oui') charger();
+        document.addEventListener('elyo-cookies', (e) => {
+          if (e.detail === 'oui') charger();
+        });
+      })();
+    </script>
+  )
+}

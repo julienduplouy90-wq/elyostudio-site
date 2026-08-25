@@ -1,5 +1,6 @@
 ---
 import Icone from './Icone.astro';
+import Ghl from './Ghl.astro';
 import { site } from '../data/site.js';
 
 interface Props {
@@ -7,116 +8,126 @@ interface Props {
 }
 const { type = 'audit' } = Astro.props;
 
+// Si un formulaire GoHighLevel est configuré, il remplace le formulaire
+// natif : les demandes arrivent directement dans le CRM.
+const formulaireGhl = Boolean(site.ghl?.formulaireId);
+
 const endpoint = site.endpointFormulaire;
 const sujet = type === 'audit' ? 'Demande d’audit vidéo gratuit' : 'Message depuis elyostudio.fr';
 const bouton = type === 'audit' ? 'Recevoir mon audit gratuit' : 'Envoyer mon message';
 ---
 
-<form
-  class="formulaire carte reveal"
-  method="post"
-  action={endpoint || undefined}
-  data-formulaire
-  data-email={site.email}
-  data-sujet={sujet}
-  novalidate={false}
->
-  <input type="hidden" name="_sujet" value={sujet} />
-  <p class="pot-de-miel" aria-hidden="true">
-    <label for={`site-web-${type}`}>Laissez ce champ vide</label>
-    <input id={`site-web-${type}`} type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
-  </p>
-
-  <div class="formulaire-grille">
-    <div class="champ">
-      <label for={`prenom-${type}`}>Prénom *</label>
-      <input
-        id={`prenom-${type}`}
-        name="nom"
-        type="text"
-        required
-        autocomplete="given-name"
-        placeholder="Camille"
-      />
+{
+  formulaireGhl ? (
+    <Ghl type="formulaire" />
+  ) : (
+  <form
+    class="formulaire carte reveal"
+    method="post"
+    action={endpoint || undefined}
+    data-formulaire
+    data-email={site.email}
+    data-sujet={sujet}
+    novalidate={false}
+  >
+    <input type="hidden" name="_sujet" value={sujet} />
+    <p class="pot-de-miel" aria-hidden="true">
+      <label for={`site-web-${type}`}>Laissez ce champ vide</label>
+      <input id={`site-web-${type}`} type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+    </p>
+  
+    <div class="formulaire-grille">
+      <div class="champ">
+        <label for={`prenom-${type}`}>Prénom *</label>
+        <input
+          id={`prenom-${type}`}
+          name="nom"
+          type="text"
+          required
+          autocomplete="given-name"
+          placeholder="Camille"
+        />
+      </div>
+  
+      <div class="champ">
+        <label for={`email-${type}`}>Email *</label>
+        <input
+          id={`email-${type}`}
+          name="email"
+          type="email"
+          required
+          autocomplete="email"
+          placeholder="vous@exemple.fr"
+        />
+      </div>
+  
+      <div class="champ">
+        <label for={`ville-${type}`}>Ville d’exercice{type === 'audit' ? ' *' : ''}</label>
+        <input
+          id={`ville-${type}`}
+          name="ville"
+          type="text"
+          required={type === 'audit'}
+          autocomplete="address-level2"
+          placeholder="Tarbes"
+        />
+      </div>
+  
+      {
+        type === 'contact' && (
+          <div class="champ">
+            <label for="tel-contact">Téléphone</label>
+            <input id="tel-contact" name="telephone" type="tel" autocomplete="tel" placeholder="06 12 34 56 78" />
+            <span class="aide">Facultatif, si vous préférez qu’on s’appelle.</span>
+          </div>
+        )
+      }
+  
+      {
+        type === 'audit' && (
+          <div class="champ">
+            <label for="site-actuel">Adresse de votre site</label>
+            <input id="site-actuel" name="site" type="url" placeholder="https://…" />
+            <span class="aide">Facultatif. Vous n’en avez pas encore ? C’est très bien aussi.</span>
+          </div>
+        )
+      }
+  
+      <div class="champ champ-large">
+        <label for={`message-${type}`}>{type === 'audit' ? 'Vos spécialités' : 'Votre message *'}</label>
+        <textarea
+          id={`message-${type}`}
+          name="message"
+          required={type === 'contact'}
+          placeholder={
+            type === 'audit'
+              ? 'Facultatif. Par exemple : troubles digestifs et sommeil.'
+              : 'Dites-moi en quelques lignes ce dont vous avez besoin.'
+          }
+        ></textarea>
+      </div>
     </div>
-
-    <div class="champ">
-      <label for={`email-${type}`}>Email *</label>
-      <input
-        id={`email-${type}`}
-        name="email"
-        type="email"
-        required
-        autocomplete="email"
-        placeholder="vous@exemple.fr"
-      />
-    </div>
-
-    <div class="champ">
-      <label for={`ville-${type}`}>Ville d’exercice{type === 'audit' ? ' *' : ''}</label>
-      <input
-        id={`ville-${type}`}
-        name="ville"
-        type="text"
-        required={type === 'audit'}
-        autocomplete="address-level2"
-        placeholder="Tarbes"
-      />
-    </div>
-
-    {
-      type === 'contact' && (
-        <div class="champ">
-          <label for="tel-contact">Téléphone</label>
-          <input id="tel-contact" name="telephone" type="tel" autocomplete="tel" placeholder="06 12 34 56 78" />
-          <span class="aide">Facultatif, si vous préférez qu’on s’appelle.</span>
-        </div>
-      )
-    }
-
-    {
-      type === 'audit' && (
-        <div class="champ">
-          <label for="site-actuel">Adresse de votre site</label>
-          <input id="site-actuel" name="site" type="url" placeholder="https://…" />
-          <span class="aide">Facultatif. Vous n’en avez pas encore ? C’est très bien aussi.</span>
-        </div>
-      )
-    }
-
-    <div class="champ champ-large">
-      <label for={`message-${type}`}>{type === 'audit' ? 'Vos spécialités' : 'Votre message *'}</label>
-      <textarea
-        id={`message-${type}`}
-        name="message"
-        required={type === 'contact'}
-        placeholder={
-          type === 'audit'
-            ? 'Facultatif. Par exemple : troubles digestifs et sommeil.'
-            : 'Dites-moi en quelques lignes ce dont vous avez besoin.'
-        }
-      ></textarea>
-    </div>
-  </div>
-
-  <label class="consentement">
-    <input type="checkbox" name="consentement" required />
-    <span>
-      J’accepte que mes informations soient utilisées pour me recontacter. Elles ne sont ni revendues
-      ni transmises à des tiers — voir la <a href="/confidentialite">politique de confidentialité</a>.
-    </span>
-  </label>
-
-  <button type="submit" class="btn btn-principal btn-large formulaire-envoi">
-    {bouton}
-    <Icone nom="fleche" classe="fleche" />
-  </button>
-
-  <p class="formulaire-note">
-    <Icone nom="bouclier" />
-    Réponse sous 48 heures ouvrées. Aucune newsletter automatique, aucun démarchage.
-  </p>
-</form>
+  
+    <label class="consentement">
+      <input type="checkbox" name="consentement" required />
+      <span>
+        J’accepte que mes informations soient utilisées pour me recontacter. Elles ne sont ni revendues
+        ni transmises à des tiers — voir la <a href="/confidentialite">politique de confidentialité</a>.
+      </span>
+    </label>
+  
+    <button type="submit" class="btn btn-principal btn-large formulaire-envoi">
+      {bouton}
+      <Icone nom="fleche" classe="fleche" />
+    </button>
+  
+    <p class="formulaire-note">
+      <Icone nom="bouclier" />
+      Réponse sous 48 heures ouvrées. Aucune newsletter automatique, aucun démarchage.
+    </p>
+  </form>
+  )
+}
 
 <style>
   .formulaire {
