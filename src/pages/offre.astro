@@ -6,6 +6,7 @@ import BandeCta from '../components/BandeCta.astro';
 import {
   site,
   prix,
+  miseEnPlace,
   activation,
   mensuel,
   formules,
@@ -18,7 +19,7 @@ import {
 } from '../data/site.js';
 
 const titre = 'Elyo Croissance : site et visibilité locale | ElyoStudio';
-const description = `Site professionnel, prise de rendez-vous, relances et référencement local pour thérapeutes et coachs. ${prix.activation} puis ${prix.mensuel}/mois, sans engagement.`;
+const description = `Site, prise de rendez-vous et rappels pour sophrologues et praticiens bien-être. ${prix.miseEnPlace} de mise en place, puis ${prix.essentiel} ou ${prix.croissance} par mois.`;
 
 const donnees = {
   '@context': 'https://schema.org',
@@ -50,18 +51,28 @@ const donnees = {
       offers: [
         {
           '@type': 'Offer',
-          name: 'Elyo Croissance — activation',
-          price: '690',
+          name: 'Mise en place',
+          price: '297',
           priceCurrency: 'EUR',
-          url: `${site.url}/offre`,
-          description: `Activation ${prix.activation}, puis ${prix.mensuel} par mois, sans engagement de durée.`,
+          url: `${site.url}/offre#tarif`,
+          description:
+            'Création du site sur-mesure, module de réservation, nom de domaine et paramétrage technique. Paiement unique au démarrage.',
         },
         {
           '@type': 'Offer',
-          name: 'Elyo Croissance — suivi mensuel',
-          price: '149',
+          name: 'Abonnement Essentiel',
+          price: '67',
           priceCurrency: 'EUR',
-          url: `${site.url}/offre#suite`,
+          url: `${site.url}/offre#tarif`,
+          description: 'Hébergement, maintenance, prise de rendez-vous automatisée, rappels SMS et email, récolte d’avis Google. Sans engagement.',
+        },
+        {
+          '@type': 'Offer',
+          name: 'Abonnement Croissance',
+          price: '147',
+          priceCurrency: 'EUR',
+          url: `${site.url}/offre#tarif`,
+          description: 'Tout l’Essentiel, plus un appel stratégique mensuel, l’accompagnement sur les offres, l’analyse des statistiques et le support prioritaire. Sans engagement.',
         },
       ],
     },
@@ -133,85 +144,72 @@ const donnees = {
         }
       </div>
     </div>
-  </section>  <!-- Tarif -->
+  </section>  <!-- Tarifs -->
   <section class="section section-teintee" id="tarif">
     <div class="rail">
       <div class="entete-section reveal">
-        <span class="surtitre">Le tarif</span>
-        <h2>Ce que coûte la mise en place complète</h2>
+        <span class="surtitre">Les tarifs</span>
+        <h2>Une mise en place, puis l’abonnement qui vous convient</h2>
         <p class="chapeau">
-          Une activation qui installe tout, puis un accompagnement mensuel sans engagement de durée.
-          Le site est compris dans l’activation : il n’y a pas de facture séparée.
+          Tout est installé au démarrage, puis vous choisissez le niveau d’accompagnement.
+          Sans engagement de durée : vous changez de formule ou vous arrêtez quand vous voulez.
         </p>
       </div>
 
-      <div class="deux-temps marge-haut-grand">
-        <article class="temps temps-vedette reveal">
-          <span class="temps-libelle">Activation</span>
-          <p class="temps-prix">{prix.activation}</p>
-          <p class="temps-note">
-            Une fois, au démarrage. Message, site, rendez-vous en ligne, relances, fiche Google,
-            mesure et vérifications.
-          </p>
-        </article>
-        <span class="temps-plus" aria-hidden="true">puis</span>
-        <article class="temps reveal" style="--delai: 90ms">
-          <span class="temps-libelle">Accompagnement</span>
-          <p class="temps-prix">{prix.mensuel}<small> / mois</small></p>
-          <p class="temps-note">Suivi, améliorations, visibilité locale et actions de développement. Sans engagement de durée.</p>
-        </article>
-      </div>
+      <!-- Frais de mise en place -->
+      <article class="mise-en-place reveal">
+        <div class="mise-en-place-prix">
+          <span class="mise-en-place-libelle">{miseEnPlace.libelle}</span>
+          <p class="mise-en-place-montant">{miseEnPlace.prix}</p>
+          <p class="mise-en-place-note">{miseEnPlace.note}</p>
+        </div>
+        <p class="mise-en-place-texte">{miseEnPlace.texte}</p>
+      </article>
 
-      <div class="groupe-btn tarif-actions reveal">
-        <a href={lienDemarrer} class="btn btn-principal btn-large">
-          Voir si Elyo Croissance est adapté à mon activité
-          <Icone nom="fleche" classe="fleche" />
-        </a>
-        <a href="/rendez-vous" class="btn btn-secondaire btn-large">Demander un échange découverte</a>
-      </div>
-
-      <p class="tarif-mention reveal">
-        Les outils tiers et les éventuels budgets publicitaires restent à votre charge.
-      </p>
-    </div>
-  </section>  <!-- Les formules mensuelles -->
-  <section class="section" id="suite">
-    <div class="rail">
-      <div class="entete-section reveal">
-        <span class="surtitre">L’abonnement mensuel</span>
-        <h2>Vous choisissez votre niveau d’accompagnement</h2>
-        <p class="chapeau">
-          Après l’activation, vous décidez du rythme. Vous changez de formule ou vous arrêtez
-          quand vous voulez, sans préavis — et vous gardez tout ce qui a été construit.
-        </p>
-      </div>
-
+      <!-- Les deux formules -->
       <div class="formules marge-haut-grand">
         {
-          formules.map((f, i) => (
+          formules.map((fo, i) => (
             <article
-              class={`formule carte reveal${f.vedette ? ' formule-vedette' : ''}`}
-              style={`--delai: ${i * 80}ms`}
+              class={`formule carte reveal${fo.vedette ? ' formule-vedette' : ''}`}
+              style={`--delai: ${i * 90}ms`}
             >
-              {f.vedette && <span class="formule-ruban">La plus choisie</span>}
-              <h3 class="formule-nom">{f.nom}</h3>
+              {fo.vedette && <span class="formule-ruban">Recommandé</span>}
+              <h3 class="formule-nom">{fo.nom}</h3>
               <p class="formule-prix">
-                {f.prix}<small> / mois</small>
+                {fo.prix}<small> / mois</small>
               </p>
-              <p class="formule-resume">{f.resume}</p>
+              <p class="formule-engagement">Sans engagement</p>
+              <p class="formule-resume">{fo.resume}</p>
+
+              {fo.heriteDe && (
+                <p class="formule-herite">
+                  Tout ce que comprend la formule <strong>{fo.heriteDe}</strong>, plus :
+                </p>
+              )}
+
               <ul class="liste-cochee formule-points">
-                {f.points.map((point) => (
+                {fo.points.map((point) => (
                   <li>{point}</li>
                 ))}
               </ul>
+
+              <a
+                href="/rendez-vous"
+                class={`btn btn-large formule-btn ${fo.vedette ? 'btn-principal' : 'btn-secondaire'}`}
+              >
+                Choisir {fo.nom}
+                <Icone nom="fleche" classe="fleche" />
+              </a>
             </article>
           ))
         }
       </div>
 
       <p class="tarif-mention reveal">
-        Elyo Direct, c’est un accès humain direct et cadré — des réponses de ma part quand vous en
-        avez besoin, pas un volume d’exécution illimité.
+        TVA non applicable, article 293 B du Code général des impôts : les montants affichés sont
+        ceux que vous réglez. Les outils tiers et les éventuels budgets publicitaires restent à
+        votre charge.
       </p>
     </div>
   </section>
@@ -445,7 +443,7 @@ const donnees = {
     gap: 0.7rem;
     font-size: 0.95rem;
   }
-  @media (min-width: 900px) { .formules { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; } }
+  @media (min-width: 820px) { .formules { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem; max-width: 56rem; margin-inline: auto; } }
 
   /* Pour qui / pas adapté */
   .pourqui-cartes { display: grid; gap: 1.15rem; align-items: stretch; }
@@ -468,4 +466,53 @@ const donnees = {
   @media (min-width: 900px) { .pourqui-cartes { grid-template-columns: 1fr 1fr; gap: 1.4rem; } }
 
   .noninclus-liste { margin-top: 1.6rem; gap: 0.8rem; font-size: 1rem; }
+
+  /* Frais de mise en place */
+  .mise-en-place {
+    display: grid;
+    gap: 1.2rem;
+    align-items: center;
+    margin-top: clamp(2rem, 5vw, 3rem);
+    padding: clamp(1.4rem, 4vw, 2rem);
+    border-radius: var(--r-xl);
+    border: 1px solid var(--ligne);
+    background: var(--blanc);
+    box-shadow: var(--ombre-m);
+  }
+  .mise-en-place-libelle {
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--vert);
+  }
+  .mise-en-place-montant {
+    margin-top: 0.4rem;
+    font-family: var(--police-titre);
+    font-size: clamp(2rem, 6vw, 2.6rem);
+    font-weight: 600;
+    line-height: 1;
+  }
+  .mise-en-place-note { margin-top: 0.5rem; font-size: 0.9rem; color: var(--encre-3); }
+  .mise-en-place-texte { color: var(--encre-2); font-size: 0.98rem; line-height: 1.65; }
+  @media (min-width: 800px) {
+    .mise-en-place { grid-template-columns: auto 1fr; gap: 2.2rem; }
+    .mise-en-place-prix { padding-right: 2.2rem; border-right: 1px solid var(--ligne); }
+  }
+
+  .formule-engagement {
+    margin-top: 0.35rem;
+    font-size: 0.85rem;
+    color: var(--encre-3);
+  }
+  .formule-herite {
+    margin-top: 1.1rem;
+    padding-top: 1.1rem;
+    border-top: 1px solid var(--ligne);
+    font-size: 0.93rem;
+    color: var(--encre-2);
+  }
+  .formule-herite + .formule-points { margin-top: 0.9rem; padding-top: 0; border-top: 0; }
+  .formule-btn { margin-top: auto; width: 100%; justify-content: center; }
+  .formule-points { margin-bottom: 1.5rem; }
 </style>

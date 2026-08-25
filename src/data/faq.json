@@ -2,11 +2,11 @@
   "faqs": [
     {
       "q": "Le site est-il bien inclus ?",
-      "a": "Oui. La création ou la refonte de votre site fait partie de l’activation, au même titre que la prise de rendez-vous, les formulaires et la fiche Google. Il n’y a pas de facture séparée pour le site : c’est une pièce du système, pas un produit à part."
+      "a": "Oui. La création de votre site fait partie des frais de mise en place, au même titre que le module de réservation, le nom de domaine et le paramétrage technique. Il n’y a pas de facture séparée pour le site."
     },
     {
       "q": "Suis-je engagé sur une durée ?",
-      "a": "Non. L’activation se paie une fois, puis l’abonnement mensuel s’arrête quand vous le décidez. Vous n’avez rien à justifier et vous gardez tout ce qui a été construit."
+      "a": "Non. La mise en place se paie une fois, puis l’abonnement mensuel s’arrête quand vous le décidez. Vous n’avez rien à justifier et vous gardez tout ce qui a été construit."
     },
     {
       "q": "Le site et les comptes m’appartiennent-ils ?",
@@ -30,25 +30,25 @@
     },
     {
       "q": "Combien de temps dois-je y consacrer ?",
-      "a": "Quelques heures au moment de l’activation — un questionnaire d’accueil, vos validations, vos photos, des relectures — puis beaucoup moins. Je construis et je guide, vous validez. L’essentiel se fait en asynchrone, pour se caler dans votre agenda entre deux séances."
+      "a": "Quelques heures au moment de la mise en place — un questionnaire d’accueil, vos validations, vos photos, des relectures — puis beaucoup moins. Je construis et je guide, vous validez. L’essentiel se fait en asynchrone, pour se caler dans votre agenda entre deux séances."
     }
   ],
   "faqsOffre": [
     {
-      "q": "Que comprend exactement l’activation à 690 € ?",
-      "a": "La mise au clair de votre activité et de votre message, la création ou la refonte de votre site, la prise de rendez-vous en ligne, un formulaire de contact qualifiant, les confirmations et relances automatiques, votre fiche Google Business Profile et le référencement local initial, les outils de mesure des demandes, et l’ensemble des vérifications techniques avant la mise en ligne."
+      "q": "Que comprennent les 297 € de mise en place ?",
+      "a": "La création de votre site sur-mesure, l’intégration du module de réservation, l’achat du nom de domaine et tout le paramétrage technique : formulaire de contact, confirmations et rappels, fiche Google Business Profile, référencement local initial et outils de mesure. C’est un paiement unique, au démarrage."
     },
     {
-      "q": "Et l’abonnement mensuel, il sert à quoi ?",
-      "a": "À faire vivre le système : suivi des demandes et des rendez-vous, amélioration progressive du site et des messages, développement des avis et de la visibilité locale, une action de développement ciblée à la fois, l’accès aux permanences et ateliers collectifs, et des ressources concrètes pour avancer sans vous disperser."
+      "q": "Quelle différence entre Essentiel et Croissance ?",
+      "a": "Essentiel (67 €/mois) fait tourner le système : hébergement, maintenance, prise de rendez-vous automatisée sans commission, rappels SMS et email, récolte d’avis Google. Croissance (147 €/mois) ajoute l’accompagnement : un appel stratégique d’une heure chaque mois, un travail sur vos nouvelles offres, l’analyse de vos statistiques et un support prioritaire sur WhatsApp."
     },
     {
       "q": "Le site est-il vraiment inclus, ou facturé à part ?",
-      "a": "Inclus dans l’activation. Création ou refonte, textes, prise de rendez-vous, mise en ligne : tout est compris. Le site est une composante du système — ce qui compte, c’est qu’il amène des demandes."
+      "a": "Inclus dans la mise en place. Création du site, module de réservation, nom de domaine, paramétrage : tout est compris. Le site est une composante du système — ce qui compte, c’est qu’il amène des demandes."
     },
     {
       "q": "Suis-je engagé sur une durée ?",
-      "a": "Non. L’activation se paie une fois, puis vous choisissez votre formule mensuelle — Elyo Socle, Elyo Croissance ou Elyo Direct. Vous changez de formule ou vous arrêtez quand vous voulez, sans préavis ni justification."
+      "a": "Non. La mise en place se paie une fois, puis vous choisissez votre formule mensuelle — Essentiel ou Croissance. Vous changez de formule ou vous arrêtez quand vous voulez, sans préavis ni justification."
     },
     {
       "q": "Qu’est-ce qui n’est pas inclus ?",
@@ -60,7 +60,7 @@
     },
     {
       "q": "Puis-je changer de formule en cours de route ?",
-      "a": "Oui, dans les deux sens et à tout moment. On commence souvent par Elyo Croissance, puis certains passent à Elyo Socle une fois le rythme installé, d’autres à Elyo Direct quand ils ont besoin de plus d’échanges."
+      "a": "Oui, dans les deux sens et à tout moment. Certains commencent par Croissance le temps de lancer, puis passent à Essentiel une fois le rythme installé ; d’autres font l’inverse quand ils veulent accélérer."
     },
     {
       "q": "En quoi est-ce différent d’une agence web ?",

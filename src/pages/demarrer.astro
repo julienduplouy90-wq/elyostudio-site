@@ -5,7 +5,7 @@ import Icone from '../components/Icone.astro';
 import { site, prix } from '../data/site.js';
 
 const titre = `Démarrer Elyo Croissance | ElyoStudio`;
-const description = `Démarrez Elyo Croissance : ${prix.activation} d’activation puis ${prix.mensuel} par mois, sans engagement de durée.`;
+const description = `Démarrez : ${prix.miseEnPlace} de mise en place, puis ${prix.essentiel} ou ${prix.croissance} par mois, sans engagement.`;
 
 // Tant que la page de paiement n'est pas renseignée dans les réglages, le
 // bouton oriente vers l'échange découverte — personne ne tombe sur un lien mort.
@@ -41,20 +41,20 @@ const apres = [
   <section class="section-serree">
     <div class="rail demarrer-rail">
       <article class="carte demarrer-carte reveal">
-        <span class="demarrer-libelle">Elyo Croissance — activation puis abonnement mensuel</span>
-        <p class="demarrer-prix">{prix.activation}<span class="demarrer-suffixe"> puis {prix.mensuel} / mois</span></p>
+        <span class="demarrer-libelle">Mise en place puis abonnement mensuel</span>
+        <p class="demarrer-prix">{prix.miseEnPlace}<span class="demarrer-suffixe"> puis {prix.essentiel} ou {prix.croissance} / mois</span></p>
         <p class="demarrer-note">Sans engagement de durée : vous arrêtez quand vous le décidez.</p>
 
         <ul class="liste-cochee demarrer-liste">
-          <li>Votre activité et votre message mis au clair</li>
-          <li>Site professionnel créé ou refondu, prise de rendez-vous en ligne</li>
-          <li>Formulaire qualifiant, confirmations et relances automatiques</li>
-          <li>Fiche Google, référencement local et mesure des demandes</li>
-          <li>Puis chaque mois : suivi, améliorations et actions de développement</li>
+          <li>Site professionnel sur-mesure et module de réservation</li>
+          <li>Nom de domaine et paramétrage technique</li>
+          <li>Rappels SMS et email, récolte automatisée des avis Google</li>
+          <li>Fiche Google et référencement local</li>
+          <li>Puis l’abonnement Essentiel ou Croissance, sans engagement</li>
         </ul>
 
         <a href={lienBouton} class="btn btn-principal btn-large demarrer-btn" target={paiementActif ? '_blank' : undefined} rel={paiementActif ? 'noopener' : undefined}>
-          {paiementActif ? `Payer l’activation — ${prix.activation}` : 'Demander un échange découverte'}
+          {paiementActif ? `Payer la mise en place — ${prix.miseEnPlace}` : 'Demander un échange découverte'}
           <Icone nom="fleche" classe="fleche" />
         </a>
 

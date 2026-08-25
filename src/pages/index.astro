@@ -17,7 +17,7 @@ import {
 } from '../data/site.js';
 
 const titre = 'Être trouvé, compris et choisi | ElyoStudio';
-const description = `Accompagnement pour thérapeutes, coachs et praticiens : site professionnel, prise de rendez-vous, relances et visibilité locale. ${prix.activation} puis ${prix.mensuel}/mois.`;
+const description = `Site, prise de rendez-vous et rappels pour sophrologues et praticiens bien-être. ${prix.miseEnPlace} de mise en place, puis ${prix.essentiel} ou ${prix.croissance} par mois.`;
 
 const resultats = [
   'Un agenda plus régulier, moins dépendant du seul bouche-à-oreille',
@@ -52,9 +52,9 @@ const donnees = {
       },
       offers: {
         '@type': 'Offer',
-        price: '690',
+        price: '297',
         priceCurrency: 'EUR',
-        description: `${prix.activation} d’activation, puis ${prix.mensuel} par mois, sans engagement de durée.`,
+        description: `${prix.miseEnPlace} de mise en place, puis ${prix.essentiel} ou ${prix.croissance} par mois, sans engagement.`,
         url: `${site.url}/offre`,
       },
     },
@@ -211,7 +211,7 @@ const donnees = {
         <h2>Ni une agence classique, ni une formation, ni un consultant</h2>
         <p class="chapeau">
           Ces trois approches échouent souvent au même endroit : vous laisser seul au moment de
-          faire. Elyo Direct combine les trois choses qui ne fonctionnent pas séparées — la
+          faire. Elyo combine les trois choses qui ne fonctionnent pas séparées — la
           stratégie, la mise en œuvre réelle et l’accompagnement dans la durée.
         </p>
       </div>
@@ -279,7 +279,7 @@ const donnees = {
   <section class="section section-teintee">
     <div class="rail resultat-rail">
       <div class="entete-section reveal">
-        <span class="surtitre">À qui s’adresse Elyo Direct</span>
+        <span class="surtitre">À qui ça s’adresse</span>
         <h2>Aux professionnels de l’accompagnement qui veulent un cabinet qui tourne</h2>
       </div>
       <ul class="liste-cochee resultat-liste reveal" style="--delai: 120ms">
@@ -293,10 +293,10 @@ const donnees = {
     <div class="rail">
       <div class="entete-section reveal">
         <span class="surtitre">Le tarif</span>
-        <h2>Une activation, puis un accompagnement mensuel</h2>
+        <h2>Une mise en place, puis l’abonnement qui vous convient</h2>
         <p class="chapeau">
-          Le site est compris dans l’activation : il n’y a pas de facture séparée. Ensuite,
-          l’accompagnement mensuel fait vivre et progresser ce qui a été mis en place.
+          Le site est compris dans la mise en place : il n’y a pas de facture séparée. Ensuite,
+          l’abonnement fait vivre et progresser ce qui a été installé.
         </p>
       </div>
 
@@ -304,23 +304,23 @@ const donnees = {
         <article class="tarif-carte tarif-carte-vedette reveal">
           <div class="tarif-duo">
             <div>
-              <span class="tarif-libelle">Activation</span>
-              <p class="tarif-prix">{prix.activation}</p>
+              <span class="tarif-libelle">Mise en place</span>
+              <p class="tarif-prix">{prix.miseEnPlace}</p>
               <p class="tarif-note">Une fois, au démarrage.</p>
             </div>
             <span class="tarif-plus" aria-hidden="true">puis</span>
             <div>
-              <span class="tarif-libelle">Chaque mois</span>
-              <p class="tarif-prix">{prix.mensuel}<small> / mois</small></p>
-              <p class="tarif-note">Tant que vous le souhaitez.</p>
+              <span class="tarif-libelle">Puis chaque mois</span>
+              <p class="tarif-prix">{prix.essentiel}<small> ou {prix.croissance} / mois</small></p>
+              <p class="tarif-note">Sans engagement, arrêtable à tout moment.</p>
             </div>
           </div>
           <ul class="liste-cochee">
-            <li>Votre activité et votre message mis au clair</li>
-            <li>Site professionnel créé ou refondu, rapide et adapté au mobile</li>
-            <li>Prise de rendez-vous, formulaire qualifiant, confirmations et relances</li>
+            <li>Site professionnel sur-mesure, rapide et adapté au mobile</li>
+            <li>Prise de rendez-vous en ligne automatisée, sans commission</li>
+            <li>Rappels SMS et email pour limiter les rendez-vous manqués</li>
+            <li>Récolte automatisée de vos avis Google</li>
             <li>Fiche Google, référencement local et mesure des demandes</li>
-            <li>Puis chaque mois : suivi, améliorations et actions de développement</li>
           </ul>
           <div class="groupe-btn tarif-actions">
             <a href={lienDemarrer} class="btn btn-principal btn-large">
@@ -342,7 +342,7 @@ const donnees = {
         <span class="surtitre">L’abonnement mensuel</span>
         <h2>Vous choisissez votre niveau d’accompagnement</h2>
         <p class="chapeau">
-          Après l’activation, vous décidez du rythme. On change de formule ou on s’arrête quand
+          Après la mise en place, vous décidez du rythme. On change de formule ou on s’arrête quand
           vous voulez — et vous gardez tout ce qui a été construit.
         </p>
       </div>
@@ -501,7 +501,7 @@ const donnees = {
     .resultat-rail .entete-section { margin-bottom: 0; }
   }
 
-  /* --- Elyo Direct --- */
+  /* --- Section sombre --- */
   .section-sombre {
     position: relative;
     overflow: hidden;

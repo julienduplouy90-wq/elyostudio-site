@@ -1,6 +1,6 @@
 {
   "activation": {
-    "surtitre": "L’activation — 690 €, une fois",
+    "surtitre": "La mise en place — 297 €, une fois",
     "titre": "Nous installons les fondations",
     "texte": "Les premières semaines servent à poser tout ce qui manque pour qu’une personne qui vous cherche vous trouve, vous comprenne, et puisse prendre rendez-vous sans effort.",
     "points": [
@@ -47,7 +47,7 @@
     ]
   },
   "mensuel": {
-    "surtitre": "Puis 149 € par mois",
+    "surtitre": "Puis 67 € ou 147 € par mois",
     "titre": "Nous faisons évoluer ce qui compte",
     "texte": "Une fois les fondations posées, le travail continue chaque mois — une chose à la fois, celle qui fera le plus de différence. Vous arrêtez quand vous voulez.",
     "points": [
@@ -85,38 +85,27 @@
   },
   "formules": [
     {
-      "nom": "Elyo Socle",
-      "prix": "49 €",
-      "resume": "Pour conserver le système en place et continuer à fonctionner sereinement.",
+      "nom": "Essentiel",
+      "prix": "67 €",
+      "resume": "Le système qui tourne tout seul : votre site en ligne, vos rendez-vous pris et confirmés, vos avis qui rentrent.",
       "points": [
-        "Hébergement du site",
-        "Maintenance technique",
-        "Formulaires et automatisations maintenus en service",
-        "Petites mises à jour techniques"
+        "Hébergement et maintenance du site",
+        "Prise de rendez-vous en ligne automatisée, sans commission",
+        "Rappels SMS et email pour limiter les rendez-vous manqués",
+        "Récolte automatisée de vos avis Google"
       ]
     },
     {
-      "nom": "Elyo Croissance",
-      "prix": "149 €",
+      "nom": "Croissance",
+      "prix": "147 €",
       "vedette": true,
-      "resume": "Pour continuer à développer votre visibilité et vos demandes de rendez-vous.",
+      "resume": "Tout l’Essentiel, plus quelqu’un pour réfléchir avec vous et faire avancer votre activité chaque mois.",
+      "heriteDe": "Essentiel",
       "points": [
-        "Tout ce que comprend Elyo Socle",
-        "Suivi des demandes et des rendez-vous",
-        "Optimisation locale et développement des avis",
-        "Une action de développement à la fois",
-        "Permanences et ateliers collectifs"
-      ]
-    },
-    {
-      "nom": "Elyo Direct",
-      "prix": "249 €",
-      "resume": "Pour les professionnels qui ont besoin d’un accompagnement plus personnel.",
-      "points": [
-        "Tout ce que comprend Elyo Croissance",
-        "Accès direct à Julien par message écrit ou vocal",
-        "Retours personnalisés sur vos décisions",
-        "Séances courtes de déblocage lorsque c’est nécessaire"
+        "Un appel stratégique d’une heure chaque mois",
+        "Accompagnement sur la création de nouvelles offres : packs, ateliers",
+        "Analyse de vos statistiques",
+        "Support prioritaire sur WhatsApp"
       ]
     }
   ],
@@ -147,7 +136,7 @@
     {
       "icone": "etiquette",
       "titre": "Un tarif affiché",
-      "texte": "690 € d’activation puis 149 € par mois, écrits ici, les mêmes pour tout le monde. Pas de devis à rallonge."
+      "texte": "297 € de mise en place puis 67 € ou 147 € par mois, écrits ici, les mêmes pour tout le monde. Pas de devis à rallonge."
     },
     {
       "icone": "horloge",
@@ -169,5 +158,11 @@
       "titre": "Ce qui reste à votre charge, dit avant",
       "texte": "Les outils tiers et les éventuels budgets publicitaires restent à votre charge. Rien d’autre ne s’ajoute."
     }
-  ]
+  ],
+  "miseEnPlace": {
+    "libelle": "Frais de mise en place",
+    "prix": "297 €",
+    "note": "Paiement unique au démarrage.",
+    "texte": "Création de votre site web sur-mesure, intégration du module de réservation, achat du nom de domaine et paramétrage technique."
+  }
 }

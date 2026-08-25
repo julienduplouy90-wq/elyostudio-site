@@ -51,9 +51,9 @@ S’il tient en trois lignes et un prix, demandez le détail. S’il mentionne u
 
 ## Ce que je facture, et pourquoi
 
-Chez ElyoStudio, le site n’est pas vendu seul : il fait partie d’un accompagnement qui commence par une activation à **690 €**, puis **149 € par mois, sans engagement de durée** — le site est compris dans l’activation, il n’est jamais facturé à part.
+Chez ElyoStudio, le site n’est pas vendu seul : il fait partie d’un système qui commence par **297 € de mise en place**, puis **67 € ou 147 € par mois, sans engagement de durée** — le site est compris dans la mise en place, il n’est jamais facturé à part.
 
-L’activation comprend la mise au clair de votre activité et de votre message, la création ou la refonte de votre site, la prise de rendez-vous en ligne, un formulaire de contact qualifiant, les confirmations et relances automatiques, votre fiche Google, les bases du référencement local et les outils de mesure des demandes. L’abonnement mensuel qui suit sert à faire évoluer tout cela : suivi des demandes, améliorations progressives, développement des avis et de la visibilité locale, une action de développement à la fois. L’accompagnement s’appelle Elyo Croissance.
+La mise en place comprend la création de votre site sur-mesure, la prise de rendez-vous en ligne, un formulaire de contact qualifiant, les confirmations et relances automatiques, votre fiche Google, les bases du référencement local et les outils de mesure des demandes. L’abonnement mensuel qui suit sert à faire évoluer tout cela : suivi des demandes, améliorations progressives, développement des avis et de la visibilité locale, une action de développement à la fois. L’accompagnement s’appelle Elyo Croissance.
 
 Restent à votre charge les budgets publicitaires éventuels et les outils tiers. Je préfère le dire clairement plutôt que de gonfler un forfait dont vous n’auriez pas l’usage.
 

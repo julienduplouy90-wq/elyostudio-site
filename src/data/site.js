@@ -23,6 +23,7 @@ export const problemes = accueil.problemes;
 export const solutions = accueil.solutions;
 export const etapes = accueil.etapes;
 
+export const miseEnPlace = offre.miseEnPlace;
 export const activation = offre.activation;
 export const mensuel = offre.mensuel;
 export const formules = offre.formules;

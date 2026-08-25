@@ -39,11 +39,9 @@
     }
   },
   "prix": {
-    "activation": "690 €",
-    "mensuel": "149 €",
-    "socle": "49 €",
-    "croissance": "149 €",
-    "direct": "249 €"
+    "miseEnPlace": "297 €",
+    "essentiel": "67 €",
+    "croissance": "147 €"
   },
   "navigation": [
     {

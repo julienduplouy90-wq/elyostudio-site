@@ -13,14 +13,14 @@ const { ville } = Astro.props;
 <div class="bloc-tarif">
   <div class="bloc-tarif-prix">
     <div>
-      <span class="bloc-tarif-libelle">Activation</span>
-      <p class="bloc-tarif-montant">{prix.activation}</p>
-      <p class="bloc-tarif-note">Une fois, au démarrage. Site compris.</p>
+      <span class="bloc-tarif-libelle">Mise en place</span>
+      <p class="bloc-tarif-montant">{prix.miseEnPlace}</p>
+      <p class="bloc-tarif-note">Une fois, au démarrage. Site et domaine compris.</p>
     </div>
     <span class="bloc-tarif-plus" aria-hidden="true">puis</span>
     <div>
       <span class="bloc-tarif-libelle">Chaque mois</span>
-      <p class="bloc-tarif-montant">{prix.mensuel}<small> / mois</small></p>
+      <p class="bloc-tarif-montant">{prix.essentiel}<small> ou {prix.croissance} / mois</small></p>
       <p class="bloc-tarif-note">Sans engagement de durée.</p>
     </div>
   </div>
@@ -28,7 +28,7 @@ const { ville } = Astro.props;
   <div class="bloc-tarif-detail">
     <p class="bloc-tarif-intro">
       Le même tarif {ville ? `à ${ville} qu’ailleurs en France` : 'pour tout le monde'}, affiché sans
-      devis préalable. Le site est compris dans l’activation, avec tout ce qui l’entoure :
+      devis préalable. Le site est compris dans la mise en place, avec tout ce qui l’entoure :
     </p>
     <ul class="liste-cochee">
       {activation.points.slice(0, 6).map((p) => <li>{p.titre}</li>)}

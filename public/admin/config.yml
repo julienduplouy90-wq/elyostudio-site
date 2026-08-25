@@ -64,11 +64,9 @@ collections:
             label: Tarifs
             widget: object
             fields:
-              - { name: activation, label: Activation (une fois), widget: string, hint: 'Par exemple : 690 €' }
-              - { name: mensuel, label: Mensuel pendant l’accompagnement, widget: string, hint: 'Par exemple : 149 €' }
-              - { name: socle, label: 'Elyo Socle (par mois)', widget: string }
-              - { name: croissance, label: 'Elyo Croissance après 6 mois (par mois)', widget: string }
-              - { name: direct, label: 'Elyo Direct (par mois)', widget: string }
+              - { name: miseEnPlace, label: Frais de mise en place (une fois), widget: string, hint: 'Par exemple : 297 €' }
+              - { name: essentiel, label: 'Abonnement Essentiel (par mois)', widget: string, hint: 'Par exemple : 67 €' }
+              - { name: croissance, label: 'Abonnement Croissance (par mois)', widget: string, hint: 'Par exemple : 147 €' }
           # Menu et pages villes : via Claude uniquement.
           - { name: navigation, widget: hidden }
           - { name: villes, widget: hidden }
